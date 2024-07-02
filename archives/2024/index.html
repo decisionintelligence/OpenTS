@@ -10,7 +10,7 @@
 <meta property="og:url" content="http://example.com/archives/2024/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
   
@@ -29,48 +29,173 @@
   <div id="container">
     <!-- blair add baidu tongji start... @2017.10.03 -->
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?8864d";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-<!-- blair add baidu tongji end ! @2017.10.03 -->
-<!-- jiangting add start... @2020.08.30 -->
-
-<!-- jiangting add end !  @2020.08.30 -->
-
-<header id="header">
-  <div id="header-outer" class="outer">
-    <div id="header-inner" class="inner">
-      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
-      <a id="logo" class="logo" href="/"></a>
-      <nav id="main-nav">
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/categories">Categories</a>
-        
-          <a class="main-nav-link" href="/ml">NLP</a>
-        
-          <a class="main-nav-link" href="/tweet">Tweet</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        <div id="search-form-wrap">
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-        </div>
-      </nav>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?8864d";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+  <!-- blair add baidu tongji end ! @2017.10.03 -->
+  <!-- jiangting add start... @2020.08.30 -->
+  
+  <!-- jiangting add end !  @2020.08.30 -->
+  
+  <header id="header">
+    <div id="header-outer" class="outer">
+      <div id="header-inner" class="inner">
+        <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+        <a id="logo" class="logo" href="/"></a>
+        <nav id="main-nav">
+          
+            
+              <a class="main-nav-link" href="/">Overview</a>
+            
+          
+            
+              <div class="dropdown">
+                <a class="main-nav-link dropdown-toggle" href="javascript:void(0)">Get Started <span class="caret"></span></a>
+                <div class="dropdown-content">
+                  
+                    <a href="/get%20started/#Quickstart">Quickstart</a>
+                  
+                    <a href="/get%20started/#Steps-to-develop-your-own-method">Steps to develop your own method</a>
+                  
+                    <a href="/get%20started/#FAQ">FAQ</a>
+                  
+                    <a href="/get%20started/#Citing-TFB">Citing TFB</a>
+                  
+                    <a href="/get%20started/#Contact">Contact</a>
+                  
+                </div>
+              </div>
+            
+          
+            
+              <div class="dropdown">
+                <a class="main-nav-link dropdown-toggle" href="javascript:void(0)">Datasets <span class="caret"></span></a>
+                <div class="dropdown-content">
+                  
+                    <a href="/datasets/#Overview">Overview</a>
+                  
+                    <a href="/datasets/#Univariate-time-series">Univariate time series</a>
+                  
+                    <a href="/datasets/#Multivariate-time-series">Multivariate time series</a>
+                  
+                    <a href="/datasets/#Dataset-comprehensiveness">Dataset comprehensiveness</a>
+                  
+                </div>
+              </div>
+            
+          
+            
+              <div class="dropdown">
+                <a class="main-nav-link dropdown-toggle" href="javascript:void(0)">Leaderboards <span class="caret"></span></a>
+                <div class="dropdown-content">
+                  
+                    <a href="/leaderboards/#Overview">Overview</a>
+                  
+                    <a href="/leaderboards/#Rules">Rules</a>
+                  
+                    <a href="/leaderboards/#Univariate-time-series">Univariate time series</a>
+                  
+                    <a href="/leaderboards/#Multivariate-time-series">Multivariate time series</a>
+                  
+                </div>
+              </div>
+            
+          
+            
+              <a class="main-nav-link" href="/paper">Paper</a>
+            
+          
+        </nav>
+        <!-- <nav id="sub-nav">
+          <div id="search-form-wrap">
+            <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+          </div>
+        </nav> -->
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+  
+  <style>
+    #header {
+      position: relative;
+      z-index: 10;
+      overflow: visible;
+    }
+  
+    #header-outer {
+      position: relative;
+      z-index: 10;
+      overflow: visible;
+    }
+  
+    #header-inner {
+      position: relative;
+      z-index: 10;
+      overflow: visible;
+    }
+  
+    .dropdown {
+  position: relative;
+  display: inline-block;
+  text-align: right; /* 右对齐 */
+}
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000;
+  top: 100%;
+  right: 0;
+  width: auto; /* 自动宽度 */
+  min-width: 100%; /* 最小宽度为100%，防止内容过少时过小 */
+  white-space: nowrap; /* 不换行 */
+}
+  
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left; /* 左对齐 */
+  border-top: 1px solid #ddd; /* 添加上边框作为分割线 */
+}
+
+.dropdown-content a:first-child {
+  border-top: none; /* 第一个项目不显示上边框 */
+}
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+  
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  
+    .dropdown-toggle::after {
+  content: " ▼";
+  font-size: 0.6em; /* 调整三角形大小 */
+  vertical-align: middle; /* 垂直居中对齐 */
+}
+
+  
+    #main-nav {
+      display: flex;
+      align-items: center;
+    }
+  
+    .main-nav-link {
+      padding: 0 15px;
+      line-height: 50px;
+    }
+  </style>
+  
     <br>
     <section id="main" class="outer">
       <section class="archives-wrap">
@@ -84,25 +209,11 @@ var _hmt = _hmt || [];
   <div class="archive-article-inner">
     <header class="archive-article-header">
       
-        <a href="/2024/05/31/hello-world/" class="archive-article-date">
-  <time datetime="2024-05-31T09:40:47.498Z" itemprop="datePublished">2024-05-31</time>
+        <a href="/2024/06/29/hello-world/" class="archive-article-date">
+  <time datetime="2024-06-28T16:11:36.705Z" itemprop="datePublished">2024-06-29</time>
 </a> 
        »
       
-  
-    <h4 class="myh4"  itemprop="name">
-      <span>
-         <!-- Fri May 31 2024 17:40:47 GMT+0800 -->
-      </span>
-      <a class="archive-article-title" href="/2024/05/31/hello-world/">Hello World</a>
-      <!--<a>
-      <div = post.date  </div>
-      </a>-->
-      <!-- date(post.date) -->
-      <!--</li>-->
-    </h4>
-  
-
 
      
     </header>
@@ -117,7 +228,7 @@ var _hmt = _hmt || [];
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2024 John Doe&nbsp;
+      &copy; 2024 DecisionIntelligence |&nbsp;
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a target="_blank" rel="noopener" href="http://github.com/52binge/hexo-theme-blairos">blairos</a>
     </div>
   </div>
@@ -140,13 +251,6 @@ var _hmt = _hmt || [];
     
 
 <script src="/js/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
