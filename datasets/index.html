@@ -15,8 +15,8 @@
 <meta property="og:image" content="https://decisionintelligence.github.io/TFB_leaderboard.github.io/figures/exbin.png">
 <meta property="og:image" content="https://decisionintelligence.github.io/TFB_leaderboard.github.io/figures/multi-compare.png">
 <meta property="og:image" content="https://decisionintelligence.github.io/TFB_leaderboard.github.io/figures/multi-bar.png">
-<meta property="article:published_time" content="2024-07-02T06:41:34.042Z">
-<meta property="article:modified_time" content="2024-07-02T06:41:34.042Z">
+<meta property="article:published_time" content="2024-07-02T13:34:39.447Z">
+<meta property="article:modified_time" content="2024-07-02T13:34:39.447Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://decisionintelligence.github.io/TFB_leaderboard.github.io/figures/exbin.png">
@@ -211,7 +211,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard.github.io/datasets/index.html" class="article-date">
-  <time datetime="2024-07-02T06:41:34.042Z" itemprop="datePublished">2024-07-02</time>
+  <time datetime="2024-07-02T13:34:39.447Z" itemprop="datePublished">2024-07-02</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -357,10 +357,11 @@
 <h2 id="Multivariate-time-series"><a href="#Multivariate-time-series" class="headerlink" title="Multivariate time series"></a>Multivariate time series</h2><style>
   /* 基本表格样式 */
   table.my-table {
-    width: 100%;
+    min-width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     border: none; /* 去除表格边框 */
+    
   }
 
   /* 表头样式 */
@@ -370,7 +371,7 @@
     font-weight: bold; /* 表头字体加粗 */
     padding: 10px; /* 调整表头内边距 */
     text-align: center; /* 居中对齐 */
-     border: none;
+    border: none;
   }
 
   /* 偶数行背景色 */
@@ -389,21 +390,75 @@
     padding: 10px; /* 调整单元格内边距 */
     text-align: center; /* 居中对齐 */
     border: none; /* 去除单元格边框 */
-      white-space: nowrap; /* 防止文本换行 */
-  overflow: hidden; /* 隐藏溢出内容 */
-  text-overflow: ellipsis; /* 溢出内容显示省略号 */
-  max-width:350px
+    white-space: nowrap; /* 防止文本换行 */
   }
-  table.my-table tr td:nth-child(7)  {
-  /* max-width: 0px; 设置第4行单元格最大宽度 */
-}
 
 </style>
 
+<style>
+  /* 基本表格样式 */
+  table.my-table1 {
+    min-width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border: none; /* 去除表格边框 */
+    margin:0
+  }
+
+  /* 表头样式 */
+  table.my-table1 th {
+    background-color: #f2f2f2; /* 表头背景色（奇数行浅灰色） */
+    color: black; /* 表头文字颜色 */
+    font-weight: bold; /* 表头字体加粗 */
+    padding: 10px; /* 调整表头内边距 */
+    text-align: center; /* 居中对齐 */
+    border: none;
+  }
+
+  /* 偶数行背景色 */
+  table.my-table1 tr:nth-child(odd) {
+    background-color: #ffffff; /* 偶数行背景色（白色） */
+  }
+
+  /* 奇数行背景色 */
+  table.my-table1 tr:nth-child(even) {
+    background-color: #f2f2f2; /* 奇数行背景色（浅灰色） */
+  }
+  
+
+  /* 单元格样式 */
+  table.my-table1 td {
+    padding: 10px; /* 调整单元格内边距 */
+    text-align: center; /* 居中对齐 */
+    border: none; /* 去除单元格边框 */
+    white-space: nowrap; /* 防止文本换行 */
+  }
+  table.my-table1 tr td:nth-child(7),table.my-table1 tr th:nth-child(7)   {
+  /* max-width: 0px; 设置第4行单元格最大宽度 */
+  text-align: left;
+}
+   table.my-table1 tr td:nth-child(1)  {
+  /* max-width: 0px; 设置第4行单元格最大宽度 */
+  padding-left:150px
+}
+ table.my-table1 tr td:nth-child(1),table.my-table1 tr th:nth-child(1)   {
+  /* max-width: 0px; 设置第4行单元格最大宽度 */
+  padding-left:150px
+}
+  .table-container {
+  width: 100%; /* Adjust width as needed */
+  max-width: 100%; /* Ensure it doesn't exceed the container width */
+  /* Adjust height as needed */
+  overflow-x: auto; /* Enable horizontal scroll */
+  overflow-y: hidden; /* Enable vertical scroll */
+}
+
+
+</style>
 
 <!-- ![](../figures/multi-datasets.png) -->
-<div style="display: flex;justify-content: center; padding: 0;">
-<table class="my-table" style="width: 60%;">
+<div style="display: flex;justify-content: center; padding: 0;" class="table-container">
+<table class="my-table1" style="width: 100%;">
   <thead>
     <tr>
       <th>Dataset</th>

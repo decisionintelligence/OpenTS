@@ -1652,3 +1652,19 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/* 在 style.styl 或 _base.styl 文件中添加以下样式 */
+.container,
+.outer,
+.inner {
+  max-width: 70%; /* 使容器宽度最大化 */
+  padding-left: 10px; /* 调整容器左侧留白 */
+  padding-right: 10px; /* 调整容器右侧留白 */
+}
+#header,
+#header-outer {
+  max-width: 100%;
+}
+#header-inner {
+  max-width: 80%; /* 调整为与容器一致的宽度 */
+  margin-left: 25%;
+}
