@@ -427,7 +427,7 @@ a.article-title:hover,
   -ms-transition: opacity 0.2s;
   transition: opacity 0.2s;
   display: block;
-  padding: 20px 15px;
+  padding: 20px 25px;
   font-size: 17px;
 }
 .main-nav-link {
@@ -1656,7 +1656,7 @@ table {
 .container,
 .outer,
 .inner {
-  max-width: 70%; /* 使容器宽度最大化 */
+  max-width: 75%; /* 使容器宽度最大化 */
   padding-left: 10px; /* 调整容器左侧留白 */
   padding-right: 10px; /* 调整容器右侧留白 */
 }
@@ -1666,5 +1666,5 @@ table {
 }
 #header-inner {
   max-width: 80%; /* 调整为与容器一致的宽度 */
-  margin-left: 25%;
+  margin-left: 18%;
 }
