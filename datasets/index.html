@@ -15,8 +15,8 @@
 <meta property="og:image" content="https://decisionintelligence.github.io/TFB_leaderboard.github.io/figures/exbin.png">
 <meta property="og:image" content="https://decisionintelligence.github.io/TFB_leaderboard.github.io/figures/multi-compare.png">
 <meta property="og:image" content="https://decisionintelligence.github.io/TFB_leaderboard.github.io/figures/multi-bar.png">
-<meta property="article:published_time" content="2024-07-02T04:48:25.452Z">
-<meta property="article:modified_time" content="2024-07-02T04:48:25.452Z">
+<meta property="article:published_time" content="2024-07-02T06:37:02.337Z">
+<meta property="article:modified_time" content="2024-07-02T06:37:02.337Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://decisionintelligence.github.io/TFB_leaderboard.github.io/figures/exbin.png">
@@ -211,7 +211,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard.github.io/datasets/index.html" class="article-date">
-  <time datetime="2024-07-02T04:48:25.452Z" itemprop="datePublished">2024-07-02</time>
+  <time datetime="2024-07-02T06:37:02.337Z" itemprop="datePublished">2024-07-02</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -382,13 +382,22 @@
   table.my-table tr:nth-child(even) {
     background-color: #f2f2f2; /* 奇数行背景色（浅灰色） */
   }
+  
 
   /* 单元格样式 */
   table.my-table td {
     padding: 10px; /* 调整单元格内边距 */
     text-align: center; /* 居中对齐 */
     border: none; /* 去除单元格边框 */
+      white-space: nowrap; /* 防止文本换行 */
+  overflow: hidden; /* 隐藏溢出内容 */
+  text-overflow: ellipsis; /* 溢出内容显示省略号 */
+  max-width:150px
   }
+  table.my-table tr td:nth-child(7)  {
+  /* max-width: 0px; 设置第4行单元格最大宽度 */
+}
+
 </style>
 
 
@@ -403,6 +412,7 @@
       <th>Lengths</th>
       <th>Dim</th>
       <th>Split</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -413,6 +423,7 @@
       <td>34272</td>
       <td>207</td>
       <td>7:1:2</td>
+      <td title='>Traffic speed dataset collected from loopdetectors in the LA County road network'>Traffic speed dataset collected from loopdetectors in the LA County road network</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1707.01926">PEMS-BAY</a></td>
@@ -421,6 +432,7 @@
       <td>52116</td>
       <td>325</td>
       <td>7:1:2</td>
+      <td title='Traffic speed dataset collected from the CalTrans PeMS'>Traffic speed dataset collected from the CalTrans PeMS</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/5438">PEMS04</a></td>
@@ -429,6 +441,7 @@
       <td>16992</td>
       <td>307</td>
       <td>6:2:2</td>
+      <td title='Traffic flow time series collected from the CalTrans PeMS'>Traffic flow time series collected from the CalTrans PeMS</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/5438">PEMS08</a></td>
@@ -437,6 +450,7 @@
       <td>17856</td>
       <td>170</td>
       <td>6:2:2</td>
+      <td title='Traffic flow time series collected from the CalTrans PeMS'>Traffic flow time series collected from the CalTrans PeMS</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html">Traffic</a></td>
@@ -445,6 +459,7 @@
       <td>17544</td>
       <td>862</td>
       <td>7:1:2</td>
+      <td title='Road occupancy rates measured by 862 sensors on San Francisco Bay area freeways'>Road occupancy rates measured by 862 sensors on San Francisco Bay area freeways</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/17325">ETTh1</a></td>
@@ -453,6 +468,7 @@
       <td>14400</td>
       <td>7</td>
       <td>6:2:2</td>
+      <td title='Power transformer 1, comprising seven indicators such as oil temperature and useful load'>Power transformer 1, comprising seven indicators such as oil temperature and useful load</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/17325">ETTh2</a></td>
@@ -461,6 +477,7 @@
       <td>14400</td>
       <td>7</td>
       <td>6:2:2</td>
+      <td title='Power transformer 2, comprising seven indicators such as oil temperature and useful load'>Power transformer 2, comprising seven indicators such as oil temperature and useful load</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/17325">ETTm1</a></td>
@@ -469,6 +486,7 @@
       <td>57600</td>
       <td>7</td>
       <td>6:2:2</td>
+      <td title='Power transformer 1, comprising seven indicators such as oil temperature and useful load'>Power transformer 1, comprising seven indicators such as oil temperature and useful load</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/17325">ETTm2</a></td>
@@ -477,6 +495,7 @@
       <td>57600</td>
       <td>7</td>
       <td>6:2:2</td>
+      <td title='Power transformer 2, comprising seven indicators such as oil temperature and useful load'>Power transformer 2, comprising seven indicators such as oil temperature and useful load</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://ergodicity.net/2013/07/">Electricity</a></td>
@@ -485,6 +504,7 @@
       <td>26304</td>
       <td>321</td>
       <td>7:1:2</td>
+      <td title='Electricity records the electricity consumption in kWh every 1 hour from 2012 to 2014'>Electricity records the electricity consumption in kWh every 1 hour from 2012 to 2014</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3209978.3210006">Solar</a></td>
@@ -493,6 +513,7 @@
       <td>52560</td>
       <td>137</td>
       <td>6:2:2</td>
+       <td title='Solar production records collected from 137 PV plants in Alabama'>Solar production records collected from 137 PV plants in Alabama</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3209978.3210006">Wind</a></td>
@@ -501,6 +522,7 @@
       <td>48673</td>
       <td>7</td>
       <td>7:1:2</td>
+      <td title='Wind power records from 2020-2021 at 15-minute intervals'>Wind power records from 2020-2021 at 15-minute intervals</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html">Weather</a></td>
@@ -509,6 +531,7 @@
       <td>52696</td>
       <td>21</td>
       <td>7:1:2</td>
+      <td title='Recorded every for the whole year 2020, which contains 21 meteorological indicators'>Recorded every for the whole year 2020, which contains 21 meteorological indicators</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://royalsocietypublishing.org/doi/abs/10.1098/rspa.2017.0457">AQShunyi</a></td>
@@ -517,6 +540,7 @@
       <td>35064</td>
       <td>11</td>
       <td>6:2:2</td>
+      <td title='Air quality datasets from a measurement station, over a period of 4 years'>Air quality datasets from a measurement station, over a period of 4 years</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://royalsocietypublishing.org/doi/abs/10.1098/rspa.2017.0457">AQWan</a></td>
@@ -525,6 +549,7 @@
       <td>35064</td>
       <td>11</td>
       <td>6:2:2</td>
+      <td title='Air quality datasets from a measurement station, over a period of 4 years'>Air quality datasets from a measurement station, over a period of 4 years</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://academic.oup.com/treephys/article-abstract/36/12/1449/2571314">ZafNoo</a></td>
@@ -533,6 +558,7 @@
       <td>19225</td>
       <td>11</td>
       <td>7:1:2</td>
+      <td title='From the Sapflux data project includes sap flow measurements and nvironmental variables'>From the Sapflux data project includes sap flow measurements and nvironmental variables</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://academic.oup.com/treephys/article-abstract/36/12/1449/2571314">CzeLan</a></td>
@@ -541,6 +567,7 @@
       <td>19934</td>
       <td>11</td>
       <td>7:1:2</td>
+      <td title='From the Sapflux data project includes sap flow measurements and nvironmental variables'>From the Sapflux data project includes sap flow measurements and nvironmental variables</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://www.tandfonline.com/doi/abs/10.1080/07350015.2015.1086655">FRED-MD</a></td>
@@ -549,6 +576,7 @@
       <td>728</td>
       <td>107</td>
       <td>7:1:2</td>
+      <td title='Time series showing a set of macroeconomic indicators from the Federal Reserve Bank'>Time series showing a set of macroeconomic indicators from the Federal Reserve Bank</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3209978.3210006">Exchange</a></td>
@@ -557,6 +585,7 @@
       <td>7588</td>
       <td>8</td>
       <td>7:1:2</td>
+      <td title='ExchangeRate collects the daily exchange rates of eight countries'>ExchangeRate collects the daily exchange rates of eight countries</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3309547">NASDAQ</a></td>
@@ -565,6 +594,7 @@
       <td>1244</td>
       <td>5</td>
       <td>7:1:2</td>
+      <td title='Records opening price, closing price, trading volume, lowest price, and highest price'>Records opening price, closing price, trading volume, lowest price, and highest price</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3309547">NYSE</a></td>
@@ -573,6 +603,7 @@
       <td>1243</td>
       <td>5</td>
       <td>7:1:2</td>
+      <td title='Records opening price, closing price, trading volume, lowest price, and highest price'>Records opening price, closing price, trading volume, lowest price, and highest price</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0957417412000528">NN5</a></td>
@@ -581,6 +612,7 @@
       <td>791</td>
       <td>111</td>
       <td>7:1:2</td>
+      <td title='NN5 is from banking, records the daily cash withdrawals from ATMs in UK'>NN5 is from banking, records the daily cash withdrawals from ATMs in UK</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html">ILI</a></td>
@@ -589,6 +621,7 @@
       <td>966</td>
       <td>7</td>
       <td>7:1:2</td>
+      <td title='Recorded indicators of patients data from Centers for Disease Control and Prevention'>Recorded indicators of patients data from Centers for Disease Control and Prevention</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/16616">Covid-19</a></td>
@@ -597,6 +630,7 @@
       <td>1392</td>
       <td>948</td>
       <td>7:1:2</td>
+      <td title="Provide opportunities for researchers to investigate the dynamics of COVID-19">Provide opportunities for researchers to investigate the dynamics of COVID-19</td>
     </tr>
     <tr>
       <td><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v89/gasthaus19a.html">Wike2000</a></td>
@@ -605,6 +639,7 @@
       <td>792</td>
       <td>2000</td>
       <td>7:1:2</td>
+      <td  title="Wike2000 is daily page views of 2000 Wikipedia pages">Wike2000 is daily page views of 2000 Wikipedia pages</td>
     </tr>
   </tbody>
 </table>
