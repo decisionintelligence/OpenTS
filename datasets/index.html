@@ -145,6 +145,11 @@
       position: relative;
       z-index: 10;
       overflow: visible;
+      display: flex;
+      justify-content: space-between; /* 修改这里 */
+      align-items: center; /* 使内容垂直居中 */
+      width:60%;
+      margin-left:20%
     }
   
     .dropdown {
@@ -196,11 +201,15 @@
     #main-nav {
       display: flex;
       align-items: center;
+      align-items: center;
+  flex-grow: 1; /* 使导航栏占据剩余空间 */
+  justify-content: space-around; /* 使导航项左右平均铺开 */
     }
   
     .main-nav-link {
-      padding: 0 35px;
-      line-height: 50px;
+      padding: 0;
+      /* margin-left: 5%;
+      line-height: 50px; */
     }
   </style>
   
