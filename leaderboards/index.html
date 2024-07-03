@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="/TFB_leaderboard.github.io/js/jquery.min.js"></script>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>TFB-leaderboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="LeaderboardsTable of Contents  Overview Rules Univariate time series Multivariate time series  OverviewPublic leaderboards allow researchers to keep track of state-of-the-art methods and encourage rep">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="TFB-leaderboard">
 <meta property="og:url" content="https://decisionintelligence.github.io/TFB_leaderboard.github.io/leaderboards/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="TFB-leaderboard">
 <meta property="og:description" content="LeaderboardsTable of Contents  Overview Rules Univariate time series Multivariate time series  OverviewPublic leaderboards allow researchers to keep track of state-of-the-art methods and encourage rep">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-03T08:45:29.057Z">
-<meta property="article:modified_time" content="2024-07-03T08:45:29.057Z">
+<meta property="article:published_time" content="2024-07-03T09:32:20.422Z">
+<meta property="article:modified_time" content="2024-07-03T09:32:20.422Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="css/images/logo10.png">
   
-  <link href="/TFB_leaderboard.github.io/TFB_leaderboard.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
-  <link href="/TFB_leaderboard.github.io/TFB_leaderboard.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link href="/TFB_leaderboard.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/TFB_leaderboard.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   
 <link rel="stylesheet" href="/TFB_leaderboard.github.io/css/style.css">
 
@@ -111,7 +112,11 @@
             
           
             
-              <a class="main-nav-link" href="/TFB_leaderboard.github.io/paper">Paper</a>
+              <a class="main-nav-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.20150">Paper</a>
+            
+          
+            
+              <a class="main-nav-link" target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">Github</a>
             
           
         </nav>
@@ -216,7 +221,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard.github.io/leaderboards/index.html" class="article-date">
-  <time datetime="2024-07-03T08:45:29.057Z" itemprop="datePublished">2024-07-03</time>
+  <time datetime="2024-07-03T09:32:20.422Z" itemprop="datePublished">2024-07-03</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -302,12 +307,12 @@ table.my-table1 tr td:nth-child(7)  {
         <tr>
             <th>Rank</th>
             <th>Method</th>
-            <th>Msmape</th>
+            <th>MSMAPE</th>
             <th>Contact</th>
-            <th>paper</th>
-            <th>code</th>
-            <th>publication</th>
-            <th>year</th>
+            <th>Paper</th>
+            <th>Code</th>
+            <th>Publication</th>
+            <th>Year</th>
         </tr>
     </thead>
     <tbody>
@@ -321,12 +326,12 @@ table.my-table1 tr td:nth-child(7)  {
         <tr>
             <th>Rank</th>
             <th>Method</th>
-            <th>rank</th>
+            <th>#Top1</th>
             <th>Contact</th>
-            <th>paper</th>
-            <th>code</th>
-            <th>publication</th>
-            <th>year</th>
+            <th>Paper</th>
+            <th>Code</th>
+            <th>Publication</th>
+            <th>Year</th>
         </tr>
     </thead>
     <tbody>
@@ -682,6 +687,30 @@ table.my-table2 tr td:nth-child(7) {
   overflow-y: hidden; /* Enable vertical scroll */
   padding-left: 0px;
 }
+table.my-table2 tr:nth-child(-n+3) td:first-child::before {
+
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%); /* 图标垂直居中 */
+            display: inline-block;
+            vertical-align: middle; /* 图标垂直居中 */
+        }
+table.my-table2 tr:nth-child(1) td:first-child::before {
+            content: '🥇'; /* 图标符号 */
+        }
+table.my-table2 tr:nth-child(2) td:first-child::before {
+            content: '🥈'; /* 图标符号 */
+        }
+    table.my-table2 tr:nth-child(3) td:first-child::before {
+            content: '🥉'; /* 图标符号 */
+        }
+
+
+table.my-table2 tr:nth-child(-n+3) td:first-child {
+    position: relative; /* 使伪元素的定位相对于这个单元格 */
+   /* 给数字留出空间，不影响对齐 */
+}
 </style>
 
 <div style="display: flex;justify-content: center;padding:0;width:100%" >
@@ -690,15 +719,15 @@ table.my-table2 tr td:nth-child(7) {
             <tr>
                 <th>Rank</th>
                 <th>Model</th>
-                <th>Rank 1</th>
-                <th>Rank 2</th>
-                <th>Rank 3</th>
-                <th>Rank 4</th>
+                <th>#Top1</th>
+                <th>#Top2</th>
+                <th>#Top3</th>
+                <th>#Top4</th>
                 <th>Contact</th>
-                <th>paper</th>
-                <th>code</th>
-                <th>publication</th>
-                <th>year</th>
+                <th>Paper</th>
+                <th>Code</th>
+                <th>Publication</th>
+                <th>Year</th>
             </tr>
         </thead>
         <tbody>
@@ -753,12 +782,12 @@ table.my-table2 tr td:nth-child(7) {
     }
   });
 </script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML,http://myserver.com/MathJax/config/local/local.js">
+<script type="text/javascript" >
 </script>
 
     
 
-<script src="/TFB_leaderboard.github.io/TFB_leaderboard.github.io/js/jquery.min.js"></script>
+
 
 
 
