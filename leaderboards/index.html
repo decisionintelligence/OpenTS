@@ -12,8 +12,8 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="LeaderboardsTable of Contents  Overview Rules Univariate time series Multivariate time series  OverviewPublic leaderboards allow researchers to keep track of state-of-the-art methods and encourage rep">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-02T13:36:15.798Z">
-<meta property="article:modified_time" content="2024-07-02T13:36:15.798Z">
+<meta property="article:published_time" content="2024-07-02T16:53:43.672Z">
+<meta property="article:modified_time" content="2024-07-02T16:53:43.672Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -144,8 +144,8 @@
       display: flex;
       justify-content: space-between; /* 修改这里 */
       align-items: center; /* 使内容垂直居中 */
-      width:60%;
-      margin-left:20%
+      width:50%;
+      margin-left:25%
     }
   
     .dropdown {
@@ -216,7 +216,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard.github.io/leaderboards/index.html" class="article-date">
-  <time datetime="2024-07-02T13:36:15.798Z" itemprop="datePublished">2024-07-02</time>
+  <time datetime="2024-07-02T16:53:43.672Z" itemprop="datePublished">2024-07-03</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -239,7 +239,7 @@
 <h2 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h2><p>对于单变量预测的模型，我们对10种数据集的msmape指标根据数据集的数据量进行加权平均，并按平均msmape进行排序。<br>对于多变量预测的模型，我们在PEMS04、PEMS-BAY、METR-LA、PEMS08等25个数据集上，分别进行了4次分割，每个方法进行100次实验并分别得到MAE、MSE指标，分实验、分指标对方法进行排序，并计算每种方法的排名情况，依次按照排名第1、2、3、4的次数进行排序。</p>
 <h2 id="Univariate-time-series"><a href="#Univariate-time-series" class="headerlink" title="Univariate time series"></a>Univariate time series</h2><style>
   /* 基本表格样式 */
-table.my-table2 {
+table.my-table1 {
   width: 100%;
   border-collapse: collapse;
   font-family: Arial, sans-serif;
@@ -247,7 +247,7 @@ table.my-table2 {
 }
 
 /* 表头样式 */
-table.my-table2 th {
+table.my-table1 th {
   background-color: #f2f2f2; /* 表头背景色（奇数行浅灰色） */
   color: black; /* 表头文字颜色 */
   font-weight: bold; /* 表头字体加粗 */
@@ -257,37 +257,38 @@ table.my-table2 th {
 }
 
 /* 偶数行背景色 */
-table.my-table2 tr:nth-child(odd) {
+table.my-table1 tr:nth-child(odd) {
   background-color: #ffffff; /* 偶数行背景色（白色） */
 }
 
 /* 奇数行背景色 */
-table.my-table2 tr:nth-child(even) {
+table.my-table1 tr:nth-child(even) {
   background-color: #f2f2f2; /* 奇数行背景色（浅灰色） */
 }
 
 /* 单元格样式 */
-table.my-table2 td {
+table.my-table1 td {
   padding: 8px; /* 调整单元格内边距 */
   text-align: center; /* 居中对齐 */
   border: none; /* 去除单元格边框 */
   white-space: nowrap; /* 防止文本换行 */
-  overflow: hidden; /* 隐藏溢出内容 */
-  text-overflow: ellipsis; /* 溢出内容显示省略号 */
-  max-width: 200px; /* 设置单元格最大宽度 */
+  /* overflow: hidden; 隐藏溢出内容
+  text-overflow: ellipsis; 溢出内容显示省略号
+  max-width: 200px; 设置单元格最大宽度 */
 }
 
 /* 第4行单独样式 */
-table.my-table2 tr td:nth-child(4)  {
-  max-width: 150px; /* 设置第4行单元格最大宽度 */
+table.my-table1 tr td:nth-child(1),table.my-table1 tr th:nth-child(1)  {
+    /* text-align: left; */
+  /* max-width: 150px; 设置第4行单元格最大宽度 */
 }
 /* 第4行单独样式 */
-table.my-table2 tr td:nth-child(2)  {
-  max-width: 80px; /* 设置第4行单元格最大宽度 */
+table.my-table1 tr td:nth-child(2)  {
+  /* max-width: 80px; 设置第4行单元格最大宽度 */
 }
 /* 第4行单独样式 */
-table.my-table2 tr td:nth-child(7)  {
-  max-width: 100px; /* 设置第4行单元格最大宽度 */
+table.my-table1 tr td:nth-child(7)  {
+  /* max-width: 100px; 设置第4行单元格最大宽度 */
 }
 
 </style>
@@ -295,49 +296,7 @@ table.my-table2 tr td:nth-child(7)  {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
-<script>
-// // Fetch the JSON data from the local file
-// fetch('univariate.json')
-//     .then(response => response.json()) // Parse the JSON data
-//     .then(data => {
-//         // Extract weights and methods
-//         const weights = data.weight;
-//         const methods = data.methods;
-
-//         // Calculate weighted averages
-//         methods.forEach(method => {
-//             const scores = method.metrics;
-//             const weightedSum = scores.reduce((sum, score, index) => sum + score * weights[index], 0);
-//             const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
-//             method.weightedAverage = weightedSum / totalWeight;
-//         });
-
-//         // Sort methods by weighted average
-//         methods.sort((a, b) => a.weightedAverage - b.weightedAverage);
-
-//         // Get table body element
-//         const tableBody = document.getElementById('univariateTable').querySelector('tbody');
-
-//         // Populate table with sorted methods
-//         methods.forEach((method, index) => {
-//             const row = document.createElement('tr');
-//             row.innerHTML = `
-//                 <td>${index + 1}</td>
-//                 <td>${method.name}</td>
-//                 <td>${method.weightedAverage.toFixed(2)}</td>
-//                 <td>${method.contact}</td>
-//                 <td>${method.Paper}</td>
-//                 <td>${method.code}</td>
-//             `;
-//             tableBody.appendChild(row);
-//         });
-//     })
-//     .catch(error => console.error('Error loading JSON data:', error));
-</script>
-
-
-
-<div style="display: flex;justify-content: center; /* 水平居中 */padding: 0;">
+<div style="display: flex;justify-content: center; /* 水平居中 */padding-left: 10%;width:90%" class="table-container">
 <table id="univariateTable" class="my-table2" style="width:100%">
     <thead>
         <tr>
@@ -379,9 +338,10 @@ table.my-table2 tr td:nth-child(7)  {
         const codeUrl = data[3];
         const pub = data[4]
         const bib = data[5]
+        const year = data[6]
 
         // Filter out metadata rows
-        const dataRows = data.slice(6);
+        const dataRows = data.slice(7);
 
         // Calculate the weighted average for each method
         const numsIndex = dataRows[0].nums;
@@ -408,6 +368,7 @@ table.my-table2 tr td:nth-child(7)  {
                 codeUrl: codeUrl[method],
                 pub:pub[method],
                 bib:bib[method],
+                year:year[method]
                 // bib:bib[methd],
             };
         });
@@ -423,8 +384,9 @@ table.my-table2 tr td:nth-child(7)  {
                 <td><a href="mailto:${entry.contactUrl}" target="_blank">${entry.contact}</a></td>
                 <td><a href="${entry.paperUrl}" target="_blank">paper</a></td>
                 <td><a href="${entry.codeUrl}" target="_blank">code</a>
-                <td title="${entry.pub}" >${entry.pub}</td>
-                <td><a href="${entry.bib}" target="_blank">bib</a></td>
+                
+                <td><a href="${entry.bib}" target="_blank">${entry.pub}</a></td>
+                <td >${entry.year}</td>
 
             </tr>
         `).join('');
@@ -433,7 +395,8 @@ table.my-table2 tr td:nth-child(7)  {
 
 
 <h2 id="Multivariate-time-series"><a href="#Multivariate-time-series" class="headerlink" title="Multivariate time series"></a>Multivariate time series</h2><script>
-function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib) {
+function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year) {
+    console.log(year)
     const tableBody = document.getElementById('multivariateTable').getElementsByTagName('tbody')[0];
     tableBody.innerHTML = ''; // Clear existing table body
     const sortedModels = Object.entries(rankCounts).sort((a, b) => {
@@ -444,7 +407,9 @@ function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUr
         }
         return 0;
     });
+
     sortedModels.forEach(([model, counts], index) => {
+        console.log(1)
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${index + 1}</td>
@@ -460,11 +425,12 @@ function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUr
             <td>
                 <a href="${codeUrls[model]}" target="_blank">code</a>
             </td>
-            <td  title="${pub[model]}">
-                ${pub[model]}
-            </td>
+            
             <td>
-                <a href="${bib[model]}" target="_blank">bib</a>
+                <a href="${bib[model]}" target="_blank">${pub[model]}</a>
+            </td>
+            <td >
+                ${year[model]}
             </td>
         `;
         tableBody.appendChild(row);
@@ -484,6 +450,7 @@ fetch(csvFilePath)
             const paperUrls = {};
             const codeUrls = {};
             const pub ={}
+            const year={}
             const bib={}
             data[0] = Object.keys(data[0]).reduce((obj, key) => {
                 if (key !== 'Dataset-Quantity-metrics') {
@@ -522,8 +489,14 @@ fetch(csvFilePath)
                 }
                 return obj;
             }, {});
+            data[6] = Object.keys(data[6]).reduce((obj, key) => {
+                if (key !== 'Dataset-Quantity-metrics') {
+                    year[key] = data[6][key];
+                }
+                return obj;
+            }, {});
             // Remove the first four rows (new fields) from the data
-            const experimentData = data.slice(6);
+            const experimentData = data.slice(7);
             const modelColumns = Object.keys(experimentData[0]).slice(1);
             const rankCounts = {};
             modelColumns.forEach(model => {
@@ -539,7 +512,7 @@ fetch(csvFilePath)
                     rankCounts[model][index + 1]++;
                 });
             });
-            displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib);
+            displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year);
         }
     }));
 
@@ -552,6 +525,8 @@ table.my-table2 {
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   border: none; /* 去除表格边框 */
+  padding:0;
+  margin:0
 }
 
 /* 表头样式 */
@@ -561,6 +536,7 @@ table.my-table2 th {
   font-weight: bold; /* 表头字体加粗 */
   padding: 10px; /* 调整表头内边距 */
   text-align: center; /* 居中对齐 */
+   white-space: nowrap; /* 防止文本换行 */
   border: none;
 }
 
@@ -580,48 +556,37 @@ table.my-table2 td {
   text-align: center; /* 居中对齐 */
   border: none; /* 去除单元格边框 */
   white-space: nowrap; /* 防止文本换行 */
-  overflow: hidden; /* 隐藏溢出内容 */
-  text-overflow: ellipsis; /* 溢出内容显示省略号 */
-  max-width: 200px; /* 设置单元格最大宽度 */
-  position: relative; /* 设置相对定位以显示悬停内容 */
+  /* overflow: hidden; 隐藏溢出内容
+  text-overflow: ellipsis; 溢出内容显示省略号 */
+  /* max-width: 200px; 设置单元格最大宽度
+  position: relative; 设置相对定位以显示悬停内容 */
 }
-/* 工具提示样式 */
-.tooltip {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-  white-space: normal;
-  z-index: 10;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  word-wrap: break-word;
-  text-align: left;
-}
-.tooltip.visible {
-  display: block;
-}
-
-
 
 /* 第4列单独样式 */
 table.my-table2 tr td:nth-child(4) {
-  max-width: 150px; /* 设置第4列单元格最大宽度 */
+  /* max-width: 150px; 设置第4列单元格最大宽度 */
 }
 
 /* 第2列单独样式 */
 table.my-table2 tr td:nth-child(2) {
-  max-width: 80px; /* 设置第2列单元格最大宽度 */
+  /* max-width: 80px; 设置第2列单元格最大宽度 */
 }
 
 /* 第7列单独样式 */
 table.my-table2 tr td:nth-child(7) {
-  max-width: 100px; /* 设置第7列单元格最大宽度 */
+  /* max-width: 100px; 设置第7列单元格最大宽度 */
+}
+.table-container {
+  width: 100%; /* Adjust width as needed */
+  max-width: 100%; /* Ensure it doesn't exceed the container width */
+  /* Adjust height as needed */
+  overflow-x: auto; /* Enable horizontal scroll */
+  overflow-y: hidden; /* Enable vertical scroll */
+  padding-left: 0px;
 }
 </style>
 
-<div style="display: flex;justify-content: center; /* 水平居中 */padding: 0;">
+<div style="display: flex;justify-content: center;padding:0;padding-left:10%;width:90%" class="table-container">
     <table id="multivariateTable" class="my-table2" style="width:90%">
         <thead>
             <tr>
@@ -635,32 +600,15 @@ table.my-table2 tr td:nth-child(7) {
                 <th>paper</th>
                 <th>code</th>
                 <th>publication</th>
-                <th>bib</th>
+                <th>year</th>
             </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
 </div>
-<div id="tooltip" class="tooltip"></div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const tooltip = document.getElementById('tooltip');
-  document.querySelectorAll('table.my-table2 td').forEach(cell => {
-    cell.addEventListener('mouseenter', function() {
-      tooltip.textContent = this.getAttribute('data-fulltext');
-      const rect = this.getBoundingClientRect();
-      tooltip.style.top = rect.top + window.scrollY + rect.height + 'px';
-      tooltip.style.left = rect.left + window.scrollX + 'px';
-      tooltip.classList.add('visible');
-    });
-    cell.addEventListener('mouseleave', function() {
-      tooltip.classList.remove('visible');
-    });
-  });
-});
-</script>
+
 <center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Table 2: Multivariate forecasting results.</center>
 
       
