@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="TFB-leaderboard">
 <meta property="og:description" content="LeaderboardsTable of Contents  Overview Rules Univariate time series Multivariate time series  OverviewPublic leaderboards allow researchers to keep track of state-of-the-art methods and encourage rep">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-03T13:12:19.791Z">
-<meta property="article:modified_time" content="2024-07-03T13:12:19.791Z">
+<meta property="article:published_time" content="2024-07-03T14:48:49.913Z">
+<meta property="article:modified_time" content="2024-07-03T14:48:49.913Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -220,7 +220,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard.github.io/leaderboards/index.html" class="article-date">
-  <time datetime="2024-07-03T13:12:19.791Z" itemprop="datePublished">2024-07-03</time>
+  <time datetime="2024-07-03T14:48:49.913Z" itemprop="datePublished">2024-07-03</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -341,7 +341,7 @@ table.my-table1 tr td:nth-child(7)  {
 <center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Table 2: Univariate forecasting results.</center>
 
 <script>
-    const csvFilePath1 = 'univariate.csv'; 
+    const csvFilePath1 = 'univariate_msmape.csv'; 
     fetch(csvFilePath1)
         .then(response => response.text())
         .then(text => Papa.parse(text, {
@@ -522,24 +522,17 @@ table.my-table1 tr td:nth-child(7)  {
 </script>
 
 <h2 id="Multivariate-time-series"><a href="#Multivariate-time-series" class="headerlink" title="Multivariate time series"></a>Multivariate time series</h2><script>
-function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year) {
+function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table) {
     
-
-    // console.log(rankCounts)
-    const tableBody = document.getElementById('multivariateTable').getElementsByTagName('tbody')[0];
+    const tableBody = document.getElementById(table).getElementsByTagName('tbody')[0];
     tableBody.innerHTML = ''; // Clear existing table body
 
-    Object.keys(rankCounts).forEach(key => {
-        let obj = rankCounts[key];
-        obj["4"] = 3 * obj["1"] + 2 * obj["2"] + 1 * obj["3"];
-    });
+    rankCounts.sort((a, b) => b['rank4'] - a['rank4'] );
 
-    const sortedModels = Object.entries(rankCounts).sort((a, b) => {
-        return a[1][4] < b[1][4];
-    });
 
-    sortedModels.forEach(([model, counts], index) => {
-        
+    rankCounts.forEach(( counts, index) => {
+        model = counts['model']
+
         if(index==0)
         {
             index='🥇'
@@ -557,10 +550,10 @@ function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUr
         row.innerHTML = `
             <td>${index}</td>
             <td>${model}</td>
-            <td>${counts[4]}</td>
-            <td>${counts[1]}</td>
-            <td>${counts[2]}</td>
-            <td>${counts[3]}</td>
+            <td>${counts['rank4']}</td>
+            <td>${counts['rank1']}</td>
+            <td>${counts['rank2']}</td>
+            <td>${counts['rank3']}</td>
             
             <td><a href="mailto:${connectUrls[model]}" target="_blank">${connectTexts[model]}</a></td>
             <td>
@@ -581,86 +574,111 @@ function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUr
         tableBody.appendChild(row);
     });
 }
-const csvFilePath = 'multivariate.csv'; // Update this to the path of your CSV file
-fetch(csvFilePath)
+
+function phraseMultiTable(results,table){
+    const data = results.data;
+    // Extract new fields
+    const connectTexts = {};
+    const connectUrls = {};
+    const paperUrls = {};
+    const codeUrls = {};
+    const pub ={}
+    const year={}
+    const bib={}
+
+    data[0] = Object.keys(data[0]).reduce((obj, key) => {
+        if (key !== 'Dataset-Quantity-metrics') {
+            connectTexts[key] = data[0][key];
+        }
+        return obj;
+    }, {});
+    data[1] = Object.keys(data[1]).reduce((obj, key) => {
+        if (key !== 'Dataset-Quantity-metrics') {
+            connectUrls[key] = data[1][key];
+        }
+        return obj;
+    }, {});
+    data[2] = Object.keys(data[2]).reduce((obj, key) => {
+        if (key !== 'Dataset-Quantity-metrics') {
+            paperUrls[key] = data[2][key];
+        }
+        return obj;
+    }, {});
+    data[3] = Object.keys(data[3]).reduce((obj, key) => {
+        if (key !== 'Dataset-Quantity-metrics') {
+            codeUrls[key] = data[3][key];
+        }
+        return obj;
+    }, {});
+    data[4] = Object.keys(data[4]).reduce((obj, key) => {
+        if (key !== 'Dataset-Quantity-metrics') {
+            pub[key] = data[4][key];
+        }
+        return obj;
+    }, {});
+
+    data[5] = Object.keys(data[5]).reduce((obj, key) => {
+        if (key !== 'Dataset-Quantity-metrics') {
+            bib[key] = data[5][key];
+        }
+        return obj;
+    }, {});
+    data[6] = Object.keys(data[6]).reduce((obj, key) => {
+        if (key !== 'Dataset-Quantity-metrics') {
+            year[key] = data[6][key];
+        }
+        return obj;
+    }, {});
+
+    // Remove the first four rows (new fields) from the data
+    const experimentData = data.slice(7);
+    console.log(data.slice(7))
+    const modelColumns = Object.keys(experimentData[0]).slice(1);
+    const rankCounts = {};
+    modelColumns.forEach(model => {
+        rankCounts[model] = {1: 0, 2: 0, 3: 0, 4: 0};
+    });
+    experimentData.forEach(row => {
+        const validModels = modelColumns.filter(model => {
+            const value = row[model];
+            return value !== null && value !== undefined && !isNaN(value);
+        });
+        validModels.sort((a, b) => row[a] - row[b]);
+        validModels.slice(0, 4).forEach((model, index) => {
+            rankCounts[model][index + 1]++;
+        });
+        validModels.forEach(model => {
+        rankCounts[model][4] = 3*rankCounts[model][1]+2*rankCounts[model][2]+rankCounts[model][3]
+    })
+    });
+    
+    const result =[]
+    Object.entries(rankCounts).forEach(([model, values]) => {
+                        
+    result.push(
+        {"model":model,'rank1':values['1'],'rank2':values['2'],'rank3':values['3'],'rank4':values['4']}
+        )});
+
+    displayResults(result, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table);
+}
+fetch('multivariate_total.csv')
     .then(response => response.text())
     .then(text => Papa.parse(text, {
         header: true,
         dynamicTyping: true,
-        complete: function(results) {
-            const data = results.data;
-            // Extract new fields
-            const connectTexts = {};
-            const connectUrls = {};
-            const paperUrls = {};
-            const codeUrls = {};
-            const pub ={}
-            const year={}
-            const bib={}
-            data[0] = Object.keys(data[0]).reduce((obj, key) => {
-                if (key !== 'Dataset-Quantity-metrics') {
-                    connectTexts[key] = data[0][key];
-                }
-                return obj;
-            }, {});
-            data[1] = Object.keys(data[1]).reduce((obj, key) => {
-                if (key !== 'Dataset-Quantity-metrics') {
-                    connectUrls[key] = data[1][key];
-                }
-                return obj;
-            }, {});
-            data[2] = Object.keys(data[2]).reduce((obj, key) => {
-                if (key !== 'Dataset-Quantity-metrics') {
-                    paperUrls[key] = data[2][key];
-                }
-                return obj;
-            }, {});
-            data[3] = Object.keys(data[3]).reduce((obj, key) => {
-                if (key !== 'Dataset-Quantity-metrics') {
-                    codeUrls[key] = data[3][key];
-                }
-                return obj;
-            }, {});
-            data[4] = Object.keys(data[4]).reduce((obj, key) => {
-                if (key !== 'Dataset-Quantity-metrics') {
-                    pub[key] = data[4][key];
-                }
-                return obj;
-            }, {});
-
-            data[5] = Object.keys(data[5]).reduce((obj, key) => {
-                if (key !== 'Dataset-Quantity-metrics') {
-                    bib[key] = data[5][key];
-                }
-                return obj;
-            }, {});
-            data[6] = Object.keys(data[6]).reduce((obj, key) => {
-                if (key !== 'Dataset-Quantity-metrics') {
-                    year[key] = data[6][key];
-                }
-                return obj;
-            }, {});
-            // Remove the first four rows (new fields) from the data
-            const experimentData = data.slice(7);
-            const modelColumns = Object.keys(experimentData[0]).slice(1);
-            const rankCounts = {};
-            modelColumns.forEach(model => {
-                rankCounts[model] = {1: 0, 2: 0, 3: 0, 4: 0};
-            });
-            experimentData.forEach(row => {
-                const validModels = modelColumns.filter(model => {
-                    const value = row[model];
-                    return value !== null && value !== undefined && !isNaN(value);
-                });
-                validModels.sort((a, b) => row[a] - row[b]);
-                validModels.slice(0, 4).forEach((model, index) => {
-                    rankCounts[model][index + 1]++;
-                });
-            });
-            displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year);
-        }
+        complete:function(results){
+            phraseMultiTable(results,'multivariateTable2')
+        } 
     }));
-
+fetch('multivariate_main.csv')
+    .then(response => response.text())
+    .then(text => Papa.parse(text, {
+        header: true,
+        dynamicTyping: true,
+        complete:function(results){
+            phraseMultiTable(results,'multivariateTable1')
+        } 
+    }));
 
 </script>
 <style>
@@ -731,9 +749,30 @@ table.my-table2 tr td:nth-child(7) {
 }
 
 </style>
-
 <div style="display: flex;justify-content: center;padding:0;width:100%" >
-    <table id="multivariateTable" class="my-table2" style="width:90%">
+    <table id="multivariateTable1" class="my-table2" style="width:90%">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Model</th>
+                <th>Score</th>
+                <th>#Top1</th>
+                <th>#Top2</th>
+                <th>#Top3</th>
+                <th>Contact</th>
+                <th>Paper</th>
+                <th>Code</th>
+                <th>Publication</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Table 3: Multivariate forecasting results.</center>
+<div style="display: flex;justify-content: center;margin-top:5%;padding:0;width:100%" >
+    <table id="multivariateTable2" class="my-table2" style="width:90%">
         <thead>
             <tr>
                 <th>Rank</th>
@@ -755,7 +794,7 @@ table.my-table2 tr td:nth-child(7) {
 </div>
 
 
-<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Table 3: Multivariate forecasting results.</center>
+<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Table 4: Multivariate forecasting results.</center>
 
       
     
@@ -780,7 +819,7 @@ table.my-table2 tr td:nth-child(7) {
 </article>
 
 </section>
-    <footer id="footer">
+    <!-- <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">
@@ -788,7 +827,7 @@ table.my-table2 tr td:nth-child(7) {
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a target="_blank" rel="noopener" href="http://github.com/52binge/hexo-theme-blairos">blairos</a>
     </div>
   </div>
-</footer>
+</footer> -->
 
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
