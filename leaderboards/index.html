@@ -12,8 +12,8 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="LeaderboardsTable of Contents  Overview Rules Univariate time series Multivariate time series  OverviewPublic leaderboards allow researchers to keep track of state-of-the-art methods and encourage rep">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-02T16:53:43.672Z">
-<meta property="article:modified_time" content="2024-07-02T16:53:43.672Z">
+<meta property="article:published_time" content="2024-07-03T03:58:36.812Z">
+<meta property="article:modified_time" content="2024-07-03T03:58:36.812Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -216,7 +216,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard.github.io/leaderboards/index.html" class="article-date">
-  <time datetime="2024-07-02T16:53:43.672Z" itemprop="datePublished">2024-07-03</time>
+  <time datetime="2024-07-03T03:58:36.812Z" itemprop="datePublished">2024-07-03</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -296,13 +296,32 @@ table.my-table1 tr td:nth-child(7)  {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
-<div style="display: flex;justify-content: center; /* 水平居中 */padding-left: 10%;width:90%" class="table-container">
+<div style="display: flex;justify-content: center; /* 水平居中 */padding-left: 15%;width:90%" class="table-container">
 <table id="univariateTable" class="my-table2" style="width:100%">
     <thead>
         <tr>
             <th>Rank</th>
             <th>Method</th>
             <th>Msmape</th>
+            <th>Contact</th>
+            <th>paper</th>
+            <th>code</th>
+            <th>publication</th>
+            <th>year</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+</div>
+
+<div style="display: flex;justify-content: center; /* 水平居中 */margin-top:5%;padding-left: 8%;width:90%" class="table-container">
+<table id="univariate_rankTable" class="my-table2" style="width:100%">
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Method</th>
+            <th>rank</th>
             <th>Contact</th>
             <th>paper</th>
             <th>code</th>
@@ -393,10 +412,88 @@ table.my-table1 tr td:nth-child(7)  {
     }
 </script>
 
+<script>
+    const csvFilePath2 = 'univariate_rank.csv'; 
+    fetch(csvFilePath2)
+        .then(response => response.text())
+        .then(text => Papa.parse(text, {
+            header: true,
+            dynamicTyping: true,
+            complete: function(results) {
+                const data = results.data;
+                processData1(data);
+            }
+        }));
+
+    function processData1(data) {
+        // Extract metadata
+        const contactText = data[0];
+        const contactUrl = data[1];
+        const paperUrl = data[2];
+        const codeUrl = data[3];
+        const pub = data[4]
+        const bib = data[5]
+        const year = data[6]
+        
+        // Filter out metadata rows
+        const dataRows = data.slice(7);
+
+        // Calculate the weighted average for each method
+        const numsIndex = dataRows[0].nums;
+        const methods = Object.keys(dataRows[0]).filter(key => key !== 'nums' && key !== 'dataset');
+
+        const weightedAverages = methods.map(method => {
+            
+            let weightedSum = 0;
+
+            dataRows.forEach(row => {
+                const nums = parseFloat(row.nums);
+                const value = parseFloat(row[method]);
+                if (!isNaN(value)) {
+                    // console.log(method,weightedSum)
+                    weightedSum +=  value;
+  
+                }
+            });
+            
+            const weightedAverage = weightedSum / 5;
+            return {
+                method: method,
+                weightedAverage: weightedAverage,
+                contact: contactText[method],
+                contactUrl: contactUrl[method],
+                paperUrl: paperUrl[method],
+                codeUrl: codeUrl[method],
+                pub:pub[method],
+                bib:bib[method],
+                year:year[method]
+                // bib:bib[methd],
+            };
+        });
+
+        weightedAverages.sort((a, b) => b.weightedAverage - a.weightedAverage);
+        
+        const tableBody = document.querySelector('#univariate_rankTable tbody');
+        tableBody.innerHTML = weightedAverages.map((entry, rank) => `
+            <tr>
+                <td>${rank + 1}</td>
+                <td>${entry.method}</td>
+                <td>${entry.weightedAverage.toFixed(0)}</td>
+                <td><a href="mailto:${entry.contactUrl}" target="_blank">${entry.contact}</a></td>
+                <td><a href="${entry.paperUrl}" target="_blank">paper</a></td>
+                <td><a href="${entry.codeUrl}" target="_blank">code</a>
+                
+                <td><a href="${entry.bib}" target="_blank">${entry.pub}</a></td>
+                <td >${entry.year}</td>
+
+            </tr>
+        `).join('');
+    }
+</script>
 
 <h2 id="Multivariate-time-series"><a href="#Multivariate-time-series" class="headerlink" title="Multivariate time series"></a>Multivariate time series</h2><script>
 function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year) {
-    console.log(year)
+    
     const tableBody = document.getElementById('multivariateTable').getElementsByTagName('tbody')[0];
     tableBody.innerHTML = ''; // Clear existing table body
     const sortedModels = Object.entries(rankCounts).sort((a, b) => {
@@ -409,7 +506,7 @@ function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUr
     });
 
     sortedModels.forEach(([model, counts], index) => {
-        console.log(1)
+        
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${index + 1}</td>
