@@ -7,15 +7,15 @@
   
   <title>TFB-leaderboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LeaderboardsTable of Contents    Rules Univariate time series Multivariate time series Methods introduction    Rules对于单变量预测的模型，我们对10种数据集的msmape指标根据数据集的数据量进行加权平均，并按平均msmape进行排序。对于多变量预测的模型，我们在PEMS04、PEM">
+  <meta name="description" content="LeaderboardsTable of Contents    Univariate time series Multivariate time series Methods introduction Rules  Leaderboard for univariate time series forecasting   &#x2F;* 基本表格样式 *&#x2F; table.my-table1 {   width">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TFB-leaderboard">
 <meta property="og:url" content="https://decisionintelligence.github.io/TFB_leaderboard.github.io/leaderboards/index.html">
 <meta property="og:site_name" content="TFB-leaderboard">
-<meta property="og:description" content="LeaderboardsTable of Contents    Rules Univariate time series Multivariate time series Methods introduction    Rules对于单变量预测的模型，我们对10种数据集的msmape指标根据数据集的数据量进行加权平均，并按平均msmape进行排序。对于多变量预测的模型，我们在PEMS04、PEM">
+<meta property="og:description" content="LeaderboardsTable of Contents    Univariate time series Multivariate time series Methods introduction Rules  Leaderboard for univariate time series forecasting   &#x2F;* 基本表格样式 *&#x2F; table.my-table1 {   width">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-04T06:40:04.622Z">
-<meta property="article:modified_time" content="2024-07-04T06:38:10.376Z">
+<meta property="article:published_time" content="2024-07-04T07:22:57.773Z">
+<meta property="article:modified_time" content="2024-07-04T07:22:57.766Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -87,8 +87,6 @@
                   
                     <a href="/TFB_leaderboard.github.io/datasets/#Multivariate-time-series">Multivariate time series</a>
                   
-                    <a href="/TFB_leaderboard.github.io/datasets/#Dataset-comprehensiveness">Dataset comprehensiveness</a>
-                  
                 </div>
               </div>
             
@@ -98,20 +96,20 @@
                 <a class="main-nav-link dropdown-toggle" href="/TFB_leaderboard.github.io/leaderboards">Leaderboards <span class="caret"></span></a>
                 <div class="dropdown-content">
                   
-                    <a href="/TFB_leaderboard.github.io/leaderboards/#Rules">Rules</a>
+                    <a href="/TFB_leaderboard.github.io/leaderboards/#Leaderboard-for-univariate-time-series-forecasting">Univariate time series</a>
                   
-                    <a href="/TFB_leaderboard.github.io/leaderboards/#Univariate-time-series">Univariate time series</a>
-                  
-                    <a href="/TFB_leaderboard.github.io/leaderboards/#Multivariate-time-series">Multivariate time series</a>
+                    <a href="/TFB_leaderboard.github.io/leaderboards/#Leaderboard-for-multivariate-time-series-forecasting">Multivariate time series</a>
                   
                     <a href="/TFB_leaderboard.github.io/leaderboards/#Methods-introduction">Methods introduction</a>
+                  
+                    <a href="/TFB_leaderboard.github.io/leaderboards/#Rules">Rules</a>
                   
                 </div>
               </div>
             
           
             
-              <a class="main-nav-link" target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.20150">Paper</a>
+              <a class="main-nav-link" href="/TFB_leaderboard.github.io/paper">Paper</a>
             
           
             
@@ -220,7 +218,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard.github.io/leaderboards/index.html" class="article-date">
-  <time datetime="2024-07-04T06:40:04.622Z" itemprop="datePublished">2024-07-04</time>
+  <time datetime="2024-07-04T07:22:57.773Z" itemprop="datePublished">2024-07-04</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -234,24 +232,11 @@
 <!-- 1. [Overview](#Overview) -->
 
 <ol>
-<li><a href="#Rules">Rules</a></li>
-<li><a href="#Univariate-time-series">Univariate time series</a></li>
-<li><a href="#Multivariate-time-series">Multivariate time series</a></li>
+<li><a href="#Leaderboard-for-univariate-time-series-forecasting">Univariate time series</a></li>
+<li><a href="#Leaderboard-for-multivariate-time-series-forecasting">Multivariate time series</a></li>
 <li><a href="#Methods-introduction">Methods introduction</a></li>
+<li><a href="#Rules">Rules</a></li>
 </ol>
-<!-- ## Overview
-
-Public leaderboards allow researchers to keep track of state-of-the-art methods and encourage reproducible research.
-
-### How Leaderboards Work?
-
-### How to Submit?
-
-Use the [Google form](https://forms.gle/7PB7375i5P1rHgng6) to make a submission.
-
-The results will be posted after we check the model validity (expect to take about about a week). -->
-
-<h2 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h2><p>对于单变量预测的模型，我们对10种数据集的msmape指标根据数据集的数据量进行加权平均，并按平均msmape进行排序。<br>对于多变量预测的模型，我们在PEMS04、PEMS-BAY、METR-LA、PEMS08等25个数据集上，分别进行了4次分割，每个方法进行100次实验并分别得到MAE、MSE指标，分实验、分指标对方法进行排序，并计算每种方法的排名情况，依次按照排名第1、2、3、4的次数进行排序。</p>
 <h2 id="Leaderboard-for-univariate-time-series-forecasting"><a href="#Leaderboard-for-univariate-time-series-forecasting" class="headerlink" title="Leaderboard for univariate time series forecasting"></a>Leaderboard for univariate time series forecasting</h2><style>
   /* 基本表格样式 */
 table.my-table1 {
@@ -260,7 +245,6 @@ table.my-table1 {
   font-family: Arial, sans-serif;
   border: none; /* 去除表格边框 */
 }
-
 /* 表头样式 */
 table.my-table1 th {
   background-color: #f2f2f2; /* 表头背景色（奇数行浅灰色） */
@@ -817,6 +801,11 @@ table.my-table2 tr td:nth-child(7) {
 <li>MLP-based models (NLinear, DLinear, TiDE, N-HiTS, and N-BEATS)</li>
 <li>Transformer-based models (PatchTST, Crossformer, and FEDformer, Non-stationary Transformer, Informer, and Triformer)</li>
 <li>Model-Agnostic models (FiLM)</li>
+</ul>
+<h2 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h2><p>Public leaderboards allow researchers to keep track of state-of-the-art methods and encourage reproducible research.</p>
+<ul>
+<li>For univariate forecasting algorithms, we provide two optional rankings for each algorithm. The first ranking is to calculate the average value of the MSMAPE metric over 8068 time series, with the smaller the average value, the better the ranking. The second ranking is to calculate the number of times it achieves the best performance on the MSMAPE metric across 8068 time series, with the more times the better the ranking.</li>
+<li>For multivariate forecasting algorithms, we calculate the number of times each algorithm achieves the best performance on 25 datasets, with 4 forecasting horizon for each dataset and two error metrics <strong>(25 * 4 * 2 &#x3D; 200)</strong>, and count them as <strong>x</strong>. The number of times the second best performance is achieved is counted as <strong>y</strong>. The number of times the third best performance is achieved is counted as <strong>z</strong>. Then calculate the final score as: <strong>score &#x3D; 3 * x + 2 * y + 1 * z</strong>. The larger the final score, the better the ranking.</li>
 </ul>
 
       
