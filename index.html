@@ -233,35 +233,35 @@
 <div class="main-wrapper">
         <div class="content-block">
             <div class="block-section picture">
-                <img src="figures/用户组.png">
+                <img src="figures/datasets_icon.svg">
             </div>
             <div class="block-section heading">
-                <h2>Heading 1</h2>
+                <h2>Comprehensive dataset</h2>
             </div>
             <div class="block-section description">
-                <p>This is the description for the first block.</p>
+                <p>TFB provides a diverse set of challenging and comprehensive benchmark datasets that are of varying sizes and cover multiple domains and complex settings. All datasets are stored in a unified format.</p >
             </div>
         </div>
         <div class="content-block">
             <div class="block-section picture">
-                <img src="figures/用户组.png" >
+                <img src="figures/alg_icon.svg" >
             </div>
             <div class="block-section heading">
-                <h2>Heading 2</h2>
+                <h2>Rich algorithms</h2>
             </div>
             <div class="block-section description">
-                <p>This is the description for the second block.</p>
+                <p>TFB covers a diverse range of methods, including statistical learning, machine learning, and deep learning methods, accompanied by a variety of evaluation strategies and metrics.</p >
             </div>
         </div>
         <div class="content-block">
             <div class="block-section picture">
-                <img src="figures/用户组.png" >
+                <img src="figures/pipeline.svg" >
             </div>
             <div class="block-section heading">
-                <h2>Heading 3</h2>
+                <h2>Unified & flexible pipeline</h2>
             </div>
             <div class="block-section description">
-                <p>This is the description for the third block.</p>
+                <p>TFB offers an unified & flexible  pipeline for evaluating forecasting methods, streamlining and standardizing the steps of loading time series datasets, configuring experiments, and evaluating methods</p >
             </div>
         </div>
     </div>
@@ -271,7 +271,7 @@
 .main-wrapper {
     display:flex;
     justify-content:space-between;
-    width:90%;
+    width:100%;
     max-width:1200px;
     margin:20px auto;
     gap:20px;
@@ -290,11 +290,12 @@
 }
 
 .picture img {
-    width:50%;
+    width:25%;
     height:auto;
     display:block;
     margin:0 auto; /* Center the image */
-    padding:0
+    padding:0;
+    padding-bottom:5%;
 }
 
 .heading h2 {
@@ -304,11 +305,15 @@
     margin-top:-10%;
     padding:0;
 }
-
+.description{
+    display:flex;
+    justify-content:center;
+}
 .description p {
     text-align:left;
     margin-top:-10%;
     padding:0px 0;
+    width:90%
 }
 
 a {
@@ -317,7 +322,59 @@ a {
 
 </style>
 <style>
-
+.container {
+            
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:2%;
+            background-color:#e0e0e0;
+            border-radius:10px;
+            max-width:80%;
+            margin:auto;
+            margin-top:2%;
+            box-sizing:border-box;
+        }
+        .text-content {
+            width:30%;
+            padding:0;
+            /* margin-right:2%; */
+        }
+        .text-content h1 {
+            font-size:1.5em;
+            margin-top:0;
+            margin-bottom:0;
+        }
+        .text-content p {
+            font-size:1em;
+            margin:0;
+        }
+        .image-content {
+            text-align:center;
+            padding:0;
+            width:40%;
+        }
+        .image-content img {
+            max-width:100%;
+            height:auto;
+        }
+        .download {
+            width:30%;
+            padding:0;
+            display:flex;
+            align-items:center;
+            text-align:center;
+        }
+        .download img {
+            width:80%;
+            height:auto;
+        }
+        .download a {
+            text-decoration:none;
+            color:#0073e6;
+            margin-top:0.5em;
+            font-size:1.5em;
+        }
 </style>
 
 <hr>
@@ -326,6 +383,20 @@ a {
 <hr>
 <p>The table below provides a visual overview of how TFB’s key features compare to other libraries for time series forecasting.</p>
 <p><img src="/TFB_leaderboard.github.io/figures/Comparison_with_Related_Libraries.png"></p>
+<hr>
+  <div class="container">
+        <div class="text-content">
+            <h1>TFB paper</h1>
+            <p>presents the datasets, benchmark experiments, and research opportunities.</p>
+        </div>
+        <div class="image-content">
+            <img src="figures/paper.png">
+        </div>
+        <div class="download">
+            <img src="figures/download.png">
+            <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.20150">Download paper here</a>
+        </div>
+    </div>
 
       
     </div>
