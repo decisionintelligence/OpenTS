@@ -244,6 +244,8 @@ body {
 }
 #container {
   position: relative;
+  min-width: 1195px;
+  max-width: 2018px;
 }
 .logo {
   width: 4.875em;
