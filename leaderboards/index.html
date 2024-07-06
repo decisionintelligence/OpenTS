@@ -7,15 +7,15 @@
   
   <title>TFB-leaderboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LeaderboardsTable of Contents    Univariate time series Multivariate time series Methods introduction Rules  Leaderboard for univariate time series forecasting   &#x2F;* 基本表格样式 *&#x2F; table.my-table1 {   width">
+  <meta name="description" content="LeaderboardsTable of Contents    Univariate time series Multivariate time series Rules  Leaderboard for univariate time series forecasting   &#x2F;* 基本表格样式 *&#x2F; table.my-table1 {   width: 100%;   border-coll">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TFB-leaderboard">
 <meta property="og:url" content="https://decisionintelligence.github.io/TFB_leaderboard.github.io/leaderboards/index.html">
 <meta property="og:site_name" content="TFB-leaderboard">
-<meta property="og:description" content="LeaderboardsTable of Contents    Univariate time series Multivariate time series Methods introduction Rules  Leaderboard for univariate time series forecasting   &#x2F;* 基本表格样式 *&#x2F; table.my-table1 {   width">
+<meta property="og:description" content="LeaderboardsTable of Contents    Univariate time series Multivariate time series Rules  Leaderboard for univariate time series forecasting   &#x2F;* 基本表格样式 *&#x2F; table.my-table1 {   width: 100%;   border-coll">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-06T02:38:02.609Z">
-<meta property="article:modified_time" content="2024-07-05T16:48:40.000Z">
+<meta property="article:published_time" content="2024-07-06T02:48:41.833Z">
+<meta property="article:modified_time" content="2024-07-06T02:48:38.773Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -224,7 +224,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard.github.io/leaderboards/index.html" class="article-date">
-  <time datetime="2024-07-06T02:38:02.609Z" itemprop="datePublished">2024-07-06</time>
+  <time datetime="2024-07-06T02:48:41.833Z" itemprop="datePublished">2024-07-06</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -240,7 +240,6 @@
 <ol>
 <li><a href="#Leaderboard-for-univariate-time-series-forecasting">Univariate time series</a></li>
 <li><a href="#Leaderboard-for-multivariate-time-series-forecasting">Multivariate time series</a></li>
-<li><a href="#Methods-introduction">Methods introduction</a></li>
 <li><a href="#Rules">Rules</a></li>
 </ol>
 <h2 id="Leaderboard-for-univariate-time-series-forecasting"><a href="#Leaderboard-for-univariate-time-series-forecasting" class="headerlink" title="Leaderboard for univariate time series forecasting"></a>Leaderboard for univariate time series forecasting</h2><style>
@@ -355,7 +354,7 @@ table.my-table1 tr td:nth-child(7)  {
                 }
             }));
     }
-    
+
 
     function processData(data) {
         // Extract metadata
@@ -449,7 +448,7 @@ table.my-table1 tr td:nth-child(7)  {
                 }
             }));
     }
-    
+
     function processData1(data) {
         // Extract metadata
         const contactText = data[0];
@@ -596,7 +595,7 @@ function phraseMultiTable(results, table, datasets) {
 
     // Extract new fields
     const connectTexts = {}, connectUrls = {}, paperUrls = {}, codeUrls = {}, pub = {}, year = {}, bib = {};
-
+    
     // Extract metadata from the first seven rows
     for (let i = 0; i < 7; i++) {
         const row = data[i];
@@ -613,7 +612,7 @@ function phraseMultiTable(results, table, datasets) {
         }
     }
     const all_datasets = new Set();
-
+    
     // Loop through all rows in the data
     for (let i = 7; i < data.length; i++) {
         const row = data[i];
@@ -623,10 +622,10 @@ function phraseMultiTable(results, table, datasets) {
             all_datasets.add(row['Dataset-Quantity-metrics'].split('-')[0]);
         }
     }
-
+    
     // Remove the first seven rows (metadata)
     const experimentData = data.slice(7);
-
+    
     // Filter experiment data based on provided dataset list
       const filteredExperimentData = experimentData.filter(row => {
         if (row && row['Dataset-Quantity-metrics']) {
@@ -649,7 +648,7 @@ function phraseMultiTable(results, table, datasets) {
          Object.entries(rankCounts).forEach(([model, values]) => {
         result.push({"model": model, 'rank1': values['1'], 'rank2': values['2'], 'rank3': values['3'], 'rank4': values['4']});
     });
-
+    
         displayResults(result, connectTexts, connectUrls, paperUrls, codeUrls, pub, bib, year, table,false);
         return all_datasets;
     }
@@ -659,7 +658,7 @@ function phraseMultiTable(results, table, datasets) {
     modelColumns.forEach(model => {
         rankCounts[model] = {1: 0, 2: 0, 3: 0, 4: 0};
     });
-
+    
     // Process filtered experiment data
     filteredExperimentData.forEach(row => {
         const validModels = modelColumns.filter(model => !isNaN(row[model]));
@@ -673,10 +672,11 @@ function phraseMultiTable(results, table, datasets) {
     });
 
    
+
     Object.entries(rankCounts).forEach(([model, values]) => {
         result.push({"model": model, 'rank1': values['1'], 'rank2': values['2'], 'rank3': values['3'], 'rank4': values['4']});
     });
-
+    
     // Display results
     displayResults(result, connectTexts, connectUrls, paperUrls, codeUrls, pub, bib, year, table,true);
     return all_datasets;
@@ -903,17 +903,6 @@ option
 
 <center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Table 2: Multivariate forecasting results.</center>
 
-<h2 id="Methods-introduction"><a href="#Methods-introduction" class="headerlink" title="Methods introduction"></a>Methods introduction</h2><p>TFB evaluated a diverse range of methods, including statistical learning, machine learning, and deep learning methods.</p>
-<p><strong>Statistical Learning (SL)</strong>: ARIMA, ETS, Kalman Filter, and VAR</p>
-<p><strong>Mtatistical Learning (ML):</strong> XGBModel , LinearRegression, and Random Forest</p>
-<p><strong>Deep Learning (DL):</strong> </p>
-<ul>
-<li>RNN-based models (RNN)</li>
-<li>CNN-based models (MICN, TimesNet, and TCN)</li>
-<li>MLP-based models (NLinear, DLinear, TiDE, N-HiTS, and N-BEATS)</li>
-<li>Transformer-based models (PatchTST, Crossformer, and FEDformer, Non-stationary Transformer, Informer, and Triformer)</li>
-<li>Model-Agnostic models (FiLM)</li>
-</ul>
 <h2 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h2><p>Public leaderboards allow researchers to keep track of state-of-the-art methods and encourage reproducible research.</p>
 <ul>
 <li>For univariate forecasting algorithms, we provide two optional rankings for each algorithm. The first ranking is to calculate the average value of the MSMAPE metric over 8068 time series, with the smaller the average value, the better the ranking. The second ranking is to calculate the number of times it achieves the best performance on the MSMAPE metric across 8068 time series, with the more times the better the ranking.</li>
