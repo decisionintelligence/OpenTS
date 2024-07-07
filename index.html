@@ -224,7 +224,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard/2024/07/07/hello-world/" class="article-date">
-  <time datetime="2024-07-07T09:22:40.000Z" itemprop="datePublished">2024-07-07</time>
+  <time datetime="2024-07-07T13:18:37.530Z" itemprop="datePublished">2024-07-07</time>
 </a>-->
       <!--
 -->
@@ -269,7 +269,7 @@
                 <img src="figures/pipeline.svg" >
             </div>
             <div class="block-section heading">
-                <a ><h2>Unified Pipeline</h2></a>
+                <a href="algorithms/"><h2>Unified Pipeline</h2></a>
             </div>
             <div class="block-section description">
                 <p >TFB offers a unified pipeline for evaluating time series forecasting methods under a variety of experiment configuration settings.
@@ -484,14 +484,32 @@ The table below provides a visual overview of how TFB's key features compare to 
 function alter(){
     var links = document.querySelectorAll('a');
     links.forEach(function(link) {
-       
+
         // 如果 href 包含 'figures/paper.png'
         if (link.href.includes('paper.png')) {
-             console.log(link.href)
+            //  console.log(link.href)
             // 修改 href 为 'www.baidu.com'
             link.href = 'https://www.vldb.org/pvldb/vol17/p2363-hu.pdf';
         }
+      
     })
+    
+     links.forEach(function(link) {
+       
+        // 如果 href 包含 'figures/paper.png'
+        if (link.href.includes('svg')) {
+            //  console.log(link.href)
+            // 修改 href 为 'www.baidu.com'
+             link.onclick = function(event) {
+        event.preventDefault(); // 阻止默认的点击行为
+    };
+      link.style.pointerEvents = 'none';
+    //  link.style.cursor = 'not-allowed';
+        }
+      
+    })
+
+
 }
 
 </script>

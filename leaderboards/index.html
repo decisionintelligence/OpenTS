@@ -7,15 +7,15 @@
   
   <title>TFB-leaderboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LeaderboardsTable of Contents    Univariate time series  Multivariate time series  Public leaderboards allow researchers to keep track of state-of-the-art methods and encourage reproducible research.">
+  <meta name="description" content="Leaderboards          &#x2F;* 基本表格样式 *&#x2F; table.my-table1 {   width: 100%;   border-collapse: collapse;   font-family: Arial, sans-serif;   border: none; &#x2F;* 去除表格边框 *&#x2F; } &#x2F;* 表头样式 *&#x2F; table.my-table1 th {   back">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TFB-leaderboard">
 <meta property="og:url" content="https://decisionintelligence.github.io/TFB_leaderboard/leaderboards/index.html">
 <meta property="og:site_name" content="TFB-leaderboard">
-<meta property="og:description" content="LeaderboardsTable of Contents    Univariate time series  Multivariate time series  Public leaderboards allow researchers to keep track of state-of-the-art methods and encourage reproducible research.">
+<meta property="og:description" content="Leaderboards          &#x2F;* 基本表格样式 *&#x2F; table.my-table1 {   width: 100%;   border-collapse: collapse;   font-family: Arial, sans-serif;   border: none; &#x2F;* 去除表格边框 *&#x2F; } &#x2F;* 表头样式 *&#x2F; table.my-table1 th {   back">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-07T11:28:26.987Z">
-<meta property="article:modified_time" content="2024-07-07T11:19:51.176Z">
+<meta property="article:published_time" content="2024-07-07T13:11:56.711Z">
+<meta property="article:modified_time" content="2024-07-07T13:11:15.314Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -227,7 +227,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard/leaderboards/index.html" class="article-date">
-  <time datetime="2024-07-07T11:28:26.987Z" itemprop="datePublished">2024-07-07</time>
+  <time datetime="2024-07-07T13:11:56.711Z" itemprop="datePublished">2024-07-07</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -237,14 +237,14 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Leaderboards"><a href="#Leaderboards" class="headerlink" title="Leaderboards"></a>Leaderboards</h1><p><strong>Table of Contents</strong></p>
-<!-- 1. [Overview](#Overview) -->
+        <h1 id="Leaderboards"><a href="#Leaderboards" class="headerlink" title="Leaderboards"></a>Leaderboards</h1><!-- **Table of Contents** -->
 
-<ol>
-<li><a href="#Leaderboard-for-univariate-time-series-forecasting">Univariate time series</a> </li>
-<li><a href="#Leaderboard-for-multivariate-time-series-forecasting">Multivariate time series</a></li>
-</ol>
-<p>Public leaderboards allow researchers to keep track of state-of-the-art methods and encourage reproducible research.</p>
+<!-- 1. [Overview](#Overview) -->
+<!-- 
+1. [Univariate time series](#Leaderboard-for-univariate-time-series-forecasting) -->
+<!-- 1. [Multivariate time series](#Leaderboard-for-multivariate-time-series-forecasting)
+1. [Rules](#Rules) -->
+
 <!-- ## Leaderboard for univariate time series forecasting -->
 <style>
   /* 基本表格样式 */
@@ -536,7 +536,6 @@ table.my-table1 tr td:nth-child(7)  {
 </script>
 
 
-
 <h2 id="Leaderboard-for-univariate-time-series-forecasting"><a href="#Leaderboard-for-univariate-time-series-forecasting" class="headerlink" title="Leaderboard for univariate time series forecasting"></a>Leaderboard for univariate time series forecasting</h2><h2 id="Leaderboard-for-multivariate-time-series-forecasting"><a href="#Leaderboard-for-multivariate-time-series-forecasting" class="headerlink" title="Leaderboard for multivariate time series forecasting"></a>Leaderboard for multivariate time series forecasting</h2><script>
 function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {
 
@@ -672,8 +671,6 @@ function phraseMultiTable(results, table, datasets) {
     });
 
    
-
-
 
 
 
@@ -972,10 +969,8 @@ option
 </div>
 <!-- <center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Table 1: Multivariate forecasting results.</center> -->
 
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><!-- - For univariate forecasting algorithms, we provide two optional rankings for each algorithm. The first ranking is to calculate the average value of the MSMAPE metric over 8068 time series, with the smaller the average value, the better the ranking. The second ranking is to calculate the number of times it achieves the best performance on the MSMAPE metric across 8068 time series, with the more times the better the ranking. -->
-
 <p><strong>Rule:</strong></p>
-<p>For multivariate forecasting algorithms, we consider 25 datasets, 4 forecasting horizons, and 2 error metrics, i.e., MAE and MSE, thus having 200 (25 * 4 * 2) unique evaluation settings. For each forecasting algorithm, we count the number of times that the algorithm achieves the 1st, 2nd, and 3rd accuarcy, denoated as x, y, and z. Finally, we calcualte the final score as <strong>score &#x3D; 3 * x+ 2 * y + 1 * z</strong>. The larger the final score, the higher the ranking.</p>
+<p>For multivariate forecasting algorithms, we consider 25 datasets, 4 different forecasting horizons, and 2 error metrics, i.e., MAE and MSE, thus having 200 (25 * 4 * 2) unique evaluation settings. For each forecasting algorithm, we count the number of times that the algorithm achieves the 1st, 2nd, and 3rd accuarcy, denoated as x, y, and z. Finally, we calcualte the final score as <strong>score &#x3D; 3 * x+ 2 * y + 1 * z</strong>. The larger the final score, the higher the ranking.</p>
 
       
     
