@@ -2,7 +2,7 @@
 <html>
 <head>
   <script src="/TFB_leaderboard/js/jquery.min.js"></script>
-  <link rel="icon" type="image/png" href="/TFB_leaderboard.github.io/figures/logo10.png">
+  <link rel="icon" type="image/png" href="/TFB_leaderboard/figures/logo10.png">
   <meta charset="utf-8">
   
   <title>TFB-leaderboard</title>
@@ -220,7 +220,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard/2024/07/07/hello-world/" class="article-date">
-  <time datetime="2024-07-07T02:53:02.000Z" itemprop="datePublished">2024-07-07</time>
+  <time datetime="2024-07-07T08:16:53.949Z" itemprop="datePublished">2024-07-07</time>
 </a>-->
       <!--
 -->
@@ -234,9 +234,6 @@
         <h1 id="TFB-Overview"><a href="#TFB-Overview" class="headerlink" title="TFB Overview"></a>TFB Overview</h1><p>Time series Forecasting Benchmark (TFB) is a comprehensive and fair benchmarking of time series forecasting methods. TFB provides comprehensive time series datasets, rich time series forecasting algorithms, and a unified evaluation pipeline  with various strategies and metrics.</p>
 <hr>
 <script>
-     document.getElementById('dataset-header').onclick = function() {
-        window.location.href = 'http://www.example.com'; // Replace with your desired URL
-    };
 </script>
 <div class="main-wrapper">
         <div class="content-block">
@@ -479,12 +476,30 @@ The table below provides a visual overview of how TFB's key features compare to 
  -->
 
 <hr>
+<script>
+function alter(){
+    var links = document.querySelectorAll('a');
+    links.forEach(function(link) {
+       
+        // 如果 href 包含 'figures/paper.png'
+        if (link.href.includes('paper.png')) {
+             console.log(link.href)
+            // 修改 href 为 'www.baidu.com'
+            link.href = 'https://www.vldb.org/pvldb/vol17/p2363-hu.pdf';
+        }
+    })
+}
+
+</script>
+
 <div class="container">
     <div class="left-column">
     <div class="left-text">
            <a target="_blank" rel="noopener" href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf" > <h2 >Download paper</h2></a>
         </div>
-        <img src="figures/paper.png" class="image" style="box-shadow:0 2px 8px rgba(0, 0, 0, 0.1)">
+         <a href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf" target="_blank" rel="noopener" >
+         <img id="clickable-image" src="figures/paper.png" onload="alter()" class="image" style="box-shadow:0 2px 8px rgba(0, 0, 0, 0.1)">
+         </a>
     </div>
     <div class="right-column">
      <h3 >Cite Us</h3>
