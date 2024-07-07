@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="TFB-leaderboard">
 <meta property="og:description" content="Get StartedYou can find our offical code here: TFB github Table of Contents Quickstart Steps to develop your own method FAQ Citing TFB Contact  QuickstartInstallationFrom PyPIGiven a python environmen">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-07T08:16:53.955Z">
-<meta property="article:modified_time" content="2024-07-07T02:54:22.000Z">
+<meta property="article:published_time" content="2024-07-07T11:13:45.027Z">
+<meta property="article:modified_time" content="2024-07-07T11:13:23.685Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -100,9 +100,9 @@
               <a class="main-nav-link dropdown-toggle" href="/TFB_leaderboard/leaderboards">Leaderboards <span class="caret"></span></a>
               <div class="dropdown-content">
                 
-                  <a href="/TFB_leaderboard/leaderboards/#Leaderboard-for-multivariate-time-series-forecasting">Multivariate time series</a>
+                  <a href="/TFB_leaderboard/leaderboards/#Leaderboard-for-univariate-time-series-forecasting">Univariate time series</a>
                 
-                  <a href="/TFB_leaderboard/leaderboards/#Rules">Rules</a>
+                  <a href="/TFB_leaderboard/leaderboards/#Leaderboard-for-multivariate-time-series-forecasting">Multivariate time series</a>
                 
               </div>
             </div>
@@ -227,7 +227,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard/get%20started/index.html" class="article-date">
-  <time datetime="2024-07-07T08:16:53.955Z" itemprop="datePublished">2024-07-07</time>
+  <time datetime="2024-07-07T11:13:45.027Z" itemprop="datePublished">2024-07-07</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -257,7 +257,7 @@
 <h3 id="Train-and-evaluate-model"><a href="#Train-and-evaluate-model" class="headerlink" title="Train and evaluate model"></a>Train and evaluate model</h3><p>We provide the experiment scripts for all benchmarks under the folder <code>./scripts/multivariate_forecast</code>, and <code>./scripts/univariate_forecast</code>. For example you can reproduce a experiment result as the following:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh ./scripts/multivariate_forecast/ILI_script/DLinear.sh</span><br></pre></td></tr></table></figure>
 
-<h2 id="Steps-to-develop-your-own-method"><a href="#Steps-to-develop-your-own-method" class="headerlink" title="Steps to develop your own method"></a>Steps to develop your own method</h2><h3 id="Define-you-model-or-adapter-class"><a href="#Define-you-model-or-adapter-class" class="headerlink" title="Define you model or adapter class"></a>Define you model or adapter class</h3><p>The user-implemented model or adapter class should implement the following functions in order to adapt to this benchmark.</p>
+<h2 id="Steps-to-include-your-own-method"><a href="#Steps-to-include-your-own-method" class="headerlink" title="Steps to include your own method"></a>Steps to include your own method</h2><h3 id="Define-you-model-or-adapter-class"><a href="#Define-you-model-or-adapter-class" class="headerlink" title="Define you model or adapter class"></a>Define you model or adapter class</h3><p>The user-implemented model or adapter class should implement the following functions in order to adapt to this benchmark.</p>
 <p>“required_hyper_params” function is optional，<strong>repr</strong> functions is necessary.</p>
 <p><strong>The function prototypes are as follows：</strong></p>
 <ul>
@@ -287,16 +287,13 @@
 <p>Such as: <strong>‘{“d_ff”: 512, “d_model”: 256}’ —&gt; {\“d_ff\“:512,\“d_model\“:256}</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--config-path &quot;rolling_forecast_config.json&quot; --data-name-list &quot;ILI.csv&quot; --strategy-args &#123;\&quot;horizon\&quot;:24&#125; --model-name &quot;time_series_library.DLinear&quot; --model-hyper-params &#123;\&quot;batch_size\&quot;:16,\&quot;d_ff\&quot;:512,\&quot;d_model\&quot;:256,\&quot;lr\&quot;:0.01,\&quot;horizon\&quot;:24,\&quot;seq_len\&quot;:104&#125; --adapter &quot;transformer_adapter&quot;  --gpus 0  --num-workers 1  --timeout 60000  --save-path &quot;ILI/DLinear&quot;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Citing-TFB"><a href="#Citing-TFB" class="headerlink" title="Citing TFB"></a>Citing TFB</h2><p>If you find TFB helpful, please cite <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2403.20150.pdf">our paper</a> (Bibtex below).</p>
+<h2 id="Citing-TFB"><a href="#Citing-TFB" class="headerlink" title="Citing TFB"></a>Citing TFB</h2><p>If you find TFB helpful, please cite <a target="_blank" rel="noopener" href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf">our paper</a> (Bibtex below).</p>
 <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;qiu2024tfb,</span><br><span class="line">  title   = &#123;TFB: Towards Comprehensive and Fair Benchmarking of Time Series Forecasting Methods&#125;,</span><br><span class="line">  author  = &#123;Qiu, Xiangfei and Hu, Jilin and Zhou, Lekui and Wu, Xingjian and Du, Junyang and Zhang, Buang and Guo, Chenjuan and Zhou, Aoying and Jensen, Christian S and Sheng, Zhenli and Bin Yang&#125;,</span><br><span class="line">  journal = &#123;Proc. &#123;VLDB&#125; Endow.&#125;,</span><br><span class="line">  year    = &#123;2024&#125;</span><br><span class="line">  pages   = &#123;2363 - 2377&#125;</span><br><span class="line">  volume  = &#123;17&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p>If you have any questions or suggestions, feel free to contact:</p>
 <ul>
-<li>Xiangfei Qiu (<a href="mailto:&#120;&#102;&#x71;&#105;&#x75;&#64;&#115;&#x74;&#x75;&#46;&#101;&#x63;&#110;&#117;&#x2e;&#x65;&#x64;&#x75;&#46;&#99;&#x6e;">&#120;&#102;&#x71;&#105;&#x75;&#64;&#115;&#x74;&#x75;&#46;&#101;&#x63;&#110;&#117;&#x2e;&#x65;&#x64;&#x75;&#46;&#99;&#x6e;</a>)</li>
-<li>Xingjian Wu (<a href="mailto:&#x78;&#x6a;&#x77;&#117;&#64;&#115;&#116;&#x75;&#46;&#x65;&#99;&#x6e;&#117;&#46;&#x65;&#100;&#x75;&#x2e;&#99;&#110;">&#x78;&#x6a;&#x77;&#117;&#64;&#115;&#116;&#x75;&#46;&#x65;&#99;&#x6e;&#117;&#46;&#x65;&#100;&#x75;&#x2e;&#99;&#110;</a>)</li>
-<li>Buang Zhang (<a href="mailto:&#x62;&#117;&#x61;&#x7a;&#104;&#x61;&#x6e;&#103;&#x40;&#115;&#116;&#117;&#x2e;&#101;&#99;&#x6e;&#x75;&#x2e;&#x65;&#x64;&#x75;&#46;&#99;&#110;">&#x62;&#117;&#x61;&#x7a;&#104;&#x61;&#x6e;&#103;&#x40;&#115;&#116;&#117;&#x2e;&#101;&#99;&#x6e;&#x75;&#x2e;&#x65;&#x64;&#x75;&#46;&#99;&#110;</a>)</li>
-<li>Junyang Du (<a href="mailto:&#106;&#121;&#100;&#117;&#56;&#49;&#x38;&#x40;&#x73;&#x74;&#117;&#46;&#x65;&#x63;&#110;&#x75;&#46;&#x65;&#100;&#x75;&#x2e;&#x63;&#x6e;">&#106;&#121;&#100;&#117;&#56;&#49;&#x38;&#x40;&#x73;&#x74;&#117;&#46;&#x65;&#x63;&#110;&#x75;&#46;&#x65;&#100;&#x75;&#x2e;&#x63;&#x6e;</a>)</li>
+<li>Xiangfei Qiu (<a href="mailto:&#x78;&#x66;&#x71;&#105;&#117;&#64;&#x73;&#116;&#117;&#x2e;&#101;&#99;&#110;&#x75;&#46;&#101;&#100;&#x75;&#46;&#99;&#x6e;">&#x78;&#x66;&#x71;&#105;&#117;&#64;&#x73;&#116;&#117;&#x2e;&#101;&#99;&#110;&#x75;&#46;&#101;&#100;&#x75;&#46;&#99;&#x6e;</a>)</li>
 </ul>
 
       
