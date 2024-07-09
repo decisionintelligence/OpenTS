@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="TFB-leaderboard">
 <meta property="og:description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var freqs&#x3D;[] var characters&#x3D;[] var all_data&#x3D;[]  function displayResults_uni(data_,is_rank) {     s">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-09T10:04:17.455Z">
-<meta property="article:modified_time" content="2024-07-09T10:04:17.455Z">
+<meta property="article:published_time" content="2024-07-09T11:44:29.256Z">
+<meta property="article:modified_time" content="2024-07-09T11:44:29.256Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -233,7 +233,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard/leaderboards_univariate/index.html" class="article-date">
-  <time datetime="2024-07-09T10:04:17.455Z" itemprop="datePublished">2024-07-09</time>
+  <time datetime="2024-07-09T11:44:29.256Z" itemprop="datePublished">2024-07-09</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -432,7 +432,7 @@ function toggleCategory_uni(category,isChecked){
 }
 function populateCheckboxes_uni() {
     const container = document.getElementById('dataset-container-uni');
-    const groupedDatasets = {'Freqs':freqs,'Characteristics':characters};
+    const groupedDatasets = {'Freqs':[  "Hourly","Daily", "Weekly", "Monthly", "Quarterly", "Yearly", "Other" ],'Characteristics':[ "Trend", "Transition",  "Shifting" ,"Seasonality", "Stationarity","Irregular" ]};
     
     // 对 groupedDatasets 按内容数量进行排序
     const sortedCategories = Object.keys(groupedDatasets).sort((a, b) => groupedDatasets[b].length - groupedDatasets[a].length);
@@ -743,7 +743,7 @@ option
 
 
 
-<h3 id="Rule"><a href="#Rule" class="headerlink" title="Rule:"></a>Rule:</h3><p>For multivariate forecasting algorithms, we consider 25 datasets, 4 forecasting horizons, and 2 error metrics, i.e., MAE and MSE, thus having 200 (25 * 4 * 2) unique evaluation settings. For each forecasting algorithm, we count the number of times that the algorithm achieves the 1st, 2nd, and 3rd accuarcy, denoated as x, y, and z. Finally, we calcualte the final score as <strong>score &#x3D; 3 * x+ 2 * y + 1 * z</strong>. The larger the final score, the higher the ranking.</p>
+<h3 id="Rule"><a href="#Rule" class="headerlink" title="Rule:"></a>Rule:</h3><p>For univariate forecasting algorithms, we consider 8,068 series, and the MSMAPE metric, thus having 8,068 unique evaluation settings. For each forecasting algorithm, we count the number of times that the algorithm achieves the 1st, 2nd, and 3rd accuarcy, denoated as x, y, and z. Finally, we calcualte the final score as <strong>score &#x3D; 3 * x + 2 * y + 1 * z</strong>. The larger the final score, the higher the ranking.</p>
 
       
     
