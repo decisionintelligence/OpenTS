@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="TFB-leaderboard">
 <meta property="og:description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[&quot;Crossformer&quot;,&quot;Arima&quot;,&quot;RNN&quot;,&quot;Kalman Filter&quot;,&quot;Linear Regression&quot;,&quot;Naive Drift&quot;,&quot;Naive Mean&quot;,&quot;Naive Moving Average&quot;,&quot;Na">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-14T07:20:32.813Z">
-<meta property="article:modified_time" content="2024-07-14T07:20:32.813Z">
+<meta property="article:published_time" content="2024-07-14T07:51:12.008Z">
+<meta property="article:modified_time" content="2024-07-14T07:51:12.008Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -233,7 +233,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard/leaderboards_univariate/index.html" class="article-date">
-  <time datetime="2024-07-14T07:20:32.813Z" itemprop="datePublished">2024-07-14</time>
+  <time datetime="2024-07-14T07:51:12.008Z" itemprop="datePublished">2024-07-14</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -257,6 +257,19 @@ var all_data={}
 var all_csv={}
 var all_paradigm={'SL':["Arima","Kalman Filter","Naive Drift","Naive Mean","Naive Moving Average","Naive Seasonal","AutoCES","AutoETS","AutoTheta"],'ML':["Linear Regression","Random Forest","Xgboost","LightGBM"],'DL':["Crossformer","N-BEATS","N-HiTS","RNN","TCN","TiDE","DLinear","FEDformer","FiLM","Informer","NLinear","Non-stationary Transformers","PatchTST","TimesNet","Triformer"]}
 
+
+function updateParentCheckbox(category) {
+    const checkboxes = document.querySelectorAll(`.checkbox-${category}`);
+    const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+    document.getElementById(`select-all-${category}`).checked = allChecked;
+}
+
+function handleChildCheckboxChange(event) {
+    const checkbox = event.target;
+    const category = checkbox.className.split('-')[1];
+    updateParentCheckbox(category);
+    draw_tabel_uni();
+}
 
 function displayResults_uni(data_,is_rank) {
     sum=0
@@ -506,6 +519,7 @@ function toggleCategory_uni(category,isChecked){
     checkboxes.forEach(checkbox => {
         checkbox.checked = isChecked;
     });
+    updateAllCheckbox()
     
     draw_tabel_uni();
 }
@@ -514,11 +528,15 @@ function populateCheckboxes_uni() {
     const container = document.getElementById('dataset-container-uni');
     const container_up = document.getElementById('dataset-container-uni-up');
 
-    const groupedDatasets = {'Learning_Paradigm':paradigm,'Metrics':metrics,'Frequency':[  "Hourly","Daily", "Weekly", "Monthly", "Quarterly", "Yearly", "Other" ],'Characteristics':[ "Trend", "Transition",  "Shifting" ,"Seasonality", "Stationarity","Irregular"]};
-    
-    // 对 groupedDatasets 按内容数量进行排序
+    const groupedDatasets = {
+        'Learning_Paradigm': paradigm,
+        'Metrics': metrics,
+        'Frequency': ["Hourly", "Daily", "Weekly", "Monthly", "Quarterly", "Yearly", "Other"],
+        'Characteristics': ["Trend", "Transition", "Shifting", "Seasonality", "Stationarity", "Irregular"]
+    };
+
     const sortedCategories = Object.keys(groupedDatasets).sort((a, b) => groupedDatasets[b].length - groupedDatasets[a].length);
-    
+
     sortedCategories.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.className = 'category';
@@ -527,57 +545,66 @@ function populateCheckboxes_uni() {
         categoryCheckbox.type = 'checkbox';
         categoryCheckbox.id = `select-all-${category}`;
         categoryCheckbox.addEventListener('change', () => toggleCategory_uni(category, categoryCheckbox.checked));
-    
+
         categoryLabel.appendChild(categoryCheckbox);
-        categoryLabel.appendChild(document.createTextNode(` ${category.replace('_',' ')}`));
+        categoryLabel.appendChild(document.createTextNode(` ${category.replace('_', ' ')}`));
         categoryDiv.appendChild(categoryLabel);
         const containerDiv = document.createElement('div')
         groupedDatasets[category].forEach(name => {
-            name = name.replace('_','-')
+            name = name.replace('_', '-');
             const div = document.createElement('div');
             div.className = 'checkbox-item';
-    
+
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.id = `${category}/${name}`;
             checkbox.value = `${category}/${name}`;
             checkbox.className = `checkbox-${category}`;
-            checkbox.addEventListener('change', draw_tabel_uni);
-    
+            checkbox.addEventListener('change', handleChildCheckboxChange);  // 修改这里
+
             const label = document.createElement('label');
             label.htmlFor = `${category}/${name}`;
             label.textContent = name;
-    
+
             div.appendChild(checkbox);
             div.appendChild(label);
             containerDiv.appendChild(div);
         });
-        if (category=='Metrics'||category =='Learning_Paradigm'){
-
-            const di = document.createElement('hr')
+        if (category == 'Metrics' || category == 'Learning_Paradigm') {
+            const di = document.createElement('hr');
             containerDiv.className = 'checkbox-wrapper1';
-            di.className = 'divider '
-            categoryDiv.appendChild(containerDiv)
+            di.className = 'divider ';
+            categoryDiv.appendChild(containerDiv);
             container_up.appendChild(categoryDiv);
-            container_up.appendChild(di)
-           
-        }
-        else
-        {
-            categoryDiv.appendChild(containerDiv)
+            container_up.appendChild(di);
+        } else {
+            categoryDiv.appendChild(containerDiv);
             container.appendChild(categoryDiv);
         }
-       
-        
     });
+
     const selectAllCheckbox = document.getElementById('select-all-u');
-            if (selectAllCheckbox) {
-                selectAllCheckbox.checked = true;
-                toggleSelectAll_uni(selectAllCheckbox); // Ensure all individual checkboxes are also checked
-            }
-    toggleCategory_uni('Metrics',true)
-        toggleCategory_uni('Learning_Paradigm',true)
+    if (selectAllCheckbox) {
+        selectAllCheckbox.checked = true;
+        toggleSelectAll_uni(selectAllCheckbox);
+    }
+    toggleCategory_uni('Metrics', true);
+    toggleCategory_uni('Learning_Paradigm', true);
 }
+function updateAllCheckbox() {
+    const container = document.getElementById('check');
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+    document.getElementById('select-all-u').checked = allChecked;
+}
+function handleChildCheckboxChange(event) {
+    const checkbox = event.target;
+    const category = checkbox.className.split('-')[1];
+    updateParentCheckbox(category);
+    updateAllCheckbox();
+    draw_tabel_uni();
+}
+
 
 
 function phrase_data1(results,name)
