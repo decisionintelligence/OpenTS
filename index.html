@@ -249,7 +249,7 @@
         <div class="content-block">
             <div class="block-section picture">
                 <!-- <img src="figures/sine_wave_trend_slight_variations-01.svg"> -->
-                <img src="figures/timeseries.svg">
+                <img src="figures/timeseries.svg" >
             </div>
             <div class="block-section heading">
                 <a href="datasets/"><h2>Comprehensive Dataset</h2></a>
@@ -488,34 +488,30 @@ The table below provides a visual overview of how TFB's key features compare to 
 <hr>
 <script>
 function alter(){
-    var links = document.querySelectorAll('a');
-    links.forEach(function(link) {
-
-        // 如果 href 包含 'figures/paper.png'
-        if (link.href.includes('paper.png')) {
-            //  console.log(link.href)
-            // 修改 href 为 'www.baidu.com'
-            link.href = 'https://www.vldb.org/pvldb/vol17/p2363-hu.pdf';
-        }
-      
-    })
+    var total = 0
+    // while(total<4)
+    // {
+      setTimeout(() => {
+        var links = document.querySelectorAll('a');
+        links.forEach(function(link) {
+            // 如果 href 包含 'figures/paper.png'
+            console.log(link.href)
+            if (link.href.includes('svg')) {
+                
+            link.onclick = function(event) {
+            event.preventDefault(); // 阻止默认的点击行为
+            };
+                link.style.pointerEvents = 'none';
+            }
+            else if (link.href.includes('paper.png')) {
+                link.href = 'https://www.vldb.org/pvldb/vol17/p2363-hu.pdf';
+                
+            }
+        })
+        }, 5000);
+    // }
     
-     links.forEach(function(link) {
-       
-        // 如果 href 包含 'figures/paper.png'
-        if (link.href.includes('svg')||link.href.includes('png')) {
-            //  console.log(link.href)
-            // 修改 href 为 'www.baidu.com'
-             link.onclick = function(event) {
-        event.preventDefault(); // 阻止默认的点击行为
-    };
-      link.style.pointerEvents = 'none';
-    //  link.style.cursor = 'not-allowed';
-        }
-      
-    })
-
-
+    
 }
 
 </script>
@@ -540,7 +536,7 @@ function alter(){
 
 <h3 >Visitors</h3>
 
-<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=500&t=n&d=79WsHTeP81NNR9W0EkNAmSZhjG9nq02p5uyJImsO1i4'></script>
+<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=n&d=79WsHTeP81NNR9W0EkNAmSZhjG9nq02p5uyJImsO1i4'></script>
 <!-- 
 <h3 >About Us</h3>
         <div class="bottom-text">

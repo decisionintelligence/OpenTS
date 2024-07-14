@@ -7,15 +7,15 @@
   
   <title>TFB-leaderboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var freqs&#x3D;[] var characters&#x3D;[] var all_data&#x3D;[]  function displayResults_uni(data_,is_rank) {     s">
+  <meta name="description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[&quot;Crossformer&quot;,&quot;Arima&quot;,&quot;RNN&quot;,&quot;Kalman Filter&quot;,&quot;Linear Regression&quot;,&quot;Naive Drift&quot;,&quot;Naive Mean&quot;,&quot;Naive Moving Average&quot;,&quot;Na">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TFB-leaderboard">
 <meta property="og:url" content="https://decisionintelligence.github.io/TFB_leaderboard/leaderboards_univariate/index.html">
 <meta property="og:site_name" content="TFB-leaderboard">
-<meta property="og:description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var freqs&#x3D;[] var characters&#x3D;[] var all_data&#x3D;[]  function displayResults_uni(data_,is_rank) {     s">
+<meta property="og:description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[&quot;Crossformer&quot;,&quot;Arima&quot;,&quot;RNN&quot;,&quot;Kalman Filter&quot;,&quot;Linear Regression&quot;,&quot;Naive Drift&quot;,&quot;Naive Mean&quot;,&quot;Naive Moving Average&quot;,&quot;Na">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-09T11:44:29.256Z">
-<meta property="article:modified_time" content="2024-07-09T11:44:29.256Z">
+<meta property="article:published_time" content="2024-07-14T07:17:46.690Z">
+<meta property="article:modified_time" content="2024-07-14T07:17:46.690Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -233,7 +233,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard/leaderboards_univariate/index.html" class="article-date">
-  <time datetime="2024-07-09T11:44:29.256Z" itemprop="datePublished">2024-07-09</time>
+  <time datetime="2024-07-14T07:17:46.690Z" itemprop="datePublished">2024-07-14</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -247,11 +247,16 @@
 
 
 <h2 id="Leaderboard-for-univariate-time-series-forecasting"><a href="#Leaderboard-for-univariate-time-series-forecasting" class="headerlink" title="Leaderboard for univariate time series forecasting"></a>Leaderboard for univariate time series forecasting</h2><script>
-var uni_methods=[]
+var uni_methods=["Crossformer","Arima","RNN","Kalman Filter","Linear Regression","Naive Drift","Naive Mean","Naive Moving Average","Naive Seasonal","N-BEATS","N-HiTS","Random Forest","Auto CES","Auto ETS","Auto Theta","TCN","TiDE","Xgboost","DLinear","FEDformer","FiLM","Informer","NLinear","Non-stationary Transformers","PatchTST","TimesNet","Triformer","LightGBM"]
 var uni_desc =[]
 var freqs=[]
-var characters=[]
-var all_data=[]
+var characters=['Trend','Seasonality','Stationarity','Transition','Shifting']
+var metrics=['MAE','MSE','MSMAPE']
+var paradigm=['SL','ML','DL']
+var all_data={}
+var all_csv={}
+var all_paradigm={'SL':["Arima","Kalman Filter","Naive Drift","Naive Mean","Naive Moving Average","Naive Seasonal","Auto CES","Auto ETS","Auto Theta"],'ML':["Linear Regression","Random Forest","Xgboost","LightGBM"],'DL':["Crossformer","N-BEATS","N-HiTS","RNN","TCN","TiDE","DLinear","FEDformer","FiLM","Informer","NLinear","Non-stationary Transformers","PatchTST","TimesNet","Triformer"]}
+
 
 function displayResults_uni(data_,is_rank) {
     sum=0
@@ -286,6 +291,8 @@ function displayResults_uni(data_,is_rank) {
             index=''
         }
         const row = document.createElement('tr');
+        // console.log(model)
+    
         row.innerHTML = `
             <td>${index}</td>
             <td>${model}</td>
@@ -295,14 +302,24 @@ function displayResults_uni(data_,is_rank) {
             <td>${rank['rank3']}</td>
             <td>
                 <a href="${uni_desc[model]['paper_url']}"  target="_blank">paper</a>
-            </td>
-            <td>
+            </td>`
+            
+        if (uni_desc[model]['publication']!=null)
+        {
+            row.innerHTML = row.innerHTML+`<td>
              ${uni_desc[model]['publication']} [<a href="${uni_desc[model]['bib']}" target="_blank">bib</a>]
             </td>
             <td>
                 ${uni_desc[model]['year']}
+            </td>`
+        }else
+        {
+            row.innerHTML = row.innerHTML+`<td class='empty-cell'>——
             </td>
-        `;
+            <td class='empty-cell'>——
+            </td>`
+        }
+
         tableBody.appendChild(row);
     });
 }
@@ -312,21 +329,22 @@ function pharse_desc(results)
     
     const data  = results.data.map(row => {
                         // 丢掉前两列
-                        const { [Object.keys(row)[0]]: _, [Object.keys(row)[1]]: __, ...rest } = row;
+                        const { [Object.keys(row)[0]]: _, ...rest } = row;
                         return rest;
                     });
     const firstFourRows = data.slice(0, 7);
     const keys = Object.keys(firstFourRows[0]);
+    // console.log(keys)
     const desc={}
     keys.forEach(key => {
                        desc[key]= {
-                            'contact_text':firstFourRows[0][key],
-                            'contact_url':firstFourRows[1][key],
-                            'paper_url':firstFourRows[2][key],
-                            'code_url':firstFourRows[3][key],
-                            'publication':firstFourRows[4][key],
-                            'bib':firstFourRows[5][key],
-                            'year':firstFourRows[6][key],
+                            // 'contact_text':firstFourRows[0][key],
+                            // 'contact_url':firstFourRows[1][key],
+                            'paper_url':firstFourRows[0][key],
+                            // 'code_url':firstFourRows[3][key],
+                            'publication':firstFourRows[1][key],
+                            'bib':firstFourRows[2][key],
+                            'year':firstFourRows[3][key],
                         }
                     });
    uni_desc = desc
@@ -344,7 +362,7 @@ function haveIntersection(list1, list2) {
 
 function toggleSelectAll_uni(selectAllCheckbox)
 {
-    const container = document.getElementById('dataset-container-uni');
+    const container = document.getElementById('check');
     const checkboxes = container.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
         checkbox.checked = selectAllCheckbox.checked;
@@ -354,26 +372,57 @@ function toggleSelectAll_uni(selectAllCheckbox)
 function draw_tabel_uni(){
     var select_freqs = [];
     var select_characters = [];
-    const checkboxes = document.querySelectorAll('#dataset-container-uni input[type="checkbox"]');
+    var select_metric = [];
+    var select_paradigm = []
+    const checkboxes = document.querySelectorAll('#main-container-uni input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
+        
         if (checkbox.checked) {
-            if(checkbox.value.split('/')[0]=="Freqs")
+
+            if(checkbox.value.split('/')[0]=="Frequency")
             {
-                select_freqs.push(checkbox.value.split('/')[1])
+                if (typeof checkbox.value.split('/')[1] != 'undefined')
+                {
+                    select_freqs.push(checkbox.value.split('/')[1])
+                }
             }
-            else
+            else if(checkbox.value.split('/')[0]=="Characteristics")
             {
-                select_characters.push(checkbox.value.split('/')[1])
+                if (typeof checkbox.value.split('/')[1] != 'undefined')
+                {
+                    select_characters.push(checkbox.value.split('/')[1])
+                }
+            }
+            else if(checkbox.value.split('/')[0]=="Metrics")
+            {
+                if (typeof checkbox.value.split('/')[1] != 'undefined')
+                {
+                     select_metric.push(checkbox.value.split('/')[1].toLowerCase() )
+                    //  console.log(select_metric)
+                }
+               
+            }
+            else if(checkbox.value.split('/')[0]=="Learning_Paradigm")
+            {
+                if (typeof checkbox.value.split('/')[1] != 'undefined')
+                {
+                     select_paradigm.push(checkbox.value.split('/')[1].toLowerCase() )
+                    //  console.log(select_metric)
+                }
+               
             }
         }
     });
     // console.log(select_freqs)
     // console.log(select_characters)
+    // const checkboxes = document.querySelectorAll('#main-container-uni input[type="checkbox"]');
     let tabel_data={}
+    
     uni_methods.forEach(uni_method=>
     {
         tabel_data[uni_method] = {'rank1':0,'rank2':0,'rank3':0}
     })
+    // console.log(tabel_data)
     let nums=0
     // select_characters.delete('undefined')
     select_characters = select_characters.filter(item => typeof item !== 'undefined');
@@ -385,54 +434,87 @@ function draw_tabel_uni(){
     {
         select_freqs = freqs
     }
-    
-    all_data.forEach(data=>{
+    select_data=[]
 
+    console.log(Object.keys(all_data['mae'][0]))
+    select_metric.forEach(metirc=>{
+        select_data = [...select_data, ...all_data[metirc]]
+    })
+    select_method=[]
+
+    select_paradigm.forEach(paradigm=>{
+        select_method=[...select_method, ...all_paradigm[paradigm.toUpperCase()]]
+    })
+    
+    // console.log('select_data',select_data.length)
+    select_data.forEach(data=>{
 
         if (select_freqs.includes(data['freq']) && haveIntersection(data['Characteristics'],select_characters))
         {
             nums++;
                 // 过滤掉值不是 float 类型的键值对
-            const filteredData = Object.entries(data).filter(([key, value]) => typeof value === 'number' && !isNaN(value));
-
+            const filteredData = Object.entries(data).filter(([key, value]) => typeof value === 'number' && !isNaN(value) && select_method.includes(key));
+            // console.log(filteredData)
+            if (filteredData.length>0)
+            {
             // 按值排序
             const sortedData = filteredData.sort((a, b) => a[1] - b[1]);
 
             // 找到值最小的前三个键
             const topThreeKeys = sortedData.slice(0, 3).map(([key, value]) => key);
-            tabel_data[topThreeKeys[0]]['rank1']++
-            tabel_data[topThreeKeys[1]]['rank2']++
-            tabel_data[topThreeKeys[2]]['rank3']++
+
+            for (let i = 0; i < 3; i++) {
+            if (topThreeKeys[i]) {
+                tabel_data[topThreeKeys[i]]['rank' + (i + 1).toString()]++;
+            }
+            }
+            
+            
+
+            // tabel_data[topThreeKeys[1]]['rank2']++
+            
+            // tabel_data[topThreeKeys[2]]['rank3']++
+            }
+            
         }
         else
         {
-            console.log(data['freq'])
-            console.log(data['Characteristics'])
+            // console.log(data['freq'])
+            // console.log(data['Characteristics'])
         }
     })
 
-    Object.keys(tabel_data).forEach(key=>{
-        tabel_data[key]['score'] =  tabel_data[key]['rank1'] * 3 + tabel_data[key]['rank2'] * 2 + tabel_data[key]['rank3'] * 1
-    })
+    Object.keys(tabel_data).forEach(key => {
+        tabel_data[key]['score'] = tabel_data[key]['rank1'] * 3 + tabel_data[key]['rank2'] * 2 + tabel_data[key]['rank3'] * 1;
+        if (tabel_data[key]['score'] === 0) {
+            delete tabel_data[key];
+        }
+        });
     const entries = Object.entries(tabel_data);
     entries.sort((a, b) => b[1].score - a[1].score);
     // 将排序后的数组转换回对象
-
+    // console.log('nums',nums)
     displayResults_uni(entries,nums>0)
     
 }
 
 function toggleCategory_uni(category,isChecked){
-
+    // console.log('select-all-'+category)
+    const checkbox = document.getElementById('select-all-'+category)
+    checkbox.checked = isChecked;
     const checkboxes = document.querySelectorAll(`.checkbox-${category}`);
     checkboxes.forEach(checkbox => {
         checkbox.checked = isChecked;
     });
+    
     draw_tabel_uni();
 }
+
 function populateCheckboxes_uni() {
     const container = document.getElementById('dataset-container-uni');
-    const groupedDatasets = {'Freqs':[  "Hourly","Daily", "Weekly", "Monthly", "Quarterly", "Yearly", "Other" ],'Characteristics':[ "Trend", "Transition",  "Shifting" ,"Seasonality", "Stationarity","Irregular" ]};
+    const container_up = document.getElementById('dataset-container-uni-up');
+
+    const groupedDatasets = {'Learning_Paradigm':paradigm,'Metrics':metrics,'Frequency':[  "Hourly","Daily", "Weekly", "Monthly", "Quarterly", "Yearly", "Other" ],'Characteristics':[ "Trend", "Transition",  "Shifting" ,"Seasonality", "Stationarity","Irregular"]};
     
     // 对 groupedDatasets 按内容数量进行排序
     const sortedCategories = Object.keys(groupedDatasets).sort((a, b) => groupedDatasets[b].length - groupedDatasets[a].length);
@@ -440,7 +522,6 @@ function populateCheckboxes_uni() {
     sortedCategories.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.className = 'category';
-    
         const categoryLabel = document.createElement('h3');
         const categoryCheckbox = document.createElement('input');
         categoryCheckbox.type = 'checkbox';
@@ -448,9 +529,9 @@ function populateCheckboxes_uni() {
         categoryCheckbox.addEventListener('change', () => toggleCategory_uni(category, categoryCheckbox.checked));
     
         categoryLabel.appendChild(categoryCheckbox);
-        categoryLabel.appendChild(document.createTextNode(` ${category}`));
+        categoryLabel.appendChild(document.createTextNode(` ${category.replace('_',' ')}`));
         categoryDiv.appendChild(categoryLabel);
-    
+        const containerDiv = document.createElement('div')
         groupedDatasets[category].forEach(name => {
             name = name.replace('_','-')
             const div = document.createElement('div');
@@ -469,86 +550,93 @@ function populateCheckboxes_uni() {
     
             div.appendChild(checkbox);
             div.appendChild(label);
-            categoryDiv.appendChild(div);
+            containerDiv.appendChild(div);
         });
-    
-        container.appendChild(categoryDiv);
+        if (category=='Metrics'||category =='Learning_Paradigm'){
+
+            const di = document.createElement('hr')
+            containerDiv.className = 'checkbox-wrapper1';
+            di.className = 'divider '
+            categoryDiv.appendChild(containerDiv)
+            container_up.appendChild(categoryDiv);
+            container_up.appendChild(di)
+           
+        }
+        else
+        {
+            categoryDiv.appendChild(containerDiv)
+            container.appendChild(categoryDiv);
+        }
+       
+        
     });
     const selectAllCheckbox = document.getElementById('select-all-u');
             if (selectAllCheckbox) {
                 selectAllCheckbox.checked = true;
                 toggleSelectAll_uni(selectAllCheckbox); // Ensure all individual checkboxes are also checked
             }
+    toggleCategory_uni('Metrics',true)
+        toggleCategory_uni('Learning_Paradigm',true)
 }
 
-function phrase_data()
+
+function phrase_data1(results,name)
 {
-characters.push('Irregular')
-fetch('uni_results.csv')
-.then(response => response.text())
-.then(text => Papa.parse(text, {
-    header: true,
-    dynamicTyping: true,
-    complete:function(results){
-        const data  = results.data.map(row => {
-                        // 丢掉前两列
-                        const { [Object.keys(row)[0]]: _, ...rest } = row;
-                        return rest;
-                    });
-        const desc_methods = Object.keys(uni_desc);
-        Object.keys(data[0]).forEach(key=>{
-            if (key!= 'freq' && key!= '')
-            {
-                if (!desc_methods.includes(key))
-                {
-                    characters.push(key)
-                }
-                else
-                {
-                    uni_methods.push(key)
-                }
-                
-            }
-        })
-        let freqs_=new Set();
-        all_data=[]
-        data.forEach( row=>{
-            if (typeof  row['freq']!='undefined')
-            {
-                freqs_.add(row['freq'])
-                tmp={freq:row['freq']}
-                uni_methods.forEach(method=>{tmp[method]=row[method]})
-                tmp['Characteristics']=[]
-                is_Irregular = true
-                characters.forEach(character=>{
-                    if(row[character])
-                    {
-                        tmp['Characteristics'].push(character)
-                        is_Irregular = false
-                    }
-                })
-                if(is_Irregular)
-                {
-                    tmp['Characteristics'].push('Irregular')
-                }
-                all_data.push(tmp)
-            }    
-        } )
-        freqs = Array.from(freqs_)
-
-        populateCheckboxes_uni()
-        draw_tabel_uni()
-
-
-        // console.log(uni_methods)
-        // console.log(uni_desc )
-        // console.log(freqs)
-        // console.log(characters)
-        // console.log(all_data)
-    }
+    const data  = results.data.map(row => {
+                    // 丢掉前两列
+                    const { [Object.keys(row)[0]]: _, ...rest } = row;
+                    return rest;
+                });
+    const desc_methods = Object.keys(uni_desc);
+    // Object.keys(data[0]).forEach(key=>{
+    //     if (key!= 'freq' && key!= '')
+    //     {
+    //         if (!desc_methods.includes(key))
+    //         {
+    //             characters.push(key)
+    //         }
+    //         else
+    //         {
+    //             uni_methods.push(key)
+    //         }
+            
+    //     }
+    // })
     
-}));
+    let freqs_=new Set();
+    all_data[name]=[]
+    data.forEach( row=>{
+
+        // console.log(row)
+        if (typeof  row['freq']!='undefined')
+        {
+            freqs_.add(row['freq'])
+            tmp={freq:row['freq']}
+            uni_methods.forEach(method=>{tmp[method]=row[method]})
+            tmp['Characteristics']=[]
+            is_Irregular = true
+            characters.forEach(character=>{
+                // console.log(row[character])
+                if(row[character])
+                {
+                    tmp['Characteristics'].push(character)
+                    is_Irregular = false
+                }
+            })
+            if(is_Irregular)
+            {
+                tmp['Characteristics'].push('Irregular')
+            }
+            all_data[name].push(tmp)
+        }    
+    } )
+    
+    freqs = Array.from(freqs_)
+
+    // populateCheckboxes_uni()
+    // draw_tabel_uni()
 }
+
 function init() {
 
     init_data=[["Non-stationary Transformers",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["RNN",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Linear Regression",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["PatchTST",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["DLinear",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["ARIMA",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["TiDE",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["N-BEATS",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["FiLM",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["NLinear",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Crossformer",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["TimesNet",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Kalman Filter",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Xgboost",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Informer",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["FEDformer",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Triformer",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["TCN",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Random forests",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["N-HiTS",{"rank1":0,"rank2":0,"rank3":0,"score":0}]]
@@ -556,29 +644,99 @@ function init() {
     displayResults_uni(init_data,false)
 };
 
-fetch('univariate_msmape.csv')
+
+
+const urls = [
+     'result/mae.csv',
+     'result/mse.csv',
+     'result/msmape.csv'
+];
+
+// const urls = [
+//      'result/mae.csv',
+//      'result/mape.csv',
+//      'result/mase.csv',
+//      'result/mse.csv',
+//      'result/msmape.csv',
+//      'result/rmse.csv',
+//      'result/smape.csv',
+//      'result/wape.csv',
+// ];
+// Promise.all(urls.map(url =>{
+//     fetch(url)
+//     .then(response => response.text())
+//     .then(text => Papa.parse(text, {
+//         header: true,
+//         dynamicTyping: true,
+//         complete:function(results){
+//             all_csv[url.split('/')[1].split('.')[0]] = results
+//             console.log(all_csv)
+
+//         } 
+//     }));
+// }))
+fetch('univariate_desc.csv')
 .then(response => response.text())
 .then(text => Papa.parse(text, {
     header: true,
     dynamicTyping: true,
     complete:function(results){
-        init()
+        // init()
         uni_desc=[]
         pharse_desc(results)
-        phrase_data()
+        console.log(uni_desc)
+        fench_data()
         
     } 
 }));
 
+function fench_data()
+{
+    Promise.all(urls.map(url => fetch(url).then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.text().then(text => ({ text, url }));
+})))
+.then(results => {
+    results.forEach((result, index) => {
+        const name = result.url.split('/').pop().split('.')[0];
+        const df = result.text;
+        Papa.parse(df, {
+            header: true,
+            dynamicTyping: true,
+            complete: function(parseResults) {
+                phrase_data1(parseResults,name)
+                // console.log(all_data)
+                if(index+1 == results.length)
+                {
+                    populateCheckboxes_uni()
+                    // draw_tabel_uni()
+                }
+            }
+        });
+    });
+})
+
+.catch(error => {
+    console.error('Error fetching one of the files:', error);
+});
+
+}
+
 </script>
+
 
 <div class="main-container" id='main-container-uni'> 
 <div class="checkbox-wrapper">
+        <div  id="dataset-container-uni-up" style="padding-right: 30px;"></div>
         <div class="all-checkbox">
             <input type="checkbox" id="select-all-u" onclick="toggleSelectAll_uni(this)">
             <label for="select-all"><h3>All</h3></label>
         </div>
+        <div id = "check">
         <div class="checkbox-container" id="dataset-container-uni">
+        </div>
         </div>
     </div>
     <div style="width:80%" class="table-container" id='table-container-uni'>
@@ -604,6 +762,8 @@ fetch('univariate_msmape.csv')
 
 
 <style>
+
+
 /* 基本表格样式 */
 table.my-table2 {
   width: 100%;
@@ -669,6 +829,7 @@ table.my-table2 tr td:nth-child(7) {
   overflow-x: auto; /* Enable horizontal scroll */
   overflow-y: hidden; /* Enable vertical scroll */
   padding-left: 0px;
+  margin-top:0;
 }
 .table-container {
   width: 80%; /* Adjust width as needed */
@@ -678,7 +839,26 @@ table.my-table2 tr td:nth-child(7) {
   margin:auto;
   overflow-y: hidden; /* Enable vertical scroll */
   display: flex;justify-content: LEFT;
+  margin-top:0;
 }
+
+  /* .empty-cell{
+    content: ' ';
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../figures/斜线.png');
+     background-size: 50% 50%;
+    background-position: center;
+            background-repeat: no-repeat;
+  } */
+  .empty-cell
+  {
+    color:gray;
+  }
+
  select {
     background-color: #f2f2f2; /* 表头背景色（奇数行浅灰色） */
     color: black; /* 表头文字颜色 */
@@ -729,6 +909,12 @@ option
     justify-content: flex-start;
     height: 100%;
 }
+.checkbox-wrapper1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 0.5fr;
+   
+}
+
 .article-entry h3{
     margin:0;
 }
@@ -736,6 +922,9 @@ option
     display: flex;
     align-items: center;
     margin-bottom: 10px; /* 在 "All" 复选框和其他复选框之间添加一些间距 */
+}
+.divider {
+border:1px dashed #ddd
 }
 </style>
 
