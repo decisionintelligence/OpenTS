@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="TFB-leaderboard">
 <meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {      const tableBod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-15T08:19:12.995Z">
-<meta property="article:modified_time" content="2024-07-15T07:37:30.000Z">
+<meta property="article:published_time" content="2024-07-15T10:12:59.971Z">
+<meta property="article:modified_time" content="2024-07-15T10:12:59.971Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -233,7 +233,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard/leaderboards_multivariate/index.html" class="article-date">
-  <time datetime="2024-07-15T08:19:12.995Z" itemprop="datePublished">2024-07-15</time>
+  <time datetime="2024-07-15T10:12:59.971Z" itemprop="datePublished">2024-07-15</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -353,9 +353,7 @@ function phraseMultiTable(results, table, datasets,select_metrics) {
             else
             {
                 r = true
-            }
-            
-            
+            } 
 
             return dataset && datasets.includes(dataset.split('-')[0]) && r;
         }
@@ -402,6 +400,7 @@ function phraseMultiTable(results, table, datasets,select_metrics) {
 
 
 
+
     Object.entries(rankCounts).forEach(([model, values]) => {
         result.push({"model": model, 'rank1': values['1'], 'rank2': values['2'], 'rank3': values['3'], 'rank4': values['4']});
     });
@@ -423,25 +422,25 @@ function populateCheckboxes(datasets) {
         }
         groupedDatasets[category].push(name);
     });
-
+    
     groupedDatasets['Metrics'] = ['MAE', 'MSE'];
-
+    
     const sortedCategories = Object.keys(groupedDatasets).sort((a, b) => groupedDatasets[b].length - groupedDatasets[a].length);
-
+    
     sortedCategories.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.className = 'category';
-
+    
         const categoryLabel = document.createElement('h3');
         const categoryCheckbox = document.createElement('input');
         categoryCheckbox.type = 'checkbox';
         categoryCheckbox.id = `select-all-${category}`;
         categoryCheckbox.addEventListener('change', () => toggleCategory(category, categoryCheckbox.checked));
-
+    
         categoryLabel.appendChild(categoryCheckbox);
         categoryLabel.appendChild(document.createTextNode(` ${category}`));
         categoryDiv.appendChild(categoryLabel);
-
+    
         const d = document.createElement('div');
         if (category == 'Metrics') {
             d.className = 'checkbox-wrapper1';
@@ -450,18 +449,18 @@ function populateCheckboxes(datasets) {
             name = name.replace('_', '-');
             const div = document.createElement('div');
             div.className = 'checkbox-item';
-
+    
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.id = `${category}/${name}`;
             checkbox.value = `${category}/${name}`;
             checkbox.className = `checkbox-${category}`;
             checkbox.addEventListener('change', handleChildCheckboxChange);
-
+    
             const label = document.createElement('label');
             label.htmlFor = `${category}/${name}`;
             label.textContent = name;
-
+    
             div.appendChild(checkbox);
             div.appendChild(label);
             d.appendChild(div);
@@ -481,7 +480,7 @@ function updateP1checkbox()
     checked=true
 
     p1_dataset=['Traffic/Traffic', 'Energy/Solar','Health/ILI','select-all-Electricity','Environment/Weather','Economic/Exchange']
-
+    
     p1_dataset.forEach(checkbox_id=>{
         var check_box = document.getElementById(checkbox_id)
         if(!check_box.checked)
@@ -519,9 +518,7 @@ function toggleCategory(category, isChecked) {
         checkbox.checked = isChecked;
     });
     updateAllCheckbox();
-    submitSelection();
-  
-    
+    submitSelection();  
 }
 
 function submitSelection() {
@@ -543,7 +540,7 @@ function submitSelection() {
             }
         }
     });
-
+    
     fetch('multivariate_total.csv')
         .then(response => response.text())
         .then(text => Papa.parse(text, {
@@ -767,7 +764,7 @@ option
     display: grid;
     grid-template-columns: 1.5fr 1.5fr;
     width:150px;
-   
+
 }
 
 </style>
@@ -828,7 +825,10 @@ option
 
 
 
-<h3 id="Rule"><a href="#Rule" class="headerlink" title="Rule:"></a>Rule:</h3><p>For multivariate forecasting algorithms, we consider 25 datasets, 4 forecasting horizons, and 2 error metrics, i.e., MAE and MSE, thus having 200 (25 * 4 * 2) unique evaluation settings. For each forecasting algorithm, we count the number of times that the algorithm achieves the 1st, 2nd, and 3rd accuarcy, denoated as x, y, and z. Finally, we calcualte the final score as <strong>score &#x3D; 3 * x+ 2 * y + 1 * z</strong>. The larger the final score, the higher the ranking.</p>
+<h3 id="Rule"><a href="#Rule" class="headerlink" title="Rule:"></a>Rule:</h3><ul>
+<li>For multivariate forecasting algorithms, we consider 25 datasets, 4 forecasting horizons, and 2 error metrics, i.e., MAE and MSE, thus having 200 (25 * 4 * 2) unique evaluation settings. For each forecasting algorithm, we count the number of times that the algorithm achieves the 1st, 2nd, and 3rd accuarcy, denoated as x, y, and z. Finally, we calcualte the final score as <strong>score &#x3D; 3 * x+ 2 * y + 1 * z</strong>. The larger the final score, the higher the ranking.</li>
+<li>Profile1 refers to ten well-acknowledged forecasting datasets, including Electricity、ETTm1、ETTm2、ETTh1、ETTh2、Traffic、Solar、Weather、ILI、Exchange. This facilitates the comparison of algorithm performance within a small datasets.</li>
+</ul>
 
       
     

@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="TFB-leaderboard">
 <meta property="og:description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[&quot;Crossformer&quot;,&quot;Arima&quot;,&quot;RNN&quot;,&quot;Kalman Filter&quot;,&quot;Linear Regression&quot;,&quot;Naive Drift&quot;,&quot;Naive Mean&quot;,&quot;Naive Moving Average&quot;,&quot;Na">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-15T08:28:07.089Z">
-<meta property="article:modified_time" content="2024-07-15T08:28:07.089Z">
+<meta property="article:published_time" content="2024-07-15T10:21:21.361Z">
+<meta property="article:modified_time" content="2024-07-15T10:21:21.361Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -233,7 +233,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard/leaderboards_univariate/index.html" class="article-date">
-  <time datetime="2024-07-15T08:28:07.089Z" itemprop="datePublished">2024-07-15</time>
+  <time datetime="2024-07-15T10:21:21.361Z" itemprop="datePublished">2024-07-15</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -322,17 +322,25 @@ function displayResults_uni(data_,is_rank) {
             row.innerHTML = row.innerHTML+`<td>
              ${uni_desc[model]['publication']} [<a href="${uni_desc[model]['bib']}" target="_blank">bib</a>]
             </td>
+            `
+        }else
+        {
+            row.innerHTML = row.innerHTML+`<td class='empty-cell'>——
+            </td>`
+        }
+        if (uni_desc[model]['year']!=null)
+        {
+            row.innerHTML = row.innerHTML+`
             <td>
                 ${uni_desc[model]['year']}
             </td>`
         }else
         {
-            row.innerHTML = row.innerHTML+`<td class='empty-cell'>——
-            </td>
+            row.innerHTML = row.innerHTML+`
             <td class='empty-cell'>——
             </td>`
         }
-
+    
         tableBody.appendChild(row);
     });
 }
@@ -391,7 +399,7 @@ function draw_tabel_uni(){
     checkboxes.forEach(checkbox => {
         
         if (checkbox.checked) {
-
+    
             if(checkbox.value.split('/')[0]=="Frequency")
             {
                 if (typeof checkbox.value.split('/')[1] != 'undefined')
@@ -448,18 +456,16 @@ function draw_tabel_uni(){
         select_freqs = freqs
     }
     select_data=[]
-
+    
     // console.log(Object.keys(all_data['mae'][0]))
     select_metric.forEach(metirc=>{
         select_data = [...select_data, ...all_data[metirc]]
     })
     select_method=[]
-
+    
     select_paradigm.forEach(paradigm=>{
         select_method=[...select_method, ...all_paradigm[paradigm.toUpperCase()]]
     })
-    
-    
     // console.log('select_data',select_data.length)
     select_data.forEach(data=>{
 
@@ -474,17 +480,15 @@ function draw_tabel_uni(){
             {
             // 按值排序
             const sortedData = filteredData.sort((a, b) => a[1] - b[1]);
-
+    
             // 找到值最小的前三个键
             const topThreeKeys = sortedData.slice(0, 3).map(([key, value]) => key);
-
+    
             for (let i = 0; i < 3; i++) {
             if (topThreeKeys[i]) {
                 tabel_data[topThreeKeys[i]]['rank' + (i + 1).toString()]++;
             }
-            }
-            
-            
+            }           
 
             // tabel_data[topThreeKeys[1]]['rank2']++
             
@@ -498,7 +502,7 @@ function draw_tabel_uni(){
             // console.log(data['Characteristics'])
         }
     })
-
+    
     Object.keys(tabel_data).forEach(key => {
         tabel_data[key]['score'] = tabel_data[key]['rank1'] * 3 + tabel_data[key]['rank2'] * 2 + tabel_data[key]['rank3'] * 1;
         if (tabel_data[key]['score'] === 0) {
@@ -510,7 +514,7 @@ function draw_tabel_uni(){
     // 将排序后的数组转换回对象
     // console.log('nums',nums)
     displayResults_uni(entries,nums>0)
-    
+
 }
 
 function toggleCategory_uni(category,isChecked){
@@ -536,9 +540,9 @@ function populateCheckboxes_uni() {
         'Frequency': ["Hourly", "Daily", "Weekly", "Monthly", "Quarterly", "Yearly", "Other"],
         'Characteristics': ["Trend", "Transition", "Shifting", "Seasonality", "Stationarity", "Irregular"]
     };
-
+    
     const sortedCategories = Object.keys(groupedDatasets).sort((a, b) => groupedDatasets[b].length - groupedDatasets[a].length);
-
+    
     sortedCategories.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.className = 'category';
@@ -547,7 +551,7 @@ function populateCheckboxes_uni() {
         categoryCheckbox.type = 'checkbox';
         categoryCheckbox.id = `select-all-${category}`;
         categoryCheckbox.addEventListener('change', () => toggleCategory_uni(category, categoryCheckbox.checked));
-
+    
         categoryLabel.appendChild(categoryCheckbox);
         categoryLabel.appendChild(document.createTextNode(` ${category.replace('_', ' ')}`));
         categoryDiv.appendChild(categoryLabel);
@@ -556,18 +560,18 @@ function populateCheckboxes_uni() {
             name = name.replace('_', '-');
             const div = document.createElement('div');
             div.className = 'checkbox-item';
-
+    
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.id = `${category}/${name}`;
             checkbox.value = `${category}/${name}`;
             checkbox.className = `checkbox-${category}`;
             checkbox.addEventListener('change', handleChildCheckboxChange);  // 修改这里
-
+    
             const label = document.createElement('label');
             label.htmlFor = `${category}/${name}`;
             label.textContent = name;
-
+    
             div.appendChild(checkbox);
             div.appendChild(label);
             containerDiv.appendChild(div);
@@ -584,7 +588,7 @@ function populateCheckboxes_uni() {
             container.appendChild(categoryDiv);
         }
     });
-
+    
     const selectAllCheckbox = document.getElementById('select-all-u');
     if (selectAllCheckbox) {
         selectAllCheckbox.checked = true;
@@ -606,9 +610,6 @@ function handleChildCheckboxChange(event) {
     updateAllCheckbox();
     draw_tabel_uni();
 }
-
-
-
 function phrase_data1(results,name)
 {
     const data  = results.data.map(row => {
@@ -635,7 +636,7 @@ function phrase_data1(results,name)
     let freqs_=new Set();
     all_data[name]=[]
     data.forEach( row=>{
-
+    
         // console.log(row)
         if (typeof  row['freq']!='undefined')
         {
@@ -652,18 +653,18 @@ function phrase_data1(results,name)
                     is_Irregular = false
                 }
             })
-
+    
             if(is_Irregular)
             {
                 tmp['Characteristics'].push('Irregular')
             }
-
+    
             all_data[name].push(tmp)
         }    
     } )
     
     freqs = Array.from(freqs_)
-
+    
     // populateCheckboxes_uni()
     // draw_tabel_uni()
 }
@@ -721,6 +722,10 @@ fetch('univariate_desc.csv')
     } 
 }));
 
+function removeZeroWidthSpaces(str) {
+    return str.replace(/[\u200B]/g, '');
+}
+
 function fench_data()
 {
     Promise.all(urls.map(url => fetch(url).then(response => {
@@ -732,7 +737,7 @@ function fench_data()
 .then(results => {
     results.forEach((result, index) => {
         const name = result.url.split('/').pop().split('.')[0];
-        const df = result.text;
+        const df = removeZeroWidthSpaces(result.text);
         Papa.parse(df, {
             header: true,
             dynamicTyping: true,
@@ -981,7 +986,7 @@ option
 .checkbox-wrapper1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1.5fr 0.5fr;
-   
+
 }
 
 .article-entry h3{
@@ -1001,7 +1006,7 @@ border:1px dashed #ddd
 
 
 
-<h3 id="Rule"><a href="#Rule" class="headerlink" title="Rule:"></a>Rule:</h3><p>For univariate forecasting algorithms, we consider 8,068 series, and the MSMAPE metric, thus having 8,068 unique evaluation settings. For each forecasting algorithm, we count the number of times that the algorithm achieves the 1st, 2nd, and 3rd accuarcy, denoated as x, y, and z. Finally, we calcualte the final score as <strong>score &#x3D; 3 * x + 2 * y + 1 * z</strong>. The larger the final score, the higher the ranking.</p>
+<h3 id="Rule"><a href="#Rule" class="headerlink" title="Rule:"></a>Rule:</h3><p>For univariate forecasting algorithms, we consider 8,068 series, and the MAE、MSE、MSMAPE metrics, thus having 24,204 (8,068  * 3)  unique evaluation settings. For each forecasting algorithm, we count the number of times that the algorithm achieves the 1st, 2nd, and 3rd accuarcy, denoated as x, y, and z. Finally, we calcualte the final score as <strong>score &#x3D; 3 * x + 2 * y + 1 * z</strong>. The larger the final score, the higher the ranking.</p>
 
       
     
