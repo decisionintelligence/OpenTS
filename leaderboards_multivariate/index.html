@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="TFB-leaderboard">
 <meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {      const tableBod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-24T13:24:29.449Z">
-<meta property="article:modified_time" content="2024-07-24T13:24:29.449Z">
+<meta property="article:published_time" content="2024-07-24T14:46:14.096Z">
+<meta property="article:modified_time" content="2024-07-24T14:46:04.309Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -233,7 +233,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard/leaderboards_multivariate/index.html" class="article-date">
-  <time datetime="2024-07-24T13:24:29.449Z" itemprop="datePublished">2024-07-24</time>
+  <time datetime="2024-07-24T14:46:14.096Z" itemprop="datePublished">2024-07-24</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -253,7 +253,7 @@ function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUr
     tableBody.innerHTML = ''; // Clear existing table body
     
     rankCounts.sort((a, b) => b['rank4'] - a['rank4'] );
-    
+
 
     var total = 0
     rankCounts.forEach(( counts, index) => {
@@ -402,6 +402,9 @@ function phraseMultiTable(results, table, datasets,select_metrics,select_horizon
     });
 
    
+
+
+
 
 
 
@@ -667,42 +670,42 @@ function validateInput(input) {
 
     // 保存光标位置
     const cursorPos = input.selectionStart;
-
+    
     // 处理整数和小数部分
     let [integerPart, decimalPart] = value.split('.');
-
+    
     // console.log(integerPart,decimalPart)
     // 处理整数部分：去除前导零并限制最大两位数
-
+    
     // 去除前导零
     if (integerPart.length > 1) {
         integerPart = integerPart.replace(/^0+/, ''); 
     }
-
+    
     // 处理小数部分：限制最多两位
     if (decimalPart) {
         decimalPart = decimalPart.slice(0, 2);
     }
-
+    
     // 合并整数部分和小数部分
     let newValue = integerPart;
     if (decimalPart) {
         newValue += '.' + decimalPart;
     }
-
+    
     // 如果小数点后有数字，但是小数点前的数字部分为空，应至少显示 `0`
     if (newValue === '' || newValue === '.') {
         newValue = '0';
     }
-
+    
     // 验证并更新输入值
     if (newValue !== value) {
         input.value = newValue;
     }
-
+    
     // 更新最后一个有效值
     lastValidValue = input.value;
-
+    
     // 恢复光标的位置
     // input.setSelectionRange(cursorPos, cursorPos);
     submitSelection()
@@ -942,7 +945,7 @@ input[type="number"]{
       <div class="category" style="margin-bottom:0px">
         <h3>
           <input type="checkbox" id="select-all-Horizons" style='display:none' onchange="toggleCategory('Horizons', this.checked)">
-          Horizons
+          Forecasting Horizons
           <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight:bold"> [<a href="javascript:void(0);" onclick="toggleCategory('Horizons', true)" style="padding:0 3px">all</a>|<a href="javascript:void(0);" onclick="toggleCategory('Horizons', false)" style="padding:0 3px">off</a>]</b>
         </h3>
         <div class="checkbox-wrapper2">
@@ -1035,8 +1038,14 @@ input[type="number"]{
 
 
 <h3 id="Rule"><a href="#Rule" class="headerlink" title="Rule:"></a>Rule:</h3><ul>
-<li>For multivariate forecasting algorithms, we consider 25 datasets, 4 forecasting horizons, and 2 error metrics, i.e., MAE and MSE, thus having 200 (25 * 4 * 2) unique evaluation settings (details <a href="../200seetings">click here</a>). For each forecasting algorithm, we count the number of times that the algorithm achieves the 1st, 2nd, and 3rd accuarcy, denoated as x, y, and z. Finally, we calcualte the final score as <strong>score &#x3D; 3 * x+ 2 * y + 1 * z</strong>. The larger the final score, the higher the ranking.</li>
-<li>Profile1 refers to ten well-acknowledged forecasting datasets, including Electricity、ETTm1、ETTm2、ETTh1、ETTh2、Traffic、Solar、Weather、ILI、Exchange. This facilitates the comparison of algorithm performance within a small datasets.</li>
+<li><p>For multivariate forecasting algorithms, we consider 25 datasets and 2 error metrics, i.e., MAE and MSE. For each dataset, we consider 4 forecasting horizons. This gives 200 (25 * 4 * 2) unique evaluation settings ( <a href="../200seetings">click here</a> for details). </p>
+</li>
+<li><p>For each forecasting algorithm, we count the number of times that the algorithm receives the gold, silver, and bronze medals, e.g., having 1st, 2nd, and 3rd accuracy, shown as x, y, and z. </p>
+</li>
+<li><p>We provide three different types of scores for ranking the forecasting algorithms. First, the scores equal to the numbers of gold medals. Second, the scores are the sum of the numbers of gold, silver, and bronze medals. Third, the scores are the weighted sum of the gold, silver, and bronze medals, where the weights can be customized with default weights being 3 for gold, 2 for silver, and 1 for bronze. The larger the score, the higher the ranking.</p>
+</li>
+<li><p>Profile1 refers to a subset of ten datasets commonly used in recent literature, including Electricity、ETTm1、ETTm2、ETTh1、ETTh2、Traffic、Solar、Weather、ILI、Exchange.</p>
+</li>
 </ul>
 
       
