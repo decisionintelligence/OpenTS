@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="TFB-leaderboard">
 <meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {      const tableBod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-15T11:29:31.302Z">
-<meta property="article:modified_time" content="2024-07-15T10:13:00.000Z">
+<meta property="article:published_time" content="2024-07-24T02:03:53.439Z">
+<meta property="article:modified_time" content="2024-07-24T02:03:53.439Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -233,7 +233,7 @@
     
     <div class="article-meta">
       <!--<a href="/TFB_leaderboard/leaderboards_multivariate/index.html" class="article-date">
-  <time datetime="2024-07-15T11:29:31.302Z" itemprop="datePublished">2024-07-15</time>
+  <time datetime="2024-07-24T02:03:53.439Z" itemprop="datePublished">2024-07-24</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -253,31 +253,20 @@ function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUr
     tableBody.innerHTML = ''; // Clear existing table body
     
     rankCounts.sort((a, b) => b['rank4'] - a['rank4'] );
+    
 
-
+    var total = 0
     rankCounts.forEach(( counts, index) => {
+    
         model = counts['model']
-        
-        if(index==0)
-        {
-            index='🥇'
-        }else if(index ==1)
-        {
-            index = '🥈'
-        }else if(index ==2)
-        {
-            index = '🥉'
-        }else
-        {
-            index = index+1
-        }
+        total += counts['rank1']
         if (!is_rank)
         {
             index=''
         }
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${index}</td>
+            <td>${index+1}</td>
             <td>${model}</td>
             <td>${counts['rank4']}</td>
             <td>${counts['rank1']}</td>
@@ -295,9 +284,10 @@ function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUr
         `;
         tableBody.appendChild(row);
     });
+    // console.log('rank1',total)
 }
 
-function phraseMultiTable(results, table, datasets,select_metrics) {
+function phraseMultiTable(results, table, datasets,select_metrics,select_horizons,select_score) {
      // Prepare results
     const result = [];
     const data = results.data;
@@ -335,27 +325,13 @@ function phraseMultiTable(results, table, datasets,select_metrics) {
     // Remove the first seven rows (metadata)
     const experimentData = data.slice(7);
     
-    // Filter experiment data based on provided dataset list
       const filteredExperimentData = experimentData.filter(row => {
         if (row && row['Dataset-Quantity-metrics']) {
             const dataset = row['Dataset-Quantity-metrics'];
-            let r = false
-            if (typeof select_metrics != 'undefined')
-            {
-                r = false
-                select_metrics.forEach( metric=>{
-                if(dataset.includes(metric.toLowerCase()))
-                {
-                    r=true
-                }
-            })
-            }
-            else
-            {
-                r = true
-            } 
-
-            return dataset && datasets.includes(dataset.split('-')[0]) && r;
+            var items = dataset.split('-')
+            var metric = items[items.length - 1].toUpperCase()
+            var horizon = items[items.length - 2]
+            return dataset && datasets.includes(dataset.split('-')[0]) && select_metrics.includes(metric) && select_horizons.includes(horizon);
         }
         return false;
     });
@@ -384,6 +360,23 @@ function phraseMultiTable(results, table, datasets,select_metrics) {
         rankCounts[model] = {1: 0, 2: 0, 3: 0, 4: 0};
     });
     
+    var socre31 =  document.getElementById('score/3/1');
+    var socre32 =  document.getElementById('score/3/2');
+    var socre33 =  document.getElementById('score/3/3');
+    var v1=0,v2=0,v3=0
+    if (socre31.value)
+    {
+        v1 =  parseFloat(socre31.value)
+    }
+    if (socre32.value)
+    {
+        v2 = parseFloat(socre32.value)
+    }
+    if (socre33.value)
+    {
+        v3 =  parseFloat(socre33.value)
+    }
+    // console.log(socre31.value,socre32.value,socre33.valuew)
     // Process filtered experiment data
     filteredExperimentData.forEach(row => {
         const validModels = modelColumns.filter(model => !isNaN(row[model]));
@@ -392,7 +385,19 @@ function phraseMultiTable(results, table, datasets,select_metrics) {
             rankCounts[model][index + 1]++;
         });
         validModels.forEach(model => {
-            rankCounts[model][4] = 3 * rankCounts[model][1] + 2 * rankCounts[model][2] + rankCounts[model][3];
+            if (select_score[0] == '1' )
+            {
+                rankCounts[model][4] = rankCounts[model][1];
+            }
+            else if (select_score[0] == '2' )
+            {
+                rankCounts[model][4] = rankCounts[model][1] + rankCounts[model][2] + rankCounts[model][3];
+            }
+            else if (select_score[0] == '3' )
+            {
+                rankCounts[model][4] = parseFloat(( v1* rankCounts[model][1] + v2 * rankCounts[model][2] + v3* rankCounts[model][3]).toFixed(2))
+            }
+            
         });
     });
 
@@ -510,7 +515,6 @@ function updateAllCheckbox() {
     // updateP1checkbox()
 }
 function toggleCategory(category, isChecked) {
-
     const checkbox = document.getElementById('select-all-' + category);
     checkbox.checked = isChecked;
     const checkboxes = document.querySelectorAll(`.checkbox-${category}`);
@@ -526,7 +530,7 @@ function submitSelection() {
     const checkboxes = document.querySelectorAll('.checkbox-container input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
         if (checkbox.checked) {
-            selectedDatasets.push(checkbox.value);
+            selectedDatasets.push(checkbox.value.replace('-','_'));
         }
     });
 
@@ -539,15 +543,36 @@ function submitSelection() {
                 select_metrics.push(items[1])
             }
         }
+    }); 
+    
+    select_horizons = []
+    const checkboxes2 = document.querySelectorAll('#dataset-container-mul-down input[type="checkbox"]');
+    checkboxes2.forEach(checkbox => {
+        if (checkbox.checked) {
+            items = checkbox.value.split('/')
+            if (items.length == 2) {
+                select_horizons.push(items[1])
+            }
+        }
     });
     
+    select_score = []
+    const checkboxes3 = document.querySelectorAll('#dataset-container-mul-down1 input[type="checkbox"]');
+    checkboxes3.forEach(checkbox => {
+        if (checkbox.checked) {
+            items = checkbox.value.split('/')
+            if (items.length == 2) {
+                select_score.push(items[1])
+            }
+        }
+    }); 
     fetch('multivariate_total.csv')
         .then(response => response.text())
         .then(text => Papa.parse(text, {
             header: true,
             dynamicTyping: true,
             complete: function (results) {
-                phraseMultiTable(results, 'multivariateTable2', selectedDatasets, select_metrics)
+                phraseMultiTable(results, 'multivariateTable2', selectedDatasets, select_metrics, select_horizons, select_score)
             }
         }));
 }
@@ -561,8 +586,23 @@ function updateParentCheckbox(category) {
 function handleChildCheckboxChange(event) {
     const checkbox = event.target;
     const category = checkbox.className.split('-')[1];
-    updateParentCheckbox(category);
-    updateAllCheckbox();
+    if (category != 'Score')
+    {
+        updateParentCheckbox(category);
+        updateAllCheckbox();
+        
+    }
+    else
+    {
+        checkbox.checked = true
+        var id = checkbox.value
+        for (let i1 = 1; i1 < 4; i1++) {
+            const scoreBox = document.getElementById(`Score/${i1}`);
+            if (scoreBox.value!=id) {
+                scoreBox.checked = false;
+            }
+        }
+    }
     submitSelection();
 }
 
@@ -588,9 +628,14 @@ fetch('multivariate_total.csv')
                 selectAllCheckbox.checked = true;
                 toggleSelectAll(selectAllCheckbox.checked); // Ensure all individual checkboxes are also checked
             }
-            submitSelection()
+            
             setContainerHeight()
             toggleCategory('Metrics',true)
+            toggleCategory('Horizons',true)
+            document.getElementById(`Score/1`).checked = true
+            document.getElementById(`Score/2`).checked = false
+            document.getElementById(`Score/3`).checked = false
+            submitSelection()
         } 
     }));
 
@@ -615,7 +660,52 @@ function setContainerHeight() {
     // const mainContainer = document.querySelector('#main-container1');
     // mainContainer.style.height = tableContainer.offsetHeight + 'px';
 }
+let lastValidValue = '';
+function validateInput(input) {
+    let value = input.value;
 
+    // 保存光标位置
+    const cursorPos = input.selectionStart;
+
+    // 处理整数和小数部分
+    let [integerPart, decimalPart] = value.split('.');
+
+    // console.log(integerPart,decimalPart)
+    // 处理整数部分：去除前导零并限制最大两位数
+
+    // 去除前导零
+    if (integerPart.length > 1) {
+        integerPart = integerPart.replace(/^0+/, ''); 
+    }
+
+    // 处理小数部分：限制最多两位
+    if (decimalPart) {
+        decimalPart = decimalPart.slice(0, 2);
+    }
+
+    // 合并整数部分和小数部分
+    let newValue = integerPart;
+    if (decimalPart) {
+        newValue += '.' + decimalPart;
+    }
+
+    // 如果小数点后有数字，但是小数点前的数字部分为空，应至少显示 `0`
+    if (newValue === '' || newValue === '.') {
+        newValue = '0';
+    }
+
+    // 验证并更新输入值
+    if (newValue !== value) {
+        input.value = newValue;
+    }
+
+    // 更新最后一个有效值
+    lastValidValue = input.value;
+
+    // 恢复光标的位置
+    // input.setSelectionRange(cursorPos, cursorPos);
+    submitSelection()
+}
 </script>
 <style>
 /* 基本表格样式 */
@@ -767,66 +857,184 @@ option
 
 }
 
+.checkbox-wrapper2 {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr;
+    width:240px;
+
+}
+.checkbox-wrapper3 {
+    display: grid;
+    grid-template-columns: 1;
+    width:100%;
+
+}
+.checkbox-wrapper3 .checkbox-item
+{
+     margin-left:15px;
+     margin-top:10px;
+}
+input[type="number"] {
+    border: none; /* 去掉边框 */
+    border-bottom: 1px solid #000; /* 底部添加一条横线 */
+    outline: none;
+    padding: 0px;
+    /* padding-right: 0px;  */
+    
+    width: 31px;
+    font-size:14px;
+    /* text-align:right; */
+    text-align:center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"]{
+    -moz-appearance: textfield;
+}
+
 </style>
 
 
 <div class="main-container" id="main-container-mul">
-<div class="checkbox-wrapper">
-        <div class="checkbox-container1" id="dataset-container-mul-up">
-        <div class="category" style="margin-bottom:0px">
-        <h3><input type="checkbox" id="select-all-Metrics" style='display:none' onchange="toggleCategory('Metrics', this.checked)"> Metrics 
-        <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight:bold">&nbsp;[<a href="javascript:void(0);" onclick="toggleCategory('Metrics', true)" style="padding:0 3px">all</a>]</b></h3>
+  <div class="checkbox-wrapper">
+    <div class="checkbox-container1" id="dataset-container-mul-up">
+      <div class="category" style="margin-bottom:0px">
+        <h3>
+          <input type="checkbox" id="select-all-Metrics" style='display:none' onchange="toggleCategory('Metrics', this.checked)">
+          Metrics
+          <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight:bold"> [<a href="javascript:void(0);" onclick="toggleCategory('Metrics', true)" style="padding:0 3px">all</a>]</b>
+        </h3>
         <div class="checkbox-wrapper1">
-        <div class="checkbox-item"><input type="checkbox" id="Metrics/MAE"  value="Metrics/MAE" 
-        onchange="handleChildCheckboxChange(event)" class="checkbox-Metrics"><label for="Metrics/MAE">MAE</label></div>
-        <div class="checkbox-item"><input type="checkbox" id="Metrics/MSE" value="Metrics/MSE" 
-        onchange="handleChildCheckboxChange(event)" class="checkbox-Metrics"><label for="Metrics/MSE">MSE</label></div></div></div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Metrics/MAE" value="Metrics/MAE" onchange="handleChildCheckboxChange(event)" class="checkbox-Metrics">
+            <label for="Metrics/MAE">MAE</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Metrics/MSE" value="Metrics/MSE" onchange="handleChildCheckboxChange(event)" class="checkbox-Metrics">
+            <label for="Metrics/MSE">MSE</label>
+          </div>
         </div>
-        <div style='width:90%'>
-        <hr style="border:1px dashed #ddd">
-        </div>
-        <div id='all'>
-            <div class='checkbox-container'>
-                <div class="all-checkbox">
-                    <input type="checkbox" id="select-all" onclick="toggleSelectAll(this.checked)"  style="display:none">
-                    <label for="select-all"><h3 style="white-space:nowrap">Datasets <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight:bold">&nbsp;[<a href="javascript:void(0);" onclick="toggleSelectAll(true)" style="padding:0 3px">all</a>|<a href="javascript:void(0);" onclick="p1(true)" style="padding:0 3px">profile1</a>|<a href="javascript:void(0);" onclick="toggleSelectAll(false)" style="padding:0 3px">off</a>]</b>
-                    </h3></label>
-                </div>
-                <!-- <div class="all-checkbox">
-                    <input type="checkbox" id='select-p1' onclick="p1(this)">
-                    <label for="select-p1"><h3>P1</h3></label>
-                </div> -->
-            </div>
-            <div class="checkbox-container" id="dataset-container-mul"></div>
-        </div>
+      </div>
     </div>
-    <div style="width:80%" class="table-container" id='table-container-mul'>
-        <table id="multivariateTable2" class="my-table2">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Model</th>
-                    <th>Score</th>
-                    <th>#1st</th>
-                    <th>#2nd</th>
-                    <th>#3rd</th>
-                    <th>Paper</th>
-                    <!-- <th>Code</th> -->
-                    <th>Publication</th>
-                    <th>Year</th>
-                    <!-- <th>Contact</th> -->
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+    <div style='width:90%'>
+      <hr style="border:1px dashed #ddd">
     </div>
+    <div id='all'>
+      <div class='checkbox-container'>
+        <div class="all-checkbox">
+          <input type="checkbox" id="select-all" onclick="toggleSelectAll(this.checked)" style="display:none">
+          <label for="select-all">
+            <h3 style="white-space:nowrap">Datasets
+              <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight:bold"> [<a href="javascript:void(0);" onclick="toggleSelectAll(true)" style="padding:0 3px">all</a>|<a href="javascript:void(0);" onclick="p1(true)" style="padding:0 3px">profile1</a>|<a href="javascript:void(0);" onclick="toggleSelectAll(false)" style="padding:0 3px">off</a>]</b>
+            </h3>
+          </label>
+        </div>
+      </div>
+      <div class="checkbox-container" id="dataset-container-mul"></div>
+    </div>
+    <div style='width:90%'>
+      <hr style="border:1px dashed #ddd">
+    </div>
+    <div class="checkbox-container1" id="dataset-container-mul-down">
+      <div class="category" style="margin-bottom:0px">
+        <h3>
+          <input type="checkbox" id="select-all-Horizons" style='display:none' onchange="toggleCategory('Horizons', this.checked)">
+          Horizons
+          <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight:bold"> [<a href="javascript:void(0);" onclick="toggleCategory('Horizons', true)" style="padding:0 3px">all</a>|<a href="javascript:void(0);" onclick="toggleCategory('Horizons', false)" style="padding:0 3px">off</a>]</b>
+        </h3>
+        <div class="checkbox-wrapper2">
+          <div class="checkbox-item">
+            <input type="checkbox" id="Horizons/24" value="Horizons/24" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons">
+            <label for="Horizons/24">24</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Horizons/36" value="Horizons/36" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons">
+            <label for="Horizons/36">36</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Horizons/48" value="Horizons/48" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons">
+            <label for="Horizons/48">48</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Horizons/60" value="Horizons/60" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons">
+            <label for="Horizons/60">60</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Horizons/96" value="Horizons/96" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons">
+            <label for="Horizons/96">96</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Horizons/192" value="Horizons/192" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons">
+            <label for="Horizons/192">192</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Horizons/336" value="Horizons/336" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons">
+            <label for="Horizons/336">336</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Horizons/720" value="Horizons/720" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons">
+            <label for="Horizons/720">720</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style='width:90%'>
+      <hr style="border:1px dashed #ddd">
+    </div>
+    <div class="checkbox-container1" id="dataset-container-mul-down1">
+      <div class="category" style="margin-bottom:0px">
+        <h3>
+          <input type="checkbox" id="select-all-Score" style='display:none' onchange="toggleCategory('Score', this.checked)">
+          Score
+        </h3>
+        <div class="checkbox-wrapper3">
+          <div class="checkbox-item">
+            <input type="checkbox" id="Score/1" value="Score/1" onchange="handleChildCheckboxChange(event)" class="checkbox-Score">
+            <label for="Score/1">🥇</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Score/2" value="Score/2" onchange="handleChildCheckboxChange(event)" class="checkbox-Score">
+            <label for="Score/2">🥇 + 🥈 + 🥉</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Score/3" value="Score/3" onchange="handleChildCheckboxChange(event)" class="checkbox-Score">
+            <label for="Score/3">
+            <input type="number" id="score/3/1" name="score/3/1" value="3" oninput="validateInput(this)"> × 🥇 + 
+            <input type="number" id="score/3/2" name="score/3/2" value="2" oninput="validateInput(this)"> × 🥈 + 
+            <input type="number" id="score/3/3" name="score/3/3" value="1" oninput="validateInput(this)"> × 🥉</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="width:70%" class="table-container" id='table-container-mul'>
+    <table id="multivariateTable2" class="my-table2">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Model</th>
+          <th>Score</th>
+          <th>🥇</th>
+          <th>🥈</th>
+          <th>🥉</th>
+          <th>Paper</th>
+          <!-- <th>Code</th> -->
+          <th>Publication</th>
+          <th>Year</th>
+          <!-- <th>Contact</th> -->
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 
-
 <h3 id="Rule"><a href="#Rule" class="headerlink" title="Rule:"></a>Rule:</h3><ul>
-<li>For multivariate forecasting algorithms, we consider 25 datasets, 4 forecasting horizons, and 2 error metrics, i.e., MAE and MSE, thus having 200 (25 * 4 * 2) unique evaluation settings. For each forecasting algorithm, we count the number of times that the algorithm achieves the 1st, 2nd, and 3rd accuarcy, denoated as x, y, and z. Finally, we calcualte the final score as <strong>score &#x3D; 3 * x+ 2 * y + 1 * z</strong>. The larger the final score, the higher the ranking.</li>
+<li>For multivariate forecasting algorithms, we consider 25 datasets, 4 forecasting horizons, and 2 error metrics, i.e., MAE and MSE, thus having 200 (25 * 4 * 2) unique evaluation settings (details <a href="../2000seetings">click here</a>). For each forecasting algorithm, we count the number of times that the algorithm achieves the 1st, 2nd, and 3rd accuarcy, denoated as x, y, and z. Finally, we calcualte the final score as <strong>score &#x3D; 3 * x+ 2 * y + 1 * z</strong>. The larger the final score, the higher the ranking.</li>
 <li>Profile1 refers to ten well-acknowledged forecasting datasets, including Electricity、ETTm1、ETTm2、ETTh1、ETTh2、Traffic、Solar、Weather、ILI、Exchange. This facilitates the comparison of algorithm performance within a small datasets.</li>
 </ul>
 

@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/TFB_leaderboard/js/jquery.min.js"></script>
+  <link rel="icon" type="image/png" href="/TFB_leaderboard/figures/logo10.png">
+  <meta charset="utf-8">
+  
+  <title>TFB-leaderboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Datasets Look Back Window Size Forecasting Horizon Metrics    ETTh1 {96, 336, 512} 96 MAE   ETTh1 {96, 336, 512} 192 MAE   ETTh1 {96, 336, 512} 336 MAE   ETTh1 {96, 336, 512} 720 MAE   ETTh1 {96, 3">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TFB-leaderboard">
+<meta property="og:url" content="https://decisionintelligence.github.io/TFB_leaderboard/2000seetings/index.html">
+<meta property="og:site_name" content="TFB-leaderboard">
+<meta property="og:description" content="Datasets Look Back Window Size Forecasting Horizon Metrics    ETTh1 {96, 336, 512} 96 MAE   ETTh1 {96, 336, 512} 192 MAE   ETTh1 {96, 336, 512} 336 MAE   ETTh1 {96, 336, 512} 720 MAE   ETTh1 {96, 3">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-07-24T02:00:34.171Z">
+<meta property="article:modified_time" content="2024-07-24T01:52:11.256Z">
+<meta property="article:author" content="DecisionIntelligence |">
+<meta name="twitter:card" content="summary">
+  
+
+  <link href="/TFB_leaderboard/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/TFB_leaderboard/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/TFB_leaderboard/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <!-- blair add baidu tongji start... @2017.10.03 -->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?8864d";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+<!-- blair add baidu tongji end ! @2017.10.03 -->
+<!-- jiangting add start... @2020.08.30 -->
+
+<!-- jiangting add end !  @2020.08.30 -->
+
+<header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <!-- <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a> -->
+      <a id="logo" style="margin:3px 0" class="logo" href="/TFB_leaderboard/"></a>
+      <nav id="main-nav">
+        
+          
+            <a class="main-nav-link" href="/TFB_leaderboard/">Overview</a>
+          
+        
+          
+            <div class="dropdown">
+              <!-- <a class="main-nav-link dropdown-toggle" href="/TFB_leaderboard/get%20started">Get Started <span class="caret"></span></a> -->
+              <a class="main-nav-link dropdown-toggle">Get Started <span class="caret"></span></a>
+
+              <div class="dropdown-content">
+                
+                  <a href="/TFB_leaderboard/get%20started/#Quickstart">Quickstart</a>
+                
+                  <a href="/TFB_leaderboard/get%20started/#Steps-to-include-your-own-method">Steps to include your own method</a>
+                
+                  <a href="/TFB_leaderboard/get%20started/#FAQ">FAQ</a>
+                
+                  <a href="/TFB_leaderboard/get%20started/#Citing-TFB">Citing TFB</a>
+                
+                  <a href="/TFB_leaderboard/get%20started/#Contact">Contact</a>
+                
+              </div>
+            </div>
+          
+        
+          
+            <div class="dropdown">
+              <!-- <a class="main-nav-link dropdown-toggle" href="/TFB_leaderboard/datasets">Datasets <span class="caret"></span></a> -->
+              <a class="main-nav-link dropdown-toggle">Datasets <span class="caret"></span></a>
+
+              <div class="dropdown-content">
+                
+                  <a href="/TFB_leaderboard/datasets/#Overview">Overview</a>
+                
+                  <a href="/TFB_leaderboard/datasets/#Univariate-time-series">Univariate time series</a>
+                
+                  <a href="/TFB_leaderboard/datasets/#Multivariate-time-series">Multivariate time series</a>
+                
+              </div>
+            </div>
+          
+        
+          
+            <a class="main-nav-link" href="/TFB_leaderboard/algorithms">Algorithms</a>
+          
+        
+          
+            <div class="dropdown">
+              <!-- <a class="main-nav-link dropdown-toggle" href="/TFB_leaderboard/">Leaderboards <span class="caret"></span></a> -->
+              <a class="main-nav-link dropdown-toggle">Leaderboards <span class="caret"></span></a>
+
+              <div class="dropdown-content">
+                
+                  <a href="/TFB_leaderboard/leaderboards_univariate">Univariate time series</a>
+                
+                  <a href="/TFB_leaderboard/leaderboards_multivariate">Multivariate time series</a>
+                
+              </div>
+            </div>
+          
+        
+          
+            <a class="main-nav-link" href="/TFB_leaderboard/team">Team</a>
+          
+        
+          
+            <a class="main-nav-link" href="/TFB_leaderboard/paper">Paper</a>
+          
+        
+          
+            <a class="main-nav-link" target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">Github</a>
+          
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  #header {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+  }
+
+  #header-outer {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+  }
+
+  #header-inner {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    width: 1000px; /* 设置最大宽度 */
+    margin: auto; /* 居中对齐 */ /* 确保占满父元素的宽度 */
+    flex-wrap: nowrap; /* 保持内容在同一行 */
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    text-align: right;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    top: 100%;
+    right: 0;
+    width: auto;
+    min-width: 100%;
+    white-space: nowrap;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-top: 1px solid #ddd;
+  }
+
+  .dropdown-content a:first-child {
+    border-top: none;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-toggle::after {
+    content: " ▼";
+    font-size: 0.55em;
+    vertical-align: middle;
+  }
+
+  #main-nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-around;
+    flex-wrap: nowrap; /* 保持内容在同一行 */
+  }
+
+  .main-nav-link {
+    padding: 0 10px; /* 减少 padding，缩小栏目间距 */
+  }
+
+  
+
+  @media (max-width: 480px) {
+    .main-nav-link {
+      padding: 5px; /* 进一步减少 padding，在小屏幕上更紧凑 */
+      flex: 1;
+      text-align: center;
+    }
+  }
+</style>
+
+    <br>
+    <section id="main" class="outer"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    <div class="article-meta">
+      <!--<a href="/TFB_leaderboard/2000seetings/index.html" class="article-date">
+  <time datetime="2024-07-24T02:00:34.171Z" itemprop="datePublished">2024-07-24</time>
+</a>-->
+      <!-- 
+--><!-- by blair 160724 -->
+      <!-- by blair
+      
+      -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th>Datasets</th>
+<th>Look Back Window Size</th>
+<th>Forecasting Horizon</th>
+<th>Metrics</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ETTh1</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTh1</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTh1</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTh1</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTh1</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTh1</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTh1</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTh1</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTh2</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTh2</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTh2</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTh2</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTh2</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTh2</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTh2</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTh2</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTm1</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTm1</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTm1</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTm1</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTm1</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTm1</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTm1</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTm1</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTm2</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTm2</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTm2</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTm2</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ETTm2</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTm2</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTm2</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ETTm2</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Exchange</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Exchange</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Exchange</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Exchange</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Exchange</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Exchange</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Exchange</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Exchange</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Weather</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Weather</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Weather</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Weather</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Weather</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Weather</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Weather</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Weather</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Electricity</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Electricity</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Electricity</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Electricity</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Electricity</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Electricity</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Electricity</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Electricity</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Solar</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Traffic</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Traffic</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Traffic</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Traffic</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Traffic</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Traffic</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Traffic</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Traffic</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS-BAY</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS-BAY</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS-BAY</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS-BAY</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS-BAY</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS-BAY</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS-BAY</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS-BAY</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>METR-LA</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>METR-LA</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>METR-LA</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>METR-LA</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>METR-LA</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>METR-LA</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>METR-LA</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>METR-LA</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS04</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS04</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS04</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS04</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS04</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS04</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS04</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS04</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS08</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS08</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS08</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS08</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>PEMS08</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS08</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS08</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>PEMS08</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>AQShunyi</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>AQShunyi</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>AQShunyi</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>AQShunyi</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>AQShunyi</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>AQShunyi</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>AQShunyi</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>AQShunyi</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>AQWan</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>AQWan</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>AQWan</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>AQWan</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>AQWan</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>AQWan</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>AQWan</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>AQWan</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Wind</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Wind</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Wind</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Wind</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Wind</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Wind</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Wind</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Wind</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ZafNoo</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ZafNoo</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ZafNoo</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ZafNoo</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ZafNoo</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ZafNoo</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ZafNoo</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ZafNoo</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>CzeLan</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>CzeLan</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>CzeLan</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>CzeLan</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>CzeLan</td>
+<td>{96, 336, 512}</td>
+<td>96</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>CzeLan</td>
+<td>{96, 336, 512}</td>
+<td>192</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>CzeLan</td>
+<td>{96, 336, 512}</td>
+<td>336</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>CzeLan</td>
+<td>{96, 336, 512}</td>
+<td>720</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ILI</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ILI</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ILI</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ILI</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>ILI</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ILI</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ILI</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>ILI</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Covid-19</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Covid-19</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Covid-19</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Covid-19</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Covid-19</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Covid-19</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Covid-19</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Covid-19</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NASDAQ</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NASDAQ</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NASDAQ</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NASDAQ</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NASDAQ</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NASDAQ</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NASDAQ</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NASDAQ</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NYSE</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NYSE</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NYSE</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NYSE</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NYSE</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NYSE</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NYSE</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NYSE</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>FRED-MD</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>FRED-MD</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>FRED-MD</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>FRED-MD</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>FRED-MD</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>FRED-MD</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>FRED-MD</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>FRED-MD</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NN5</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NN5</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NN5</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NN5</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>NN5</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NN5</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NN5</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>NN5</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Wike2000</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Wike2000</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Wike2000</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Wike2000</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Wike2000</td>
+<td>{36, 104}</td>
+<td>24</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Wike2000</td>
+<td>{36, 104}</td>
+<td>36</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Wike2000</td>
+<td>{36, 104}</td>
+<td>48</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Wike2000</td>
+<td>{36, 104}</td>
+<td>60</td>
+<td>MSE</td>
+</tr>
+</tbody></table>
+
+      
+    
+    </div>
+    
+    
+      <footer class="article-footer">
+        <!-- <div class="well" style="width:100px; height:30px;"></div>  by blair-->
+        
+ <!-- by blair add 160724-->
+        <!--
+        <div style="width:100px; height:30px;"></div> by blair add 160724
+        -->
+        
+
+      </footer>
+    
+  </div>
+  
+    
+  
+</article>
+
+</section>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2024 DecisionIntelligence |&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a target="_blank" rel="noopener" href="http://github.com/52binge/hexo-theme-blairos">blairos</a>
+    </div>
+  </div>
+</footer> -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      displayMath: [ ['$$','$$']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" >
+</script>
+
+    
+
+
+
+
+
+
+<script src="/TFB_leaderboard/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
