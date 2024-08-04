@@ -14,8 +14,8 @@
 <meta property="og:site_name" content="OpenTS">
 <meta property="og:description" content="Multivariate forecasting results         function findBottomTwoKeys(obj) {     let minKey &#x3D; null;     let secondMinKey &#x3D; null;     let minValue &#x3D; Infinity;     let secondMinValue &#x3D; Infinity;      for">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-08-04T06:22:49.984Z">
-<meta property="article:modified_time" content="2024-08-04T06:22:49.984Z">
+<meta property="article:published_time" content="2024-08-04T21:07:18.361Z">
+<meta property="article:modified_time" content="2024-08-04T21:07:18.361Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -109,10 +109,6 @@
                   <a href="/OpenTS/leaderboards_univariate">Univariate time series</a>
                 
                   <a href="/OpenTS/leaderboards_multivariate">Multivariate time series</a>
-                
-                  <a href="/OpenTS/univariate">Univariate full results</a>
-                
-                  <a href="/OpenTS/multivariate">Multivariate full results</a>
                 
               </div>
             </div>
@@ -237,7 +233,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/multivariate/index.html" class="article-date">
-  <time datetime="2024-08-04T06:22:49.984Z" itemprop="datePublished">2024-08-04</time>
+  <time datetime="2024-08-04T21:07:18.361Z" itemprop="datePublished">2024-08-05</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -282,7 +278,7 @@
         secondMinKey,
     };
 }
-function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {
+function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {
 
     const tableHeadr = document.getElementById(table).getElementsByTagName('thead')[0];
     const tableBody = document.getElementById(table).getElementsByTagName('tbody')[0];
@@ -416,7 +412,7 @@ function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUr
     };
 }
 
-function phraseMultiTable(results, table) {
+function phraseMultiTable11(results, table) {
      // Prepare results
     const data = results.data;
 
@@ -445,7 +441,7 @@ function phraseMultiTable(results, table) {
     year = Object.entries(year);
     year.sort((a, b) => b[1] - a[1]);
     // Display results
-    displayResults(experimentData, connectTexts, connectUrls, paperUrls, codeUrls, pub, bib, year, table,true);
+    displayResults11(experimentData, connectTexts, connectUrls, paperUrls, codeUrls, pub, bib, year, table,true);
 }
 
 
@@ -455,7 +451,7 @@ fetch('../leaderboards_multivariate/multivariate_total.csv')
         header: true,
         dynamicTyping: true,
         complete:function(results){
-            phraseMultiTable(results, 'multivariateTable2')
+            phraseMultiTable11(results, 'multivariateTable211')
         } 
     }));
 
@@ -549,9 +545,9 @@ table.my-table2 tr td:nth-child(7) {
 </style>
 
 
-<div class="main-container" id="main-container-mul">
-  <div style="width:100%" class="table-container" id='table-container-mul'>
-    <table id="multivariateTable2" class="my-table2">
+<div class="main-container">
+  <div style="width:100%" class="table-container">
+    <table id="multivariateTable211" class="my-table2">
       <thead>
       </thead>
       <tbody>

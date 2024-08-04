@@ -7,15 +7,15 @@
   
   <title>OpenTS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Univariate forecasting results    var uni_methods&#x3D;[] var uni_desc &#x3D;{} var freqs&#x3D;[] var characters&#x3D;[&#39;Trend&#39;,&#39;Seasonality&#39;,&#39;Stationarity&#39;,&#39;Transition&#39;,&#39;Shifting&#39;] var metrics&#x3D;[&#39;MAE&#39;,&#39;MSE&#39;,&#39;MSMAPE&#39;] var">
+  <meta name="description" content="Univariate forecasting results     var uni_desc_year &#x3D;{} var mase &#x3D; null var msmape &#x3D; null var rank &#x3D; null   function displayResults_uni11() {     &#x2F;&#x2F; 将对象转换为数组     uni_desc_year[&#39;Dataset-Quantity-metri">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS">
 <meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/univariate/index.html">
 <meta property="og:site_name" content="OpenTS">
-<meta property="og:description" content="Univariate forecasting results    var uni_methods&#x3D;[] var uni_desc &#x3D;{} var freqs&#x3D;[] var characters&#x3D;[&#39;Trend&#39;,&#39;Seasonality&#39;,&#39;Stationarity&#39;,&#39;Transition&#39;,&#39;Shifting&#39;] var metrics&#x3D;[&#39;MAE&#39;,&#39;MSE&#39;,&#39;MSMAPE&#39;] var">
+<meta property="og:description" content="Univariate forecasting results     var uni_desc_year &#x3D;{} var mase &#x3D; null var msmape &#x3D; null var rank &#x3D; null   function displayResults_uni11() {     &#x2F;&#x2F; 将对象转换为数组     uni_desc_year[&#39;Dataset-Quantity-metri">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-08-04T06:22:54.029Z">
-<meta property="article:modified_time" content="2024-08-04T06:22:54.029Z">
+<meta property="article:published_time" content="2024-08-04T21:01:25.770Z">
+<meta property="article:modified_time" content="2024-08-04T21:01:25.770Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -109,10 +109,6 @@
                   <a href="/OpenTS/leaderboards_univariate">Univariate time series</a>
                 
                   <a href="/OpenTS/leaderboards_multivariate">Multivariate time series</a>
-                
-                  <a href="/OpenTS/univariate">Univariate full results</a>
-                
-                  <a href="/OpenTS/multivariate">Multivariate full results</a>
                 
               </div>
             </div>
@@ -237,7 +233,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/univariate/index.html" class="article-date">
-  <time datetime="2024-08-04T06:22:54.029Z" itemprop="datePublished">2024-08-04</time>
+  <time datetime="2024-08-04T21:01:25.770Z" itemprop="datePublished">2024-08-05</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -251,30 +247,22 @@
 
 
 <script>
-var uni_methods=[]
-var uni_desc ={}
-var freqs=[]
-var characters=['Trend','Seasonality','Stationarity','Transition','Shifting']
-var metrics=['MAE','MSE','MSMAPE']
-var paradigm=['SL','ML','DL']
-var all_data={}
-var all_csv={}
-var all_paradigm={'SL':[],'ML':[],'DL':[]}
 
+var uni_desc_year ={}
 var mase = null
 var msmape = null
 var rank = null
 
 
-function displayResults_uni() {
+function displayResults_uni11() {
     // 将对象转换为数组
-    uni_desc['Dataset-Quantity-metrics'] = 99999
-    const entries = Object.entries(uni_desc);
+    uni_desc_year['Dataset-Quantity-metrics'] = 99999
+    const entries = Object.entries(uni_desc_year);
     
     // 对数组进行排序（从大到小）
     entries.sort((a, b) => b[1] - a[1]);
     // console.log(entries)
-    table = 'table-container-uni'
+    table = 'table-container-uni1'
     const tableHeadr = document.getElementById(table).getElementsByTagName('thead')[0];
     const tableBody = document.getElementById(table).getElementsByTagName('tbody')[0];
 
@@ -404,7 +392,13 @@ function displayResults_uni() {
                 td_mase.innerHTML = '<u>'+mase[keys][method].toFixed(2)+'</u>'
             }else
             {
-                td_mase.innerHTML = mase[keys][method].toFixed(2)
+                if (typeof mase[keys][method] == 'undefined')
+                {
+                    td_mase.innerHTML = 'NaN'
+                }else
+                {
+                    td_mase.innerHTML = mase[keys][method].toFixed(2)
+                }
             }
             const td_msmape = document.createElement('td');
             if(method==msmape_['minKey'])
@@ -415,7 +409,14 @@ function displayResults_uni() {
                 td_msmape.innerHTML = '<u>'+msmape[keys][method].toFixed(2)+'</u>'
             }else
             {
-                td_msmape.innerHTML = msmape[keys][method].toFixed(2)
+                if (typeof msmape[keys][method] == 'undefined')
+                {
+                    td_msmape.innerHTML = 'NaN'
+                }else
+                {
+                    td_msmape.innerHTML = msmape[keys][method].toFixed(2)
+                }
+                
             }
 
             const td_rank = document.createElement('td');
@@ -427,7 +428,14 @@ function displayResults_uni() {
                 td_rank.innerHTML = '<u>'+rank[keys][method]+'</u>'
             }else
             {
-                td_rank.innerHTML = rank[keys][method]
+                if (typeof rank[keys][method] == 'undefined')
+                {
+                    td_rank.innerHTML = 'NaN'
+                }else
+                {
+                    td_rank.innerHTML = rank[keys][method]
+                }
+                
             }
             row_mase.appendChild(td_mase)
             row_msmape.appendChild(td_msmape)
@@ -438,76 +446,6 @@ function displayResults_uni() {
         tableBody.appendChild(row_rank)
 
     })
-    // for (let i = 0; i < rankCounts.length; i += 2) {
-    //   if (i + 1 < rankCounts.length) {
-    //   const row = document.createElement('tr');
-    //   result_mae = rankCounts[i]
-    //   result_mse = rankCounts[i+1]
-    //   mae_sort = findBottomTwoKeys(result_mae)
-    //   mse_sort = findBottomTwoKeys(result_mse)
-    //    year.forEach((res)=>{
-    //     key = res[0]
-    //     if (key=='Dataset-Quantity-metrics')
-    //     {
-    //       const td1 = document.createElement('td');
-    //       const td2 = document.createElement('td');
-    //       dataset = result_mae[key].split('/')[1]
-    //       content = dataset.split('-')
-    //       if (i %8 ==0)
-    //       {
-    //         td1.innerHTML = content[0].replace('_','-')
-    //         if (i%16==0)
-    //         {
-    //           td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);background-color: #f2f2f2;width:50px'
-    //         }else
-    //         {
-    //           td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);background-color: #ffffff;'
-    //         }
-            
-    //         td1.rowSpan  = 4
-    //         row.appendChild(td1)
-    //       }
-          
-    //       td2.innerHTML = content[1]
-          
-    //       row.appendChild(td2)
-    //     }else
-    //     {
-    //       const td1 = document.createElement('td');
-    //       const td2 = document.createElement('td');
-    //       if (key == mae_sort['minKey'])
-    //       {
-    //         td1.innerHTML = '<b>'+result_mae[key]+'</b>'
-    //       }
-    //       else if (key == mae_sort['secondMinKey'])
-    //       {
-    //          td1.innerHTML = '<u>'+result_mae[key]+'</u>'
-    //       }
-    //       else
-    //       {
-    //         td1.innerHTML = result_mae[key]
-    //       }
-    //       if (key == mse_sort['minKey'])
-    //       {
-    //         td2.innerHTML = '<b>'+result_mse[key]+'</b>'
-    //       }
-    //       else if (key == mse_sort['secondMinKey'])
-    //       {
-    //          td2.innerHTML = '<u>'+result_mse[key]+'</u>'
-    //       }
-    //       else
-    //       {
-    //         td2.innerHTML = result_mse[key]
-    //       }
-
-    //       row.appendChild(td2)
-    //       row.appendChild(td1)
-    //     }
-        
-    //   })
-    //   tableBody.append(row)
-    //   }
-    // };
 }
 function findBottomTwoKeys(obj) {
     let minKey = null;
@@ -567,7 +505,7 @@ function findTopTwoKeys(obj) {
         secondMaxKey,
     };
 }
-function pharse_desc(results)
+function pharse_desc11(results)
 {
     // console.log(results)
     const data  = results.data.map(row => {
@@ -581,32 +519,22 @@ function pharse_desc(results)
     uni_methods = Object.keys(firstFourRows[0]);
      
     uni_methods.forEach(key => {
-                       all_paradigm[firstFourRows[4][key]].push(key)
-                       uni_desc[key]= firstFourRows[3][key]
+                       uni_desc_year[key]= firstFourRows[3][key]
                     });
-    // console.log(uni_desc)
+    // console.log(uni_desc_year)
     }
 
-function haveIntersection(list1, list2) {
-    const set1 = new Set(list1);
-    for (let item of list2) {
-        if (set1.has(item)) {
-            return true;
-        }
-    }
-    return false;
-}
 
 
 
-function phrase_data1(results,name)
+function phrase_data111(results,name)
 {
     const data  = results.data.map(row => {
                     // 丢掉前两列
                     const { [Object.keys(row)[0]]: _, ...rest } = row;
                     return rest;
                 });
-    const desc_methods = Object.keys(uni_desc);
+    const desc_methods = Object.keys(uni_desc_year);
     let freqs_=new Set();
     catary_data = {'Seasonality_yes':[],'Seasonality_no':[],'Trend_yes':[],'Trend_no':[],'Stationarity_yes':[],'Stationarity_no':[],'Transition_yes':[],'Transition_no':[],'Shifting_yes':[],'Shifting_no':[]}
     // console.log(data)
@@ -673,13 +601,13 @@ function phrase_data1(results,name)
     } )
     if (name==='mase')
     {
-        mase = phrase2aggregate(catary_data)
+        mase = phrase2aggregate11(catary_data)
     }
     else if(name==='msmape')
     {
-        msmape = phrase2aggregate(catary_data)
+        msmape = phrase2aggregate11(catary_data)
         rank = phrase2rank(catary_data)
-         displayResults_uni()
+         displayResults_uni11()
         // console.log(msmape)
         // console.log(rank)
     }
@@ -716,39 +644,73 @@ function findMinCount(data) {
     return wins;
 }
 
-function phrase2aggregate(dict)
+function phrase2aggregate11(dict)
 {
     nd = {}
     Object.keys(dict).forEach(key=>{
-        nd[key] = aggregateByAverage(dict[key] )
+        nd[key] = aggregateByAverage11(dict[key] )
     })
     return nd
 }
-function aggregateByAverage(arr) {
+function aggregateByAverage11(arr) {
     const sum = {};
-    const count = arr.length;
+    const count = {};
 
     // 累加每个键的值
     arr.forEach(obj => {
         for (const [key, value] of Object.entries(obj)) {
+            if (typeof value === 'number') { // 判断 value 是否为数字
             if (sum[key] === undefined) {
                 sum[key] = 0;
             }
+            if (count[key] === undefined) {
+                count[key] = 0;
+            }
             sum[key] += value;
+            count[key] +=1;
+        }
         }
     });
 
     // 计算平均值
     const average = {};
-    for (const key in sum) {
-        average[key] = sum[key] / count;
-    }
-
+    Object.keys(sum).forEach( key=>{
+        average[key] = sum[key] / count[key];
+    })
+    // console.log(average)
     return average;
 }
 
+function removeZeroWidthSpaces11(str) {
+    return str.replace(/[\u200B]/g, '');
+}
 
-const urls = [
+function fench_data11()
+{
+    Promise.all(urls11.map(url => fetch(url).then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.text().then(text => ({ text, url }));
+})))
+.then(results => {
+    results.forEach((result, index) => {
+        const name = result.url.split('/').pop().split('.')[0];
+        const df = removeZeroWidthSpaces11(result.text);
+        Papa.parse(df, {
+            header: true,
+            dynamicTyping: true,
+            complete: function(parseResults) {
+                phrase_data111(parseResults,name)
+            }
+        });
+    });
+})
+
+
+}
+
+const urls11 = [
      '../leaderboards_univariate/result/mase.csv',
      '../leaderboards_univariate/result/msmape.csv'
 ];
@@ -759,48 +721,18 @@ fetch('../leaderboards_univariate/univariate_desc.csv')
     header: true,
     dynamicTyping: true,
     complete:function(results){
-        // init()
-        // uni_desc=[]
-        pharse_desc(results)
-        fench_data()
-        
+        pharse_desc11(results)
+        fench_data11()
     } 
 }));
 
 
-function removeZeroWidthSpaces(str) {
-    return str.replace(/[\u200B]/g, '');
-}
 
-function fench_data()
-{
-    Promise.all(urls.map(url => fetch(url).then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.text().then(text => ({ text, url }));
-})))
-.then(results => {
-    results.forEach((result, index) => {
-        const name = result.url.split('/').pop().split('.')[0];
-        const df = removeZeroWidthSpaces(result.text);
-        Papa.parse(df, {
-            header: true,
-            dynamicTyping: true,
-            complete: function(parseResults) {
-                phrase_data1(parseResults,name)
-            }
-        });
-    });
-})
-
-
-}
 
 </script>
 
 <div class="main-container" id="main-container-uni">
-    <div style="width:100%" class="table-container" id="table-container-uni">
+    <div style="width:100%" class="table-container" id="table-container-uni1">
         <table id="univariateTable" class="my-table2">
             <thead>
             </thead>
