@@ -15,8 +15,8 @@
 <meta property="og:site_name" content="OpenTS">
 <meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {      const tableBod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-08-04T21:09:40.086Z">
-<meta property="article:modified_time" content="2024-08-04T21:09:40.086Z">
+<meta property="article:published_time" content="2024-08-05T17:36:02.011Z">
+<meta property="article:modified_time" content="2024-08-05T17:36:02.011Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -234,7 +234,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards_multivariate/index.html" class="article-date">
-  <time datetime="2024-08-04T21:09:40.086Z" itemprop="datePublished">2024-08-05</time>
+  <time datetime="2024-08-05T17:36:02.011Z" itemprop="datePublished">2024-08-06</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -714,15 +714,20 @@ function validateInput(input) {
 }
 
 
-function findBottomTwoKeys(obj) {
+function findBottomThreeKeys(obj) {
     let minKey = null;
     let secondMinKey = null;
+    let thirdMinKey = null;
     let minValue = Infinity;
     let secondMinValue = Infinity;
+    let thirdMinValue = Infinity;
 
     for (const [key, value] of Object.entries(obj)) {
         if (typeof value === 'number') {
             if (value < minValue) {
+                // 更新第三小值和键
+                thirdMinValue = secondMinValue;
+                thirdMinKey = secondMinKey;
                 // 更新第二小值和键
                 secondMinValue = minValue;
                 secondMinKey = minKey;
@@ -730,9 +735,16 @@ function findBottomTwoKeys(obj) {
                 minValue = value;
                 minKey = key;
             } else if (value < secondMinValue) {
+                // 更新第三小值和键
+                thirdMinValue = secondMinValue;
+                thirdMinKey = secondMinKey;
                 // 更新第二小值和键
                 secondMinValue = value;
                 secondMinKey = key;
+            } else if (value < thirdMinValue) {
+                // 更新第三小值和键
+                thirdMinValue = value;
+                thirdMinKey = key;
             }
         }
     }
@@ -740,6 +752,7 @@ function findBottomTwoKeys(obj) {
     return {
         minKey,
         secondMinKey,
+        thirdMinKey,
     };
 }
 function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {
@@ -776,11 +789,15 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
         {
           const th = document.createElement('th');
             th.innerHTML = 'Model'
+            th.className='sticky-col-header sticky-col'
+            th.style='box-shadow: rgba(0, 0, 0, 0.4) 2.5px 0px 2.5px -1px'
             th.colSpan  = 2
             rowHeadr.appendChild(th)
         }
         })
-    
+    rowHeadr.className='sticky-th'
+    rowHeadr2.className='sticky-th'
+    rowHeadr2.style='top:42.4px' 
      year.forEach((res) =>{
         key = res[0]
         if (key!='Dataset-Quantity-metrics')
@@ -795,6 +812,8 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
         {
             const th = document.createElement('th');
             th.innerHTML = 'Metrics'
+            th.className='sticky-col-header sticky-col'
+            th.style='box-shadow: rgba(0, 0, 0, 0.4) 2.5px 0px 2.5px -1px'
             th.colSpan  = 2
             rowHeadr2.appendChild(th)
         }
@@ -809,8 +828,8 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
       const row = document.createElement('tr');
       result_mae = rankCounts[i]
       result_mse = rankCounts[i+1]
-      mae_sort = findBottomTwoKeys(result_mae)
-      mse_sort = findBottomTwoKeys(result_mse)
+      mae_sort = findBottomThreeKeys(result_mae)
+      mse_sort = findBottomThreeKeys(result_mse)
        year.forEach((res)=>{
         key = res[0]
         if (key=='Dataset-Quantity-metrics')
@@ -824,17 +843,25 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
             td1.innerHTML = content[0].replace('_','-')
             if (i%16==0)
             {
-              td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);background-color: #f2f2f2;width:50px'
+              td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);background-color: #f2f2f2;min-width:25 px'
             }else
             {
               td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);background-color: #ffffff;'
             }
-            
+            td1.className='sticky-col'
             td1.rowSpan  = 4
             row.appendChild(td1)
           }
           
           td2.innerHTML = content[1]
+          td2.className='sticky-col'
+          if (i%4==0)
+          {
+            td2.style='left:54.4px;box-shadow: rgba(0, 0, 0, 0.4) 2px 0px 3px -1px;background-color: #ffffff;'
+          }else
+          {
+            td2.style='left:54.4px;box-shadow: rgba(0, 0, 0, 0.4) 2px 0px 3px -1px;background-color: #f2f2f2;'
+          }
           
           row.appendChild(td2)
         }else
@@ -843,27 +870,34 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
           const td2 = document.createElement('td');
           if (key == mae_sort['minKey'])
           {
-            td1.innerHTML = '<b>'+result_mae[key]+'</b>'
+            td1.innerHTML = '<b>'+result_mae[key].toFixed(3)+'</b>'
           }
-          else if (key == mae_sort['secondMinKey'])
+          else if (key == mae_sort['thirdMinKey'])
           {
-             td1.innerHTML = '<u>'+result_mae[key]+'</u>'
+             td1.innerHTML = '<u>'+result_mae[key].toFixed(3)+'</u>'
+          }else if (key == mae_sort['secondMinKey'])
+          {
+             td1.innerHTML = '<p class="double-underline">'+result_mae[key].toFixed(3)+'</p>'
           }
           else
           {
-            td1.innerHTML = result_mae[key]
+            td1.innerHTML = result_mae[key].toFixed(3)
           }
+
           if (key == mse_sort['minKey'])
           {
-            td2.innerHTML = '<b>'+result_mse[key]+'</b>'
+            td2.innerHTML = '<b>'+result_mse[key].toFixed(3)+'</b>'
           }
-          else if (key == mse_sort['secondMinKey'])
+          else if (key == mse_sort['thirdMinKey'])
           {
-             td2.innerHTML = '<u>'+result_mse[key]+'</u>'
+             td2.innerHTML = '<u>'+result_mse[key].toFixed(3)+'</u>'
+          }else if (key == mse_sort['secondMinKey'])
+          {
+             td2.innerHTML = '<p class="double-underline">'+result_mse[key].toFixed(3)+'</p>'
           }
           else
           {
-            td2.innerHTML = result_mse[key]
+            td2.innerHTML = result_mse[key].toFixed(3)
           }
 
           row.appendChild(td2)
@@ -1244,19 +1278,21 @@ input[type="number"]{
 
 
 <h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
-<li><p>For multivariate forecasting algorithms, we consider 25 datasets and 2 error metrics, i.e., MAE and MSE. For each dataset, we consider 4 forecasting horizons. This gives 200 (25 * 4 * 2) unique evaluation settings (<a href="../200seetings">click here</a> for details). </p>
+<li><p>For multivariate forecasting algorithms, we consider 25 datasets and 2 error metrics, i.e., MAE and MSE. For each dataset, we consider 4 forecasting horizons. This gives 200 (25 * 4 * 2) unique evaluation settings (<a href="../200seetings">click here</a> for details), <a href="./#Multivariate-forecasting-results">click here</a> to see the detailed results.</p>
 </li>
 <li><p>For each forecasting algorithm, we count the number of times that the algorithm receives the gold, silver, and bronze medals, i.e., having the lowest, 2nd lowest, and 3rd lowest errors, shown as 🥇, 🥈, and 🥉, respectively. </p>
 </li>
 <li><p>We provide three different types of scores for ranking the forecasting algorithms. First, the scores equal to the numbers of gold medals. Second, the scores are the sum of the numbers of gold, silver, and bronze medals. Third, the scores are the weighted sum of the gold, silver, and bronze medals, where the weights can be customized. The larger the score, the higher the ranking.</p>
 </li>
-<li><p>Profile1 refers to a subset of ten datasets commonly used in recent literature, including Electricity, ETTm1, ETTm2, ETTh1, ETTh2, Traffic, Solar, Weather, ILI, and Exchange. </p>
-<div style="height:5px"></div></li>
+<li><p>Profile1 refers to a subset of ten datasets commonly used in recent literature, including Electricity, ETTm1, ETTm2, ETTh1, ETTh2, Traffic, Solar, Weather, ILI, and Exchange.</p>
+</li>
 </ul>
-<h3 id="Multivariate-forecasting-results"><a href="#Multivariate-forecasting-results" class="headerlink" title="Multivariate forecasting results:"></a>Multivariate forecasting results:</h3><div style="height:5px"></div>
+<div style="height:5px"></div>
+
+<h3 id="Multivariate-forecasting-results"><a href="#Multivariate-forecasting-results" class="headerlink" title="Multivariate forecasting results"></a>Multivariate forecasting results</h3><div style="height:5px"></div>
 
 <div class="main-container">
-  <div style="width:100%" class="table-container">
+  <div style="width:100%;overflow-y:auto;height:800px" class="table-container">
     <table id="multivariateTable211" class="my-table2">
       <thead>
       </thead>
@@ -1265,6 +1301,46 @@ input[type="number"]{
     </table>
   </div>
 </div>
+<style>
+.sticky-col{
+            position: sticky;
+            left: 0; /* 固定在左侧 */
+            z-index: 1;/* 设定堆叠顺序 */
+            /* box-shadow: rgba(0, 0, 0, 0.4) -2px 0px 3px -1px; */
+        }
+/* 确保交叉单元格的堆叠顺序 */
+.sticky-col-header {
+    z-index: 3;
+}
+.sticky-th {
+      position: sticky;
+      top: 0; /* 固定在顶部 */
+      z-index: 2; /* 设定堆叠顺序 */
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 3px -1px;
+        }
+.double-underline {
+            position: relative;
+            display: inline-block;
+            /* font: inherit; 继承父元素的字体样式 */
+        }
+        .double-underline::after,
+        .double-underline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px; /* 下划线的厚度 */
+            background-color: black; /* 下划线的颜色 */
+        }
+        .double-underline::before {
+            bottom: 3px; /* 第一条下划线的位置 */
+        }
+        .double-underline::after {
+            bottom: 0px; /* 第二条下划线的位置 */
+        }
+
+
+<p></style></p>
 
       
     
