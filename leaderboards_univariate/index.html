@@ -15,12 +15,12 @@
 <meta property="og:site_name" content="OpenTS">
 <meta property="og:description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var freqs&#x3D;[] var characters&#x3D;[&#39;Trend&#39;,&#39;Seasonality&#39;,&#39;Stationarity&#39;,&#39;Transition&#39;,&#39;Shifting&#39;] var met">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-08-05T18:02:14.455Z">
-<meta property="article:modified_time" content="2024-08-05T18:02:14.455Z">
+<meta property="article:published_time" content="2024-08-05T19:07:02.743Z">
+<meta property="article:modified_time" content="2024-08-05T19:07:02.743Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
-  <meta property="og:description" content="A collection of benchmark datasets, data-loaders and evaluators for graph machine learning in PyTorch.">
+
   <link href="/OpenTS/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
   <link href="/OpenTS/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   
@@ -234,7 +234,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards_univariate/index.html" class="article-date">
-  <time datetime="2024-08-05T18:02:14.455Z" itemprop="datePublished">2024-08-06</time>
+  <time datetime="2024-08-05T19:07:02.743Z" itemprop="datePublished">2024-08-06</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -955,8 +955,8 @@ function displayResults_uni11() {
             rowHeadr.appendChild(th)
             const th2 = document.createElement('th');
             th2.innerHTML = 'Metric'
-            th2.style='left:86.71px;box-shadow: rgba(0, 0, 0, 0.4) 2px 0px 3px -1px;'
-            th2.className='sticky-col'
+            th2.style='left:86.71px;'
+            th2.className='sticky-col metric-col'
             th2.colSpan  = 1
             rowHeadr.appendChild(th2)
         }
@@ -975,10 +975,10 @@ function displayResults_uni11() {
             // console.log(count)
             if (count%2==0)
             {
-            td1.style=' writing-mode: sideways-lr; ;background-color: #f2f2f2;width:20px;'
+            td1.style=' writing-mode: vertical-rl;transform: rotate(180deg) ;background-color: #f2f2f2;width:20px;max-width: 25px;min-width: 25px;'
             }else
             {
-            td1.style=' writing-mode: sideways-lr; ;background-color: #ffffff;width:20px;'
+            td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);background-color: #ffffff;width:20px;max-width: 25px;min-width: 25px;'
             }
             td1.rowSpan  = 6
             td1.className='sticky-col'
@@ -989,11 +989,11 @@ function displayResults_uni11() {
         if (keys.split('_')[1]=='yes')
         {
             td1.innerHTML='√'
-            td1.style="left:36px;background-color: #f2f2f2;padding:0;border:0px solid darkgray"
+            td1.style="left:41px;background-color: #f2f2f2;padding:0;border:0px solid darkgray;max-width: 20px;min-width: 20px;"
         }else
         {
             td1.innerHTML='×'
-            td1.style="left:36px;background-color: #fff;padding:0;border:0px solid darkgray;"
+            td1.style="left:41px;background-color: #fff;padding:0;border:0px solid darkgray;max-width: 20px;min-width: 20px;"
         }
         td1.rowSpan  = 3
         td1.className='sticky-col'
@@ -1007,24 +1007,29 @@ function displayResults_uni11() {
             if (!keys.includes('Shifting'))
             {
             row_rank.style='border-bottom-width: 2px;  border-bottom-style: solid;  border-bottom-color: darkgray;'
-
+            }else
+            {
+                row_rank.style='border-bottom-width: 2px;  border-bottom-style: solid;  border-bottom-color: white;'
             }
-            row_mase.style='border-top-width: 1px;  border-top-style: solid;  border-top-color: darkgray;'
+            row_mase.style='border-top: 1px solid darkgray;'
+        }
+        if(keys.includes('yes')&&keys.includes('Seasonality'))
+        {
+            row_mase.style='border-top: 2px solid white;'
         }
         const td_mase = document.createElement('td');
         td_mase.innerHTML = 'mase'
         td_mase.className='sticky-col metric-col'
-        // td_mase.style='left:86.7px;border-left-width: 1.5px;border-left-style: solid;border-left-color: darkgray;border-right-width:1px;border-right-style: solid;border-right-color: darkgray;box-shadow: rgba(0, 0, 0, 0.4) 3px 0px 2px -1px;'
         
         const td_msmape = document.createElement('td');
         td_msmape.innerHTML = 'msmape'
         td_msmape.className='sticky-col metric-col'
-        // td_msmape.style='left:86.7px;border-left-width: 1.5px;border-left-style: solid;border-left-color: darkgray;border-right-width:1px;border-right-style: solid;border-right-color: darkgray;box-shadow: rgba(0, 0, 0, 0.4) 3px 0px 2px -1px;'
+       
         
         const td_rank = document.createElement('td');
         td_rank.innerHTML = 'rank'
         td_rank.className='sticky-col metric-col'
-        // td_rank.style='left:86.7px;border-left-width: 1.5px;border-left-style: solid;border-left-color: darkgray;border-right-width:1px;border-right-style: solid;border-right-color: darkgray;box-shadow: rgba(0, 0, 0, 0.4) 3px 0px 2px -1px;'
+
         
         if (count%2==1)
         {
@@ -1794,8 +1799,17 @@ border:1px dashed #ddd
     border-right-width:1px;
     border-right-style: solid;
     border-right-color: darkgray;
-    box-shadow: rgba(0, 0, 0, 0.4) 2px 0px 3px -1px;
+    /* box-shadow: rgba(0, 0, 0, 0.4) 2px 0px 3px -1px; */
  }
+ .metric-col::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0px; /* 调整阴影位置 */
+    width: 5px;
+    height: 105%;
+    box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.4); /* 右侧阴影 */
+}
 </style>
 
 
@@ -1839,7 +1853,7 @@ border:1px dashed #ddd
             position: sticky;
             top: 0; /* 固定在顶部 */
             z-index: 2; /* 设定堆叠顺序 */
-            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 3px -1px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 3px -2px;
         }
 .double-underline {
             position: relative;

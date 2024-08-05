@@ -15,12 +15,12 @@
 <meta property="og:site_name" content="OpenTS">
 <meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {      const tableBod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-08-05T17:36:02.011Z">
-<meta property="article:modified_time" content="2024-08-05T17:36:02.011Z">
+<meta property="article:published_time" content="2024-08-05T18:48:59.907Z">
+<meta property="article:modified_time" content="2024-08-05T18:48:59.907Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
-  <meta property="og:description" content="A collection of benchmark datasets, data-loaders and evaluators for graph machine learning in PyTorch.">
+
   <link href="/OpenTS/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
   <link href="/OpenTS/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
   
@@ -234,7 +234,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards_multivariate/index.html" class="article-date">
-  <time datetime="2024-08-05T17:36:02.011Z" itemprop="datePublished">2024-08-06</time>
+  <time datetime="2024-08-05T18:48:59.907Z" itemprop="datePublished">2024-08-06</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -789,8 +789,8 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
         {
           const th = document.createElement('th');
             th.innerHTML = 'Model'
-            th.className='sticky-col-header sticky-col'
-            th.style='box-shadow: rgba(0, 0, 0, 0.4) 2.5px 0px 2.5px -1px'
+            th.className='sticky-col-header sticky-col2'
+            th.style='left:0'
             th.colSpan  = 2
             rowHeadr.appendChild(th)
         }
@@ -812,8 +812,8 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
         {
             const th = document.createElement('th');
             th.innerHTML = 'Metrics'
-            th.className='sticky-col-header sticky-col'
-            th.style='box-shadow: rgba(0, 0, 0, 0.4) 2.5px 0px 2.5px -1px'
+            th.className='sticky-col-header sticky-col2'
+            th.style='left:0'
             th.colSpan  = 2
             rowHeadr2.appendChild(th)
         }
@@ -843,10 +843,10 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
             td1.innerHTML = content[0].replace('_','-')
             if (i%16==0)
             {
-              td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);background-color: #f2f2f2;min-width:25 px'
+              td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);max-width: 50px;min-width: 50px;background-color: #f2f2f2;min-width:25 px'
             }else
             {
-              td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);background-color: #ffffff;'
+              td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);max-width: 50px;min-width: 50px;background-color: #ffffff;'
             }
             td1.className='sticky-col'
             td1.rowSpan  = 4
@@ -854,13 +854,14 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
           }
           
           td2.innerHTML = content[1]
-          td2.className='sticky-col'
+
+          td2.className='sticky-col2'
           if (i%4==0)
           {
-            td2.style='left:54.4px;box-shadow: rgba(0, 0, 0, 0.4) 2px 0px 3px -1px;background-color: #ffffff;'
+            td2.style='background-color: #ffffff;'
           }else
           {
-            td2.style='left:54.4px;box-shadow: rgba(0, 0, 0, 0.4) 2px 0px 3px -1px;background-color: #f2f2f2;'
+            td2.style='background-color: #f2f2f2;'
           }
           
           row.appendChild(td2)
@@ -1316,7 +1317,7 @@ input[type="number"]{
       position: sticky;
       top: 0; /* 固定在顶部 */
       z-index: 2; /* 设定堆叠顺序 */
-      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 3px -1px;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 3px -2px;
         }
 .double-underline {
             position: relative;
@@ -1338,7 +1339,21 @@ input[type="number"]{
         .double-underline::after {
             bottom: 0px; /* 第二条下划线的位置 */
         }
-
+    .sticky-col2 {
+            position: sticky;
+            left: 66px; /* 根据第一列的宽度设置 */
+            z-index: 1;
+            background-color: #fff;
+        }
+.sticky-col2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0px; /* 调整阴影位置 */
+    width: 5px;
+    height: 105%;
+    box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.4); /* 右侧阴影 */
+}
 
 <p></style></p>
 
