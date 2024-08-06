@@ -15,8 +15,8 @@
 <meta property="og:site_name" content="OpenTS">
 <meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {      const tableBod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-08-05T18:48:59.907Z">
-<meta property="article:modified_time" content="2024-08-05T18:48:59.907Z">
+<meta property="article:published_time" content="2024-08-06T11:35:49.746Z">
+<meta property="article:modified_time" content="2024-08-06T11:35:49.746Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -110,6 +110,8 @@
                   <a href="/OpenTS/leaderboards_univariate">Univariate time series</a>
                 
                   <a href="/OpenTS/leaderboards_multivariate">Multivariate time series</a>
+                
+                  <a href="/OpenTS/leaderboards_spatio_temporal">Spatio-temporal series</a>
                 
               </div>
             </div>
@@ -234,7 +236,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards_multivariate/index.html" class="article-date">
-  <time datetime="2024-08-05T18:48:59.907Z" itemprop="datePublished">2024-08-06</time>
+  <time datetime="2024-08-06T11:35:49.746Z" itemprop="datePublished">2024-08-06</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -571,7 +573,7 @@ function submitSelection() {
             }
         }
     }); 
-    console.log(select_score)
+
     fetch('multivariate_total.csv')
         .then(response => response.text())
         .then(text => Papa.parse(text, {
@@ -676,7 +678,7 @@ function validateInput(input) {
     // 处理整数和小数部分
     let [integerPart, decimalPart] = value.split('.');
     
-    // console.log(integerPart,decimalPart)
+
     // 处理整数部分：去除前导零并限制最大两位数
     
     // 去除前导零
@@ -755,6 +757,16 @@ function findBottomThreeKeys(obj) {
         thirdMinKey,
     };
 }
+function format(num)
+{
+  if (typeof(num)!='number')
+  {
+    return 'NaN'
+  }else
+  {
+    return num.toFixed(3)
+  }
+}
 function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {
 
     const tableHeadr = document.getElementById(table).getElementsByTagName('thead')[0];
@@ -770,7 +782,6 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
         if (key!='Dataset-Quantity-metrics')
         {
             models.push(key)
-            console.log(key)
             const th = document.createElement('th');
             if (key=='Non-stationary Transformer')
             {
@@ -871,34 +882,34 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
           const td2 = document.createElement('td');
           if (key == mae_sort['minKey'])
           {
-            td1.innerHTML = '<b>'+result_mae[key].toFixed(3)+'</b>'
+            td1.innerHTML = '<b>'+format(result_mae[key])+'</b>'
           }
           else if (key == mae_sort['thirdMinKey'])
           {
-             td1.innerHTML = '<u>'+result_mae[key].toFixed(3)+'</u>'
+             td1.innerHTML = '<u>'+format(result_mae[key])+'</u>'
           }else if (key == mae_sort['secondMinKey'])
           {
-             td1.innerHTML = '<p class="double-underline">'+result_mae[key].toFixed(3)+'</p>'
+             td1.innerHTML = '<p class="double-underline">'+format(result_mae[key])+'</p>'
           }
           else
           {
-            td1.innerHTML = result_mae[key].toFixed(3)
+            td1.innerHTML = format(result_mae[key])
           }
 
           if (key == mse_sort['minKey'])
           {
-            td2.innerHTML = '<b>'+result_mse[key].toFixed(3)+'</b>'
+            td2.innerHTML = '<b>'+format(result_mse[key])+'</b>'
           }
           else if (key == mse_sort['thirdMinKey'])
           {
-             td2.innerHTML = '<u>'+result_mse[key].toFixed(3)+'</u>'
+             td2.innerHTML = '<u>'+format(result_mse[key])+'</u>'
           }else if (key == mse_sort['secondMinKey'])
           {
-             td2.innerHTML = '<p class="double-underline">'+result_mse[key].toFixed(3)+'</p>'
+             td2.innerHTML = '<p class="double-underline">'+format(result_mse[key])+'</p>'
           }
           else
           {
-            td2.innerHTML = result_mse[key].toFixed(3)
+            td2.innerHTML = format(result_mse[key])
           }
 
           row.appendChild(td2)

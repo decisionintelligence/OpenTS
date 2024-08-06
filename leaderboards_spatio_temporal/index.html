@@ -8,15 +8,15 @@
   <title>OpenTS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
-  <meta name="description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var freqs&#x3D;[] var characters&#x3D;[&#39;Trend&#39;,&#39;Seasonality&#39;,&#39;Stationarity&#39;,&#39;Transition&#39;,&#39;Shifting&#39;] var met">
+  <meta name="description" content="Leaderboards   Leaderboard for Spatio-temporal time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var Horizons &#x3D; [3,6,12,24] var metrics&#x3D;[&#39;MAE&#39;,&#39;MSE&#39;,&#39;MSMAPE&#39;] var all_data&#x3D;{} var all_csv&#x3D;{}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS">
-<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/leaderboards_univariate/index.html">
+<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/leaderboards_spatio_temporal/index.html">
 <meta property="og:site_name" content="OpenTS">
-<meta property="og:description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var freqs&#x3D;[] var characters&#x3D;[&#39;Trend&#39;,&#39;Seasonality&#39;,&#39;Stationarity&#39;,&#39;Transition&#39;,&#39;Shifting&#39;] var met">
+<meta property="og:description" content="Leaderboards   Leaderboard for Spatio-temporal time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var Horizons &#x3D; [3,6,12,24] var metrics&#x3D;[&#39;MAE&#39;,&#39;MSE&#39;,&#39;MSMAPE&#39;] var all_data&#x3D;{} var all_csv&#x3D;{}">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-08-06T11:30:52.930Z">
-<meta property="article:modified_time" content="2024-08-06T11:30:52.930Z">
+<meta property="article:published_time" content="2024-08-06T11:31:28.313Z">
+<meta property="article:modified_time" content="2024-08-06T11:31:28.313Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -235,8 +235,8 @@
     
     
     <div class="article-meta">
-      <!--<a href="/OpenTS/leaderboards_univariate/index.html" class="article-date">
-  <time datetime="2024-08-06T11:30:52.930Z" itemprop="datePublished">2024-08-06</time>
+      <!--<a href="/OpenTS/leaderboards_spatio_temporal/index.html" class="article-date">
+  <time datetime="2024-08-06T11:31:28.313Z" itemprop="datePublished">2024-08-06</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -249,30 +249,20 @@
         <h1 id="Leaderboards"><a href="#Leaderboards" class="headerlink" title="Leaderboards"></a>Leaderboards</h1><script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 
 
-<h2 id="Leaderboard-for-univariate-time-series-forecasting"><a href="#Leaderboard-for-univariate-time-series-forecasting" class="headerlink" title="Leaderboard for univariate time series forecasting"></a>Leaderboard for univariate time series forecasting</h2><script>
+<h2 id="Leaderboard-for-Spatio-temporal-time-series-forecasting"><a href="#Leaderboard-for-Spatio-temporal-time-series-forecasting" class="headerlink" title="Leaderboard for Spatio-temporal time series forecasting"></a>Leaderboard for Spatio-temporal time series forecasting</h2><script>
 var uni_methods=[]
 var uni_desc =[]
-var freqs=[]
-var characters=['Trend','Seasonality','Stationarity','Transition','Shifting']
+var Horizons = [3,6,12,24]
 var metrics=['MAE','MSE','MSMAPE']
-var paradigm=['SL','ML','DL']
 var all_data={}
 var all_csv={}
-var all_paradigm={'SL':[],'ML':[],'DL':[]}
-
 
 function updateParentCheckbox(category) {
     const checkboxes = document.querySelectorAll(`.checkbox-${category}`);
     const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
-    document.getElementById(`select-all-${category}`).checked = allChecked;
+    // document.getElementById(`select-all-${category}`).checked = allChecked;
 }
 
-// function handleChildCheckboxChange(event) {
-//     const checkbox = event.target;
-//     const category = checkbox.className.split('-')[1];
-//     updateParentCheckbox(category);
-//     draw_tabel_uni();
-// }
 
 function displayResults_uni(data_,is_rank) {
     sum=0
@@ -280,10 +270,10 @@ function displayResults_uni(data_,is_rank) {
         rank = data[1]
        sum+= rank['rank1']
     })
-    // console.log(sum)
+
     const tableBody = document.getElementById('univariateTable').getElementsByTagName('tbody')[0];
     tableBody.innerHTML = ''; // Clear existing table body
-    // console.log(uni_desc)
+
     data_.forEach(( data, index) => {
         
         model = data[0]
@@ -296,7 +286,6 @@ function displayResults_uni(data_,is_rank) {
             index=''
         }
         const row = document.createElement('tr');
-        // console.log(model)
     
         row.innerHTML = `
             <td>${index+1}</td>
@@ -341,28 +330,23 @@ function pharse_desc(results)
 {
     
     const data  = results.data.map(row => {
-                        // 丢掉前两列
+                        // 丢掉第一列
                         const { [Object.keys(row)[0]]: _, ...rest } = row;
                         return rest;
                     });
     
     const firstFourRows = data.slice(0, 5);
-       
+    
     uni_methods = Object.keys(firstFourRows[0]);
      
     uni_methods.forEach(key => {
-                       all_paradigm[firstFourRows[4][key]].push(key)
                        uni_desc[key]= {
-                            // 'contact_text':firstFourRows[0][key],
-                            // 'contact_url':firstFourRows[1][key],
                             'paper_url':firstFourRows[0][key],
-                            // 'code_url':firstFourRows[3][key],
                             'publication':firstFourRows[1][key],
                             'bib':firstFourRows[2][key],
                             'year':firstFourRows[3][key],
                         }
                     });
-
 }
 
 function haveIntersection(list1, list2) {
@@ -386,51 +370,31 @@ function toggleSelectAll_uni(selectAllCheckbox)
 }
 
 function draw_tabel_uni(){
-    var select_freqs = [];
-    var select_characters = [];
-    var select_metric = [];
-    var select_paradigm = []
+    var select_metric = []
+    var select_dataset = []
+    var select_horizon = []
     var select_score = []
     const checkboxes = document.querySelectorAll('#main-container-uni input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
-        
         if (checkbox.checked) {
-    
-            if(checkbox.value.split('/')[0]=="Frequency")
+            if(checkbox.value.split('/')[0]=="Metrics")
             {
                 if (typeof checkbox.value.split('/')[1] != 'undefined')
                 {
-                    select_freqs.push(checkbox.value.split('/')[1])
+                    select_metric.push(checkbox.value.split('/')[1])
                 }
             }
-            else if(checkbox.value.split('/')[0]=="Characteristics")
+            else
             {
                 if (typeof checkbox.value.split('/')[1] != 'undefined')
                 {
-                    select_characters.push(checkbox.value.split('/')[1])
+                    select_dataset.push(checkbox.value.split('/')[1])
                 }
             }
-            else if(checkbox.value.split('/')[0]=="Metrics")
-            {
-                if (typeof checkbox.value.split('/')[1] != 'undefined')
-                {
-                     select_metric.push(checkbox.value.split('/')[1].toLowerCase() )
-                    //  console.log(select_metric)
-                }
-               
-            }
-            else if(checkbox.value.split('/')[0]=="Learning_Paradigm")
-            {
-                if (typeof checkbox.value.split('/')[1] != 'undefined')
-                {
-                     select_paradigm.push(checkbox.value.split('/')[1].toLowerCase() )
-                    //  console.log(select_metric)
-                }
-               
-            }
-            
+           
         }
-    select_score = []
+    });
+
     const checkboxes1 = document.querySelectorAll('#main-container-uni input[type="radio"]');
     checkboxes1.forEach(checkbox => { if(checkbox.value.split('/')[0]=="Score")
         {
@@ -439,76 +403,53 @@ function draw_tabel_uni(){
                     select_score.push(checkbox.value.split('/')[1].toLowerCase() )
             }
         }})
-    });
-    // console.log(select_freqs)
-    // console.log(select_characters)
-    // const checkboxes = document.querySelectorAll('#main-container-uni input[type="checkbox"]');
+
+    const checkboxes2 = document.querySelectorAll('#dataset-container-horizons input[type="checkbox"]');
+    checkboxes2.forEach(checkbox => {
+            if (typeof checkbox.value.split('/')[1] != 'undefined' && checkbox.checked)
+            {
+                    select_horizon.push(checkbox.value.split('/')[1].toLowerCase() )
+            }
+        })
+   
     let tabel_data={}
     
     uni_methods.forEach(uni_method=>
     {
         tabel_data[uni_method] = {'rank1':0,'rank2':0,'rank3':0}
     })
-    // console.log(tabel_data)
+
     let nums=0
-    // select_characters.delete('undefined')
-    select_characters = select_characters.filter(item => typeof item !== 'undefined');
-    // console.log(select_freqs.length,select_characters)
-    if(select_freqs.length!=0 && select_characters.length==0)
-    {
-        select_characters = characters
-    }else if(select_freqs.length==0 && select_characters.length!=0)
-    {
-        select_freqs = freqs
-    }
+
     select_data=[]
     
-    // console.log(Object.keys(all_data['mae'][0]))
+
     select_metric.forEach(metirc=>{
-        select_data = [...select_data, ...all_data[metirc]]
+
+        select_data = [...select_data, ...all_data[metirc.toLowerCase()]]
     })
-    select_method=[]
     
-    select_paradigm.forEach(paradigm=>{
-        select_method=[...select_method, ...all_paradigm[paradigm.toUpperCase()]]
-    })
-    // console.log(select_data)
-    
-    // console.log('select_data',select_data.length)
     select_data.forEach(data=>{
 
 
-     
-        if (select_freqs.includes(data['freq']) && haveIntersection(data['Characteristics'],select_characters))
+        if (select_dataset.includes(data['dataset_name'].split('/')[1].split('.')[0]) && select_horizon.includes(data['horizon'].toString()))
         {
             nums++;
                 // 过滤掉值不是 float 类型的键值对
-            const filteredData = Object.entries(data).filter(([key, value]) => typeof value === 'number' && !isNaN(value) && select_method.includes(key));
-            // console.log(filteredData)
+            var filteredData = Object.entries(data).filter(([key, value]) => typeof value === 'number' && !isNaN(value));
+
             if (filteredData.length>0)
             {
-            // 按值排序
-            const sortedData = filteredData.sort((a, b) => a[1] - b[1]);
-    
-            // 找到值最小的前三个键
-            const topThreeKeys = sortedData.slice(0, 3).map(([key, value]) => key);
-    
-            for (let i = 0; i < 3; i++) {
-            if (topThreeKeys[i]) {
-                tabel_data[topThreeKeys[i]]['rank' + (i + 1).toString()]++;
+                filteredData = filteredData.slice(1)
+                // 按值排序
+                const sortedData = filteredData.sort((a, b) => a[1] - b[1]);
+                // 找到值最小的前三个键
+                const topThreeKeys = sortedData.slice(0, 3).map(([key, value]) => key);
+                
+                for (let i = 0; i < 3; i++) {
+                    if (topThreeKeys[i]) {tabel_data[topThreeKeys[i]]['rank' + (i + 1).toString()]++;}
+                }        
             }
-            }           
-    
-            // tabel_data[topThreeKeys[1]]['rank2']++
-            
-            // tabel_data[topThreeKeys[2]]['rank3']++
-            }
-            
-        }
-        else
-        {
-            // console.log(data['freq'])
-            // console.log(data['Characteristics'])
         }
     })
     
@@ -528,8 +469,8 @@ function draw_tabel_uni(){
     {
         v3 =  parseFloat(socre33.value)
     }
-    
     Object.keys(tabel_data).forEach(key => {
+
         if (select_score[0] == '1' )
             {
                  tabel_data[key]['score'] = tabel_data[key]['rank1'];
@@ -542,21 +483,18 @@ function draw_tabel_uni(){
             {
                 tabel_data[key]['score'] = parseFloat(( v1* tabel_data[key]['rank1'] + v2 * tabel_data[key]['rank2'] + v3 * tabel_data[key]['rank3']).toFixed(2))
             }
-       
         if (tabel_data[key]['score'] === 0) {
             // delete tabel_data[key];
         }
         });
     const entries = Object.entries(tabel_data);
     entries.sort((a, b) => b[1].score - a[1].score);
-    // 将排序后的数组转换回对象
-    // console.log('nums',nums)
     displayResults_uni(entries,nums>0)
 
 }
 
 function toggleCategory_uni(category,isChecked){
-    // console.log('select-all-'+category)
+
     const checkbox = document.getElementById('select-all-'+category)
     checkbox.checked = isChecked;
     const checkboxes = document.querySelectorAll(`.checkbox-${category}`);
@@ -571,30 +509,41 @@ function toggleCategory_uni(category,isChecked){
 function populateCheckboxes_uni() {
     const container = document.getElementById('dataset-container-uni');
     const container_up = document.getElementById('dataset-container-uni-up');
+    all_datasets_class = ['Electricity','Energy','Traffic']
+    all_datasets_class = [...new Set(all_datasets_class)];
+    groupedDatasets={'Electricity':[],'Traffic':[],'Energy':[]}
+    all_data['mae'].forEach(name=>{
+        name = name.dataset_name
+        if (!groupedDatasets[name.split('/')[0]].includes(name.split('/')[1].replace('.csv','')))
+        {
+             groupedDatasets[name.split('/')[0]].push(name.split('/')[1].replace('.csv',''))
+        }
+    })
 
-    const groupedDatasets = {
-        //'Learning_Paradigm': paradigm,
-        // 'Metrics': metrics,
-        'Frequency': ["Hourly", "Daily", "Weekly", "Monthly", "Quarterly", "Yearly", "Other"],
-        'Characteristics': ["Trend", "Transition", "Shifting", "Seasonality", "Stationarity", "Irregular"]
-    };
-    
-    const sortedCategories = Object.keys(groupedDatasets).sort((a, b) => groupedDatasets[b].length - groupedDatasets[a].length);
-    
-    sortedCategories.forEach(category => {
+    all_datasets_class.forEach(category => {
         const categoryDiv = document.createElement('div');
         categoryDiv.className = 'category';
-        const categoryLabel = document.createElement('h3');
-        const categoryCheckbox = document.createElement('input');
-        categoryCheckbox.type = 'checkbox';
-        categoryCheckbox.id = `select-all-${category}`;
-        categoryCheckbox.addEventListener('change', () => toggleCategory_uni(category, categoryCheckbox.checked));
+
+       
+
+        // const categoryLabel = document.createElement('h3');
+        // const categoryCheckbox = document.createElement('input');
+        // categoryCheckbox.type = 'checkbox';
+        // categoryCheckbox.id = `select-all-${category}`;
+        // categoryCheckbox.addEventListener('change', () => toggleCategory_uni(category, categoryCheckbox.checked));
     
-        categoryLabel.appendChild(categoryCheckbox);
-        categoryLabel.appendChild(document.createTextNode(` ${category.replace('_', ' ')}`));
-        categoryDiv.appendChild(categoryLabel);
+        // categoryLabel.appendChild(categoryCheckbox);
+        // categoryLabel.appendChild(document.createTextNode(` ${category.replace('_', ' ')}`));
+        // categoryDiv.appendChild(categoryLabel);
         const containerDiv = document.createElement('div')
+
+        // if(category=='Traffic'){
+        //     categoryDiv.style='grid-column: span 2;'
+        //     containerDiv.style='grid-template-columns:1fr 1fr 1fr;display: grid;gap:0px;overflow-y: auto;'
+        // }
+      
         groupedDatasets[category].forEach(name => {
+
             name = name.replace('_', '-');
             const div = document.createElement('div');
             div.className = 'checkbox-item';
@@ -609,22 +558,15 @@ function populateCheckboxes_uni() {
             const label = document.createElement('label');
             label.htmlFor = `${category}/${name}`;
             label.textContent = name;
-    
             div.appendChild(checkbox);
             div.appendChild(label);
-            containerDiv.appendChild(div);
+            // containerDiv.appendChild(div);
+            container.appendChild(div);
         });
-        if (category == 'Metrics' || category == 'Learning_Paradigm') {
-            // const di = document.createElement('hr');
-            // containerDiv.className = 'checkbox-wrapper1';
-            // di.className = 'divider ';
+        
             // categoryDiv.appendChild(containerDiv);
-            // container_up.appendChild(categoryDiv);
-            // container_up.appendChild(di);
-        } else {
-            categoryDiv.appendChild(containerDiv);
-            container.appendChild(categoryDiv);
-        }
+            // container.appendChild(containerDiv);
+        
     });
     
     const selectAllCheckbox = document.getElementById('select-all-u');
@@ -633,8 +575,10 @@ function populateCheckboxes_uni() {
         toggleSelectAll_uni(selectAllCheckbox.checked);
     }
     toggleCategory_uni('Metrics', true);
-    toggleCategory_uni('Learning_Paradigm', true);
+    toggleCategory_uni('Horizons',true)
+  
 }
+
 function updateAllCheckbox() {
     const container = document.getElementById('check');
     const checkboxes = container.querySelectorAll('input[type="checkbox"]');
@@ -666,136 +610,54 @@ function handleChildCheckboxChange(event) {
 function phrase_data1(results,name)
 {
     const data  = results.data.map(row => {
-                    // 丢掉前两列
+                    // 丢掉列
                     const { [Object.keys(row)[0]]: _, ...rest } = row;
                     return rest;
                 });
-    const desc_methods = Object.keys(uni_desc);
-    // Object.keys(data[0]).forEach(key=>{
-    //     if (key!= 'freq' && key!= '')
-    //     {
-    //         if (!desc_methods.includes(key))
-    //         {
-    //             characters.push(key)
-    //         }
-    //         else
-    //         {
-    //             uni_methods.push(key)
-    //         }
-            
-    //     }
-    // })
-    
-    let freqs_=new Set();
+    const desc_methods = Object.keys(uni_desc);    
     all_data[name]=[]
     data.forEach( row=>{
     
-        // console.log(row)
-        if (typeof  row['freq']!='undefined')
+        if (typeof  row['dataset_name']!='undefined')
         {
-            freqs_.add(row['freq'])
-            tmp={freq:row['freq']}
-            uni_methods.forEach(method=>{tmp[method]=row[method]})
-            tmp['Characteristics']=[]
-            is_Irregular = true
-            characters.forEach(character=>{
-                // console.log(row[character])
-                if(row[character]=='True')
-                {
-                    tmp['Characteristics'].push(character)
-                    is_Irregular = false
-                }
-            })
-    
-            if(is_Irregular)
-            {
-                tmp['Characteristics'].push('Irregular')
-            }
-    
+            tmp={'horizon':row['horizon'],'dataset_name':row['dataset_name']}
+            uni_methods.forEach(method=>{tmp[method]=row[method]})    
             all_data[name].push(tmp)
         }    
     } )
-    
-    freqs = Array.from(freqs_)
-    
-    // populateCheckboxes_uni()
-    // draw_tabel_uni()
 }
-
-function init() {
-
-    init_data=[["Non-stationary Transformers",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["RNN",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Linear Regression",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["PatchTST",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["DLinear",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["ARIMA",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["TiDE",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["N-BEATS",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["FiLM",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["NLinear",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Crossformer",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["TimesNet",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Kalman Filter",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Xgboost",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Informer",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["FEDformer",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Triformer",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["TCN",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["Random forests",{"rank1":0,"rank2":0,"rank3":0,"score":0}],["N-HiTS",{"rank1":0,"rank2":0,"rank3":0,"score":0}]]
-    uni_desc = {"PatchTST":{"contact_text":"Yuqi Nie (Princeton)","contact_url":"ynie@princeton.edu","paper_url":"","code_url":"","publication":"ICLR","bib":"","year":2023},"Crossformer":{"contact_text":"Junchi Yan (SJTU)","contact_url":"yanjunchi@sjtu.edu.cn","paper_url":"","code_url":"","publication":"ICLR","bib":"","year":2023},"FEDformer":{"contact_text":"Tian Zhou (Alibaba)","contact_url":"tian.zt@alibaba-inc.com","paper_url":"","code_url":"","publication":"ICML","bib":"","year":2022},"Non-stationary Transformers":{"contact_text":"Yong Liu (THU)","contact_url":"liuyong21@mails.tsinghua.edu.cn","paper_url":"","code_url":"","publication":"NeurIPS","bib":"","year":2022},"Informer":{"contact_text":"Haoyi Zhou (BKU)","contact_url":"zhouhy@act.buaa.edu.cn","paper_url":"","code_url":"","publication":"AAAI","bib":"","year":2021},"Triformer":{"contact_text":"Razvan-Gabriel Cirstea (AAU)","contact_url":"razvan@cs.aau.dk","paper_url":"","code_url":"","publication":"IJCAI","bib":"","year":2022},"DLinear":{"contact_text":"Ailing Zeng (CUHK)","contact_url":"zengailing@idea.edu.cn","paper_url":"","code_url":null,"publication":"AAAI","bib":"","year":2023},"NLinear":{"contact_text":"Ailing Zeng (CUHK)","contact_url":"zengailing@idea.edu.cn","paper_url":"","code_url":null,"publication":"AAAI","bib":"","year":2023},"TiDE":{"contact_text":"Abhimanyu Das (Google)","contact_url":"abhidas@google.com","paper_url":"","code_url":"","publication":"arXiv","bib":"","year":2023},"N-BEATS":{"contact_text":"Boris N. Oreshkin (Element AI)","contact_url":"boris.oreshkin@gmail.com","paper_url":"","code_url":null,"publication":"ICLR","bib":"","year":2020},"N-HiTS":{"contact_text":"Cristian Challu (CMU)","contact_url":"cchallu@cs.cmu.edu","paper_url":"","code_url":"","publication":"AAAI","bib":"","year":2023},"TimesNet":{"contact_text":"Mingsheng Long (THU)","contact_url":"mingsheng@tsinghua.edu.cn","paper_url":"","code_url":"","publication":"ICLR","bib":"","year":2023},"TCN":{"contact_text":"Shaojie Bai (CMU)","contact_url":"shaojieb@cs.cmu.edu","paper_url":"","code_url":"","publication":"arXiv","bib":"","year":2018},"RNN":{"contact_text":"Jan Gasthaus (AWS)","contact_url":null,"paper_url":"","code_url":null,"publication":"arXiv","bib":"","year":2019},"FiLM":{"contact_text":"Tian Zhou (Alibaba)","contact_url":"tian.zt@alibaba-inc.com","paper_url":"","code_url":"","publication":"NeurIPS","bib":"","year":2022},"Linear Regression":{"contact_text":"Benjamin Kedem","contact_url":null,"paper_url":"","code_url":"","publication":"Wiley","bib":"","year":2005},"Random forests":{"contact_text":"LEO BREIMAN (UC)","contact_url":null,"paper_url":"","code_url":"","publication":"ML","bib":"","year":2021},"Xgboost":{"contact_text":"Tianqi Chen (UW)","contact_url":"tqchen@cs.washington.edu","paper_url":"","code_url":"","publication":"KDD","bib":"","year":2016},"ARIMA":{"contact_text":"G.E.P.Box (UW)","contact_url":null,"paper_url":"","code_url":"","publication":"JASA","bib":"","year":1970},"ETS":{"contact_text":"Rob Hyndman (MON)","contact_url":"Rob.Hyndman@buseco.monash.edu.au","paper_url":"","code_url":"","publication":"SSBM","bib":"","year":2008},"Kalman Filter":{"contact_text":"Andrew C.Harvey (LSE)","contact_url":null,"paper_url":"","code_url":"","publication":"CUP","bib":"","year":1990}}
-    displayResults_uni(init_data,false)
-};
 
 
 
 const urls = [
      'result/mae.csv',
-     'result/mse.csv',
-     'result/msmape.csv'
+     'result/mape.csv',
+     'result/rmse.csv'
 ];
 
-// const urls = [
-//      'result/mae.csv',
-//      'result/mape.csv',
-//      'result/mase.csv',
-//      'result/mse.csv',
-//      'result/msmape.csv',
-//      'result/rmse.csv',
-//      'result/smape.csv',
-//      'result/wape.csv',
-// ];
-// Promise.all(urls.map(url =>{
-//     fetch(url)
-//     .then(response => response.text())
-//     .then(text => Papa.parse(text, {
-//         header: true,
-//         dynamicTyping: true,
-//         complete:function(results){
-//             all_csv[url.split('/')[1].split('.')[0]] = results
-//             console.log(all_csv)
 
-//         } 
-//     }));
-// }))
-
-
-
-fetch('univariate_desc.csv')
+fetch('st_desc.csv')
 .then(response => response.text())
 .then(text => Papa.parse(text, {
     header: true,
     dynamicTyping: true,
     complete:function(results){
-        // init()
-        uni_desc=[]
+ 
+        uni_desc={}
         pharse_desc(results)
         document.getElementById(`Score/1`).checked = true
         document.getElementById(`Score/2`).checked = false
         document.getElementById(`Score/3`).checked = false
-        // console.log(uni_desc)
         fench_data()
-        
     } 
 }));
+
+
 const urls11 = [
-     '../leaderboards_univariate/result/mase.csv',
-     '../leaderboards_univariate/result/msmape.csv'
+     'result/mae.csv',
+     'result/mape.csv',
+     'result/rmse.csv'
 ];
-
-fetch('../leaderboards_univariate/univariate_desc.csv')
-.then(response => response.text())
-.then(text => Papa.parse(text, {
-    header: true,
-    dynamicTyping: true,
-    complete:function(results){
-        pharse_desc11(results)
-        fench_data11()
-    } 
-}));
-
 function validateInput(input) {
     let value = input.value;
 
@@ -805,7 +667,7 @@ function validateInput(input) {
     // 处理整数和小数部分
     let [integerPart, decimalPart] = value.split('.');
     
-    // console.log(integerPart,decimalPart)
+
     // 处理整数部分：去除前导零并限制最大两位数
     
     // 去除前导零
@@ -862,11 +724,10 @@ function fench_data()
             dynamicTyping: true,
             complete: function(parseResults) {
                 phrase_data1(parseResults,name)
-                // console.log(all_data)
                 if(index+1 == results.length)
                 {
                     populateCheckboxes_uni()
-                    // draw_tabel_uni()
+                    resultTable()
                 }
             }
         });
@@ -880,257 +741,140 @@ function fench_data()
 }
 
 
-var uni_desc_year ={}
-var mase = null
-var msmape = null
-var rank = null
-
 function format(num)
 {
-    if (num > 1000){
-        return num.toExponential(1);
+    if (num > 10000){
+        return num.toExponential(3);
     }else
     {
         return num.toFixed(3)
     }
 
 }
-function displayResults_uni11() {
-    // 将对象转换为数组
-    uni_desc_year['Dataset-Quantity-metrics'] = 99999
-    const entries = Object.entries(uni_desc_year);
+function displayResults_uni11( result) {
+  
     
-    // 对数组进行排序（从大到小）
-    entries.sort((a, b) => b[1] - a[1]);
-    // console.log(entries)
     table = 'table-container-uni1'
+    
+    var metrics = ['mae','mape','rmse']
+    var horizons = ['3','6','12','24']
+    var dataset_name = Object.keys(result['mae'])
+    dataset_name = dataset_name.map(o => o.split('_')[0]);
+    dataset_name = [...new Set(dataset_name)];
+    var models=[]
+    
+    // 表头
     const tableHeadr = document.getElementById(table).getElementsByTagName('thead')[0];
     const tableBody = document.getElementById(table).getElementsByTagName('tbody')[0];
-
     const rowHeadr = document.createElement('tr');
-    models=[]
-    entries.forEach((res) =>{
-        key = res[0]
+    const rowHeadr1 = document.createElement('tr');
+    entries = Object.keys(result['mae']['Electricity_3'])    
+    const th = document.createElement('th');
+    th.innerHTML = 'Model'
+    th.colSpan  = 2
+    th.style='left:0px;'
+    th.className='sticky-col shadow-right'
+    rowHeadr.appendChild(th)
+    const th1 = document.createElement('th');
+    th1.innerHTML = 'Metrics'
+    th1.colSpan  = 2
+    th1.style='left:0px;'
+    th1.className='sticky-col shadow-right'
+    rowHeadr1.appendChild(th1)
 
-        if (key!='Dataset-Quantity-metrics')
-        {
-            models.push(key)
-            const th = document.createElement('th');
-            if (key == 'Linear Regression')
-            {
-                th.innerHTML='LR'
-            }else if (key==='Non-stationary Transformers')
-            {
-                th.innerHTML='Stationary'
-            }else if (key==='Random Forest')
-            {
-                th.innerHTML='RF'
-            }else if (key==='Kalman Filter')
-            {
-                th.innerHTML='KF'
-            }else if (key==='Naive Drift')
-            {
-                th.innerHTML='ND'
-            }else if (key==='Naive Mean')
-            {
-                th.innerHTML='NM'
-            }else if (key==='Naive Moving Average')
-            {
-                th.innerHTML='NMA'
-            }else if (key==='Naive Seasonal')
-            {
-                th.innerHTML='NS'
-            }else
-            {
-                th.innerHTML = key
-            }
-            
-            th.colSpan  = 1
-            rowHeadr.appendChild(th)
-        }else
-        {
-          const th = document.createElement('th');
-            th.innerHTML = 'Datasets'
-            th.colSpan  = 2
-            th.style='left:0px;'
-            th.className='sticky-col'
-            rowHeadr.appendChild(th)
-            const th2 = document.createElement('th');
-            th2.innerHTML = 'Metric'
-            th2.style='left:86.71px;'
-            th2.className='sticky-col metric-col'
-            th2.colSpan  = 1
-            rowHeadr.appendChild(th2)
-        }
+    entries.forEach((key) =>{
+        models.push(key)
+        const th = document.createElement('th');
+        th.innerHTML = key
+        th.colSpan  = 3
+
+        metrics.forEach(m=>{
+            const th1 = document.createElement('th');
+            th1.innerHTML = m
+            th1.colSpan  = 1
+            rowHeadr1.appendChild(th1)
         })
+        rowHeadr.appendChild(th)
+        })
+    
     rowHeadr.className='sticky-th'
+    rowHeadr1.className='sticky-th'
+    rowHeadr1.style='top:42.4px'
     tableHeadr.appendChild(rowHeadr)
-    count=0.5
-    Object.keys(mase).forEach(keys=>
-    {
-        count = count+0.5
-        const row_mase = document.createElement('tr');
-        if (keys.includes('yes'))
-        {
-            td1 = document.createElement('td')
-            td1.innerHTML='<p>'+keys.split('_')[0]+'</p>'
-            // console.log(count)
-            if (count%2==0)
-            {
-            td1.style=' writing-mode: vertical-rl;transform: rotate(180deg) ;background-color: #f2f2f2;width:20px;max-width: 25px;min-width: 25px;'
-            }else
-            {
-            td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);background-color: #ffffff;width:20px;max-width: 25px;min-width: 25px;'
-            }
-            td1.rowSpan  = 6
-            td1.className='sticky-col'
-            row_mase.appendChild(td1)
-        }
-        
-        td1 = document.createElement('td')
-        if (keys.split('_')[1]=='yes')
-        {
-            td1.innerHTML='√'
-            td1.style="left:41px;background-color: #f2f2f2;padding:0;border:0px solid darkgray;max-width: 20px;min-width: 20px;"
-        }else
-        {
-            td1.innerHTML='×'
-            td1.style="left:41px;background-color: #fff;padding:0;border:0px solid darkgray;max-width: 20px;min-width: 20px;"
-        }
-        td1.rowSpan  = 3
-        td1.className='sticky-col'
-        
+    tableHeadr.appendChild(rowHeadr1)
 
-        row_mase.appendChild(td1)
-        const row_msmape = document.createElement('tr');
-        const row_rank = document.createElement('tr');
-        if (keys.includes('no'))
-        {
-            if (!keys.includes('Shifting'))
-            {
-            row_rank.style='border-bottom-width: 2px;  border-bottom-style: solid;  border-bottom-color: darkgray;'
-            }else
-            {
-                row_rank.style='border-bottom-width: 2px;  border-bottom-style: solid;  border-bottom-color: white;'
-            }
-            row_mase.style='border-top: 1px solid darkgray;'
-        }
-        if(keys.includes('yes')&&keys.includes('Seasonality'))
-        {
-            row_mase.style='border-top: 2px solid white;'
-        }
-        const td_mase = document.createElement('td');
-        td_mase.innerHTML = 'mase'
-        td_mase.className='sticky-col metric-col'
-        
-        const td_msmape = document.createElement('td');
-        td_msmape.innerHTML = 'msmape'
-        td_msmape.className='sticky-col metric-col'
-       
-        
-        const td_rank = document.createElement('td');
-        td_rank.innerHTML = 'rank'
-        td_rank.className='sticky-col metric-col'
+    index0=0
+    // 内容
+    dataset_name.forEach(dataset=>{
+        index0+=1
+        index = 0
+        horizons.forEach(horizons=>{
 
-        
-        if (count%2==1)
-        {
-            td_mase.style='left:86.7px;background-color: #fff;'
-            td_msmape.style='left:86.7px;background-color: #f2f2f2;'
-            td_rank.style='left:86.7px;background-color: #fff;'
-        }
-        else
-        {
-            td_mase.style='left:86.7px;background-color: #f2f2f2;'
-            td_msmape.style='left:86.7px;background-color: #fff;'
-            td_rank.style='left:86.7px;background-color: #f2f2f2;'
-        }
-        row_mase.appendChild(td_mase)
-        row_msmape.appendChild(td_msmape)
-        row_rank.appendChild(td_rank)
-
-        mase_ = findBottomThreeKeys(mase[keys])
-        msmape_ = findBottomThreeKeys(msmape[keys])
-        rank_ = findTopThreeKeys(rank[keys])
-        // console.log(rank_)
-        models.forEach(method=>
-        {
-            // console.log(method)
-            const td_mase = document.createElement('td');
-            
-            if(method==mase_['minKey'])
+            TopKeys = {}
+            metrics.forEach(metric=>{
+                TopKeys[metric] = findBottomThreeKeys(result[metric][dataset+'_'+horizons])
+            })
+            index+=1
+            const row = document.createElement('tr');
+            if(index==1)
             {
-                td_mase.innerHTML = '<b>'+format(mase[keys][method])+'</b>'
-            }else if(method==mase_['thirdMinKey'])
-            {
-                td_mase.innerHTML = '<u>'+format(mase[keys][method])+'</u>'
-            }else if(method==mase_['secondMinKey'])
-            {
-                td_mase.innerHTML = '<p class="double-underline">'+format(mase[keys][method])+'</p>'
-            }
-            else
-            {
-                if (typeof mase[keys][method] == 'undefined')
+                var td1 = document.createElement('td');
+                td1.rowSpan = 4
+                if(index0%2==1)
                 {
-                    td_mase.innerHTML = 'NaN'
+                    td1.style=' writing-mode: vertical-rl;transform: rotate(180deg) ;background-color: #f2f2f2;width:20px;max-width: 25px;min-width: 25px;'
                 }else
                 {
-                    td_mase.innerHTML = format(mase[keys][method])
+                    td1.style=' writing-mode: vertical-rl;transform: rotate(180deg) ;background-color: #fff;width:20px;max-width: 25px;min-width: 25px;'
                 }
+                td1.className='sticky-col'
+                td1.innerHTML = dataset
+                row.appendChild(td1)
             }
-            const td_msmape = document.createElement('td');
-            if(method==msmape_['minKey'])
-            {
-                td_msmape.innerHTML = '<b>'+format(msmape[keys][method])+'</b>'
-            }else if(method==msmape_['thirdMinKey'])
-            {
-                td_msmape.innerHTML = '<u>'+format(msmape[keys][method])+'</u>'
-            }else if(method==msmape_['secondMinKey'])
-            {
-                td_msmape.innerHTML = '<p class="double-underline">'+format(msmape[keys][method])+'</p>'
-            }
-            else
-            {
-                if (typeof msmape[keys][method] == 'undefined')
-                {
-                    td_msmape.innerHTML = 'NaN'
-                }else
-                {
-                    td_msmape.innerHTML = format(msmape[keys][method])
-                }
-                
-            }
+            var td2 = document.createElement('td');
+            td2.innerHTML = horizons
+            td2.className='sticky-col shadow-right'
 
-            const td_rank = document.createElement('td');
-            if(method==rank_['maxKey'])
-            {
-                td_rank.innerHTML = '<b>'+rank[keys][method]+'</b>'
-            }else if(method==rank_['thirdMaxKey'])
-            {
-                td_rank.innerHTML = '<u>'+rank[keys][method]+'</u>'
-            }else if(method==rank_['secondMaxKey'])
-            {
-                td_rank.innerHTML = '<p class="double-underline">'+rank[keys][method]+'</p>'
-            }
-            else
-            {
-                if (typeof rank[keys][method] == 'undefined')
+            if(index%2==0)
                 {
-                    td_rank.innerHTML = 'NaN'
+                    td2.style=' left:45px;background-color: #f2f2f2;'
                 }else
                 {
-                    td_rank.innerHTML = rank[keys][method]
+                    td2.style='left:45px;background-color: #fff;'
                 }
-                
-            }
-            row_mase.appendChild(td_mase)
-            row_msmape.appendChild(td_msmape)
-            row_rank.appendChild(td_rank)
+
+            row.appendChild(td2)
+            models.forEach(model=>{
+                metrics.forEach(metric=>{
+                    var td3 = document.createElement('td');
+                    if (result[metric][dataset+'_'+horizons][model]===null||typeof(result[metric][dataset+'_'+horizons][model])==='undefined')
+                    {
+                        td3.innerHTML = 'NaN'
+                    }else
+                    {
+                        if (model == TopKeys[metric]['minKey'])
+                        {
+                            td3.innerHTML = '<b>'+result[metric][dataset+'_'+horizons][model].toFixed(3)+'</b>'
+                        }else if (model == TopKeys[metric]['secondMinKey'])
+                        {
+                            td3.innerHTML = '<p class="double-underline">'+result[metric][dataset+'_'+horizons][model].toFixed(3)+'</p>'
+                        }
+                        else if (model == TopKeys[metric]['thirdMinKey'])
+                        {
+                            td3.innerHTML = '<u>'+result[metric][dataset+'_'+horizons][model].toFixed(3)+'</u>'
+                        }else
+                        {
+                             td3.innerHTML = result[metric][dataset+'_'+horizons][model].toFixed(3)
+                        }
+
+                    }
+                    
+                    row.appendChild(td3)
+                })
+
+            })
+             tableBody.appendChild(row)
         })
-        tableBody.appendChild(row_mase)
-        tableBody.appendChild(row_msmape)
-        tableBody.appendChild(row_rank)
-
     })
 }
 function findBottomThreeKeys(obj) {
@@ -1218,7 +962,7 @@ function findTopThreeKeys(obj) {
 }
 function pharse_desc11(results)
 {
-    // console.log(results)
+
     const data  = results.data.map(row => {
                         // 丢掉前两列
                         const { [Object.keys(row)[0]]: _, ...rest } = row;
@@ -1232,128 +976,40 @@ function pharse_desc11(results)
     uni_methods.forEach(key => {
                        uni_desc_year[key]= firstFourRows[3][key]
                     });
-    // console.log(uni_desc_year)
     }
 
 
 
 
-function phrase_data111(results,name)
+function resultTable()
 {
-    const data  = results.data.map(row => {
-                    // 丢掉前两列
-                    const { [Object.keys(row)[0]]: _, ...rest } = row;
-                    return rest;
-                });
-    const desc_methods = Object.keys(uni_desc_year);
-    let freqs_=new Set();
-    catary_data = {'Seasonality_yes':[],'Seasonality_no':[],'Trend_yes':[],'Trend_no':[],'Stationarity_yes':[],'Stationarity_no':[],'Transition_yes':[],'Transition_no':[],'Shifting_yes':[],'Shifting_no':[]}
-    // console.log(data)
-    data.forEach( row=>{
-    
-        // console.log(row)
-        if (typeof  row['freq']!='undefined')
-        {
-            Seasonality = row['Seasonality']
-            Trend = row['Trend']
-            Stationarity = row['Stationarity']
-            Transition = row['Transition']
-            Shifting = row['Shifting']
-            tmp={}
-            uni_methods.forEach(method=>{tmp[method]=row[method]})
 
-            if (row['Seasonality']==='True')
-            {
-                catary_data['Seasonality_yes'].push(tmp)
-            }else
-            {
-                catary_data['Seasonality_no'].push(tmp)
-            }
 
-            if (row['Trend']==='True')
-            {
-                catary_data['Trend_yes'].push(tmp)
-            }else
-            {
-                catary_data['Trend_no'].push(tmp)
-            }
+    results = {}
 
-            if (row['Stationarity']==='True')
-            {
-                catary_data['Stationarity_yes'].push(tmp)
-            }else
-            {
-                catary_data['Stationarity_no'].push(tmp)
-            }
-
-            if (row['Transition']==='True')
-            {
-                catary_data['Transition_yes'].push(tmp)
-            }else
-            {
-                catary_data['Transition_no'].push(tmp)
-            }
-
-            if (row['Trend']==='True')
-            {
-                catary_data['Trend_yes'].push(tmp)
-            }else
-            {
-                catary_data['Trend_no'].push(tmp)
-            }
-            if (row['Shifting']==='True')
-            {
-                catary_data['Shifting_yes'].push(tmp)
-            }else
-            {
-                catary_data['Shifting_no'].push(tmp)
-            }
-        }    
-    } )
-    if (name==='mase')
+    Object.keys(all_data).forEach(metric=>
     {
-        mase = phrase2aggregate11(catary_data)
-    }
-    else if(name==='msmape')
-    {
-        msmape = phrase2aggregate11(catary_data)
-        rank = phrase2rank(catary_data)
-         displayResults_uni11()
-        // console.log(msmape)
-        // console.log(rank)
-    }
-}
-function phrase2rank(dict)
-{
-    Object.keys(dict).forEach(key=>{
-        dict[key] = findMinCount(dict[key])
+
+        results[metric]={}
+        all_data[metric].forEach(data=>{
+            dataset_name=data['dataset_name'].split('/')[1].split('.')[0]
+            horizon = data['horizon']
+            if (typeof(results[metric][dataset_name + '_' + horizon]) === 'undefined') {
+                    results[metric][dataset_name + '_' + horizon] = {};
+                }
+            Object.keys(data).forEach(key=>
+            {
+                if(key!='horizon'&&key!='dataset_name')
+                {
+                    results[metric][dataset_name+'_'+horizon][key]= data[key]
+                }
+            })
+        })
     })
-    return dict
+    displayResults_uni11(results)
+
 }
 
-function findMinCount(data) {
-    // console.log(data)
-    const wins = {};
-    for (const [key, value] of Object.entries(data[0])) {
-           wins[key]=0
-        }
-    data.forEach(obj => {
-        let minKey = null;
-        let minValue = Infinity;
-
-        for (const [key, value] of Object.entries(obj)) {
-            if (typeof value === 'number'&&value < minValue) {
-                minValue = value;
-                minKey = key;
-            }
-        }
-
-        if (minKey !== null) {
-            wins[minKey]++;
-        }
-    });
-    return wins;
-}
 
 function phrase2aggregate11(dict)
 {
@@ -1388,90 +1044,16 @@ function aggregateByAverage11(arr) {
     Object.keys(sum).forEach( key=>{
         average[key] = sum[key] / count[key];
     })
-    // console.log(average)
     return average;
 }
 
-function removeZeroWidthSpaces11(str) {
-    return str.replace(/[\u200B]/g, '');
-}
-
-function fench_data11()
-{
-    Promise.all(urls11.map(url => fetch(url).then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.text().then(text => ({ text, url }));
-})))
-.then(results => {
-    results.forEach((result, index) => {
-        const name = result.url.split('/').pop().split('.')[0];
-        const df = removeZeroWidthSpaces11(result.text);
-        Papa.parse(df, {
-            header: true,
-            dynamicTyping: true,
-            complete: function(parseResults) {
-                phrase_data111(parseResults,name)
-            }
-        });
-    });
-})
 
 
-}
 </script>
 
 <div class="main-container" id="main-container-uni">
     <div class="checkbox-wrapper">
         <div id="dataset-container-uni-up" style="padding-right: 30px;">
-            <div class="category">
-                <h3 style="white-space: nowrap;">
-                    <input 
-                        type="checkbox" 
-                        id="select-all-Learning_Paradigm" 
-                        style="display:none" 
-                        onclick="toggleCategory_uni('Learning_Paradigm', this.checked)"
-                    >
-                    Learning Paradigm
-                    <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight: bold">
-                        &nbsp;[<a href="javascript:void(0);" onclick="toggleCategory_uni('Learning_Paradigm', true)" style="padding:0 3px">all</a>]
-                    </b>
-                </h3>
-                <div class="checkbox-wrapper">
-                    <div class="checkbox-item">
-                        <input 
-                            type="checkbox" 
-                            id="Learning_Paradigm/SL" 
-                            value="Learning_Paradigm/SL" 
-                            class="checkbox-Learning_Paradigm" 
-                            onchange="handleChildCheckboxChange(event)"
-                        >
-                        <label for="Learning_Paradigm/SL">Statistics Learning</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input 
-                            type="checkbox" 
-                            id="Learning_Paradigm/ML" 
-                            value="Learning_Paradigm/ML" 
-                            class="checkbox-Learning_Paradigm" 
-                            onchange="handleChildCheckboxChange(event)"
-                        >
-                        <label for="Learning_Paradigm/ML">Machine Learning</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input 
-                            type="checkbox" 
-                            id="Learning_Paradigm/DL" 
-                            value="Learning_Paradigm/DL" 
-                            class="checkbox-Learning_Paradigm" 
-                            onchange="handleChildCheckboxChange(event)"
-                        >
-                        <label for="Learning_Paradigm/DL">Deep Learning</label>
-                    </div>
-                </div>
-            </div>
-            <hr class="divider">
             <div class="category">
                 <h3 style="white-space: nowrap;">
                     <input 
@@ -1499,22 +1081,22 @@ function fench_data11()
                     <div class="checkbox-item">
                         <input 
                             type="checkbox" 
-                            id="Metrics/MSE" 
-                            value="Metrics/MSE" 
+                            id="Metrics/RMSE" 
+                            value="Metrics/RMSE" 
                             class="checkbox-Metrics" 
                             onchange="handleChildCheckboxChange(event)"
                         >
-                        <label for="Metrics/MSE">MSE</label>
+                        <label for="Metrics/RMSE">RMSE</label>
                     </div>
                     <div class="checkbox-item">
                         <input 
                             type="checkbox" 
-                            id="Metrics/MSMAPE" 
-                            value="Metrics/MSMAPE" 
+                            id="Metrics/MAPE" 
+                            value="Metrics/MAPE" 
                             class="checkbox-Metrics" 
                             onchange="handleChildCheckboxChange(event)"
                         >
-                        <label for="Metrics/MSMAPE">MSMAPE</label>
+                        <label for="Metrics/MAPE">MAPE</label>
                     </div>
                 </div>
                 <hr class="divider">
@@ -1538,6 +1120,34 @@ function fench_data11()
         </div>
         <div id="check">
             <div class="checkbox-container" id="dataset-container-uni">
+            </div>
+        </div>
+        <div id="dataset-container-horizons" style="padding-right: 30px;">
+            <hr class="divider">
+            <div class="category">
+                <h3>
+                    <input type="checkbox" id="select-all-Horizons" style="display:none" >Forecasting Horizons<b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight: bold">
+                        &nbsp;[<a href="javascript:void(0);" onclick="toggleCategory_uni('Horizons',true)" style="padding:0 3px">all</a>|<a href="javascript:void(0);" onclick="toggleCategory_uni('Horizons',false)" style="padding:0 3px">off</a>]
+                    </b>
+                </h3>
+                <div style="display: flex; flex-wrap: nowrap;">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="Horizons/3" value="Horizons/3" class="checkbox-Horizons" onchange="handleChildCheckboxChange(event)">
+                        <label for="Horizons/3">3</label>
+                    </div>
+                    <div class="checkbox-item" style="margin-left: 10px;">
+                        <input type="checkbox" id="Horizons/6" value="Horizons/6" class="checkbox-Horizons" onchange="handleChildCheckboxChange(event)">
+                        <label for="Horizons/6">6</label>
+                    </div>
+                    <div class="checkbox-item" style="margin-left: 10px;">
+                        <input type="checkbox" id="Horizons/12" value="Horizons/12" class="checkbox-Horizons" onchange="handleChildCheckboxChange(event)">
+                        <label for="Horizons/12">12</label>
+                    </div>
+                    <div class="checkbox-item" style="margin-left: 10px;">
+                        <input type="checkbox" id="Horizons/24" value="Horizons/24" class="checkbox-Horizons" onchange="handleChildCheckboxChange(event)">
+                        <label for="Horizons/24">24</label>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="dataset-container-uni-up" style="padding-right: 30px;">
@@ -1661,7 +1271,7 @@ table.my-table2 tr:nth-child(even) {
 
 /* 单元格样式 */
 table.my-table2 td {
-  padding: 8px; /* 调整单元格内边距 */
+  padding: 10px; /* 调整单元格内边距 */
   text-align: center; /* 居中对齐 */
   border: none; /* 去除单元格边框 */
   vertical-align: middle;
@@ -1755,7 +1365,8 @@ option
 .checkbox-container {
  display: grid;
     grid-template-columns: 1fr 1fr; /* 分为两列 */
-    /* gap: 10px; */
+    column-gap: 10px;
+
     padding-right: 20px; /* Add some space between checkboxes and table */
     overflow-y: auto; /* Enable vertical scroll if needed */
 }
@@ -1819,14 +1430,13 @@ border:1px dashed #ddd
 
 
 <h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
-<li>For univariate forecasting algorithms, we consider 8,068 series, and the MAE、MSE、MSMAPE metrics, thus having 24,204 (8,068  * 3)  unique evaluation settings, <a href="./#Univariate-forecasting-results">click here</a> to see the detailed results.</li>
-<li>Datasets are classified by sampling frequency into Yearly, Quarterly, Monthly, Weekly, Daily, Hourly, and Other. Their corresponding forecasting horizons are 6, 8, 18, 13, 14, 48, and 8, respectively. The look-back window is set to 1.25 times the respective forecasting horizon.</li>
-<li>For each forecasting algorithm, we count the number of times that the algorithm receives the gold, silver, and bronze medals, i.e., having the lowest, 2nd lowest, and 3rd lowest errors, shown as 🥇, 🥈, and 🥉, respectively. </li>
+<li>For spatio-temporal forecasting algorithms, we consider 8 series, and the MAE, RMSE, and MAPE metrics, thus having 24 (8 * 3) unique evaluation settings. The corresponding forecasting horizons are 3, 6, 12, and 24. The look-back window is set to the same length as the forecasting horizon, <a href="./#Spatio-temporal-forecasting-results">click here</a> to see the detailed results.</li>
+<li>For each forecasting algorithm, we count the number of times that the algorithm receives the gold, silver, and bronze medals, i.e., having the lowest, 2nd lowest, and 3rd lowest errors, shown as 🥇, 🥈, and 🥉, respectively.</li>
 <li>We provide three different types of scores for ranking the forecasting algorithms. First, the scores equal to the numbers of gold medals. Second, the scores are the sum of the numbers of gold, silver, and bronze medals. Third, the scores are the weighted sum of the gold, silver, and bronze medals, where the weights can be customized. The larger the score, the higher the ranking.</li>
 </ul>
 <div style="height:30px"></div>
 
-<h3 id="Univariate-forecasting-results"><a href="#Univariate-forecasting-results" class="headerlink" title="Univariate forecasting results"></a>Univariate forecasting results</h3><div style="height:10px"></div>
+<h3 id="Spatio-temporal-forecasting-results"><a href="#Spatio-temporal-forecasting-results" class="headerlink" title="Spatio-temporal forecasting results"></a>Spatio-temporal forecasting results</h3><div style="height:10px"></div>
 
 
 <div class="main-container" id="main-container-uni1">
@@ -1877,6 +1487,18 @@ border:1px dashed #ddd
         .double-underline::after {
             bottom: 0px; /* 第二条下划线的位置 */
         }
+.shadow-right{
+    /* box-shadow: rgba(0, 0, 0, 0.4) 2px 0px 3px -2px; */
+}
+ .shadow-right::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0px; /* 调整阴影位置 */
+    width: 5px;
+    height: 105%;
+    box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.4); /* 右侧阴影 */
+}
 </style>
       
     
