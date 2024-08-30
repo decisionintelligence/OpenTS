@@ -371,7 +371,7 @@ a {
 
 .left-column .image {
     /* width: 100%; */
-    height: auto;
+    height: 215px;
     width: 450px; /* 控制图片最大宽度 */
     /* height:215px; */
 }
@@ -386,6 +386,7 @@ a {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    padding-left:15px;
 }
 
 .right-column .top-text, .right-column .bottom-text {
@@ -496,31 +497,31 @@ The table below provides a visual overview of how OpenTS's key features compare 
 <hr>
 <script>
 function alter(){
-    var total = 0
-    // while(total<4)
-    // {
-      setTimeout(() => {
-        var links = document.querySelectorAll('a');
-        links.forEach(function(link) {
-            // 如果 href 包含 'figures/paper.png'
-            console.log(link.href)
-            if (link.href.includes('svg')) {
+    console.log('alter')
+    // var total = 0
+    // // while(total<4)
+    // // {
+    //   setTimeout(() => {
+    //     var links = document.querySelectorAll('a');
+    //     links.forEach(function(link) {
+    //         // 如果 href 包含 'figures/paper.png'
+    //         console.log(link.href)
+    //         if (link.href.includes('svg')) {
 
-            link.onclick = function(event) {
-            event.preventDefault(); // 阻止默认的点击行为
-            };
-                link.style.pointerEvents = 'none';
-            }
-            else if (link.href.includes('paper.png')) {
-                link.href = 'https://www.vldb.org/pvldb/vol17/p2363-hu.pdf';
+    //         link.onclick = function(event) {
+    //         event.preventDefault(); // 阻止默认的点击行为
+    //         };
+    //             link.style.pointerEvents = 'none';
+    //         }
+    //         else if (link.href.includes('paper.png')) {
+    //             link.href = 'https://www.vldb.org/pvldb/vol17/p2363-hu.pdf';
                 
-            }
-        })
-        }, 5000);
+    //         }
+    //     })
+    //     }, 5000);
     // }
+    // var link =document.getElementBy
 
-
-​    
 }
 
 </script>
@@ -528,14 +529,14 @@ function alter(){
 <div class="container">
     <div class="left-column">
     <div class="left-text">
-           <a target="_blank" rel="noopener" href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf" > <h2 >Download paper</h2></a>
+           <a target="_blank" rel="noopener" href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf" > <h2 >Paper (PVLDB 2024 Best Paper Nomination)</h2></a>
         </div>
          <a href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf" target="_blank" rel="noopener" >
          <img id="clickable-image" src="figures/paper.png" onload="alter()" class="image" style="box-shadow:0 2px 8px rgba(0, 0, 0, 0.1)">
          </a>
     </div>
     <div class="right-column">
-     <h3 >Cite Us</h3>
+     <h3 style="margin-top:25px">Cite Us</h3>
         <div class="top-text">
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;qiu2024tfb,</span><br><span class="line">  title   = &#123;TFB: Towards Comprehensive and Fair Benchmarking of Time Series Forecasting Methods&#125;,</span><br><span class="line">  author  = &#123;Qiu, Xiangfei and Hu, Jilin and Zhou, Lekui and Wu, Xingjian and Du, Junyang and Zhang, Buang and Guo, Chenjuan and Zhou, Aoying and Jensen, Christian S and Sheng, Zhenli and Bin Yang&#125;,</span><br><span class="line">  journal = &#123;Proc. &#123;VLDB&#125; Endow.&#125;,</span><br><span class="line">  year    = &#123;2024&#125;,</span><br><span class="line">  pages   = &#123;2363 - 2377&#125;,</span><br><span class="line">  volume  = &#123;17&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </div>
@@ -566,7 +567,7 @@ function alter(){
             <img src="figures/download.png">
             <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2403.20150">Download paper here</a>
         </div>
-​    </div> -->
+   </div> -->
 
       
     </div>
