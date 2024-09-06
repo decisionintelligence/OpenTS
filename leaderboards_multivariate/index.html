@@ -18,8 +18,8 @@
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {      const tableBod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-08-21T08:31:44.725Z">
-<meta property="article:modified_time" content="2024-08-21T08:31:44.725Z">
+<meta property="article:published_time" content="2024-09-04T19:16:08.579Z">
+<meta property="article:modified_time" content="2024-09-04T19:16:08.579Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -237,7 +237,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards_multivariate/index.html" class="article-date">
-  <time datetime="2024-08-21T08:31:44.725Z" itemprop="datePublished">2024-08-21</time>
+  <time datetime="2024-09-04T19:16:08.579Z" itemprop="datePublished">2024-09-05</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -774,7 +774,7 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
     const tableBody = document.getElementById(table).getElementsByTagName('tbody')[0];
 
     const rowHeadr = document.createElement('tr');
-
+    const rowHeadrYear = document.createElement('tr');
     const rowHeadr2 = document.createElement('tr');
     models = []
     year.forEach((res) =>{
@@ -794,7 +794,7 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
             {
                 th.innerHTML = key
             }
-            
+            th.style='padding-bottom:5px'
             th.colSpan  = 2
             rowHeadr.appendChild(th)
         }else
@@ -802,18 +802,31 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
           const th = document.createElement('th');
             th.innerHTML = 'Model'
             th.className='sticky-col-header sticky-col2'
-            th.style='left:0'
+            th.style='left:0;vertical-align: middle;'
             th.colSpan  = 2
+            th.rowSpan  = 2
             rowHeadr.appendChild(th)
         }
         })
+    
     rowHeadr.className='sticky-th'
+    rowHeadr.style='z-index:3'
+    rowHeadrYear.className='sticky-th'
+    rowHeadrYear.style='top:37.4px;font-size:14px' 
     rowHeadr2.className='sticky-th'
-    rowHeadr2.style='top:42.4px' 
-     year.forEach((res) =>{
+    rowHeadr2.style='top:62.4px;box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 3px -2px;' 
+    year.forEach((res) =>{
+
+       
         key = res[0]
         if (key!='Dataset-Quantity-metrics')
         {
+            const thYear = document.createElement('th');
+            thYear.style='padding:0px;height:25px'
+            thYear.innerHTML = res[1]
+            thYear.colSpan  = 2
+            rowHeadrYear.appendChild(thYear)
+
             const th1 = document.createElement('th');
             const th2 = document.createElement('th');
             th1.innerHTML = 'mse'
@@ -833,6 +846,7 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
 
 
     tableHeadr.appendChild(rowHeadr)
+    tableHeadr.appendChild(rowHeadrYear)
     tableHeadr.appendChild(rowHeadr2)
     
     for (let i = 0; i < rankCounts.length; i += 2) {
@@ -847,21 +861,25 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
         if (key=='Dataset-Quantity-metrics')
         {
           const td1 = document.createElement('td');
+          const div1 = document.createElement('div');
           const td2 = document.createElement('td');
           dataset = result_mae[key].split('/')[1]
           content = dataset.split('-')
           if (i %8 ==0)
           {
-            td1.innerHTML = content[0].replace('_','-')
+            div1 .innerHTML = content[0].replace('_','-')
             if (i%16==0)
             {
-              td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);max-width: 50px;min-width: 50px;background-color: #f2f2f2;min-width:25 px'
+              div1.style=' writing-mode: vertical-rl; transform: rotate(180deg);margin:auto;text-rendering: geometricPrecision; -webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;width: 20px '
+              td1.style='background-color: #f2f2f2;'
             }else
             {
-              td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);max-width: 50px;min-width: 50px;background-color: #ffffff;'
+              div1.style=' writing-mode: vertical-rl; transform: rotate(180deg);margin:auto;text-rendering: geometricPrecision; -webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale; width: 20px '
+              td2.style='background-color: #ffffff;'
             }
             td1.className='sticky-col'
             td1.rowSpan  = 4
+            td1.appendChild(div1)
             row.appendChild(td1)
           }
           
@@ -1329,7 +1347,6 @@ input[type="number"]{
       position: sticky;
       top: 0; /* 固定在顶部 */
       z-index: 2; /* 设定堆叠顺序 */
-      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 3px -2px;
         }
 .double-underline {
             position: relative;
@@ -1353,7 +1370,7 @@ input[type="number"]{
         }
     .sticky-col2 {
             position: sticky;
-            left: 66px; /* 根据第一列的宽度设置 */
+            left: 20px; /* 根据第一列的宽度设置 */
             z-index: 1;
             background-color: #fff;
         }
