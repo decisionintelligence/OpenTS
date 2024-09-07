@@ -18,8 +18,8 @@
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var freqs&#x3D; [ &quot;Daily&quot;, &quot;Hourly&quot;, &quot;Monthly&quot;, &quot;Other&quot;, &quot;Quarterly&quot;, &quot;Weekly&quot;, &quot;Yearly&quot; ] var characte">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-09-04T19:31:49.196Z">
-<meta property="article:modified_time" content="2024-09-04T19:31:49.196Z">
+<meta property="article:published_time" content="2024-09-07T05:44:09.147Z">
+<meta property="article:modified_time" content="2024-09-07T05:44:09.147Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -237,7 +237,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards_univariate/index.html" class="article-date">
-  <time datetime="2024-09-04T19:31:49.196Z" itemprop="datePublished">2024-09-05</time>
+  <time datetime="2024-09-07T05:44:09.147Z" itemprop="datePublished">2024-09-07</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -873,6 +873,11 @@ var mase = null
 var msmape = null
 var rank = null
 var rank_mase = null
+var mase_f = null
+var msmape_f = null
+var rank_f = null
+var rank_mase_f = null
+
 function format(num)
 {
     if (num > 1000){
@@ -1008,10 +1013,10 @@ function displayResults_uni11() {
             }
             row_mase.style='border-top: 1px solid darkgray;'
         }
-        if(keys.includes('yes')&&keys.includes('Seasonality'))
-        {
-            row_mase.style='border-top: 2px solid white;'
-        }
+        // if(keys.includes('yes')&&keys.includes('Seasonality'))
+        // {
+        //     row_mase.style='border-top: 2px solid white;'
+        // }
         const td_mase = document.createElement('td');
         td_mase.innerHTML = 'mase'
         td_mase.className='sticky-col metric-col'
@@ -1021,35 +1026,27 @@ function displayResults_uni11() {
         td_msmape.className='sticky-col metric-col'
        
         const td_rank_mase = document.createElement('td');
-        td_rank_mase.innerHTML = 'mase_rank'
+        td_rank_mase.innerHTML = 'rank_mase'
         td_rank_mase.className='sticky-col metric-col'
 
         const td_rank = document.createElement('td');
-        td_rank.innerHTML = 'msmape_rank'
+        td_rank.innerHTML = 'rank_msmape'
         td_rank.className='sticky-col metric-col'
 
-        
-        if (count%2==1)
-        {
             td_mase.style='left:86.7px;background-color: #fff;'
-            td_rank_mase.style='left:86.7px;background-color: #f2f2f2;'
-            td_msmape.style='left:86.7px;background-color: #fff;'
+            td_msmape.style='left:86.7px;background-color: #f2f2f2;'
+            td_rank_mase.style='left:86.7px;background-color: #fff;'
             td_rank.style='left:86.7px;background-color:  #f2f2f2;'
-        }
-        else
-        {
-             td_mase.style='left:86.7px;background-color: #fff;'
-            td_rank_mase.style='left:86.7px;background-color: #f2f2f2;'
-            td_msmape.style='left:86.7px;background-color: #fff;'
-            td_rank.style='left:86.7px;background-color:  #f2f2f2;'
-        }
+
+
         row_mase.appendChild(td_mase)
-        row_rank_mase.appendChild(td_rank_mase)
         row_msmape.appendChild(td_msmape)
+        row_rank_mase.appendChild(td_rank_mase)
         row_rank.appendChild(td_rank)
 
         mase_ = findBottomThreeKeys(mase[keys])
         msmape_ = findBottomThreeKeys(msmape[keys])
+     
         rank_ = findTopThreeKeys(rank[keys])
         rank_mase_ = findTopThreeKeys(rank_mase[keys])
         // console.log(rank_)
@@ -1115,6 +1112,7 @@ function displayResults_uni11() {
             }
             else
             {
+               
                 if (typeof rank[keys][method] == 'undefined')
                 {
                     td_rank.innerHTML = 'NaN'
@@ -1152,8 +1150,255 @@ function displayResults_uni11() {
             row_rank_mase.appendChild(td_rank_mase)
         })
         tableBody.appendChild(row_mase)
-        tableBody.appendChild(row_rank_mase)
         tableBody.appendChild(row_msmape)
+        tableBody.appendChild(row_rank_mase)
+        tableBody.appendChild(row_rank)
+
+    })
+}
+function displayResults_uni12() {
+
+    // 将对象转换为数组
+    uni_desc_year['Dataset-Quantity-metrics'] = 99999
+    const entries = Object.entries(uni_desc_year);
+    
+    // 对数组进行排序（从大到小）
+    entries.sort((a, b) => b[1] - a[1]);
+    // console.log(entries)
+    table = 'table-container-uni2'
+    const tableHeadr = document.getElementById(table).getElementsByTagName('thead')[0];
+    const tableBody = document.getElementById(table).getElementsByTagName('tbody')[0];
+
+    const rowHeadr = document.createElement('tr');
+    models=[]
+    entries.forEach((res) =>{
+        key = res[0]
+
+        if (key!='Dataset-Quantity-metrics')
+        {
+            models.push(key)
+            const th = document.createElement('th');
+            if (key == 'Linear Regression')
+            {
+                th.innerHTML='LR'
+            }else if (key==='Non-stationary Transformers')
+            {
+                th.innerHTML='Stationary'
+            }else if (key==='Random Forest')
+            {
+                th.innerHTML='RF'
+            }else if (key==='Kalman Filter')
+            {
+                th.innerHTML='KF'
+            }else if (key==='Naive Drift')
+            {
+                th.innerHTML='ND'
+            }else if (key==='Naive Mean')
+            {
+                th.innerHTML='NM'
+            }else if (key==='Naive Moving Average')
+            {
+                th.innerHTML='NMA'
+            }else if (key==='Naive Seasonal')
+            {
+                th.innerHTML='NS'
+            }else
+            {
+                th.innerHTML = key
+            }
+            
+            th.colSpan  = 1
+            rowHeadr.appendChild(th)
+        }else
+        {
+          const th = document.createElement('th');
+            th.innerHTML = 'Datasets'
+            th.colSpan  = 1
+            th.style='left:0px;'
+            th.className='sticky-col'
+            rowHeadr.appendChild(th)
+            const th2 = document.createElement('th');
+            th2.innerHTML = 'Metric'
+            th2.style='left:86.71px;'
+            th2.className='sticky-col metric-col'
+            th2.colSpan  = 1
+            rowHeadr.appendChild(th2)
+        }
+        })
+    rowHeadr.className='sticky-th'
+    tableHeadr.appendChild(rowHeadr)
+    count=0
+
+    //遍历所有的方法
+    Object.keys(mase_f).forEach(keys=>
+    {
+
+        count = count+1
+        const row_mase_f = document.createElement('tr');
+        td1 = document.createElement('td')
+        td1.innerHTML="<div style='width:100%;height:100%;display:flex;align-items: center;justify-content: center;'>"+keys.split('_')[0]+"</div>"
+        if (count%2==0)
+        {
+            td1.style=' writing-mode: vertical-rl;transform: rotate(180deg) ;background-color: #f2f2f2;width:20px;max-width: 25px;min-width: 25px;'
+        }else
+        {
+            td1.style=' writing-mode: vertical-rl; transform: rotate(180deg);background-color: #ffffff;width:20px;max-width: 25px;min-width: 25px;'
+        }
+        td1.rowSpan  = 4
+        td1.className='sticky-col'
+        row_mase_f.appendChild(td1)
+        
+        
+        const row_rank_mase_f = document.createElement('tr');
+        const row_msmape_f = document.createElement('tr');
+        const row_rank = document.createElement('tr');
+
+        row_rank.style='border-bottom-width: 2px;  border-bottom-style: solid;  border-bottom-color: darkgray;'
+        row_mase_f.style='border-top-width: 2px;  border-top-style: solid;  border-top-color: darkgray;'
+
+        const td_mase_f = document.createElement('td');
+        td_mase_f.innerHTML = 'mase'
+        td_mase_f.className='sticky-col metric-col'
+        
+        const td_msmape_f = document.createElement('td');
+        td_msmape_f.innerHTML = 'msmape'
+        td_msmape_f.className='sticky-col metric-col'
+       
+        const td_rank_mase_f = document.createElement('td');
+        td_rank_mase_f.innerHTML = 'rank_mase'
+        td_rank_mase_f.className='sticky-col metric-col'
+
+        const td_rank = document.createElement('td');
+        td_rank.innerHTML = 'rank_msmape'
+        td_rank.className='sticky-col metric-col'
+
+        if (count%1==1)
+        {
+            td_mase_f.style='left:86.71px;background-color: #fff;'
+            td_rank_mase_f.style='left:86.71px;background-color: #f2f2f2;'
+            td_msmape_f.style='left:86.71px;background-color: #fff;'
+            td_rank.style='left:86.71px;background-color:  #f2f2f2;'
+        }
+        else
+        {
+            td_mase_f.style='left:86.71px;background-color: #fff;'
+           
+            td_msmape_f.style='left:86.71px;background-color: #f2f2f2;'
+             td_rank_mase_f.style='left:86.71px;background-color: #fff;;'
+            td_rank.style='left:86.71px;background-color:  #f2f2f2;'
+        }
+        row_mase_f.appendChild(td_mase_f)
+        row_msmape_f.appendChild(td_msmape_f)
+        row_rank_mase_f.appendChild(td_rank_mase_f)
+        row_rank.appendChild(td_rank)
+
+        mase_f_ = findBottomThreeKeys(mase_f[keys])
+        msmape_f_ = findBottomThreeKeys(msmape_f[keys])
+        rank_ = findTopThreeKeys(rank_f[keys])
+        rank_mase_f_ = findTopThreeKeys(rank_mase_f[keys])
+        // console.log(rank_)
+        models.forEach(method=>
+        {
+            // console.log(method)
+            const td_mase_f = document.createElement('td');
+            
+            if(method==mase_f_['minKey'])
+            {
+                td_mase_f.innerHTML = '<b>'+format(mase_f[keys][method])+'</b>'
+            }else if(method==mase_f_['thirdMinKey'])
+            {
+                td_mase_f.innerHTML = '<u>'+format(mase_f[keys][method])+'</u>'
+            }else if(method==mase_f_['secondMinKey'])
+            {
+                td_mase_f.innerHTML = '<p class="double-underline">'+format(mase_f[keys][method])+'</p>'
+            }
+            else
+            {
+                if (typeof mase_f[keys][method] == 'undefined')
+                {
+                    td_mase_f.innerHTML = 'NaN'
+                }else
+                {
+                    td_mase_f.innerHTML = format(mase_f[keys][method])
+                }
+            }
+            const td_msmape_f = document.createElement('td');
+            if(method==msmape_f_['minKey'])
+            {
+                td_msmape_f.innerHTML = '<b>'+format(msmape_f[keys][method])+'</b>'
+            }else if(method==msmape_f_['thirdMinKey'])
+            {
+                td_msmape_f.innerHTML = '<u>'+format(msmape_f[keys][method])+'</u>'
+            }else if(method==msmape_f_['secondMinKey'])
+            {
+                td_msmape_f.innerHTML = '<p class="double-underline">'+format(msmape_f[keys][method])+'</p>'
+            }
+            else
+            {
+                if (typeof msmape_f[keys][method] == 'undefined')
+                {
+                    td_msmape_f.innerHTML = 'NaN'
+                }else
+                {
+                    td_msmape_f.innerHTML = format(msmape_f[keys][method])
+                }
+                
+            }
+
+            const td_rank = document.createElement('td');
+            const td_rank_mase_f = document.createElement('td');
+            if(method==rank_['maxKey'])
+            {
+                td_rank.innerHTML = '<b>'+rank_f[keys][method]+'</b>'
+            }else if(method==rank_['thirdMaxKey'])
+            {
+                td_rank.innerHTML = '<u>'+rank_f[keys][method]+'</u>'
+            }else if(method==rank_['secondMaxKey'])
+            {
+                td_rank.innerHTML = '<p class="double-underline">'+rank_f[keys][method]+'</p>'
+            }
+            else
+            {
+                
+                if (typeof rank_f[keys][method] == 'undefined')
+                {
+                    td_rank.innerHTML = 'NaN'
+                }else
+                {
+                    td_rank.innerHTML = rank_f[keys][method]
+                }
+                
+            }
+
+            if(method==rank_mase_f_['maxKey'])
+            {
+                td_rank_mase_f.innerHTML = '<b>'+rank_mase_f[keys][method]+'</b>'
+            }else if(method==rank_mase_f_['thirdMaxKey'])
+            {
+                td_rank_mase_f.innerHTML = '<u>'+rank_mase_f[keys][method]+'</u>'
+            }else if(method==rank_mase_f_['secondMaxKey'])
+            {
+                td_rank_mase_f.innerHTML = '<p class="double-underline">'+rank_mase_f[keys][method]+'</p>'
+            }
+            else
+            {
+                if (typeof rank_mase_f[keys][method] == 'undefined')
+                {
+                    td_rank_mase_f.innerHTML = 'NaN'
+                }else
+                {
+                    td_rank_mase_f.innerHTML = rank_mase_f[keys][method]
+                }
+                
+            }
+            row_mase_f.appendChild(td_mase_f)
+            row_msmape_f.appendChild(td_msmape_f)
+            row_rank.appendChild(td_rank)
+            row_rank_mase_f.appendChild(td_rank_mase_f)
+        })
+        tableBody.appendChild(row_mase_f)
+        tableBody.appendChild(row_msmape_f)
+        tableBody.appendChild(row_rank_mase_f)
         tableBody.appendChild(row_rank)
 
     })
@@ -1277,18 +1522,32 @@ function phrase_data111(results,name)
     'Trend_yes':[],'Trend_no':[],
     'Stationarity_yes':[],'Stationarity_no':[],
     'Transition_yes':[],'Transition_no':[],
-    'Shifting_yes':[],'Shifting_no':[],
-    'Hourly_yes':[],'Hourly_no':[],
-    'Daily_yes':[],'Daily_no':[],
-    'Weekly_yes':[],'Weekly_no':[],
-    'Monthly_yes':[], 'Monthly_no':[],
-    'Quarterly_yes':[],'Quarterly_no':[],
-    'Yearly_yes':[],'Yearly_no':[],
-    'Other_yes':[],'Other_no':[]}
+    'Shifting_yes':[],'Shifting_no':[]}
+
+    catary_data1 = {
+    'Hourly':[],
+    'Daily':[],
+    'Weekly':[],
+    'Monthly':[],
+    'Quarterly':[],
+    'Yearly':[],
+    'Other':[]
+}
     // console.log(data)
     data.forEach( row=>{
-    
-        // console.log(row)
+        tmp={}
+        uni_methods.forEach(method=>{tmp[method]=row[method]})
+        characters.forEach( c=>
+        {
+            if (row[c]=='True')
+            {
+                catary_data[c+'_yes'].push(tmp)
+            }else
+            {
+                catary_data[c+'_no'].push(tmp)
+            }
+        })
+
         if (typeof  row['freq']!='undefined')
         {
             Seasonality = row['Seasonality']
@@ -1296,119 +1555,27 @@ function phrase_data111(results,name)
             Stationarity = row['Stationarity']
             Transition = row['Transition']
             Shifting = row['Shifting']
-
-            tmp={}
-            uni_methods.forEach(method=>{tmp[method]=row[method]})
-
-            if (row['Seasonality']==='True')
-            {
-                catary_data['Seasonality_yes'].push(tmp)
-            }else
-            {
-                catary_data['Seasonality_no'].push(tmp)
-            }
-
-            if (row['Trend']==='True')
-            {
-                catary_data['Trend_yes'].push(tmp)
-            }else
-            {
-                catary_data['Trend_no'].push(tmp)
-            }
-
-            if (row['Stationarity']==='True')
-            {
-                catary_data['Stationarity_yes'].push(tmp)
-            }else
-            {
-                catary_data['Stationarity_no'].push(tmp)
-            }
-
-            if (row['Transition']==='True')
-            {
-                catary_data['Transition_yes'].push(tmp)
-            }else
-            {
-                catary_data['Transition_no'].push(tmp)
-            }
-
-            if (row['Trend']==='True')
-            {
-                catary_data['Trend_yes'].push(tmp)
-            }else
-            {
-                catary_data['Trend_no'].push(tmp)
-            }
-            if (row['Shifting']==='True')
-            {
-                catary_data['Shifting_yes'].push(tmp)
-            }else
-            {
-                catary_data['Shifting_no'].push(tmp)
-            }
-
-            if (row['freq']=='Hourly')
-            {
-                catary_data['Hourly_yes'].push(tmp)
-            }else
-            {
-                catary_data['Hourly_no'].push(tmp)
-            }
-            if (row['freq']=='Daily')
-            {
-                catary_data['Daily_yes'].push(tmp)
-            }else
-            {
-                catary_data['Daily_no'].push(tmp)
-            }
-            if (row['freq']=='Weekly')
-            {
-                catary_data['Weekly_yes'].push(tmp)
-            }else
-            {
-                catary_data['Weekly_no'].push(tmp)
-            }
-            if (row['freq']=='Monthly')
-            {
-                catary_data['Monthly_yes'].push(tmp)
-            }else
-            {
-                catary_data['Monthly_no'].push(tmp)
-            }
-            if (row['freq']=='Quarterly')
-            {
-                catary_data['Quarterly_yes'].push(tmp)
-            }else
-            {
-                catary_data['Quarterly_no'].push(tmp)
-            }
-            if (row['freq']=='Yearly')
-            {
-                catary_data['Yearly_yes'].push(tmp)
-            }else
-            {
-                catary_data['Yearly_no'].push(tmp)
-            }
-            if (row['freq']=='Other')
-            {
-                catary_data['Other_yes'].push(tmp)
-            }else
-            {
-                catary_data['Other_no'].push(tmp)
-            }
+            catary_data1[row['freq']].push(tmp)
         }    
     } )
+
 
     if (name==='mase')
     {
         mase = phrase2aggregate11(catary_data)
         rank_mase = phrase2rank(catary_data)
+        mase_f = phrase2aggregate11(catary_data1)
+        rank_mase_f = phrase2rank(catary_data1)
     }
     else if(name==='msmape')
     {
+          console.log('msmape')
         msmape = phrase2aggregate11(catary_data)
         rank = phrase2rank(catary_data)
+        msmape_f = phrase2aggregate11(catary_data1)
+        rank_f = phrase2rank(catary_data1)
         displayResults_uni11()
+        displayResults_uni12()
         // console.log(msmape)
         // console.log(rank)
     }
@@ -1660,7 +1827,7 @@ function fench_data11()
             </div>
         </div>
     </div>
-    <div style="width:100%" class="table-container" id="table-container-uni">
+    <div style="width:100%;" class="table-container" id="table-container-uni" >
         <table id="univariateTable" class="my-table2">
             <thead>
                 <tr>
@@ -1916,9 +2083,20 @@ border:1px dashed #ddd
 
 <h3 id="Univariate-forecasting-results"><a href="#Univariate-forecasting-results" class="headerlink" title="Univariate forecasting results"></a>Univariate forecasting results</h3><div style="height:10px"></div>
 
-
-<div class="main-container" id="main-container-uni1">
+<h4 id="Results-classed-by-characteristics"><a href="#Results-classed-by-characteristics" class="headerlink" title="Results classed by characteristics"></a>Results classed by characteristics</h4><div class="main-container" id="main-container-uni1">
     <div style="width:100%;overflow-y:auto;height:800px" class="table-container" id="table-container-uni1">
+        <table id="univariateTable" class="my-table2">
+            <thead>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="height:30px"></div>
+
+<h4 id="Results-classed-by-frequency"><a href="#Results-classed-by-frequency" class="headerlink" title="Results classed by frequency"></a>Results classed by frequency</h4><div class="main-container" id="main-container-uni2">
+    <div style="width:100%;overflow-y:auto;height:800px" class="table-container" id="table-container-uni2">
         <table id="univariateTable" class="my-table2">
             <thead>
             </thead>
