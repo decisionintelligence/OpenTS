@@ -18,8 +18,8 @@
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {      const tableBod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-09-04T19:16:08.579Z">
-<meta property="article:modified_time" content="2024-09-04T19:16:08.579Z">
+<meta property="article:published_time" content="2024-09-26T02:52:06.430Z">
+<meta property="article:modified_time" content="2024-09-26T02:52:06.430Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -237,7 +237,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards_multivariate/index.html" class="article-date">
-  <time datetime="2024-09-04T19:16:08.579Z" itemprop="datePublished">2024-09-05</time>
+  <time datetime="2024-09-26T02:52:06.430Z" itemprop="datePublished">2024-09-26</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -256,7 +256,25 @@ function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUr
     const tableBody = document.getElementById(table).getElementsByTagName('tbody')[0];
     tableBody.innerHTML = ''; // Clear existing table body
     
-    rankCounts.sort((a, b) => b['rank4'] - a['rank4'] );
+    rankCounts.sort((a, b) => {
+        // 优先比较 rank4，降序排列
+        if (b['rank4'] !== a['rank4']) {
+          return b['rank4'] - a['rank4'];
+        }
+
+        // 如果 rank4 相同，比较 rank1，降序排列
+        if (b['rank1'] !== a['rank1']) {
+          return b['rank1'] - a['rank1'];
+        }
+
+        // 如果 rank1 也相同，比较 rank2，降序排列
+        if (b['rank2'] !== a['rank2']) {
+          return b['rank2'] - a['rank2'];
+        }
+
+        // 如果 rank2 也相同，比较 rank3，降序排列
+        return b['rank3'] - a['rank3'];
+      });
 
 
     var total = 0
@@ -406,14 +424,6 @@ function phraseMultiTable(results, table, datasets,select_metrics,select_horizon
     });
 
    
-
-
-
-
-
-
-
-
     Object.entries(rankCounts).forEach(([model, values]) => {
         result.push({"model": model, 'rank1': values['1'], 'rank2': values['2'], 'rank3': values['3'], 'rank4': values['4']});
     });
