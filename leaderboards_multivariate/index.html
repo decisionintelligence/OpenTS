@@ -18,8 +18,8 @@
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {      const tableBod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-09-26T02:52:06.430Z">
-<meta property="article:modified_time" content="2024-09-26T02:52:06.430Z">
+<meta property="article:published_time" content="2024-10-21T11:38:42.711Z">
+<meta property="article:modified_time" content="2024-10-21T11:38:42.711Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -70,7 +70,9 @@
                 
                   <a href="/OpenTS/get%20started/#Quickstart">Quickstart</a>
                 
-                  <a href="/OpenTS/get%20started/#Steps-to-include-your-own-method">Steps to include your own method</a>
+                  <a href="/OpenTS/get%20started/#Steps-to-develop-your-own-method">Steps to develop your own method</a>
+                
+                  <a href="/OpenTS/get%20started/#Steps-to-evaluate-on-your-own-time-series">Steps to evaluate on your own time series</a>
                 
                   <a href="/OpenTS/get%20started/#FAQ">FAQ</a>
                 
@@ -100,7 +102,18 @@
           
         
           
-            <a class="main-nav-link" href="/OpenTS/algorithms">Algorithms</a>
+            <div class="dropdown">
+              <!-- <a class="main-nav-link dropdown-toggle" href="/OpenTS/">Algorithms <span class="caret"></span></a> -->
+              <a class="main-nav-link dropdown-toggle">Algorithms <span class="caret"></span></a>
+
+              <div class="dropdown-content">
+                
+                  <a href="/OpenTS/algorithms">Algorithms in TFB</a>
+                
+                  <a href="/OpenTS/algorithms_AutoCTS">AutoCTS</a>
+                
+              </div>
+            </div>
           
         
           
@@ -113,6 +126,8 @@
                   <a href="/OpenTS/leaderboards_univariate">Univariate time series</a>
                 
                   <a href="/OpenTS/leaderboards_multivariate">Multivariate time series</a>
+                
+                  <a href="/OpenTS/leaderboards_spatio_temporal">Spatio-temporal series</a>
                 
               </div>
             </div>
@@ -237,7 +252,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards_multivariate/index.html" class="article-date">
-  <time datetime="2024-09-26T02:52:06.430Z" itemprop="datePublished">2024-09-26</time>
+  <time datetime="2024-10-21T11:38:42.711Z" itemprop="datePublished">2024-10-21</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -1344,6 +1359,7 @@ input[type="number"]{
 </div>
 <style>
 .sticky-col{
+            background-color: white;
             position: sticky;
             left: 0; /* 固定在左侧 */
             z-index: 1;/* 设定堆叠顺序 */
@@ -1380,7 +1396,7 @@ input[type="number"]{
         }
     .sticky-col2 {
             position: sticky;
-            left: 20px; /* 根据第一列的宽度设置 */
+            left: 36px; /* 根据第一列的宽度设置 */
             z-index: 1;
             background-color: #fff;
         }

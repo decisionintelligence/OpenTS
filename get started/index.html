@@ -11,15 +11,15 @@
   <title>OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
-  <meta name="description" content="Get StartedYou can find our offical code here: TFB github Table of Contents Quickstart Steps to include your own method FAQ Citing TFB Contact  QuickstartInstallationFrom PyPIGiven a python environmen">
+  <meta name="description" content="Get StartedYou can find our offical code here: TFB github Table of Contents Quickstart Steps to develop your own method Steps to evaluate on your own time series FAQ Citing TFB Contact  QuickstartInst">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/get%20started/index.html">
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
-<meta property="og:description" content="Get StartedYou can find our offical code here: TFB github Table of Contents Quickstart Steps to include your own method FAQ Citing TFB Contact  QuickstartInstallationFrom PyPIGiven a python environmen">
+<meta property="og:description" content="Get StartedYou can find our offical code here: TFB github Table of Contents Quickstart Steps to develop your own method Steps to evaluate on your own time series FAQ Citing TFB Contact  QuickstartInst">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-07-25T04:37:38.660Z">
-<meta property="article:modified_time" content="2024-07-23T01:07:02.000Z">
+<meta property="article:published_time" content="2024-10-21T03:57:30.048Z">
+<meta property="article:modified_time" content="2024-10-21T03:57:30.048Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -70,7 +70,9 @@
                 
                   <a href="/OpenTS/get%20started/#Quickstart">Quickstart</a>
                 
-                  <a href="/OpenTS/get%20started/#Steps-to-include-your-own-method">Steps to include your own method</a>
+                  <a href="/OpenTS/get%20started/#Steps-to-develop-your-own-method">Steps to develop your own method</a>
+                
+                  <a href="/OpenTS/get%20started/#Steps-to-evaluate-on-your-own-time-series">Steps to evaluate on your own time series</a>
                 
                   <a href="/OpenTS/get%20started/#FAQ">FAQ</a>
                 
@@ -100,7 +102,18 @@
           
         
           
-            <a class="main-nav-link" href="/OpenTS/algorithms">Algorithms</a>
+            <div class="dropdown">
+              <!-- <a class="main-nav-link dropdown-toggle" href="/OpenTS/">Algorithms <span class="caret"></span></a> -->
+              <a class="main-nav-link dropdown-toggle">Algorithms <span class="caret"></span></a>
+
+              <div class="dropdown-content">
+                
+                  <a href="/OpenTS/algorithms">Algorithms in TFB</a>
+                
+                  <a href="/OpenTS/algorithms_AutoCTS">AutoCTS</a>
+                
+              </div>
+            </div>
           
         
           
@@ -113,6 +126,8 @@
                   <a href="/OpenTS/leaderboards_univariate">Univariate time series</a>
                 
                   <a href="/OpenTS/leaderboards_multivariate">Multivariate time series</a>
+                
+                  <a href="/OpenTS/leaderboards_spatio_temporal">Spatio-temporal series</a>
                 
               </div>
             </div>
@@ -237,7 +252,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/get%20started/index.html" class="article-date">
-  <time datetime="2024-07-25T04:37:38.660Z" itemprop="datePublished">2024-07-25</time>
+  <time datetime="2024-10-21T03:57:30.048Z" itemprop="datePublished">2024-10-21</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -249,8 +264,9 @@
       
         <h1 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h1><p>You can find our offical code here: <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">TFB github</a></p>
 <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ol>
-<li><a href="#Quickstart">Quickstart</a></li>
-<li><a href="#Steps-to-include-your-own-method">Steps to include your own method</a></li>
+<li><a href="#Quickstart">Quickstart</a><!-- 1. [Steps to include your own method](#Steps-to-include-your-own-method) --></li>
+<li><a href="#Steps-to-develop-your-own-method">Steps to develop your own method</a></li>
+<li><a href="#Steps-to-evaluate-on-your-own-time-series">Steps to evaluate on your own time series</a></li>
 <li><a href="#FAQ">FAQ</a></li>
 <li><a href="#Citing-TFB">Citing TFB</a></li>
 <li><a href="#Contact">Contact</a></li>
@@ -267,22 +283,8 @@
 <h3 id="Train-and-evaluate-model"><a href="#Train-and-evaluate-model" class="headerlink" title="Train and evaluate model"></a>Train and evaluate model</h3><p>We provide the experiment scripts for all benchmarks under the folder <code>./scripts/multivariate_forecast</code>, and <code>./scripts/univariate_forecast</code>. For example you can reproduce a experiment result as the following:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh ./scripts/multivariate_forecast/ILI_script/DLinear.sh</span><br></pre></td></tr></table></figure>
 
-<h2 id="Steps-to-include-your-own-method"><a href="#Steps-to-include-your-own-method" class="headerlink" title="Steps to include your own method"></a>Steps to include your own method</h2><h3 id="Define-you-model-or-adapter-class"><a href="#Define-you-model-or-adapter-class" class="headerlink" title="Define you model or adapter class"></a>Define you model or adapter class</h3><p>The user-implemented model or adapter class should implement the following functions in order to adapt to this benchmark.</p>
-<p>“required_hyper_params” function is optional，<strong>repr</strong> functions is necessary.</p>
-<p><strong>The function prototypes are as follows：</strong></p>
-<ul>
-<li><p>required_hyper_params  function:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Return the hyperparameters required by the model</span></span><br><span class="line"><span class="string">This function is optional and static</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:return: A dictionary that represents the hyperparameters required by the model</span></span><br><span class="line"><span class="string">:rtype: dict</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># For example</span></span><br><span class="line"><span class="meta">@staticmethod</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">required_hyper_params</span>() -&gt; <span class="built_in">dict</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    An empty dictionary indicating that model does not require</span></span><br><span class="line"><span class="string">    additional hyperparameters.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>forecast_fit  function training model</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Train the model.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:param train_data: Time series data used for training.</span></span><br><span class="line"><span class="string">:param train_ratio_in_tv: Represents the splitting ratio of the training</span></span><br><span class="line"><span class="string">set validation set. If it is equal to 1, it means that the validation</span></span><br><span class="line"><span class="string">set is not partitioned.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># For example</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">forecast_fit</span>(<span class="params">self, train_data: pd.DataFrame, *, train_ratio_in_tv: <span class="built_in">float</span> = <span class="number">1.0</span>, **kwargs</span>) -&gt; <span class="string">&quot;ModelBase&quot;</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>forecast function utilizing the model for inference</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Use models for forecasting</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:param horizon: Predict length</span></span><br><span class="line"><span class="string">:type horizon: int</span></span><br><span class="line"><span class="string">:param series: Training data used to fit the model</span></span><br><span class="line"><span class="string">:type series: pd.DataFrame</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:return: Forecasting results</span></span><br><span class="line"><span class="string">:rtype: np.ndarray</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># For example</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">forecast</span>(<span class="params">self, horizon: <span class="built_in">int</span>, series: pd.DataFrame, **kwargs</span>) -&gt; np.ndarray:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>__repr __ string representation of function model name</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Returns a string representation of the model name</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:return: Returns a string representation of the model name</span></span><br><span class="line"><span class="string">:rtype: str</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># For example</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">__repr__</span>(<span class="params">self</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="keyword">return</span> self.model_name</span><br></pre></td></tr></table></figure></li>
-</ul>
+<h2 id="Steps-to-develop-your-own-method"><a href="#Steps-to-develop-your-own-method" class="headerlink" title="Steps to develop your own method"></a>Steps to develop your own method</h2><p>We provide tutorial about how to develop your own method, you can <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB/blob/master/docs/tutorials/steps_to_develop_your_own_method.md">click here</a>.</p>
+<h2 id="Steps-to-evaluate-on-your-own-time-series"><a href="#Steps-to-evaluate-on-your-own-time-series" class="headerlink" title="Steps to evaluate on your own time series"></a>Steps to evaluate on your own time series</h2><p>We provide tutorial about how to evaluate on your own time series, you can <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB/blob/master/docs/tutorials/steps_to_evaluate_your_own_time_series.md">click here</a>.</p>
 <h3 id="Configure-your-Configuration-File"><a href="#Configure-your-Configuration-File" class="headerlink" title="Configure your Configuration File"></a>Configure your Configuration File</h3><ul>
 <li><p>Modify the corresponding config under the folder <code>./config/</code>.</p>
 </li>
@@ -303,7 +305,39 @@
 
 <h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p>If you have any questions or suggestions, feel free to contact:</p>
 <ul>
-<li>Xiangfei Qiu (<a href="mailto:&#x78;&#102;&#113;&#105;&#x75;&#64;&#x73;&#x74;&#117;&#46;&#101;&#x63;&#110;&#117;&#x2e;&#101;&#100;&#x75;&#46;&#99;&#110;">&#x78;&#102;&#113;&#105;&#x75;&#64;&#x73;&#x74;&#117;&#46;&#101;&#x63;&#110;&#117;&#x2e;&#101;&#100;&#x75;&#46;&#99;&#110;</a>)</li>
+<li>Xiangfei Qiu (<a href="mailto:&#120;&#102;&#x71;&#x69;&#117;&#64;&#x73;&#x74;&#117;&#46;&#x65;&#99;&#x6e;&#117;&#x2e;&#x65;&#100;&#x75;&#46;&#99;&#110;">&#120;&#102;&#x71;&#x69;&#117;&#64;&#x73;&#x74;&#117;&#46;&#x65;&#99;&#x6e;&#117;&#x2e;&#x65;&#100;&#x75;&#46;&#99;&#110;</a>)</li>
+</ul>
+<!-- ### Define you model or adapter class
+
+The user-implemented model or adapter class should implement the following functions in order to adapt to this benchmark.
+
+"required_hyper_params" function is optional，__repr__ functions is necessary.
+
+**The function prototypes are as follows：**
+
+- required_hyper_params  function:
+
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Return the hyperparameters required by the model</span></span><br><span class="line"><span class="string">This function is optional and static</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:return: A dictionary that represents the hyperparameters required by the model</span></span><br><span class="line"><span class="string">:rtype: dict</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># For example</span></span><br><span class="line"><span class="meta">@staticmethod</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">required_hyper_params</span>() -&gt; <span class="built_in">dict</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    An empty dictionary indicating that model does not require</span></span><br><span class="line"><span class="string">    additional hyperparameters.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>forecast_fit  function training model</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Train the model.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:param train_data: Time series data used for training.</span></span><br><span class="line"><span class="string">:param train_ratio_in_tv: Represents the splitting ratio of the training</span></span><br><span class="line"><span class="string">set validation set. If it is equal to 1, it means that the validation</span></span><br><span class="line"><span class="string">set is not partitioned.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># For example</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">forecast_fit</span>(<span class="params">self, train_data: pd.DataFrame, *, train_ratio_in_tv: <span class="built_in">float</span> = <span class="number">1.0</span>, **kwargs</span>) -&gt; <span class="string">&quot;ModelBase&quot;</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>forecast function utilizing the model for inference</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">Use models for forecasting</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:param horizon: Predict length</span></span><br><span class="line"><span class="string">:type horizon: int</span></span><br><span class="line"><span class="string">:param series: Training data used to fit the model</span></span><br><span class="line"><span class="string">:type series: pd.DataFrame</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">:return: Forecasting results</span></span><br><span class="line"><span class="string">:rtype: np.ndarray</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># For example</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">forecast</span>(<span class="params">self, horizon: <span class="built_in">int</span>, series: pd.DataFrame, **kwargs</span>) -&gt; np.ndarray:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></li>
+<li><p>__repr __ string representation of function model name</p>
+<pre><code class="python">&quot;&quot;&quot;
+Returns a string representation of the model name
+
+:return: Returns a string representation of the model name
+:rtype: str
+&quot;&quot;&quot;
+# For example
+def __repr__(self) -&gt; str:
+    return self.model_name
+``` --&gt;
+</code></pre>
+</li>
 </ul>
 
       
