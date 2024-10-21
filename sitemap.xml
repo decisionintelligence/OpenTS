@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards_spatio_temporal/index.html</loc>
+    
+    <lastmod>2024-10-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/algorithms_AutoCTS/index.html</loc>
     
     <lastmod>2024-10-21</lastmod>
@@ -12,15 +21,6 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/leaderboards_multivariate/index.html</loc>
-    
-    <lastmod>2024-10-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards_spatio_temporal/index.html</loc>
     
     <lastmod>2024-10-21</lastmod>
     
