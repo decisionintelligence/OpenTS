@@ -18,8 +18,8 @@
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:description" content="Leaderboards   Table of Contents Leaderboard for zero-shot setting Leaderboard for few-shot setting Leaderboard for full-shot setting  Leaderboard for zero-shot setting">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-10-23T06:48:43.048Z">
-<meta property="article:modified_time" content="2024-10-23T06:48:43.048Z">
+<meta property="article:published_time" content="2024-10-23T07:51:24.703Z">
+<meta property="article:modified_time" content="2024-10-23T07:51:24.703Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -265,7 +265,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards/foundation_model/index.html" class="article-date">
-  <time datetime="2024-10-23T06:48:43.048Z" itemprop="datePublished">2024-10-23</time>
+  <time datetime="2024-10-23T07:51:24.703Z" itemprop="datePublished">2024-10-23</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -402,7 +402,7 @@
           </label>
         </div>
       </div>
-      <div class="checkbox-container" id="dataset-container-zero" style='display: flex;gap:2.5px;margin-top: -10px;'></div>
+      <div class="checkbox-container" id="dataset-container-zero" style='display: flex; gap:3px; margin-top: -10px;padding-right:0px'></div>
     </div>
 <div class="" id="dataset-container-mul-down1">
           <div class="category" style="margin-bottom:0px">
@@ -814,8 +814,6 @@ settings.forEach( setting =>{
             toggleCategory('Metrics',setting, true,false)
             toggleCategory('Type',setting, true,false)
             toggleCategory('Horizons',setting, true,false)
-            toggleSelectAll(true,setting)
-
             // 设置评分选项
             for (let i1 = 1; i1 < 4; i1++) {
                 const scoreBox = document.getElementById(`Score-${setting}/${i1}`);
@@ -823,7 +821,7 @@ settings.forEach( setting =>{
             }
             button = document.getElementById(`Score-${setting}/1`);
             button.checked=true
-
+            toggleSelectAll(true,setting)
             display(setting)
         } 
     }));
