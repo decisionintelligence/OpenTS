@@ -2,7 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards_foundation_model/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/univariate_time_series/index.html</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/multivariate_time_series/index.html</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/algorithms/TFB/index.html</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/paper/FoundTS/index.html</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/2024/07/25/hello-world/</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/foundation_model/index.html</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/algorithms/FoundTS/index.html</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/datasets/index.html</loc>
     
     <lastmod>2024-10-22</lastmod>
     
@@ -11,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards_foundation_model/index%20copy.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/foundation_model/index%20copy.html</loc>
     
     <lastmod>2024-10-22</lastmod>
     
@@ -29,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards_spatio_temporal/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/spatio_temporal_data/index.html</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -38,16 +101,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/algorithms_AutoCTS/index.html</loc>
-    
-    <lastmod>2024-10-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards_multivariate/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/algorithms/AutoCTS/index.html</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -83,54 +137,9 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards_univariate/index.html</loc>
-    
-    <lastmod>2024-09-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/algorithms/index.html</loc>
-    
-    <lastmod>2024-09-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/2024/07/25/hello-world/</loc>
-    
-    <lastmod>2024-08-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/google47b193d8d0158200.html</loc>
     
     <lastmod>2024-08-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/multivariate/index.html</loc>
-    
-    <lastmod>2024-08-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/univariate/index.html</loc>
-    
-    <lastmod>2024-08-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -146,18 +155,9 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/paper/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/paper/TFB/index.html</loc>
     
     <lastmod>2024-07-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/datasets/index.html</loc>
-    
-    <lastmod>2024-07-15</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -175,7 +175,7 @@
 
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS</loc>
-    <lastmod>2024-10-22</lastmod>
+    <lastmod>2024-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
