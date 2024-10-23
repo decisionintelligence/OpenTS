@@ -18,8 +18,8 @@
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:description" content="Leaderboards   Table of Contents Leaderboard for zero-shot setting Leaderboard for few-shot setting Leaderboard for full-shot setting  Leaderboard for zero-shot setting">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-10-23T07:51:24.703Z">
-<meta property="article:modified_time" content="2024-10-23T07:51:24.703Z">
+<meta property="article:published_time" content="2024-10-23T08:41:04.117Z">
+<meta property="article:modified_time" content="2024-10-23T08:41:04.117Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -265,7 +265,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards/foundation_model/index.html" class="article-date">
-  <time datetime="2024-10-23T07:51:24.703Z" itemprop="datePublished">2024-10-23</time>
+  <time datetime="2024-10-23T08:41:04.117Z" itemprop="datePublished">2024-10-23</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -810,17 +810,17 @@ settings.forEach( setting =>{
         header: true,
         dynamicTyping: true,
         complete:function(results){
-            phraseInputTable(results.data, setting)
-            toggleCategory('Metrics',setting, true,false)
-            toggleCategory('Type',setting, true,false)
-            toggleCategory('Horizons',setting, true,false)
-            // 设置评分选项
             for (let i1 = 1; i1 < 4; i1++) {
                 const scoreBox = document.getElementById(`Score-${setting}/${i1}`);
                 scoreBox.checked = false;
             }
             button = document.getElementById(`Score-${setting}/1`);
             button.checked=true
+            phraseInputTable(results.data, setting)
+            toggleCategory('Metrics',setting, true,false)
+            toggleCategory('Type',setting, true,false)
+            toggleCategory('Horizons',setting, true,false)
+            // 设置评分选项
             toggleSelectAll(true,setting)
             display(setting)
         } 
@@ -937,8 +937,8 @@ function display(setting){
           if (rowData1[a] == '-')
             return 1
           if (rowData1[b] == '-')
-            return 0
-          return rowData1[a] > rowData1[b]
+            return -1
+          return rowData1[a] - rowData1[b]
           })
         sort1 = structuredClone(method)
         rowData2 = result[i+2*j+1]
@@ -946,8 +946,8 @@ function display(setting){
           if (rowData2[a] == '-')
             return 1
           if (rowData2[b] == '-')
-            return 0
-          return rowData2[a] > rowData2[b]})
+            return -1
+          return rowData2[a] - rowData2[b]})
         sort2 = structuredClone(method)
         Object.keys(rowData1).forEach(key=>{
           if (key!='Dataset-Quantity-metrics'){
@@ -1174,38 +1174,35 @@ function submitSelection(setting){
     draw=[]
     text3 = document.getElementById(`score-${setting}/3/3`)
     Object.keys(rank).forEach(method=>{
-    if(select_score==3)
-    {
-        weight1 = document.getElementById(`score-${setting}/3/1`).value
-        weight2 = document.getElementById(`score-${setting}/3/2`).value
-        weight3 = document.getElementById(`score-${setting}/3/3`).value
-        rank[method]['score'] = rank[method]['rank1'] * weight1 + rank[method]['rank2'] * weight2 + rank[method]['rank3'] * weight3
-    }
-    else if(select_score == 2){
-        rank[method]['score'] = rank[method]['rank1'] + rank[method]['rank2'] + rank[method]['rank3']
-    }else
-    {
-        rank[method]['score'] = rank[method]['rank1']
-    }
-    draw.push({method,'score':rank[method]['score'],'rank1':rank[method]['rank1'],'rank2':rank[method]['rank2'],'rank3':rank[method]['rank3']})
+        if(select_score==3)
+        {
+            weight1 = document.getElementById(`score-${setting}/3/1`).value
+            weight2 = document.getElementById(`score-${setting}/3/2`).value
+            weight3 = document.getElementById(`score-${setting}/3/3`).value
+            rank[method]['score'] = rank[method]['rank1'] * weight1 + rank[method]['rank2'] * weight2 + rank[method]['rank3'] * weight3
+        }
+        else if(select_score == 2){
+            rank[method]['score'] = rank[method]['rank1'] + rank[method]['rank2'] + rank[method]['rank3']
+        }else
+        {
+            rank[method]['score'] = rank[method]['rank1']
+        }
+        draw.push({method,'score':rank[method]['score'],'rank1':rank[method]['rank1'],'rank2':rank[method]['rank2'],'rank3':rank[method]['rank3']})
     })
-    draw.sort((a,b)=>{
-      if(a.score!=b.score)
-      {
-        return a.score<b.score
-      }else if (a.rank1!=b.rank1)
-      {
-        return a.rank1<b.rank1
-      }else if (a.rank2!=b.rank2)
-      {
-        return a.rank2<b.rank2
-      }else if (a.rank3!=b.rank3)
-      {
-        return a.rank3<b.rank3
-      }
+
+    draw.sort((b, a)=>{
+      if(a['score']!=b['score'])
+      return a.score-b.score
+      if (a.rank1!=b.rank1)
+        return a.rank1-b.rank1
+      if (a.rank2!=b.rank2)
+        return a.rank2-b.rank2
+      if (a.rank3!=b.rank3)
+        return a.rank3-b.rank3
     })
     draw_table(draw,setting)
  }
+
 
 function draw_table(draw,setting)
 {
