@@ -11,15 +11,15 @@
   <title>OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
-  <meta name="description" content="Leaderboards   Table of Contents  Leaderboard for few-shot setting Leaderboard for full-shot setting  Leaderboard for few-shot setting                                              Model Type">
+  <meta name="description" content="Leaderboards   Table of Contents  Leaderboard for few-shot setting Leaderboard for full-shot setting  Leaderboard for zero-shot setting                                                        Metrics">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
-<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/leaderboards/foundation_model/index.html">
+<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/leaderboards/foundation_model/index%20copy.html">
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
-<meta property="og:description" content="Leaderboards   Table of Contents  Leaderboard for few-shot setting Leaderboard for full-shot setting  Leaderboard for few-shot setting                                              Model Type">
+<meta property="og:description" content="Leaderboards   Table of Contents  Leaderboard for few-shot setting Leaderboard for full-shot setting  Leaderboard for zero-shot setting                                                        Metrics">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-10-24T14:26:54.209Z">
-<meta property="article:modified_time" content="2024-10-24T14:26:54.209Z">
+<meta property="article:published_time" content="2024-10-24T14:26:00.243Z">
+<meta property="article:modified_time" content="2024-10-24T14:26:00.243Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -264,8 +264,8 @@
     
     
     <div class="article-meta">
-      <!--<a href="/OpenTS/leaderboards/foundation_model/index.html" class="article-date">
-  <time datetime="2024-10-24T14:26:54.209Z" itemprop="datePublished">2024-10-24</time>
+      <!--<a href="/OpenTS/leaderboards/foundation_model/index%20copy.html" class="article-date">
+  <time datetime="2024-10-24T14:26:00.243Z" itemprop="datePublished">2024-10-24</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -283,6 +283,159 @@
 <li><a href="#Leaderboard-for-few-shot-setting">Leaderboard for few-shot setting</a></li>
 <li><a href="#Leaderboard-for-full-shot-setting">Leaderboard for full-shot setting</a></li>
 </ol>
+<h2 id="Leaderboard-for-zero-shot-setting"><a href="#Leaderboard-for-zero-shot-setting" class="headerlink" title="Leaderboard for zero-shot setting"></a>Leaderboard for zero-shot setting</h2><div class="main-container" id="main-container-zero">
+  <div class="checkbox-wrapper">
+    <div class="checkbox-container" id="dataset-container-mul-type-zero">
+    </div>
+    <div class="checkbox-container" id="dataset-container-mul-up-zero">
+      <div class="category" style="margin-bottom:0px">
+        <h3>
+          <input type="checkbox" id="select-all-Metrics-zero" style='display:none' onchange="toggleCategory('Metrics','zero', this.checked)">
+          Metrics
+          <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight:bold"> [<a href="javascript:void(0);" onclick="toggleCategory('Metrics','zero', true)" style="padding:0 3px">all</a>]</b>
+        </h3>
+        <div class="checkbox-wrapper1">
+          <div class="checkbox-item">
+            <input type="checkbox" id="Metrics-zero/MAE" onchange="handleChildCheckboxChange(event)" class="checkbox-Metrics-zero">
+            <label>MAE</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="Metrics-zero/MSE" onchange="handleChildCheckboxChange(event)" class="checkbox-Metrics-zero">
+            <label>MSE</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style='width:95%'>
+      <hr style="border:1px dashed #ddd">
+    </div>
+    <div class="category" style="margin-bottom:0px">
+            <h3>
+              <input type="checkbox" id="select-all-Horizons-zero" style='display:none' onchange="toggleCategory('Horizons', this.checked)">
+              Forecasting Horizons
+              <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight:bold"> [<a href="javascript:void(0);" onclick="toggleCategory('Horizons','zero', true)" style="padding:0 3px">all</a>|<a href="javascript:void(0);" onclick="toggleCategory('Horizons','zero', false)" style="padding:0 3px">off</a>]</b>
+            </h3>
+            <div class="checkbox-wrapper2" style='grid-template-columns: 1.5fr;'>
+              <div class="checkbox-item">
+                <input type="checkbox" id="Horizons-zero/96" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons-zero">
+                <label for="Horizons/96">96</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="Horizons-zero/192" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons-zero">
+                <label for="Horizons/192">192</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="Horizons-zero/336" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons-zero">
+                <label for="Horizons/336">336</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="Horizons-zero/720" onchange="handleChildCheckboxChange(event)" class="checkbox-Horizons-zero">
+                <label for="Horizons/720">720</label>
+              </div>
+            </div>
+          </div>
+    <div style='width:95%'>
+      <hr style="border:1px dashed #ddd">
+    </div>
+    <!-- <div style='width:95%'>
+      <hr style="border:1px dashed #ddd">
+    </div> -->
+  </div>
+  <div class='right' style="width: 100%;padding: 0px;">
+    <div style="width:100%;margin-top: 0;" class="table-container" id='table-container-mul'>
+      <table id="zero" class="my-table2">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Model</th>
+            <th>Parameters</th>
+            <th>Score</th>
+            <th>🥇</th>
+            <th>🥈</th>
+            <th>🥉</th>
+            <th>Paper</th>
+            <th>Publication</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:70px;">
+      <div  id="dataset-container-mul-down">
+        <!-- <div class="checkbox-container1" id="dataset-container-mul-down"> -->
+        </div>
+        <!-- <div style='width:50%'>
+          <hr style="border:1px dashed #ddd">
+        </div> -->
+      </div>
+  </div>
+</div>
+    <div id='all-zero' style='margin-top:-70px'>
+      <div class='checkbox-container'>
+        <div class="all-checkbox">
+          <input type="checkbox" id="select-all" onclick="toggleSelectAll(this.checked,'zero')" style="display:none">
+          <label for="select-all">
+            <h3 style="white-space:nowrap">Datasets
+              <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight:bold"> [<a href="javascript:void(0);" onclick="toggleSelectAll(true,'zero')" style="padding:0 3px">all</a>|<a href="javascript:void(0);" onclick="toggleSelectAll(false,'zero')" style="padding:0 3px">off</a>]</b>
+            </h3>
+          </label>
+        </div>
+      </div>
+      <div class="checkbox-container" id="dataset-container-zero" style=' gap:3px; margin-top: -10px;padding-right:0px;grid-template-columns: 1fr 1fr 1fr 1fr 1fr;'></div>
+    </div>
+<div class="" id="dataset-container-mul-down1">
+          <div class="category" style="margin-bottom:0px">
+            <h3>
+              <input type="checkbox" id="select-all-Score-zero" style='display:none' onchange="toggleCategory('Score','zero', this.checked)">
+              Score
+            </h3>
+            <div class="checkbox-wrapper3" style=' display: flex;gap:10px;'>
+              <div class="checkbox-item">
+                <input type="radio" id="Score-zero/1" value="Score/1" onchange="handleChildCheckboxChange(event)" class="checkbox-Score-zero">
+                <label for="Score/1">🥇</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="radio" id="Score-zero/2" value="Score/2" onchange="handleChildCheckboxChange(event)" class="checkbox-Score-zero">
+                <label for="Score/2">🥇 + 🥈 + 🥉</label>
+              </div>
+              <div class="checkbox-item" style="flex-wrap:nowrap;">
+                <input type="radio" id="Score-zero/3" value="Score/3" onchange="handleChildCheckboxChange(event)" class="checkbox-Score-zero">
+                <label for="Score/3">
+                <input type="number" id="score-zero/3/1" name="score/3/1" value="3" oninput="validateInput(this)"> × 🥇 + 
+                <input type="number" id="score-zero/3/2" name="score/3/2" value="2" oninput="validateInput(this)"> × 🥈 + 
+                <input type="number" id="score-zero/3/3" name="score/3/3" value="1" oninput="validateInput(this)"> × 🥉</label>
+              </div>
+            </div>
+          </div>
+        </div>
+<div style="height:30px"></div>
+
+<h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
+<li><p>Specific models require training on data of each specific scenario, and most LLM-based models need fine-tuning of either the LLM backbones or some additional components to adapt to down-stream datasets. Thus, in zero-short evaluation, we focus on time series pre-trained models that are capable of performing zero-shot forecasting.</p>
+</li>
+<li><p>For time series foundation models, we consider 14 datasets and 2 error metrics, i.e., MAE and MSE. For each dataset, we consider 4 forecasting horizons. We directly use the test set for evaluation (<a href="../../datasets/#Multivariate-time-series">click here</a> for details), <a href="./#Zero-shot-setting-results">click here</a> to see the detailed results, <a href="./zero.csv">click here</a> to download detailed evaluation results for each of the 14 multivariate time series.</p>
+</li>
+<li><p>For each forecasting algorithm, we count the number of times that the algorithm receives the gold, silver, and bronze medals, i.e., having the lowest, 2nd lowest, and 3rd lowest errors, shown as 🥇, 🥈, and 🥉, respectively. </p>
+</li>
+<li><p>We provide three different types of scores for ranking the forecasting algorithms. First, the scores equal to the numbers of gold medals. Second, the scores are the sum of the numbers of gold, silver, and bronze medals. Third, the scores are the weighted sum of the gold, silver, and bronze medals, where the weights can be customized. The larger the score, the higher the ranking.</p>
+</li>
+</ul>
+<h2 id="Zero-shot-setting-results"><a href="#Zero-shot-setting-results" class="headerlink" title="Zero-shot setting results"></a>Zero-shot setting results</h2><div class="main-container">
+  <div style="width:100%;overflow-y:auto;height:800px" class="table-container">
+    <table id="display-zero" class="my-table2">
+      <thead>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</div>
+MOIRAI flattens all channels into a single dimension for patching, thus limiting its use when dealing with datasets with many channels. MOIRAI fails to work on Traffic (862 channels) and Wike2000 (2000 channels), which is shown with -.
+
+<div style="height:30px"></div>
+
 <h2 id="Leaderboard-for-few-shot-setting"><a href="#Leaderboard-for-few-shot-setting" class="headerlink" title="Leaderboard for few-shot setting"></a>Leaderboard for few-shot setting</h2><div class="main-container" id="main-container-few">
   <div class="checkbox-wrapper">
     <div class="checkbox-container" id="dataset-container-mul-type-few">
@@ -428,7 +581,7 @@
 </div>
 
 
-<h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
+<h3 id="Rules-1"><a href="#Rules-1" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
 <li><p>For short-term time series datasets like ILI, the sample size under the 5% sampling condition is insufficient to support fine-tuning of the foundation model. Therefore, we only conduct tests on long-term time series datasets. </p>
 </li>
 <li><p>For time series foundation models, we consider 10 datasets and 2 error metrics, i.e., MAE and MSE. For each dataset, we consider 4 forecasting horizons. We default to uniformly sampling 5% of the samples from the training set for model fine-tuning and evaluation on test set. <a href="./#Few-shot-setting-results">Click here</a> to see the detailed results, <a href="./few.csv">click here</a> to download detailed evaluation results for each of the 10 multivariate time series.</p>
@@ -599,7 +752,7 @@ The maximum training duration was constrained to a maximum of 5 hours. Models th
 
 <div style="height:20px"></div>
 
-<h3 id="Rules-1"><a href="#Rules-1" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
+<h3 id="Rules-2"><a href="#Rules-2" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
 <li><p>Since full-shot training on some foundation models may take substantially long time, which violates the original intention of the foundation models, we only select several representative foundation models that are more efficient in training in the full-shot setting. </p>
 </li>
 <li><p>For time series foundation models, we consider 6 datasets and 2 error metrics, i.e., MAE and MSE. For each dataset, we consider 4 forecasting horizons. <a href="./#Full-shot-setting-results">Click here</a> to see the detailed results, <a href="./full.csv">click here</a> to download detailed evaluation results for each of the 6 multivariate time series.</p>
@@ -630,7 +783,7 @@ all_data = {'zero':{'method':{},'dataset':[],'metric':[],'result':{}},
 'few':{'method':{},'dataset':[],'metric':[],'result':{}},
 'full':{'method':{},'dataset':[],'metric':[],'result':{}}}
 
-settings = ['few','full']
+settings = ['zero','few','full']
 
 settings.forEach( setting =>{
 
