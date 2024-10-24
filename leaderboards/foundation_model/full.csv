@@ -6,6 +6,7 @@ code-url,https://github.com/thuml/Large-Time-Series-Model?tab=readme-ov-file#cod
 publication,ICML,arXiv,arXiv,NeurIPS,WWW,ICLR,AAAI,ICLR,ICLR,ICML,ICLR,ICLR
 bib,https://dblp.uni-trier.de/rec/conf/icml/LiuZLH0L24.html?view=bibtex,,https://dblp.uni-trier.de/rec/journals/corr/abs-2401-03955.html?view=bibtex,https://dblp.uni-trier.de/rec/conf/nips/ZhouNW0023.html?view=bibtex,,https://dblp.org/rec/conf/iclr/NieNSK23.html?view=bibtex,https://dblp.org/rec/conf/aaai/ZengCZ023.html?view=bibtex,https://dblp.org/rec/journals/corr/abs-2307-03756.html?view=bibtex,https://dblp.org/rec/journals/corr/abs-2310-06625.html?view=bibtex,https://dblp.org/rec/conf/icml/ZhouMWW0022.html?view=bibtex,https://dblp.org/rec/conf/iclr/WuHLZ0L23.html?view=bibtex,https://dblp.org/rec/journals/corr/abs-2405-14616.html?view=bibtex
 year,2024,2024,2024,2023,2024,2023,2023,2024,2024,2022,2023,2024
+parameters,67397735,3459007,805287,65380704,108541488,3751520,64704,12928,841568,16827399,605479,1648601
 Electricity/ETTh1-96-mae,0.423,0.421,0.39,0.397,0.413,0.396,0.392,0.396,0.405,0.419,0.412,0.401
 Electricity/ETTh1-96-mse,0.416,0.399,0.359,0.373,0.392,0.376,0.371,0.376,0.386,0.379,0.389,0.373
 Electricity/ETTh1-192-mae,0.489,0.445,0.408,0.428,0.478,0.416,0.413,0.418,0.44,0.443,0.443,0.425

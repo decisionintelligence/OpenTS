@@ -6,6 +6,7 @@ code-url,https://github.com/google-research/timesfm,https://github.com/thuml/Lar
 publication,ICML,ICML,arXiv,arXiv,ICML,arXiv
 bib,https://dblp.uni-trier.de/rec/conf/icml/DasKSZ24.html?view=bibtex,https://dblp.uni-trier.de/rec/conf/icml/LiuZLH0L24.html?view=bibtex,,https://dblp.uni-trier.de/rec/journals/corr/abs-2401-03955.html?view=bibtex,https://dblp.uni-trier.de/rec/conf/icml/WooLKXSS24.html?view=bibtex,https://dblp.uni-trier.de/rec/journals/corr/abs-2405-17478.html?view=bibtex
 year,2024,2024,2024,2024,2024,2024
+parameters,203568967,67397735,3459007,805287,91357735,7400000
 Electricity/ETTh1-96-mae,0.401,0.439,0.392,0.396,0.399,0.408
 Electricity/ETTh1-96-mse,0.421,0.414,0.377,0.363,0.394,0.382
 Electricity/ETTh1-192-mae,0.432,0.455,0.421,0.415,0.422,0.42
