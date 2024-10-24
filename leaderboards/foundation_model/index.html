@@ -18,8 +18,8 @@
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:description" content="Leaderboards   Table of Contents Leaderboard for zero-shot setting Leaderboard for few-shot setting Leaderboard for full-shot setting  Leaderboard for zero-shot setting">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-10-24T09:20:09.110Z">
-<meta property="article:modified_time" content="2024-10-24T09:20:09.110Z">
+<meta property="article:published_time" content="2024-10-24T09:32:59.971Z">
+<meta property="article:modified_time" content="2024-10-24T09:32:59.971Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -265,7 +265,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards/foundation_model/index.html" class="article-date">
-  <time datetime="2024-10-24T09:20:09.110Z" itemprop="datePublished">2024-10-24</time>
+  <time datetime="2024-10-24T09:32:59.971Z" itemprop="datePublished">2024-10-24</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -348,11 +348,11 @@
           <tr>
             <th>Rank</th>
             <th>Model</th>
+            <th>Parameters</th>
             <th>Score</th>
             <th>🥇</th>
             <th>🥈</th>
             <th>🥉</th>
-            <th>Parameters</th>
             <th>Paper</th>
             <th>Publication</th>
             <th>Year</th>
@@ -564,11 +564,11 @@ MOIRAI flattens all channels into a single dimension for patching, thus limiting
         <tr>
           <th>Rank</th>
           <th>Model</th>
+          <th>Parameters</th>
           <th>Score</th>
           <th>🥇</th>
           <th>🥈</th>
           <th>🥉</th>
-          <th>Parameters</th>
           <th>Paper</th>
           <th>Publication</th>
           <th>Year</th>
@@ -734,11 +734,11 @@ The maximum training duration was constrained to a maximum of 5 hours. Models th
         <tr>
           <th>Rank</th>
           <th>Model</th>
+          <th>Parameters</th>
           <th>Score</th>
           <th>🥇</th>
           <th>🥈</th>
           <th>🥉</th>
-          <th>Parameters</th>
           <th>Paper</th>
           <th>Publication</th>
           <th>Year</th>
@@ -1209,7 +1209,7 @@ function submitSelection(setting){
  }
 
 function formatNumber(num) {
-  return (num / 1e6).toFixed(1) + 'M';
+  return (num / 1e6).toFixed(2) + 'M';
     // if (num >= 1e9) {
     //     return (num / 1e9).toFixed(1) + 'B';  // 表示十亿
     // } else if (num >= 1e6) {
@@ -1233,13 +1233,13 @@ function draw_table(draw,setting)
       row.innerHTML = `
             <td>${index}</td>
             <td>${rowData.method}</td>
+            <td>
+                ${formatNumber(all_data[setting]['method'][rowData.method].parameters)}
+            </td>
             <td>${rowData.score}</td>
             <td>${rowData.rank1}</td>
             <td>${rowData.rank2}</td>
             <td>${rowData.rank3}</td>
-            <td>
-                ${formatNumber(all_data[setting]['method'][rowData.method].parameters)}
-            </td>
             <td>
                 <a href="${all_data[setting]['method'][rowData.method].paper_url}"  target="_blank">paper</a>
             </td>
