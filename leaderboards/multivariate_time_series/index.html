@@ -18,8 +18,8 @@
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {      const tableBod">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-11-28T11:45:46.994Z">
-<meta property="article:modified_time" content="2024-11-28T11:45:46.994Z">
+<meta property="article:published_time" content="2024-12-14T13:05:53.305Z">
+<meta property="article:modified_time" content="2024-12-14T13:05:53.305Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -267,7 +267,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards/multivariate_time_series/index.html" class="article-date">
-  <time datetime="2024-11-28T11:45:46.994Z" itemprop="datePublished">2024-11-28</time>
+  <time datetime="2024-12-14T13:05:53.305Z" itemprop="datePublished">2024-12-14</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -398,7 +398,7 @@ function phraseMultiTable(results, table, datasets,select_metrics,select_horizon
         modelColumns.forEach(model => {
             rankCounts[model] = {1: 0, 2: 0, 3: 0, 4: 0};
         });
-         Object.entries(rankCounts).forEach(([model, values]) => {
+        Object.entries(rankCounts).forEach(([model, values]) => {
         result.push({"model": model, 'rank1': values['1'], 'rank2': values['2'], 'rank3': values['3'], 'rank4': values['4']});
     });
     
@@ -433,8 +433,35 @@ function phraseMultiTable(results, table, datasets,select_metrics,select_horizon
     filteredExperimentData.forEach(row => {
         const validModels = modelColumns.filter(model => !isNaN(row[model]));
         validModels.sort((a, b) => row[a] - row[b]);
-        validModels.slice(0, 4).forEach((model, index) => {
-            rankCounts[model][index + 1]++;
+        // validModels.slice(0, 4).forEach((model, index) => {
+        //     rankCounts[model][index + 1]++;
+        // });
+
+        // 用于存储各模型的排名
+        const ranks = {};
+        let currentRank = 1;
+        ranks[validModels[0]] = currentRank;
+
+        // 遍历剩余模型，分配排名（考虑同分情况）
+        for (let i = 1; i < validModels.length; i++) {
+            const model = validModels[i];
+            const prevModel = validModels[i - 1];
+            
+            if (row[model] === row[prevModel]) {
+                // 当前模型值与上一个相同，共享相同排名
+                ranks[model] = currentRank; 
+            } else {
+                // 当前模型值比上一个大，排名 = 当前的索引位置 + 1
+                // （此处的排名规则可按需调整）
+                currentRank = i + 1;
+                ranks[model] = currentRank;
+            }
+        }
+
+        // 最后对每个模型的对应排名做计数加一
+        validModels.forEach(model => {
+            const rank = ranks[model];
+            rankCounts[model][rank] = (rankCounts[model][rank] || 0) + 1;
         });
         validModels.forEach(model => {
             if (select_score[0] == '1' )
