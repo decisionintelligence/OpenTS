@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/multivariate_time_series/index%20copy.html</loc>
+    
+    <lastmod>2024-12-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/foundation_model/index.html</loc>
     
     <lastmod>2024-11-28</lastmod>
