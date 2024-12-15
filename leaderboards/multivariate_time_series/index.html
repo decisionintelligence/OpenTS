@@ -11,15 +11,15 @@
   <title>OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
-  <meta name="description" content="Leaderboards   Leaderboard for multivariate time series forecasting &#x2F;&#x2F; const API_KEY &#x3D; &#39;AIzaSyApvzt7SugNYD4WKLwjMwKffX1BVmyvJUg&#39;; &#x2F;&#x2F; 替换为你的Google API密钥 &#x2F;&#x2F; const SPREADSHEET_ID &#x3D; &#39;1CtRq7x-c8MCLOE_DZebd3">
+  <meta name="description" content="Leaderboards   Leaderboard for multivariate time series forecasting const API_KEY &#x3D; &#39;AIzaSyApvzt7SugNYD4WKLwjMwKffX1BVmyvJUg&#39;; &#x2F;&#x2F; 替换为你的Google API密钥 const SPREADSHEET_ID &#x3D; &#39;1CtRq7x-c8MCLOE_DZebd3d2Cot9">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/leaderboards/multivariate_time_series/index.html">
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
-<meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting &#x2F;&#x2F; const API_KEY &#x3D; &#39;AIzaSyApvzt7SugNYD4WKLwjMwKffX1BVmyvJUg&#39;; &#x2F;&#x2F; 替换为你的Google API密钥 &#x2F;&#x2F; const SPREADSHEET_ID &#x3D; &#39;1CtRq7x-c8MCLOE_DZebd3">
+<meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting const API_KEY &#x3D; &#39;AIzaSyApvzt7SugNYD4WKLwjMwKffX1BVmyvJUg&#39;; &#x2F;&#x2F; 替换为你的Google API密钥 const SPREADSHEET_ID &#x3D; &#39;1CtRq7x-c8MCLOE_DZebd3d2Cot9">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-12-15T06:27:22.014Z">
-<meta property="article:modified_time" content="2024-12-15T06:27:22.014Z">
+<meta property="article:published_time" content="2024-12-15T06:28:13.855Z">
+<meta property="article:modified_time" content="2024-12-15T06:28:13.855Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -267,7 +267,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards/multivariate_time_series/index.html" class="article-date">
-  <time datetime="2024-12-15T06:27:22.014Z" itemprop="datePublished">2024-12-15</time>
+  <time datetime="2024-12-15T06:28:13.855Z" itemprop="datePublished">2024-12-15</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -281,25 +281,26 @@
 
 
 <h2 id="Leaderboard-for-multivariate-time-series-forecasting"><a href="#Leaderboard-for-multivariate-time-series-forecasting" class="headerlink" title="Leaderboard for multivariate time series forecasting"></a>Leaderboard for multivariate time series forecasting</h2><script>
-// const API_KEY = 'AIzaSyApvzt7SugNYD4WKLwjMwKffX1BVmyvJUg'; // 替换为你的Google API密钥
-// const SPREADSHEET_ID = '1CtRq7x-c8MCLOE_DZebd3d2Cot9lcyZ7ghy7npgMShk';//替换成你的表格的ID
+const API_KEY = 'AIzaSyApvzt7SugNYD4WKLwjMwKffX1BVmyvJUg'; // 替换为你的Google API密钥
+const SPREADSHEET_ID = '1CtRq7x-c8MCLOE_DZebd3d2Cot9lcyZ7ghy7npgMShk';//替换成你的表格的ID
 
-// function getValues(spreadsheetId, range) {
-//   try {
-//     gapi.client.sheets.spreadsheets.values.get({
-//       spreadsheetId: spreadsheetId,
-//       range: range,
-//     }).then((response) => {
-//       const result = response.result;
-//       const numRows = result.values ? result.values.length : 0;
-//       console.log(`${numRows} rows retrieved.`);
-//       console.log(response)
-//     });
-//   } catch (err) {
-//     document.getElementById('content').innerText = err.message;
-//     return;
-//   }
-// }
+getValues(SPREADSHEET_ID,'A1:V1')
+function getValues(spreadsheetId, range) {
+  try {
+    gapi.client.sheets.spreadsheets.values.get({
+      spreadsheetId: spreadsheetId,
+      range: range,
+    }).then((response) => {
+      const result = response.result;
+      const numRows = result.values ? result.values.length : 0;
+      console.log(`${numRows} rows retrieved.`);
+      console.log(response)
+    });
+  } catch (err) {
+    document.getElementById('content').innerText = err.message;
+    return;
+  }
+}
 
 //     // 异步函数，用于获取表格名称
 //     async function fetchSheetNames() {
