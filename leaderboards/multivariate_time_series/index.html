@@ -19,8 +19,8 @@
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:description" content="Leaderboards   Leaderboard for multivariate time series forecasting     function displayResults(rankCounts, connectTexts, connectUrls, paperUrls, codeUrls,pub,bib,year,table,is_rank) {      const tabl">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-12-20T08:35:32.489Z">
-<meta property="article:modified_time" content="2024-12-20T08:35:32.489Z">
+<meta property="article:published_time" content="2025-01-02T10:01:21.538Z">
+<meta property="article:modified_time" content="2025-01-02T10:01:21.538Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -268,7 +268,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards/multivariate_time_series/index.html" class="article-date">
-  <time datetime="2024-12-20T08:35:32.489Z" itemprop="datePublished">2024-12-20</time>
+  <time datetime="2025-01-02T10:01:21.538Z" itemprop="datePublished">2025-01-02</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -803,9 +803,9 @@ function findBottomThreeKeys(obj) {
     }
 
     return {
-        minKey,
-        secondMinKey,
-        thirdMinKey,
+        minValue,
+        secondMinValue,
+        thirdMinValue,
     };
 }
 function format(num)
@@ -904,6 +904,7 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
       const row = document.createElement('tr');
       result_mae = rankCounts[i]
       result_mse = rankCounts[i+1]
+
       mae_sort = findBottomThreeKeys(result_mae)
       mse_sort = findBottomThreeKeys(result_mse)
        year.forEach((res)=>{
@@ -949,14 +950,14 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
         {
           const td1 = document.createElement('td');
           const td2 = document.createElement('td');
-          if (key == mae_sort['minKey'])
+          if (result_mae[key] == mae_sort['minValue'])
           {
             td1.innerHTML = '<b>'+format(result_mae[key])+'</b>'
           }
-          else if (key == mae_sort['thirdMinKey'])
+          else if (result_mae[key] == mae_sort['thirdMinValue'])
           {
              td1.innerHTML = '<u>'+format(result_mae[key])+'</u>'
-          }else if (key == mae_sort['secondMinKey'])
+          }else if (result_mae[key] == mae_sort['secondMinValue'])
           {
              td1.innerHTML = '<p class="double-underline">'+format(result_mae[key])+'</p>'
           }
@@ -965,14 +966,14 @@ function displayResults11(rankCounts, connectTexts, connectUrls, paperUrls, code
             td1.innerHTML = format(result_mae[key])
           }
 
-          if (key == mse_sort['minKey'])
+          if (result_mse[key] == mse_sort['minValue'])
           {
             td2.innerHTML = '<b>'+format(result_mse[key])+'</b>'
           }
-          else if (key == mse_sort['thirdMinKey'])
+          else if (result_mse[key] == mse_sort['thirdMinValue'])
           {
              td2.innerHTML = '<u>'+format(result_mse[key])+'</u>'
-          }else if (key == mse_sort['secondMinKey'])
+          }else if (result_mse[key] == mse_sort['secondMinValue'])
           {
              td2.innerHTML = '<p class="double-underline">'+format(result_mse[key])+'</p>'
           }
