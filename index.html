@@ -278,7 +278,7 @@
 	
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="OpenTS-Overview"><a href="#OpenTS-Overview" class="headerlink" title="OpenTS Overview"></a>OpenTS Overview</h1><p>OpenTS is a comprehensive and fair benchmarking of time series analytics, mainly including foreacsting and anaomly detection. OpenTS inlucdes <b>Time series Forecasting Benchmark (TFB)</b>, <b>Time series Anomaly detection Benchmark (TAB)</b>, and <b>Time Series Foundation Model Benchmark (FoundTS)</b>. OpenTS provides comprehensive time series datasets, rich time series analtycis algorithms, and a unified evaluation pipeline with various strategies and metrics.</p>
+        <h1 id="OpenTS-Overview"><a href="#OpenTS-Overview" class="headerlink" title="OpenTS Overview"></a>OpenTS Overview</h1><p>OpenTS is a comprehensive and fair benchmarking of time series analytics, mainly including foreacsting and anaomly detection. OpenTS inlucdes <b>Time series Forecasting Benchmark (TFB)</b>, <b>Time Series Foundation Model Benchmark (TSFM-Bench)</b> and <b>Time series Anomaly detection Benchmark (TAB)</b>. OpenTS provides comprehensive time series datasets, rich time series analtycis algorithms, and a unified evaluation pipeline with various strategies and metrics.</p>
 <div style="height:5px"></div>
 
 <hr>
@@ -382,10 +382,11 @@ a {
 <style>
 .container {
     display: flex;
-    /* width: 80%; */
+    width: 98%;
     max-width: 1200px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     background-color: #fff;
+    gap:1%;
 }
 .left-column {
     flex: 1;
@@ -399,23 +400,27 @@ a {
 
 .left-column .image {
     /* width: 100%; */
-    height: 215px;
-    width: 450px; 控制图片最大宽度
-    /* height:215px; */
+    /* height: 215px; */
+    /* width: 450px; 控制图片最大宽度 */
+    height:165px;
 }
 
 .left-column .left-text {
     margin-top: -10px;
     text-align: center;
+    width:100%;
+    text-align:center;
 }
 
 .right-column {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    /* padding: 20px; */
     padding-left:0px;
     padding-top:0px;
-    width:450px;
+    /* width:450px; */
+    width:33%;
+    flex:1
 }
 
 .right-column .top-text, .right-column .bottom-text {
@@ -507,6 +512,11 @@ a {
         {
             display:none;
         }
+        .article-entry figure.highlight
+        {
+            padding:10px;
+            padding-left:0px;
+        }
 </style>
 
 <!-- ------
@@ -559,19 +569,45 @@ function alter(){
 <div class="container">
     <div class="left-column">
         <div class="left-text">
-           <a target="_blank" rel="noopener" href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf" > <h3 >PVLDB 2024 Best Research Paper Nomination</h3></a>
+           <a target="_blank" rel="noopener" href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf"> <h3  style="font-size:1em">PVLDB 2024 Best Research Paper Nomination</h3></a>
         </div>
-            <a href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf" target="_blank" rel="noopener" >
-            <img id="clickable-image" src="figures/paper.png" onload="alter()" class="image" style="box-shadow:0 2px 8px rgba(0, 0, 0, 0.1)">
-            </a>
     </div>
     <div class="left-column">
         <div class="left-text">
-            <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2410.11802" > <h3 >arXiv</h3></a>
+            <!-- <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2410.11802" > <h3  style="font-size:1em">SIGKDD 2025</h3></a> -->
+            <h3  style="font-size:1em">SIGKDD 2025</h3>
         </div>
-                <a href="https://arxiv.org/pdf/2410.11802" target="_blank" rel="noopener" >
-                <img id="clickable-image" src="figures/FoundTS.png" onload="alter()" class="image" style="box-shadow:0 2px 8px rgba(0, 0, 0, 0.1)">
-                </a>
+    </div>
+        <div class="left-column">
+        <div class="left-text">
+            <!-- <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2410.11802" > <h3  style="font-size:1em">PVLDB 2025</h3></a> -->
+            <h3  style="font-size:1em">PVLDB 2025</h3>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="left-column">
+        <div class="left-text">
+        </div>
+            <a href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf" target="_blank" rel="noopener" >
+            <img id="clickable-image" src="figures/TFB1.png" onload="alter()" class="image" style="box-shadow:0 2px 8px rgba(0, 0, 0, 0.1)">
+            </a>
+    </div>
+    <div class="left-column">
+            <div class="left-text">
+        </div>
+                <!-- <a href="https://arxiv.org/pdf/2410.11802" target="_blank" rel="noopener" > -->
+                <!-- <a href="" target="_blank" rel="noopener" > -->
+                <img id="clickable-image" src="figures/TSFM-Bench.png" onload="alter()" class="image" style="box-shadow:0 2px 8px rgba(0, 0, 0, 0.1)">
+                <!-- </a> -->
+    </div>
+        <div class="left-column">
+         <div class="left-text">
+        </div>
+                <!-- <a href="https://arxiv.org/pdf/2410.11802" target="_blank" rel="noopener" > -->
+                <!-- <a href="" target="_blank" rel="noopener" > -->
+                <img id="clickable-image" src="figures/TAB.png" onload="alter()" class="image" style="box-shadow:0 2px 8px rgba(0, 0, 0, 0.1)">
+                <!-- </a> -->
     </div>
 </div>
 
@@ -580,8 +616,11 @@ function alter(){
     <div class="right-column">
    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;qiu2024tfb,</span><br><span class="line">  title   = &#123;TFB: Towards Comprehensive and Fair Benchmarking of Time Series Forecasting Methods&#125;,</span><br><span class="line">  author  = &#123;Qiu, Xiangfei and Hu, Jilin and Zhou, Lekui and Wu, Xingjian and Du, Junyang and Zhang, Buang and Guo, Chenjuan and Zhou, Aoying and Jensen, Christian S and Sheng, Zhenli and Bin Yang&#125;,</span><br><span class="line">  journal = &#123;Proc. &#123;VLDB&#125; Endow.&#125;,</span><br><span class="line">  year    = &#123;2024&#125;,</span><br><span class="line">  pages   = &#123;2363 - 2377&#125;,</span><br><span class="line">  volume  = &#123;17&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
-    <div class="right-column" style='margin-left:30px'>
-     <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;li2024foundts,</span><br><span class="line">    title  = &#123;FoundTS: Comprehensive and Unified Benchmarking of Foundation Models for Time Series Forecasting&#125;, </span><br><span class="line">    author = &#123;Zhe Li and Xiangfei Qiu and Peng Chen and Yihang Wang and Hanyin Cheng and Yang Shu and Jilin Hu and Chenjuan Guo and Aoying Zhou and Qingsong Wen and Christian S. Jensen and Bin Yang&#125;,</span><br><span class="line">    year   = &#123;2024&#125;,</span><br><span class="line">    eprint = &#123;2410.11802&#125;,</span><br><span class="line">    archivePrefix = &#123;arXiv&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <div class="right-column" >
+     <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@inproceedings&#123;li2024TSMF-Bench,</span><br><span class="line">    title     = &#123;TSMF-Bench: Comprehensive and Unified Benchmarking of Foundation Models for Time Series Forecasting&#125;,</span><br><span class="line">    author    = &#123;Zhe Li and Xiangfei Qiu and Peng Chen and Yihang Wang and Hanyin Cheng and Yang Shu and Jilin Hu and Chenjuan Guo and Aoying Zhou and Christian S. Jensen and Bin Yang&#125;,</span><br><span class="line">    booktitle = &#123;Proceedings of the &#123;SIGKDD&#125; Conference on Knowledge Discovery</span><br><span class="line">              and Data Mining, V.2&#125;,</span><br><span class="line">    pages     = &#123;1703--1714&#125;,</span><br><span class="line">    year      = &#123;2025&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+    <div class="right-column" >
+     <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;qiu2025tab,</span><br><span class="line">title   = &#123;TAB: Unified Benchmarking of Time Series Anomaly Detection Methods&#125;,</span><br><span class="line">author  = &#123;Xiangfei Qiu and Zhe Li and Wanghui Qiu and Shiyan Hu and Lekui Zhou and Xingjian Wu and Zhengyu Li and Chenjuan Guo and Aoying Zhou and Zhenli Sheng and Jilin Hu and Christian S. Jensen and Bin Yang&#125;,</span><br><span class="line">journal = &#123;Proc. &#123;VLDB&#125; Endow.&#125;,</span><br><span class="line">year    = &#123;2025&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
     </div>
 </div>
 
