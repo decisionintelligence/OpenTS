@@ -19,8 +19,8 @@
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:description" content="Leaderboards   Leaderboard for few-shot setting                                              Model Type            [all]                                                       TS Pretrain Model">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-05-20T08:20:15.912Z">
-<meta property="article:modified_time" content="2025-05-20T08:20:15.912Z">
+<meta property="article:published_time" content="2025-05-20T11:43:18.159Z">
+<meta property="article:modified_time" content="2025-05-20T11:43:18.159Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -268,7 +268,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards/foundation_model/index.html" class="article-date">
-  <time datetime="2025-05-20T08:20:15.912Z" itemprop="datePublished">2025-05-20</time>
+  <time datetime="2025-05-20T11:43:18.159Z" itemprop="datePublished">2025-05-20</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -438,7 +438,7 @@
 </ul>
 <script>
 
-model_type = {'Pretrain-Model':['TimesFM','Timer','UniTS','TTM','MOIRAI','ROSE','Moment','LightGTS'],
+model_type = {'Pretrain-Model':['TimesFM','Timer','UniTS','TTMs','MOIRAI','ROSE','Moment','LightGTS'],
               'LLM-Based-Model':['GPT4TS',	'UniTime',	'S2IPLLM',	'TimeLLM'],
               'Specific-Model':['PatchTST','Dlinear','FITS','iTransformer','FedFormer','TimesNet','TimeMixer']}
 
@@ -461,7 +461,7 @@ settings.forEach( setting =>{
                 const scoreBox = document.getElementById(`Score-${setting}/${i1}`);
                 scoreBox.checked = false;
             }
-            button = document.getElementById(`Score-${setting}/2`);
+            button = document.getElementById(`Score-${setting}/3`);
             button.checked=true
             phraseInputTable(results.data, setting)
             toggleCategory('Metrics',setting, true,false)
@@ -806,7 +806,7 @@ function submitSelection(setting){
     select_method=[]
     if (setting=='zero')
     {
-      filteredKeys = ['TimesFM','Timer','UniTS','TTM','MOIRAI','ROSE']
+      filteredKeys = ['TimesFM','Timer','UniTS','TTMs','MOIRAI','ROSE']
     }
     else
     { 
