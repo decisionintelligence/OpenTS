@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/team/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/foundation_model/index.html</loc>
     
-    <lastmod>2025-05-18</lastmod>
+    <lastmod>2025-05-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/paper/TSFM-Bench/index.html</loc>
+    
+    <lastmod>2025-05-20</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12,6 +21,15 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/2024/07/25/hello-world/</loc>
+    
+    <lastmod>2025-05-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/team/index.html</loc>
     
     <lastmod>2025-05-18</lastmod>
     
@@ -56,15 +74,6 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/foundation_model/index.html</loc>
-    
-    <lastmod>2024-11-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/univariate_time_series/index.html</loc>
     
     <lastmod>2024-11-28</lastmod>
@@ -95,15 +104,6 @@
     <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/foundation_model/index%20copy.html</loc>
     
     <lastmod>2024-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/paper/FoundTS/index.html</loc>
-    
-    <lastmod>2024-10-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -202,7 +202,7 @@
 
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS</loc>
-    <lastmod>2025-05-18</lastmod>
+    <lastmod>2025-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
