@@ -12,16 +12,19 @@
   <title>OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
-  <meta name="description" content="Get StartedYou can find our offical code here: TFB github Table of Contents Quickstart Steps to develop your own method Steps to evaluate on your own time series Pipeline introduction FAQ Citing TFB C">
+  <meta name="description" content="Get StartedYou can find our offical code here: [TFB github]   Table of Contents Quickstart Steps to develop your own method Steps to evaluate on your own time series Pipeline introduction FAQ Citing u">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/get%20started/index.html">
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
-<meta property="og:description" content="Get StartedYou can find our offical code here: TFB github Table of Contents Quickstart Steps to develop your own method Steps to evaluate on your own time series Pipeline introduction FAQ Citing TFB C">
+<meta property="og:description" content="Get StartedYou can find our offical code here: [TFB github]   Table of Contents Quickstart Steps to develop your own method Steps to evaluate on your own time series Pipeline introduction FAQ Citing u">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/figures/Pipeline.png">
-<meta property="article:published_time" content="2024-10-25T02:52:48.355Z">
-<meta property="article:modified_time" content="2024-10-25T02:52:48.355Z">
+<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/figures/TFB1.png">
+<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/figures/TAB.png">
+<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/figures/TSFM-Bench.png">
+<meta property="article:published_time" content="2025-06-04T07:33:02.987Z">
+<meta property="article:modified_time" content="2025-06-04T07:33:02.987Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://decisionintelligence.github.io/OpenTS/figures/Pipeline.png">
@@ -81,7 +84,7 @@
                 
                   <a href="/OpenTS/get%20started/#FAQ">FAQ</a>
                 
-                  <a href="/OpenTS/get%20started/#Citing-TFB">Citing TFB</a>
+                  <a href="/OpenTS/get%20started/#Citing-us">Citing us</a>
                 
                   <a href="/OpenTS/get%20started/#Contact">Contact</a>
                 
@@ -113,9 +116,9 @@
 
               <div class="dropdown-content">
                 
-                  <a href="/OpenTS/algorithms/methods/#Specific-Methods-introduction">Specific methods</a>
+                  <a href="/OpenTS/algorithms/methods/#Specific-Methods-introduction">Specific models</a>
                 
-                  <a href="/OpenTS/algorithms/methods/#Foundation-Methods-introduction">Foundation methods</a>
+                  <a href="/OpenTS/algorithms/methods/#Foundation-Methods-introduction">Foundation models</a>
                 
                   <a href="/OpenTS/algorithms/AutoCTS">AutoML methods</a>
                 
@@ -270,7 +273,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/get%20started/index.html" class="article-date">
-  <time datetime="2024-10-25T02:52:48.355Z" itemprop="datePublished">2024-10-25</time>
+  <time datetime="2025-06-04T07:33:02.987Z" itemprop="datePublished">2025-06-04</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -280,14 +283,16 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h1><p>You can find our offical code here: <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">TFB github</a></p>
+        <h1 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h1><p>You can find our offical code here: [<a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">TFB github</a>]</p>
+<!-- ,[[TAB github](https://github.com/decisionintelligence/TAB)],[[TSFM-Bench github](https://github.com/decisionintelligence/TSFM-Bench)] -->
+
 <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ol>
 <li><a href="#Quickstart">Quickstart</a><!-- 1. [Steps to include your own method](#Steps-to-include-your-own-method) --></li>
 <li><a href="#Steps-to-develop-your-own-method">Steps to develop your own method</a></li>
 <li><a href="#Steps-to-evaluate-on-your-own-time-series">Steps to evaluate on your own time series</a></li>
 <li><a href="#Pipeline-introduction">Pipeline introduction</a></li>
 <li><a href="#FAQ">FAQ</a></li>
-<li><a href="#Citing-TFB">Citing TFB</a></li>
+<li><a href="#Citing-us">Citing us</a></li>
 <li><a href="#Contact">Contact</a></li>
 </ol>
 <h2 id="Quickstart"><a href="#Quickstart" class="headerlink" title="Quickstart"></a>Quickstart</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><h4 id="From-PyPI"><a href="#From-PyPI" class="headerlink" title="From PyPI"></a>From PyPI</h4><p>Given a python environment (<strong>note</strong>: this project is fully tested under <strong>python 3.8</strong>), install the dependencies with the following command:</p>
@@ -317,14 +322,265 @@
 <p>Such as: <strong>‘{“d_ff”: 512, “d_model”: 256}’ —&gt; {\“d_ff\“:512,\“d_model\“:256}</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--config-path &quot;rolling_forecast_config.json&quot; --data-name-list &quot;ILI.csv&quot; --strategy-args &#123;\&quot;horizon\&quot;:24&#125; --model-name &quot;time_series_library.DLinear&quot; --model-hyper-params &#123;\&quot;batch_size\&quot;:16,\&quot;d_ff\&quot;:512,\&quot;d_model\&quot;:256,\&quot;lr\&quot;:0.01,\&quot;horizon\&quot;:24,\&quot;seq_len\&quot;:104&#125; --adapter &quot;transformer_adapter&quot;  --gpus 0  --num-workers 1  --timeout 60000  --save-path &quot;ILI/DLinear&quot;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Citing-TFB"><a href="#Citing-TFB" class="headerlink" title="Citing TFB"></a>Citing TFB</h2><p>If you find TFB helpful, please cite <a target="_blank" rel="noopener" href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf">our paper</a> (Bibtex below).</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@article&#123;qiu2024tfb,</span><br><span class="line">  title   = &#123;TFB: Towards Comprehensive and Fair Benchmarking of Time Series Forecasting Methods&#125;,</span><br><span class="line">  author  = &#123;Qiu, Xiangfei and Hu, Jilin and Zhou, Lekui and Wu, Xingjian and Du, Junyang and Zhang, Buang and Guo, Chenjuan and Zhou, Aoying and Jensen, Christian S and Sheng, Zhenli and Bin Yang&#125;,</span><br><span class="line">  journal = &#123;Proc. &#123;VLDB&#125; Endow.&#125;,</span><br><span class="line">  year    = &#123;2024&#125;,</span><br><span class="line">  pages   = &#123;2363 - 2377&#125;,</span><br><span class="line">  volume  = &#123;17&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Citing-us"><a href="#Citing-us" class="headerlink" title="Citing us"></a>Citing us</h2><p>If you find our works helpful, please cite our paper (Bibtex below).</p>
+<!-- <h3 >Papers</h3> -->
+<div class="container">
+    <div class="left-column">
+        <div class="left-text">
+           <a target="_blank" rel="noopener" href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf"> <h3  style="font-size:1em">PVLDB 2024 </br>Best Research Paper Nomination</h3></a>
+        </div>
+    </div>
+    <div class="left-column">
+        <div class="left-text">
+            <!-- <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2410.11802" > <h3  style="font-size:1em">PVLDB 2025</h3></a> -->
+            <h3  style="font-size:1em">PVLDB 2025</h3>
+        </div>
+    </div>
+    <div class="left-column">
+        <div class="left-text">
+            <!-- <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2410.11802" > <h3  style="font-size:1em">SIGKDD 2025</h3></a> -->
+            <h3  style="font-size:1em">SIGKDD 2025</h3>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="left-column">
+        <div class="left-text">
+        </div>
+            <a href="https://www.vldb.org/pvldb/vol17/p2363-hu.pdf" target="_blank" rel="noopener" >
+            <img id="clickable-image" src="../figures/TFB1.png" onload="alter()" class="image" style="box-shadow:0 2px 8px rgba(0, 0, 0, 0.1)">
+            </a>
+    </div>
+    <div class="left-column">
+            <div class="left-text">
+        </div>
+                <!-- <a href="https://arxiv.org/pdf/2410.11802" target="_blank" rel="noopener" > -->
+                <!-- <a href="" target="_blank" rel="noopener" > -->
+                <img id="clickable-image" src="../figures/TAB.png" onload="alter()" class="image" style="box-shadow:0 2px 8px rgba(0, 0, 0, 0.1)">
+                <!-- </a> -->
+    </div>
+    <div class="left-column">
+         <div class="left-text">
+        </div>
+                <!-- <a href="https://arxiv.org/pdf/2410.11802" target="_blank" rel="noopener" > -->
+                <!-- <a href="" target="_blank" rel="noopener" > -->
+                <img id="clickable-image" src="../figures/TSFM-Bench.png" onload="alter()" class="image" style="box-shadow:0 2px 8px rgba(0, 0, 0, 0.1)">
+                <!-- </a> -->
+    </div>
+</div>
 
+<h3 > </h3>
+<div class="container">
+    <div class="right-column">
+    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@inproceedings&#123;qiu2024tfb,</span><br><span class="line">    title   = &#123;TFB: Towards Comprehensive and Fair Benchmarking of Time Series Forecasting Methods&#125;,</span><br><span class="line">    author  = &#123;Xiangfei Qiu and Jilin Hu and Lekui Zhou and Xingjian Wu and Junyang Du and Buang Zhang and Chenjuan Guo and Aoying Zhou and Christian S. Jensen and Zhenli Sheng and Bin Yang&#125;,</span><br><span class="line">    booktitle = &#123;Proc. &#123;VLDB&#125; Endow.&#125;,</span><br><span class="line">    pages   = &#123;2363--2377&#125;,</span><br><span class="line">    year    = &#123;2024&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+    <div class="right-column" >
+    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@inproceedings&#123;qiu2025tab,</span><br><span class="line">    title   = &#123;TAB: Unified Benchmarking of Time Series Anomaly Detection Methods&#125;,</span><br><span class="line">    author  = &#123;Xiangfei Qiu and Zhe Li and Wanghui Qiu and Shiyan Hu and Lekui Zhou and Xingjian Wu and Zhengyu Li and Chenjuan Guo and Aoying Zhou and Zhenli Sheng and Jilin Hu and Christian S. Jensen and Bin Yang&#125;,</span><br><span class="line">    booktitle = &#123;Proc. &#123;VLDB&#125; Endow.&#125;,</span><br><span class="line">    year    = &#123;2025&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    </div>
+    <div class="right-column" >
+    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@inproceedings&#123;li2024TSMF-Bench,</span><br><span class="line">    title     = &#123;TSMF-Bench: Comprehensive and Unified Benchmarking of Foundation Models for Time Series Forecasting&#125;,</span><br><span class="line">    author    = &#123;Zhe Li and Xiangfei Qiu and Peng Chen and Yihang Wang and Hanyin Cheng and Yang Shu and Jilin Hu and Chenjuan Guo and Aoying Zhou and Christian S. Jensen and Bin Yang&#125;,</span><br><span class="line">    booktitle = &#123;SIGKDD&#125;,</span><br><span class="line">    year      = &#123;2025&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    </div>
+</div>
 
 <h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p>If you have any questions or suggestions, feel free to contact:</p>
 <ul>
-<li>Xiangfei Qiu (<a href="mailto:&#x78;&#x66;&#113;&#x69;&#117;&#x40;&#115;&#x74;&#117;&#x2e;&#101;&#99;&#x6e;&#x75;&#46;&#x65;&#100;&#x75;&#x2e;&#x63;&#x6e;">&#x78;&#x66;&#113;&#x69;&#117;&#x40;&#115;&#x74;&#117;&#x2e;&#101;&#99;&#x6e;&#x75;&#46;&#x65;&#100;&#x75;&#x2e;&#x63;&#x6e;</a>)</li>
+<li>Xiangfei Qiu (<a href="mailto:&#120;&#x66;&#113;&#x69;&#x75;&#64;&#x73;&#x74;&#x75;&#46;&#101;&#x63;&#110;&#117;&#46;&#101;&#x64;&#x75;&#x2e;&#x63;&#110;">&#120;&#x66;&#113;&#x69;&#x75;&#64;&#x73;&#x74;&#x75;&#46;&#101;&#x63;&#110;&#117;&#46;&#101;&#x64;&#x75;&#x2e;&#x63;&#110;</a>)</li>
 </ul>
+<style>
+.main-wrapper {
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+    margin-top:3%;
+    gap:20px;
+}
+
+.content-block {
+    display:flex;
+    flex-direction:column;
+    width:33%;
+    box-sizing:border-box;
+}
+
+.block-section {
+    margin-bottom:5%;
+    text-align:center; /* Ensure elements within are centered */
+}
+
+.picture img {
+    width:auto;
+    height:80px;
+    display:block;
+    margin:0 auto; /* Center the image */
+    padding:0;
+    padding-bottom:5%;
+}
+
+.heading h2 {
+    color:#1195db;
+    font-weight:bold;
+    text-align:center;
+    margin-top:-10%;
+    padding:0;
+}
+.description{
+    display:flex;
+    justify-content:center;
+    width:100%
+}
+.description p {
+    text-align:left;
+    margin-top:-10%;
+    padding:0px 0;
+    width:100%;
+    font-size:14px;
+}
+
+a {
+    color:#1195db; /* Link color */
+}
+
+</style>
+<style>
+.container {
+    display: flex;
+    width: 98%;
+    max-width: 1200px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    background-color: #fff;
+    gap:1%;
+}
+.left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* padding: 20px; */
+    /* margin-left:-135px; */
+    /* border-right: 1px solid #ddd; */
+}
+
+.left-column .image {
+    /* width: 100%; */
+    /* height: 215px; */
+    /* width: 450px; 控制图片最大宽度 */
+    height:165px;
+}
+
+.left-column .left-text {
+    margin-top: -10px;
+    text-align: center;
+    width:100%;
+    text-align:center;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    /* padding: 20px; */
+    padding-left:0px;
+    padding-top:0px;
+    /* width:450px; */
+    width:33%;
+    flex:1
+}
+
+.right-column .top-text, .right-column .bottom-text {
+    flex: 1;
+    margin-bottom: 20px;
+    height:170px;
+}
+.top-text
+{
+    width:500px;
+}
+.right-column .bottom-text {
+    margin-bottom: 0;
+}
+.right-column .bottom-text .a {
+   color:#1195db;
+}
+
+.right-column p {
+    margin: 0;
+}
+        .text-content {
+            width:30%;
+            padding:0;
+            /* margin-right:2%; */
+        }
+        .text-content h1 {
+            font-size:1.5em;
+            margin-top:0;
+            margin-bottom:0;
+        }
+        .text-content p {
+            font-size:1em;
+            margin:0;
+        }
+        .image-content {
+            text-align:center;
+            padding:0;
+            width:40%;
+        }
+        .image-content img {
+            max-width:100%;
+            height:auto;
+            box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .download {
+            width:30%;
+            padding:0;
+            display:flex;
+            align-items:center;
+            text-align:center;
+        }
+        .download img {
+            width:80%;
+            height:auto;
+        }
+        .download a {
+            text-decoration:none;
+            color:#0073e6;
+            margin-top:0.5em;
+            font-size:1.5em;
+        }
+.uuu {
+    text-decoration:none;
+    color:#1195db;
+    margin-top:0.5em;
+    font-size:1.5em;
+}
+ .copy-container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .article-entry .highlight .line 
+        {
+            font-size:17px;
+            line-height:0.8;
+        }
+        .article-entry .highlight .gutter pre 
+        {
+            display:none;
+        }
+        .article-entry figure.highlight
+        {
+            padding:10px;
+            padding-left:0px;
+        }
+</style>
+
 <!-- ### Configure your Configuration File
 
   - Modify the corresponding config under the folder `./config/`.
