@@ -12,15 +12,15 @@
   <title>OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
-  <meta name="description" content="Steps to evaluating your own time series Process your dataset into three columns in TFB format using code like here.   Put the processed dataset under: .&#x2F;dataset&#x2F;forecasting folder. Run the">
+  <meta name="description" content="Paper        If you find this useful, please cite our paper. 12345678@inproceedings&#123;qiu2025tab,    title   &#x3D; &#123;TAB: Unified Benchmarking of Time Series Anomaly Detection Methods&#125;,    aut">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
-<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/get%20started/steps_to_evaluate_your_own_time_series.html">
+<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/paper/TAB/index.html">
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
-<meta property="og:description" content="Steps to evaluating your own time series Process your dataset into three columns in TFB format using code like here.   Put the processed dataset under: .&#x2F;dataset&#x2F;forecasting folder. Run the">
+<meta property="og:description" content="Paper        If you find this useful, please cite our paper. 12345678@inproceedings&#123;qiu2025tab,    title   &#x3D; &#123;TAB: Unified Benchmarking of Time Series Anomaly Detection Methods&#125;,    aut">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-10-21T03:55:14.234Z">
-<meta property="article:modified_time" content="2024-10-21T03:55:14.234Z">
+<meta property="article:published_time" content="2025-06-05T12:33:21.693Z">
+<meta property="article:modified_time" content="2025-06-05T12:33:21.693Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -269,8 +269,8 @@
     
     
     <div class="article-meta">
-      <!--<a href="/OpenTS/get%20started/steps_to_evaluate_your_own_time_series.html" class="article-date">
-  <time datetime="2024-10-21T03:55:14.234Z" itemprop="datePublished">2024-10-21</time>
+      <!--<a href="/OpenTS/paper/TAB/index.html" class="article-date">
+  <time datetime="2025-06-05T12:33:21.693Z" itemprop="datePublished">2025-06-05</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -280,195 +280,19 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Steps-to-evaluating-your-own-time-series"><a href="#Steps-to-evaluating-your-own-time-series" class="headerlink" title="Steps to evaluating your own time series"></a>Steps to evaluating your own time series</h2><ol>
-<li>Process your dataset into three columns in <a href="#TFB-data-format">TFB format</a> using code like <a href="#Example-code">here</a>.  </li>
-<li>Put the processed dataset under: <strong>.&#x2F;dataset&#x2F;forecasting</strong> folder.</li>
-<li>Run the following shell commands to evaluate on your own datasets：</li>
-</ol>
-<ul>
-<li>Evaluate on several user-defined forecasting datasets,  <strong>please set the “–data-name-list” parameter to “your own dataset name”；</strong>If you want to evaluate more than one series, separate the dataset names with commas.</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./scripts/run_benchmark.py --config-path &quot;rolling_forecast_config.json&quot; --data-name-list &quot;your series name1&quot; &quot;your series name2&quot; &quot;your series name3&quot; ...</span><br></pre></td></tr></table></figure>
-
-<p>A detailed example is provided below:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./scripts/run_benchmark.py --config-path &quot;rolling_forecast_config.json&quot; --data-name-list &quot;your series name1&quot; &quot;your series name2&quot; &quot;your series name3&quot; --strategy-args &#x27;&#123;&quot;horizon&quot;:24&#125;&#x27; --model-name &quot;time_series_library.DLinear&quot; --model-hyper-params &#x27;&#123;&quot;batch_size&quot;: 16, &quot;d_ff&quot;: 512, &quot;d_model&quot;: 256, &quot;lr&quot;: 0.01, &quot;horizon&quot;: 24, &quot;seq_len&quot;: 104&#125;&#x27; --adapter &quot;transformer_adapter&quot; --gpus 0 --num-workers 1 --timeout 60000 --save-path &quot;ILI/DLinear&quot;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Evaluate on all user-defined forecasting datasets,  **please set the “–data-set-namet” parameter to “user_forecast”**；At this point, all the datasets you uploaded will be evaluated.</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./scripts/run_benchmark.py --config-path &quot;rolling_forecast_config.json&quot; --data-set-name &quot;user_forecast&quot;</span><br></pre></td></tr></table></figure>
-
-<p>A detailed example is provided below:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python ./scripts/run_benchmark.py --config-path &quot;rolling_forecast_config.json&quot; --data-set-name &quot;user_forecast&quot; --strategy-args &#x27;&#123;&quot;horizon&quot;:24&#125;&#x27; --model-name &quot;time_series_library.DLinear&quot; --model-hyper-params &#x27;&#123;&quot;batch_size&quot;: 16, &quot;d_ff&quot;: 512, &quot;d_model&quot;: 256, &quot;lr&quot;: 0.01, &quot;horizon&quot;: 24, &quot;seq_len&quot;: 104&#125;&#x27; --adapter &quot;transformer_adapter&quot; --gpus 0 --num-workers 1 --timeout 60000 --save-path &quot;ILI/DLinear&quot;</span><br></pre></td></tr></table></figure>
+        <h1 id="Paper"><a href="#Paper" class="headerlink" title="Paper"></a>Paper</h1><!-- You can find our paper here: [TAB: Unified Benchmarking of Time Series Anomaly
+Detection Methods](https://arxiv.org/pdf/2410.11802) -->
 
 
 
-<h2 id="TFB-data-format"><a href="#TFB-data-format" class="headerlink" title="TFB data format"></a>TFB data format</h2><p>TFB stores time series in a format of three column long tables,  which we will introduce below：</p>
-<h3 id="Format-Introduction"><a href="#Format-Introduction" class="headerlink" title="Format Introduction"></a>Format Introduction</h3><p><strong>First column: date</strong> (the exact column name is required, the same applies below.)</p>
-<ul>
-<li>The columns stores the time information in the time series, which can be in either of the following formats:<ul>
-<li>Timestamps in string, datetime, or other types that are compatible with pd.to_datetime;</li>
-<li>Integers starting from 1, e.g. 1, 2, 3, 4, 5, …</li>
-</ul>
-</li>
-</ul>
-<p><strong>Second column: data</strong></p>
-<ul>
-<li>This column stores the series values corresponding to the timestamps.</li>
-</ul>
-<p><strong>Third column: cols</strong></p>
-<ul>
-<li>This column stores the column name (variable name).</li>
-</ul>
-<h3 id="Multivariate-time-series-example"><a href="#Multivariate-time-series-example" class="headerlink" title="Multivariate time series example:"></a>Multivariate time series example:</h3><p><strong>A common time series in wide table format:</strong></p>
-<table>
-<thead>
-<tr>
-<th>date</th>
-<th>channel1</th>
-<th>channel2</th>
-<th>channel3</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>0.1</td>
-<td>1</td>
-<td>10</td>
-</tr>
-<tr>
-<td>2</td>
-<td>0.2</td>
-<td>2</td>
-<td>20</td>
-</tr>
-<tr>
-<td>3</td>
-<td>0.3</td>
-<td>3</td>
-<td>30</td>
-</tr>
-</tbody></table>
-<p><strong>Convert to our format:</strong></p>
-<table>
-<thead>
-<tr>
-<th>date</th>
-<th>data</th>
-<th>cols</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>0.1</td>
-<td>channel1</td>
-</tr>
-<tr>
-<td>2</td>
-<td>0.2</td>
-<td>channel1</td>
-</tr>
-<tr>
-<td>3</td>
-<td>0.3</td>
-<td>channel1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>channel2</td>
-</tr>
-<tr>
-<td>2</td>
-<td>2</td>
-<td>channel2</td>
-</tr>
-<tr>
-<td>3</td>
-<td>3</td>
-<td>channel2</td>
-</tr>
-<tr>
-<td>1</td>
-<td>10</td>
-<td>channel3</td>
-</tr>
-<tr>
-<td>2</td>
-<td>20</td>
-<td>channel3</td>
-</tr>
-<tr>
-<td>3</td>
-<td>30</td>
-<td>channel3</td>
-</tr>
-</tbody></table>
-<h3 id="Univariate-time-series-example"><a href="#Univariate-time-series-example" class="headerlink" title="Univariate time series example:"></a>Univariate time series example:</h3><p><strong>A common time series in wide table format:</strong></p>
-<table>
-<thead>
-<tr>
-<th>date</th>
-<th>channel1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>2012-09-26 12:00:00</td>
-<td>0.1</td>
-</tr>
-<tr>
-<td>2012-09-27 12:00:00</td>
-<td>0.2</td>
-</tr>
-<tr>
-<td>2012-09-28 12:00:00</td>
-<td>0.3</td>
-</tr>
-<tr>
-<td>2012-09-29 12:00:00</td>
-<td>0.4</td>
-</tr>
-<tr>
-<td>2012-09-30 12:00:00</td>
-<td>0.5</td>
-</tr>
-</tbody></table>
-<p><strong>Convert to our format:</strong></p>
-<table>
-<thead>
-<tr>
-<th>date</th>
-<th>data</th>
-<th>cols</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>2012-09-26 12:00:00</td>
-<td>0.1</td>
-<td>channel1</td>
-</tr>
-<tr>
-<td>2012-09-27 12:00:00</td>
-<td>0.2</td>
-<td>channel1</td>
-</tr>
-<tr>
-<td>2012-09-28 12:00:00</td>
-<td>0.3</td>
-<td>channel1</td>
-</tr>
-<tr>
-<td>2012-09-29 12:00:00</td>
-<td>0.4</td>
-<td>channel1</td>
-</tr>
-<tr>
-<td>2012-09-30 12:00:00</td>
-<td>0.5</td>
-<td>channel1</td>
-</tr>
-</tbody></table>
-<h2 id="Example-code"><a href="#Example-code" class="headerlink" title="Example code"></a>Example code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert_to_tfb_series</span>(<span class="params">data</span>):</span><br><span class="line">    data = data.set_index(<span class="string">&quot;date&quot;</span>)</span><br><span class="line">    melted_df = data.melt(value_name=<span class="string">&quot;data&quot;</span>, var_name=<span class="string">&quot;cols&quot;</span>, ignore_index=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">return</span> melted_df.reset_index()[[<span class="string">&#x27;date&#x27;</span>, <span class="string">&#x27;data&#x27;</span>, <span class="string">&#x27;cols&#x27;</span>]]</span><br><span class="line"></span><br><span class="line">data = pd.read_csv(<span class="string">r&quot;./ori-Exchange.csv&quot;</span>)</span><br><span class="line">melted_df = convert_to_tfb_series(data)</span><br><span class="line">melted_df.to_csv(<span class="string">r&quot;./converted-Exchange.csv&quot;</span>, index=<span class="literal">False</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<!-- You can find our offical code here: [TFB github](https://github.com/decisionintelligence/TFB) -->
+
+
+
+<p>If you find this useful, please cite our paper.</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@inproceedings&#123;qiu2025tab,</span><br><span class="line">    title   = &#123;TAB: Unified Benchmarking of Time Series Anomaly Detection Methods&#125;,</span><br><span class="line">    author  = &#123;Xiangfei Qiu and Zhe Li and Wanghui Qiu and Shiyan Hu and Lekui Zhou and Xingjian Wu and Zhengyu Li and Chenjuan Guo and Aoying Zhou and Zhenli Sheng and Jilin Hu and Christian S. Jensen and Bin Yang&#125;,</span><br><span class="line">    booktitle = &#123;Proc. &#123;VLDB&#125; Endow.&#125;,</span><br><span class="line">    year    = &#123;2025&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
       
     
     </div>
