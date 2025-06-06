@@ -19,8 +19,8 @@
 <meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
 <meta property="og:description" content="Leaderboards   Leaderboard for univariate time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var freqs&#x3D; [ &quot;Daily&quot;, &quot;Hourly&quot;, &quot;Monthly&quot;, &quot;Other&quot;, &quot;Quarterly&quot;, &quot;Weekly&quot;, &quot;Yearly&quot; ] var characte">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-06-04T05:17:58.191Z">
-<meta property="article:modified_time" content="2025-06-04T05:17:58.191Z">
+<meta property="article:published_time" content="2025-06-05T12:46:59.706Z">
+<meta property="article:modified_time" content="2025-06-05T12:46:59.706Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -143,20 +143,7 @@
           
         
           
-            <div class="dropdown">
-              <!-- <a class="main-nav-link dropdown-toggle" href="/OpenTS/">Paper <span class="caret"></span></a> -->
-              <a class="main-nav-link dropdown-toggle">Paper <span class="caret"></span></a>
-
-              <div class="dropdown-content">
-                
-                  <a href="/OpenTS/paper/TFB">TFB</a>
-                
-                  <a href="/OpenTS/paper/TAB">TAB</a>
-                
-                  <a href="/OpenTS/paper/TSFM-Bench">TSFM-Bench</a>
-                
-              </div>
-            </div>
+            <a class="main-nav-link" href="/OpenTS/papers">Papers</a>
           
         
           
@@ -270,7 +257,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards/univariate_time_series/index.html" class="article-date">
-  <time datetime="2025-06-04T05:17:58.191Z" itemprop="datePublished">2025-06-04</time>
+  <time datetime="2025-06-05T12:46:59.706Z" itemprop="datePublished">2025-06-05</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -721,22 +708,6 @@ function phrase_data1(results,name)
                     return rest;
                 });
     const desc_methods = Object.keys(uni_desc);
-    // Object.keys(data[0]).forEach(key=>{
-    //     if (key!= 'freq' && key!= '')
-    //     {
-    //         if (!desc_methods.includes(key))
-    //         {
-    //             characters.push(key)
-    //         }
-    //         else
-    //         {
-    //             uni_methods.push(key)
-    //         }
-            
-    //     }
-    // })
-    
-    // let freqs_=new Set();
     all_data[name]=[]
     data.forEach( row=>{
     
@@ -765,6 +736,7 @@ function phrase_data1(results,name)
             all_data[name].push(tmp)
         }    
     } )
+
 }
 
 
@@ -799,7 +771,7 @@ const urls = [
 // }))
 
 
-
+fench_data()
 fetch('univariate_desc.csv')
 .then(response => response.text())
 .then(text => Papa.parse(text, {
@@ -812,11 +784,10 @@ fetch('univariate_desc.csv')
         document.getElementById(`Score/1`).checked = false
         document.getElementById(`Score/2`).checked = true
         document.getElementById(`Score/3`).checked = false
-        // console.log(uni_desc)
-        fench_data()
-        
+        // console.log(uni_desc)        
     } 
 }));
+
 const urls11 = [
      '../univariate_time_series/result/mase.csv',
      '../univariate_time_series/result/msmape.csv'
