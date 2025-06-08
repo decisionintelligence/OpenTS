@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/OpenTS/js/jquery.min.js"></script>
+  <link rel="icon" type="image/png" href="https://decisionintelligence.github.io/OpenTS/figures/logo10.png">
+  <meta name="google-site-verification" content="0HzGL60Z8ChYs-wL6ogMpNB-px7tcu9PcRD1z6OQWe8" />
+  <meta name="msvalidate.01" content="FD2A799A0C64AAB3A8289819F1C2DFFB" />
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta http-equiv='content-language' content='en-gb'>
+  <meta charset="utf-8">
+  
+  
+  <title>OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
+  <meta name="description" content="Leaderboards   Leaderboard for Spatio-temporal time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var Horizons &#x3D; [3,6,12,24] var metrics&#x3D;[&#39;MAE&#39;,&#39;MSE&#39;,&#39;MSMAPE&#39;] var all_data&#x3D;{} var all_csv&#x3D;{}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
+<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/leaderboards/spatio_temporal_data/index.html">
+<meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
+<meta property="og:description" content="Leaderboards   Leaderboard for Spatio-temporal time series forecasting var uni_methods&#x3D;[] var uni_desc &#x3D;[] var Horizons &#x3D; [3,6,12,24] var metrics&#x3D;[&#39;MAE&#39;,&#39;MSE&#39;,&#39;MSMAPE&#39;] var all_data&#x3D;{} var all_csv&#x3D;{}">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-10-21T12:14:43.407Z">
+<meta property="article:modified_time" content="2024-10-21T12:14:43.407Z">
+<meta property="article:author" content="DecisionIntelligence |">
+<meta name="twitter:card" content="summary">
+  
+
+  <link href="/OpenTS/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/OpenTS/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/OpenTS/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <!-- blair add baidu tongji start... @2017.10.03 -->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?8864d";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+<!-- blair add baidu tongji end ! @2017.10.03 -->
+<!-- jiangting add start... @2020.08.30 -->
+
+<!-- jiangting add end !  @2020.08.30 -->
+
+<header id="header" style="min-width:1040px">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <!-- <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a> -->
+      
+
+      <nav id="main-nav">
+        
+        
+          
+          
+            <div class="menu-container" data-lang="zh-cn">
+              <a id="logo" style="margin:3px 0" class="logo" href="/OpenTS/"></a>
+              
+                
+                
+                
+                  <a class="main-nav-link" href="/OpenTS/zh-cn/overview">概述</a>
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">开始 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/get%20started/#Quickstart">快速开始</a>
+                      
+                        <a href="/OpenTS/zh-cn/get%20started/#Steps-to-develop-your-own-method">Steps to develop your own method</a>
+                      
+                        <a href="/OpenTS/zh-cn/get%20started/#Steps-to-evaluate-on-your-own-time-series">Steps to evaluate on your own time series</a>
+                      
+                        <a href="/OpenTS/zh-cn/get%20started/#Pipeline-introduction">Pipeline introduction</a>
+                      
+                        <a href="/OpenTS/zh-cn/get%20started/#FAQ">FAQ</a>
+                      
+                        <a href="/OpenTS/zh-cn/get%20started/#Citing-us">Citing us</a>
+                      
+                        <a href="/OpenTS/zh-cn/get%20started/#Contact">Contact</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">数据集 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/datasets/#Overview">概述</a>
+                      
+                        <a href="/OpenTS/zh-cn/datasets/#Univariate-time-series">单变时间序列</a>
+                      
+                        <a href="/OpenTS/zh-cn/datasets/#Multivariate-time-series">多变时间序列</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">算法 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/algorithms/methods/#Specific-Methods-introduction">端到端模型</a>
+                      
+                        <a href="/OpenTS/zh-cn/algorithms/methods/#Foundation-Methods-introduction">基础模型</a>
+                      
+                        <a href="/OpenTS/zh-cn/algorithms/AutoCTS">自动机器学习</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">排行榜 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/univariate_time_series">Univariate time series</a>
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/multivariate_time_series">Multivariate time series</a>
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/foundation_model">Foundation model</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" href="/OpenTS/zh-cn/team">团队</a>
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" href="/OpenTS/zh-cn/papers">论文</a>
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">Github</a>
+                
+      
+              
+                
+                
+                
+                  <a id="lang-toggle-link-zh-cn" class="main-nav-link" href="javascript:;">中文|English</a>
+                
+                
+                
+      
+              
+            </div>
+          
+        
+          
+          
+            <div class="menu-container" data-lang="en">
+              <a id="logo" style="margin:3px 0" class="logo" href="/OpenTS/"></a>
+              
+                
+                
+                
+                  <a class="main-nav-link" href="/OpenTS/en/overview">Overview</a>
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">Get Started <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/get%20started/#Quickstart">Quickstart</a>
+                      
+                        <a href="/OpenTS/en/get%20started/#Steps-to-develop-your-own-method">Steps to develop your own method</a>
+                      
+                        <a href="/OpenTS/en/get%20started/#Steps-to-evaluate-on-your-own-time-series">Steps to evaluate on your own time series</a>
+                      
+                        <a href="/OpenTS/en/get%20started/#Pipeline-introduction">Pipeline introduction</a>
+                      
+                        <a href="/OpenTS/en/get%20started/#FAQ">FAQ</a>
+                      
+                        <a href="/OpenTS/en/get%20started/#Citing-us">Citing us</a>
+                      
+                        <a href="/OpenTS/en/get%20started/#Contact">Contact</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">Datasets <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/datasets/#Overview">Overview</a>
+                      
+                        <a href="/OpenTS/en/datasets/#Univariate-time-series">Univariate time series</a>
+                      
+                        <a href="/OpenTS/en/datasets/#Multivariate-time-series">Multivariate time series</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">Algorithms <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/algorithms/methods/#Specific-Methods-introduction">Specific models</a>
+                      
+                        <a href="/OpenTS/en/algorithms/methods/#Foundation-Methods-introduction">Foundation models</a>
+                      
+                        <a href="/OpenTS/en/algorithms/AutoCTS">AutoML methods</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">Leaderboards <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/leaderboards/univariate_time_series">Univariate time series</a>
+                      
+                        <a href="/OpenTS/en/leaderboards/multivariate_time_series">Multivariate time series</a>
+                      
+                        <a href="/OpenTS/en/leaderboards/foundation_model">Foundation model</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" href="/OpenTS/en/team">Team</a>
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" href="/OpenTS/en/papers">Papers</a>
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">Github</a>
+                
+      
+              
+            </div>
+          
+        
+      </nav>
+    
+    </div>
+  </div>
+</header>
+
+<style>
+  #header {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+  }
+
+  #header-outer {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+  }
+
+  #header-inner {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    width: 1000px; /* 设置最大宽度 */
+    margin: auto; /* 居中对齐 */ /* 确保占满父元素的宽度 */
+    flex-wrap: nowrap; /* 保持内容在同一行 */
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    text-align: right;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    top: 100%;
+    right: 0;
+    width: auto;
+    min-width: 100%;
+    white-space: nowrap;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-top: 1px solid #ddd;
+  }
+
+  .dropdown-content a:first-child {
+    border-top: none;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-toggle::after {
+    content: " ▼";
+    font-size: 0.55em;
+    vertical-align: middle;
+  }
+
+  #main-nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-around;
+    flex-wrap: nowrap; /* 保持内容在同一行 */
+  }
+
+  .main-nav-link {
+    padding: 0 10px; /* 减少 padding，缩小栏目间距 */
+  }
+
+  
+
+  @media (max-width: 480px) {
+    .main-nav-link {
+      padding: 5px; /* 进一步减少 padding，在小屏幕上更紧凑 */
+      flex: 1;
+      text-align: center;
+    }
+  }
+</style>
+
+    <br>
+    <section id="main" class="outer"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    <div class="article-meta">
+      <!--<a href="/OpenTS/en/zh-cn/leaderboards/spatio_temporal_data/index.html" class="article-date">
+  <time datetime="2024-10-21T12:14:43.407Z" itemprop="datePublished">2024-10-21</time>
+</a>-->
+      <!-- 
+--><!-- by blair 160724 -->
+      <!-- by blair
+      
+      -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Leaderboards"><a href="#Leaderboards" class="headerlink" title="Leaderboards"></a>Leaderboards</h1><script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+
+<h2 id="Leaderboard-for-Spatio-temporal-time-series-forecasting"><a href="#Leaderboard-for-Spatio-temporal-time-series-forecasting" class="headerlink" title="Leaderboard for Spatio-temporal time series forecasting"></a>Leaderboard for Spatio-temporal time series forecasting</h2><script>
+var uni_methods=[]
+var uni_desc =[]
+var Horizons = [3,6,12,24]
+var metrics=['MAE','MSE','MSMAPE']
+var all_data={}
+var all_csv={}
+
+function updateParentCheckbox(category) {
+    const checkboxes = document.querySelectorAll(`.checkbox-${category}`);
+    const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+    // document.getElementById(`select-all-${category}`).checked = allChecked;
+}
+
+
+function displayResults_uni(data_,is_rank) {
+    sum=0
+    data_.forEach(( data, index)=>{
+        rank = data[1]
+       sum+= rank['rank1']
+    })
+
+    const tableBody = document.getElementById('univariateTable').getElementsByTagName('tbody')[0];
+    tableBody.innerHTML = ''; // Clear existing table body
+
+    data_.forEach(( data, index) => {
+        
+        model = data[0]
+        rank = data[1]
+
+
+
+        if (!is_rank)
+        {
+            index=''
+        }
+        const row = document.createElement('tr');
+    
+        row.innerHTML = `
+            <td>${index+1}</td>
+            <td>${model}</td>
+            <td>${rank['score']}</td>
+            <td>${rank['rank1']}</td>
+            <td>${rank['rank2']}</td>
+            <td>${rank['rank3']}</td>
+            <td>
+                <a href="${uni_desc[model]['paper_url']}"  target="_blank">paper</a>
+            </td>`
+            
+        if (uni_desc[model]['publication']!=null)
+        {
+            row.innerHTML = row.innerHTML+`<td>
+             ${uni_desc[model]['publication']} [<a href="${uni_desc[model]['bib']}" target="_blank">bib</a>]
+            </td>
+            `
+        }else
+        {
+            row.innerHTML = row.innerHTML+`<td class='empty-cell'>——
+            </td>`
+        }
+        if (uni_desc[model]['year']!=null)
+        {
+            row.innerHTML = row.innerHTML+`
+            <td>
+                ${uni_desc[model]['year']}
+            </td>`
+        }else
+        {
+            row.innerHTML = row.innerHTML+`
+            <td class='empty-cell'>——
+            </td>`
+        }
+    
+        tableBody.appendChild(row);
+    });
+}
+
+function pharse_desc(results)
+{
+    
+    const data  = results.data.map(row => {
+                        // 丢掉第一列
+                        const { [Object.keys(row)[0]]: _, ...rest } = row;
+                        return rest;
+                    });
+    
+    const firstFourRows = data.slice(0, 5);
+    
+    uni_methods = Object.keys(firstFourRows[0]);
+     
+    uni_methods.forEach(key => {
+                       uni_desc[key]= {
+                            'paper_url':firstFourRows[0][key],
+                            'publication':firstFourRows[1][key],
+                            'bib':firstFourRows[2][key],
+                            'year':firstFourRows[3][key],
+                        }
+                    });
+}
+
+function haveIntersection(list1, list2) {
+    const set1 = new Set(list1);
+    for (let item of list2) {
+        if (set1.has(item)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function toggleSelectAll_uni(selectAllCheckbox)
+{
+    const container = document.getElementById('check');
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = selectAllCheckbox;
+    });
+    draw_tabel_uni(); // 调用submitSelection来处理选中的数据
+}
+
+function draw_tabel_uni(){
+    var select_metric = []
+    var select_dataset = []
+    var select_horizon = []
+    var select_score = []
+    const checkboxes = document.querySelectorAll('#main-container-uni input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            if(checkbox.value.split('/')[0]=="Metrics")
+            {
+                if (typeof checkbox.value.split('/')[1] != 'undefined')
+                {
+                    select_metric.push(checkbox.value.split('/')[1])
+                }
+            }
+            else
+            {
+                if (typeof checkbox.value.split('/')[1] != 'undefined')
+                {
+                    select_dataset.push(checkbox.value.split('/')[1])
+                }
+            }
+           
+        }
+    });
+
+    const checkboxes1 = document.querySelectorAll('#main-container-uni input[type="radio"]');
+    checkboxes1.forEach(checkbox => { if(checkbox.value.split('/')[0]=="Score")
+        {
+            if (typeof checkbox.value.split('/')[1] != 'undefined' && checkbox.checked)
+            {
+                    select_score.push(checkbox.value.split('/')[1].toLowerCase() )
+            }
+        }})
+
+    const checkboxes2 = document.querySelectorAll('#dataset-container-horizons input[type="checkbox"]');
+    checkboxes2.forEach(checkbox => {
+            if (typeof checkbox.value.split('/')[1] != 'undefined' && checkbox.checked)
+            {
+                    select_horizon.push(checkbox.value.split('/')[1].toLowerCase() )
+            }
+        })
+   
+    let tabel_data={}
+    
+    uni_methods.forEach(uni_method=>
+    {
+        tabel_data[uni_method] = {'rank1':0,'rank2':0,'rank3':0}
+    })
+
+    let nums=0
+
+    select_data=[]
+    
+
+    select_metric.forEach(metirc=>{
+
+        select_data = [...select_data, ...all_data[metirc.toLowerCase()]]
+    })
+    
+    select_data.forEach(data=>{
+
+
+        if (select_dataset.includes(data['dataset_name'].split('/')[1].split('.')[0]) && select_horizon.includes(data['horizon'].toString()))
+        {
+            nums++;
+                // 过滤掉值不是 float 类型的键值对
+            var filteredData = Object.entries(data).filter(([key, value]) => typeof value === 'number' && !isNaN(value));
+
+            if (filteredData.length>0)
+            {
+                filteredData = filteredData.slice(1)
+                // 按值排序
+                const sortedData = filteredData.sort((a, b) => a[1] - b[1]);
+                // 找到值最小的前三个键
+                const topThreeKeys = sortedData.slice(0, 3).map(([key, value]) => key);
+                
+                for (let i = 0; i < 3; i++) {
+                    if (topThreeKeys[i]) {tabel_data[topThreeKeys[i]]['rank' + (i + 1).toString()]++;}
+                }        
+            }
+        }
+    })
+    
+    var socre31 =  document.getElementById('score/3/1');
+    var socre32 =  document.getElementById('score/3/2');
+    var socre33 =  document.getElementById('score/3/3');
+    var v1=0,v2=0,v3=0
+    if (socre31.value)
+    {
+        v1 =  parseFloat(socre31.value)
+    }
+    if (socre32.value)
+    {
+        v2 = parseFloat(socre32.value)
+    }
+    if (socre33.value)
+    {
+        v3 =  parseFloat(socre33.value)
+    }
+    Object.keys(tabel_data).forEach(key => {
+
+        if (select_score[0] == '1' )
+            {
+                 tabel_data[key]['score'] = tabel_data[key]['rank1'];
+            }
+            else if (select_score[0] == '2' )
+            {
+                tabel_data[key]['score'] = tabel_data[key]['rank1'] + tabel_data[key]['rank2'] + tabel_data[key]['rank3'];
+            }
+            else if (select_score[0] == '3' )
+            {
+                tabel_data[key]['score'] = parseFloat(( v1* tabel_data[key]['rank1'] + v2 * tabel_data[key]['rank2'] + v3 * tabel_data[key]['rank3']).toFixed(2))
+            }
+        if (tabel_data[key]['score'] === 0) {
+            // delete tabel_data[key];
+        }
+        });
+    const entries = Object.entries(tabel_data);
+    // console.log(entries)
+    entries.sort((a, b) => {
+    // 先比较 score
+    if (b[1].score !== a[1].score) {
+        return b[1].score - a[1].score; // 按照 score 降序排列
+    }
+
+    // 如果 score 相同，依次比较 rank1、rank2 和 rank3
+    if (b[1].rank1 !== a[1].rank1) {
+        return b[1].rank1 - a[1].rank1; // 按照 rank1 降序排列
+    }
+
+    if (b[1].rank2 !== a[1].rank2) {
+        return b[1].rank2 - a[1].rank2; // 按照 rank2 降序排列
+    }
+
+    return b[1].rank3 - a[1].rank3; // 按照 rank3 降序排列
+});
+    displayResults_uni(entries,nums>0)
+
+}
+
+function toggleCategory_uni(category,isChecked){
+
+    const checkbox = document.getElementById('select-all-'+category)
+    checkbox.checked = isChecked;
+    const checkboxes = document.querySelectorAll(`.checkbox-${category}`);
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = isChecked;
+    });
+    updateAllCheckbox()
+    
+    draw_tabel_uni();
+}
+
+function populateCheckboxes_uni() {
+    const container = document.getElementById('dataset-container-uni');
+    const container_up = document.getElementById('dataset-container-uni-up');
+    all_datasets_class = ['Electricity','Energy','Traffic']
+    all_datasets_class = [...new Set(all_datasets_class)];
+    groupedDatasets={'Electricity':[],'Traffic':[],'Energy':[]}
+    all_data['mae'].forEach(name=>{
+        name = name.dataset_name
+        if (!groupedDatasets[name.split('/')[0]].includes(name.split('/')[1].replace('.csv','')))
+        {
+             groupedDatasets[name.split('/')[0]].push(name.split('/')[1].replace('.csv',''))
+        }
+    })
+
+    all_datasets_class.forEach(category => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'category';
+
+       
+
+        // const categoryLabel = document.createElement('h3');
+        // const categoryCheckbox = document.createElement('input');
+        // categoryCheckbox.type = 'checkbox';
+        // categoryCheckbox.id = `select-all-${category}`;
+        // categoryCheckbox.addEventListener('change', () => toggleCategory_uni(category, categoryCheckbox.checked));
+    
+        // categoryLabel.appendChild(categoryCheckbox);
+        // categoryLabel.appendChild(document.createTextNode(` ${category.replace('_', ' ')}`));
+        // categoryDiv.appendChild(categoryLabel);
+        const containerDiv = document.createElement('div')
+
+        // if(category=='Traffic'){
+        //     categoryDiv.style='grid-column: span 2;'
+        //     containerDiv.style='grid-template-columns:1fr 1fr 1fr;display: grid;gap:0px;overflow-y: auto;'
+        // }
+      
+        groupedDatasets[category].forEach(name => {
+
+            name = name.replace('_', '-');
+            const div = document.createElement('div');
+            div.className = 'checkbox-item';
+    
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `${category}/${name}`;
+            checkbox.value = `${category}/${name}`;
+            checkbox.className = `checkbox-${category}`;
+            checkbox.addEventListener('change', handleChildCheckboxChange);  // 修改这里
+    
+            const label = document.createElement('label');
+            label.htmlFor = `${category}/${name}`;
+            label.textContent = name;
+            div.appendChild(checkbox);
+            div.appendChild(label);
+            // containerDiv.appendChild(div);
+            container.appendChild(div);
+        });
+        
+            // categoryDiv.appendChild(containerDiv);
+            // container.appendChild(containerDiv);
+        
+    });
+    
+    const selectAllCheckbox = document.getElementById('select-all-u');
+    if (selectAllCheckbox) {
+        selectAllCheckbox.checked = true;
+        toggleSelectAll_uni(selectAllCheckbox.checked);
+    }
+    toggleCategory_uni('Metrics', true);
+    toggleCategory_uni('Horizons',true)
+  
+}
+
+function updateAllCheckbox() {
+    const container = document.getElementById('check');
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+    document.getElementById('select-all-u').checked = allChecked;
+}
+function handleChildCheckboxChange(event) {
+    const checkbox = event.target;
+    const category = checkbox.className.split('-')[1];
+    if (category != 'Score')
+    {
+        updateParentCheckbox(category);
+        updateAllCheckbox();
+    }
+    else
+    {
+        checkbox.checked = true
+        var id = checkbox.value
+        for (let i1 = 1; i1 < 4; i1++) {
+            const scoreBox = document.getElementById(`Score/${i1}`);
+            if (scoreBox.value!=id) {
+                scoreBox.checked = false;
+            }
+        }
+    }
+    draw_tabel_uni();
+}
+
+function phrase_data1(results,name)
+{
+    const data  = results.data.map(row => {
+                    // 丢掉列
+                    const { [Object.keys(row)[0]]: _, ...rest } = row;
+                    return rest;
+                });
+    const desc_methods = Object.keys(uni_desc);    
+    all_data[name]=[]
+    data.forEach( row=>{
+    
+        if (typeof  row['dataset_name']!='undefined')
+        {
+            tmp={'horizon':row['horizon'],'dataset_name':row['dataset_name']}
+            uni_methods.forEach(method=>{tmp[method]=row[method]})    
+            all_data[name].push(tmp)
+        }    
+    } )
+}
+
+
+
+const urls = [
+     'result/mae.csv',
+     'result/mape.csv',
+     'result/rmse.csv'
+];
+
+
+fetch('st_desc.csv')
+.then(response => response.text())
+.then(text => Papa.parse(text, {
+    header: true,
+    dynamicTyping: true,
+    complete:function(results){
+ 
+        uni_desc={}
+        pharse_desc(results)
+        document.getElementById(`Score/1`).checked = true
+        document.getElementById(`Score/2`).checked = false
+        document.getElementById(`Score/3`).checked = false
+        fench_data()
+    } 
+}));
+
+
+const urls11 = [
+     'result/mae.csv',
+     'result/mape.csv',
+     'result/rmse.csv'
+];
+function validateInput(input) {
+    let value = input.value;
+
+    // 保存光标位置
+    const cursorPos = input.selectionStart;
+    
+    // 处理整数和小数部分
+    let [integerPart, decimalPart] = value.split('.');
+    
+
+    // 处理整数部分：去除前导零并限制最大两位数
+    
+    // 去除前导零
+    if (integerPart.length > 1) {
+        integerPart = integerPart.replace(/^0+/, ''); 
+    }
+    
+    // 处理小数部分：限制最多两位
+    if (decimalPart) {
+        decimalPart = decimalPart.slice(0, 2);
+    }
+    
+    // 合并整数部分和小数部分
+    let newValue = integerPart;
+    if (decimalPart) {
+        newValue += '.' + decimalPart;
+    }
+    
+    // 如果小数点后有数字，但是小数点前的数字部分为空，应至少显示 `0`
+    if (newValue === '' || newValue === '.') {
+        newValue = '0';
+    }
+    
+    // 验证并更新输入值
+    if (newValue !== value) {
+        input.value = newValue;
+    }
+    
+    // 更新最后一个有效值
+    lastValidValue = input.value;
+    
+    // 恢复光标的位置
+    // input.setSelectionRange(cursorPos, cursorPos);
+    draw_tabel_uni()
+}
+function removeZeroWidthSpaces(str) {
+    return str.replace(/[\u200B]/g, '');
+}
+
+function fench_data()
+{
+    Promise.all(urls.map(url => fetch(url).then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.text().then(text => ({ text, url }));
+})))
+.then(results => {
+    results.forEach((result, index) => {
+        const name = result.url.split('/').pop().split('.')[0];
+        const df = removeZeroWidthSpaces(result.text);
+        Papa.parse(df, {
+            header: true,
+            dynamicTyping: true,
+            complete: function(parseResults) {
+                phrase_data1(parseResults,name)
+                if(index+1 == results.length)
+                {
+                    populateCheckboxes_uni()
+                    resultTable()
+                }
+            }
+        });
+    });
+})
+
+.catch(error => {
+    console.error('Error fetching one of the files:', error);
+});
+
+}
+
+
+function format(num)
+{
+    if (num > 10000){
+        return num.toExponential(3);
+    }else
+    {
+        return num.toFixed(3)
+    }
+
+}
+function displayResults_uni11( result) {
+  
+    
+    table = 'table-container-uni1'
+    
+    var metrics = ['mae','mape','rmse']
+    var horizons = ['3','6','12','24']
+    var dataset_name = Object.keys(result['mae'])
+    dataset_name = dataset_name.map(o => o.split('_')[0]);
+    dataset_name = [...new Set(dataset_name)];
+    var models=[]
+    
+    // 表头
+    const tableHeadr = document.getElementById(table).getElementsByTagName('thead')[0];
+    const tableBody = document.getElementById(table).getElementsByTagName('tbody')[0];
+    const rowHeadr = document.createElement('tr');
+    const rowHeadr1 = document.createElement('tr');
+    const rowHeadr2 = document.createElement('tr');
+    entries = Object.keys(result['mae']['Electricity_3'])    
+    const th = document.createElement('th');
+    th.innerHTML = 'Model'
+    th.colSpan  = 2
+    th.rowSpan  = 2
+    th.style='left:0px;vertical-align:middle;z-index:2'
+    th.className='sticky-col shadow-right'
+    
+    rowHeadr.appendChild(th)
+    const th1 = document.createElement('th');
+    th1.innerHTML = 'Metrics'
+    th1.colSpan  = 2
+    th1.style='left:0px;'
+    th1.className='sticky-col shadow-right'
+    rowHeadr1.appendChild(th1)
+    // console.log(uni_desc)
+
+    entries.sort((a,b)=>
+    {
+        return uni_desc[a].year<uni_desc[b].year
+    })
+    entries.forEach((key) =>{
+        models.push(key)
+        const th = document.createElement('th');
+        th.innerHTML = key
+        th.colSpan  = 3
+        const th2 = document.createElement('th');
+        th2.innerHTML = uni_desc[key].year
+        th2.colSpan  = 3
+        th2.style='padding: 0px;height: 25px;font-size:14px'
+        rowHeadr2.appendChild(th2)
+
+        metrics.forEach(m=>{
+            const th1 = document.createElement('th');
+            th1.innerHTML = m
+            th1.colSpan  = 1
+            rowHeadr1.appendChild(th1)
+        })
+        rowHeadr.appendChild(th)
+        })
+    
+    rowHeadr.className='sticky-th'
+    rowHeadr.style='z-index: 3;box-shadow: revert;'
+    rowHeadr1.className='sticky-th'
+    rowHeadr2.className='sticky-th'
+    rowHeadr2.style='top:42.4px'
+    rowHeadr1.style='top:67.4px'
+    tableHeadr.appendChild(rowHeadr)
+    tableHeadr.appendChild(rowHeadr2)
+    tableHeadr.appendChild(rowHeadr1)
+
+    index0=0
+    // 内容
+    dataset_name.forEach(dataset=>{
+        index0+=1
+        index = 0
+        horizons.forEach(horizons=>{
+
+            TopKeys = {}
+            metrics.forEach(metric=>{
+                TopKeys[metric] = findBottomThreeKeys(result[metric][dataset+'_'+horizons])
+            })
+            index+=1
+            const row = document.createElement('tr');
+            if(index==1)
+            {
+                var td1 = document.createElement('td');
+                td1.rowSpan = 4
+                if(index0%2==1)
+                {
+                    td1.style=' writing-mode: vertical-rl;transform: rotate(180deg) ;background-color: #f2f2f2;width:20px;max-width: 25px;min-width: 25px;'
+                }else
+                {
+                    td1.style=' writing-mode: vertical-rl;transform: rotate(180deg) ;background-color: #fff;width:20px;max-width: 25px;min-width: 25px;'
+                }
+                td1.className='sticky-col'
+                td1.innerHTML = dataset
+                row.appendChild(td1)
+            }
+            var td2 = document.createElement('td');
+            td2.innerHTML = horizons
+            td2.className='sticky-col shadow-right'
+
+            if(index%2==0)
+                {
+                    td2.style=' left:45px;background-color: #f2f2f2;'
+                }else
+                {
+                    td2.style='left:45px;background-color: #fff;'
+                }
+
+            row.appendChild(td2)
+            models.forEach(model=>{
+                metrics.forEach(metric=>{
+                    var td3 = document.createElement('td');
+                    if (result[metric][dataset+'_'+horizons][model]===null||typeof(result[metric][dataset+'_'+horizons][model])==='undefined')
+                    {
+                        td3.innerHTML = 'NaN'
+                    }else
+                    {
+                        if (model == TopKeys[metric]['minKey'])
+                        {
+                            td3.innerHTML = '<b>'+result[metric][dataset+'_'+horizons][model].toFixed(3)+'</b>'
+                        }else if (model == TopKeys[metric]['secondMinKey'])
+                        {
+                            td3.innerHTML = '<p class="double-underline">'+result[metric][dataset+'_'+horizons][model].toFixed(3)+'</p>'
+                        }
+                        else if (model == TopKeys[metric]['thirdMinKey'])
+                        {
+                            td3.innerHTML = '<u>'+result[metric][dataset+'_'+horizons][model].toFixed(3)+'</u>'
+                        }else
+                        {
+                             td3.innerHTML = result[metric][dataset+'_'+horizons][model].toFixed(3)
+                        }
+
+                    }
+                    
+                    row.appendChild(td3)
+                })
+
+            })
+             tableBody.appendChild(row)
+        })
+    })
+}
+function findBottomThreeKeys(obj) {
+    let minKey = null;
+    let secondMinKey = null;
+    let thirdMinKey = null;
+    let minValue = Infinity;
+    let secondMinValue = Infinity;
+    let thirdMinValue = Infinity;
+
+    for (const [key, value] of Object.entries(obj)) {
+        if (typeof value === 'number') {
+            if (value < minValue) {
+                // 更新第三小值和键
+                thirdMinValue = secondMinValue;
+                thirdMinKey = secondMinKey;
+                // 更新第二小值和键
+                secondMinValue = minValue;
+                secondMinKey = minKey;
+                // 更新最小值和键
+                minValue = value;
+                minKey = key;
+            } else if (value < secondMinValue) {
+                // 更新第三小值和键
+                thirdMinValue = secondMinValue;
+                thirdMinKey = secondMinKey;
+                // 更新第二小值和键
+                secondMinValue = value;
+                secondMinKey = key;
+            } else if (value < thirdMinValue) {
+                // 更新第三小值和键
+                thirdMinValue = value;
+                thirdMinKey = key;
+            }
+        }
+    }
+
+    return {
+        minKey,
+        secondMinKey,
+        thirdMinKey,
+    };
+}
+
+function findTopThreeKeys(obj) {
+    let maxKey = null;
+    let secondMaxKey = null;
+    let thirdMaxKey = null;
+    let maxValue = -Infinity;
+    let secondMaxValue = -Infinity;
+    let thirdMaxValue = -Infinity;
+
+    for (const [key, value] of Object.entries(obj)) {
+        if (typeof value === 'number') {
+
+            if (value > maxValue) {
+                // 更新第三大值和键
+                thirdMaxValue = secondMaxValue;
+                thirdMaxKey = secondMaxKey;
+                // 更新第二大值和键
+                secondMaxValue = maxValue;
+                secondMaxKey = maxKey;
+                // 更新最大值和键
+                maxValue = value;
+                maxKey = key;
+            } else if (value > secondMaxValue) {
+                // 更新第三大值和键
+                thirdMaxValue = secondMaxValue;
+                thirdMaxKey = secondMaxKey;
+                // 更新第二大值和键
+                secondMaxValue = value;
+                secondMaxKey = key;
+            } else if (value > thirdMaxValue) {
+                // 更新第三大值和键
+                thirdMaxValue = value;
+                thirdMaxKey = key;
+            }
+        }
+    }
+    return {
+        maxKey,
+        secondMaxKey,
+        thirdMaxKey,
+    };
+}
+function pharse_desc11(results)
+{
+
+    const data  = results.data.map(row => {
+                        // 丢掉前两列
+                        const { [Object.keys(row)[0]]: _, ...rest } = row;
+                        return rest;
+                    });
+    
+    const firstFourRows = data.slice(0, 5);
+       
+    uni_methods = Object.keys(firstFourRows[0]);
+     
+    uni_methods.forEach(key => {
+                       uni_desc_year[key]= firstFourRows[3][key]
+                    });
+    }
+
+
+
+
+function resultTable()
+{
+
+
+    results = {}
+
+    Object.keys(all_data).forEach(metric=>
+    {
+
+        results[metric]={}
+        all_data[metric].forEach(data=>{
+            dataset_name=data['dataset_name'].split('/')[1].split('.')[0]
+            horizon = data['horizon']
+            if (typeof(results[metric][dataset_name + '_' + horizon]) === 'undefined') {
+                    results[metric][dataset_name + '_' + horizon] = {};
+                }
+            Object.keys(data).forEach(key=>
+            {
+                if(key!='horizon'&&key!='dataset_name')
+                {
+                    results[metric][dataset_name+'_'+horizon][key]= data[key]
+                }
+            })
+        })
+    })
+    displayResults_uni11(results)
+
+}
+
+
+function phrase2aggregate11(dict)
+{
+    nd = {}
+    Object.keys(dict).forEach(key=>{
+        nd[key] = aggregateByAverage11(dict[key] )
+    })
+    return nd
+}
+function aggregateByAverage11(arr) {
+    const sum = {};
+    const count = {};
+
+    // 累加每个键的值
+    arr.forEach(obj => {
+        for (const [key, value] of Object.entries(obj)) {
+            if (typeof value === 'number') { // 判断 value 是否为数字
+            if (sum[key] === undefined) {
+                sum[key] = 0;
+            }
+            if (count[key] === undefined) {
+                count[key] = 0;
+            }
+            sum[key] += value;
+            count[key] +=1;
+        }
+        }
+    });
+
+    // 计算平均值
+    const average = {};
+    Object.keys(sum).forEach( key=>{
+        average[key] = sum[key] / count[key];
+    })
+    return average;
+}
+
+
+
+</script>
+
+<div class="main-container" id="main-container-uni">
+    <div class="checkbox-wrapper">
+        <div id="dataset-container-uni-up" style="padding-right: 30px;">
+            <div class="category">
+                <h3 style="white-space: nowrap;">
+                    <input 
+                        type="checkbox" 
+                        id="select-all-Metrics" 
+                        style="display:none" 
+                        onclick="toggleCategory_uni('Metrics', this.checked)"
+                    >
+                    Metrics
+                    <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight: bold">
+                        &nbsp;[<a href="javascript:void(0);" onclick="toggleCategory_uni('Metrics', true)" style="padding:0 3px">all</a>]
+                    </b>
+                </h3>
+                <div class="checkbox-wrapper1" style="white-space: nowrap;">
+                    <div class="checkbox-item">
+                        <input 
+                            type="checkbox" 
+                            id="Metrics/MAE" 
+                            value="Metrics/MAE" 
+                            class="checkbox-Metrics" 
+                            onchange="handleChildCheckboxChange(event)"
+                        >
+                        <label for="Metrics/MAE">MAE</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input 
+                            type="checkbox" 
+                            id="Metrics/RMSE" 
+                            value="Metrics/RMSE" 
+                            class="checkbox-Metrics" 
+                            onchange="handleChildCheckboxChange(event)"
+                        >
+                        <label for="Metrics/RMSE">RMSE</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input 
+                            type="checkbox" 
+                            id="Metrics/MAPE" 
+                            value="Metrics/MAPE" 
+                            class="checkbox-Metrics" 
+                            onchange="handleChildCheckboxChange(event)"
+                        >
+                        <label for="Metrics/MAPE">MAPE</label>
+                    </div>
+                </div>
+                <hr class="divider">
+            </div>
+        </div>
+        <div class="all-checkbox">
+            <input 
+                type="checkbox" 
+                id="select-all-u" 
+                style="display:none" 
+                onclick="toggleSelectAll_uni(this.checked)"
+            >
+            <label for="select-all">
+                <h3>
+                    Datasets
+                    <b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight: bold">
+                        &nbsp;[<a href="javascript:void(0);" onclick="toggleSelectAll_uni(true)" style="padding:0 3px">all</a>|<a href="javascript:void(0);" onclick="toggleSelectAll_uni(false)" style="padding:0 3px">off</a>]
+                    </b>
+                </h3>
+            </label>
+        </div>
+        <div id="check">
+            <div class="checkbox-container" id="dataset-container-uni">
+            </div>
+        </div>
+        <div id="dataset-container-horizons" style="padding-right: 30px;">
+            <hr class="divider">
+            <div class="category">
+                <h3>
+                    <input type="checkbox" id="select-all-Horizons" style="display:none" >Forecasting Horizons<b style="font: 16px 'Microsoft YaHei', Verdana, sans-serif; font-weight: bold">
+                        &nbsp;[<a href="javascript:void(0);" onclick="toggleCategory_uni('Horizons',true)" style="padding:0 3px">all</a>|<a href="javascript:void(0);" onclick="toggleCategory_uni('Horizons',false)" style="padding:0 3px">off</a>]
+                    </b>
+                </h3>
+                <div style="display: flex; flex-wrap: nowrap;">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="Horizons/3" value="Horizons/3" class="checkbox-Horizons" onchange="handleChildCheckboxChange(event)">
+                        <label for="Horizons/3">3</label>
+                    </div>
+                    <div class="checkbox-item" style="margin-left: 10px;">
+                        <input type="checkbox" id="Horizons/6" value="Horizons/6" class="checkbox-Horizons" onchange="handleChildCheckboxChange(event)">
+                        <label for="Horizons/6">6</label>
+                    </div>
+                    <div class="checkbox-item" style="margin-left: 10px;">
+                        <input type="checkbox" id="Horizons/12" value="Horizons/12" class="checkbox-Horizons" onchange="handleChildCheckboxChange(event)">
+                        <label for="Horizons/12">12</label>
+                    </div>
+                    <div class="checkbox-item" style="margin-left: 10px;">
+                        <input type="checkbox" id="Horizons/24" value="Horizons/24" class="checkbox-Horizons" onchange="handleChildCheckboxChange(event)">
+                        <label for="Horizons/24">24</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dataset-container-uni-up" style="padding-right: 30px;">
+            <hr class="divider">
+            <div class="category">
+                <h3 style="white-space: nowrap;">
+                    <input 
+                        type="checkbox" 
+                        id="select-all-Metrics" 
+                        style="display:none" 
+                        onclick="toggleCategory_uni('Metrics', this.checked)">
+                    Score
+                </h3>
+                <div class="checkbox-wrapper3" style="white-space: nowrap;">
+                    <div class="checkbox-item">
+                        <input type="radio" id="Score/1" value="Score/1" onchange="handleChildCheckboxChange(event)" class="checkbox-Score">
+                        <label for="Score/1">🥇</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="radio" id="Score/2" value="Score/2" onchange="handleChildCheckboxChange(event)" class="checkbox-Score">
+                        <label for="Score/2">🥇 + 🥈 + 🥉</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="radio" id="Score/3" value="Score/3" onchange="handleChildCheckboxChange(event)" class="checkbox-Score">
+                        <label for="Score/3">
+                        <input type="number" id="score/3/1" name="score/3/1" value="3" oninput="validateInput(this)"> × 🥇 + 
+                        <input type="number" id="score/3/2" name="score/3/2" value="2" oninput="validateInput(this)"> × 🥈 + 
+                        <input type="number" id="score/3/3" name="score/3/3" value="1" oninput="validateInput(this)"> × 🥉</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width:100%" class="table-container" id="table-container-uni">
+        <table id="univariateTable" class="my-table2">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Model</th>
+                    <th>Score</th>
+                    <th>🥇</th>
+                    <th>🥈</th>
+                    <th>🥉</th>
+                    <th>Paper</th>
+                    <th>Publication</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<style>
+.checkbox-wrapper3 {
+    display: grid;
+    grid-template-columns: 1;
+    width:100%;
+
+}
+.checkbox-wrapper3 .checkbox-item
+{
+     margin-left:15px;
+     margin-top:10px;
+}
+input[type="number"] {
+    border: none; /* 去掉边框 */
+    border-bottom: 1px solid #000; /* 底部添加一条横线 */
+    outline: none;
+    padding: 0px;
+    /* padding-right: 0px;  */
+    
+    width: 31px;
+    font-size:14px;
+    /* text-align:right; */
+    text-align:center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"]{
+    -moz-appearance: textfield;
+}
+
+
+/* 基本表格样式 */
+table.my-table2 {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  border: none; /* 去除表格边框 */
+  padding:0;
+  margin:0
+}
+
+/* 表头样式 */
+table.my-table2 th {
+  background-color: #f2f2f2; /* 表头背景色（奇数行浅灰色） */
+  color: black; /* 表头文字颜色 */
+  font-weight: bold; /* 表头字体加粗 */
+  padding: 10px; /* 调整表头内边距 */
+  text-align: center; /* 居中对齐 */
+   white-space: nowrap; /* 防止文本换行 */
+  border: none;
+}
+
+/* 偶数行背景色 */
+table.my-table2 tr:nth-child(odd) {
+  background-color: #ffffff; /* 偶数行背景色（白色） */
+}
+
+/* 奇数行背景色 */
+table.my-table2 tr:nth-child(even) {
+  background-color: #f2f2f2; /* 奇数行背景色（浅灰色） */
+}
+
+/* 单元格样式 */
+table.my-table2 td {
+  padding: 10px; /* 调整单元格内边距 */
+  text-align: center; /* 居中对齐 */
+  border: none; /* 去除单元格边框 */
+  vertical-align: middle;
+  /* white-space: nowrap; 防止文本换行 */
+  /* overflow: hidden; 隐藏溢出内容
+  text-overflow: ellipsis; 溢出内容显示省略号 */
+  /* max-width: 200px; 设置单元格最大宽度
+  position: relative; 设置相对定位以显示悬停内容 */
+}
+
+/* 第4列单独样式 */
+table.my-table2 tr td:nth-child(4) {
+  /* max-width: 150px; 设置第4列单元格最大宽度 */
+}
+
+/* 第2列单独样式 */
+table.my-table2 tr td:nth-child(2) {
+  /* max-width: 80px; 设置第2列单元格最大宽度 */
+}
+
+/* 第7列单独样式 */
+table.my-table2 tr td:nth-child(7) {
+  /* max-width: 100px; 设置第7列单元格最大宽度 */
+}
+.table-container {
+  width: 100%; /* Adjust width as needed */
+  max-width: 100%; /* Ensure it doesn't exceed the container width */
+  /* Adjust height as needed */
+  overflow-x: auto; /* Enable horizontal scroll */
+  overflow-y: hidden; /* Enable vertical scroll */
+  padding-left: 0px;
+  margin-top:0;
+}
+.table-container {
+  width: 80%; /* Adjust width as needed */
+  /* max-width: 100%; Ensure it doesn't exceed the container width */
+  /* Adjust height as needed */
+  overflow-x: auto; /* Enable horizontal scroll */
+  margin:auto;
+  overflow-y: hidden; /* Enable vertical scroll */
+  display: flex;justify-content: LEFT;
+  margin-top:0;
+}
+
+  /* .empty-cell{
+    content: ' ';
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../figures/斜线.png');
+     background-size: 50% 50%;
+    background-position: center;
+            background-repeat: no-repeat;
+  } */
+  .empty-cell
+  {
+    color:gray;
+  }
+
+ select {
+    background-color: #f2f2f2; /* 表头背景色（奇数行浅灰色） */
+    color: black; /* 表头文字颜色 */
+    font-weight: bold; /* 表头字体加粗 */
+    text-align: center; /* 居中对齐 */
+    white-space: nowrap; /* 防止文本换行 */
+    border: none;
+    margin:auto;
+    }
+select:focus {
+  border: none; /* 确保选中时没有边框 */
+  outline: none; /* 确保选中时没有黑框 */
+}
+option
+{
+    padding:5px,0;
+}
+.checkbox-item
+{
+    margin-left:15px;
+}
+</style>
+
+<style>
+.main-container{
+    display: flex;
+    align-items: stretch; /* Stretch items to the same height */
+    height: 100%;
+}
+.checkbox-container {
+ display: grid;
+    grid-template-columns: 1fr 1fr; /* 分为两列 */
+    column-gap: 10px;
+
+    padding-right: 20px; /* Add some space between checkboxes and table */
+    overflow-y: auto; /* Enable vertical scroll if needed */
+}
+.category h3 {
+    display: flex;
+    align-items: center;
+}
+
+.category {
+    margin-bottom: 10px;
+}
+.checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* height: 100%; */
+    width:fit-content;
+}
+.checkbox-wrapper1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 0.5fr;
+
+}
+
+.article-entry h3{
+    margin:0;
+}
+.all-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* 在 "All" 复选框和其他复选框之间添加一些间距 */
+}
+.divider {
+border:1px dashed #ddd
+}
+
+ .metric-col
+ {
+    left:86.7px;
+    border-left-width: 1.5px;
+    border-left-style: solid;
+    border-left-color: darkgray;
+    border-right-width:1px;
+    border-right-style: solid;
+    border-right-color: darkgray;
+    /* box-shadow: rgba(0, 0, 0, 0.4) 2px 0px 3px -1px; */
+ }
+ .metric-col::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0px; /* 调整阴影位置 */
+    width: 5px;
+    height: 105%;
+    box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.4); /* 右侧阴影 */
+}
+</style>
+
+
+
+
+
+<h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
+<li>For spatio-temporal forecasting algorithms, we consider 8 series, and the MAE, RMSE, and MAPE metrics. The corresponding forecasting horizons are 3, 6, 12, and 24. With these horizons and metrics, we have a total of 96 (8 * 3 * 4) unique evaluation settings. The look-back window is set to match each forecasting horizon in length. <!-- [click here](./#Spatio-temporal-forecasting-results) to see the detailed results. --></li>
+<li>For each forecasting algorithm, we count the number of times that the algorithm receives the gold, silver, and bronze medals, i.e., having the lowest, 2nd lowest, and 3rd lowest errors, shown as 🥇, 🥈, and 🥉, respectively.</li>
+<li>We provide three different types of scores for ranking the forecasting algorithms. First, the scores equal to the numbers of gold medals. Second, the scores are the sum of the numbers of gold, silver, and bronze medals. Third, the scores are the weighted sum of the gold, silver, and bronze medals, where the weights can be customized. The larger the score, the higher the ranking.</li>
+</ul>
+<div style="height:30px"></div>
+
+<h3 id="Spatio-temporal-forecasting-results"><a href="#Spatio-temporal-forecasting-results" class="headerlink" title="Spatio-temporal forecasting results"></a>Spatio-temporal forecasting results</h3><div style="height:10px"></div>
+
+
+<div class="main-container" id="main-container-uni1">
+    <div style="width:100%;overflow-y:auto;height:800px" class="table-container" id="table-container-uni1">
+        <table id="univariateTable" class="my-table2">
+            <thead>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<style>
+.sticky-col{
+            position: sticky;
+            left: 0; /* 固定在左侧 */
+            z-index: 1; /* 设定堆叠顺序 */
+        }
+/* 确保交叉单元格的堆叠顺序 */
+.sticky-col-header {
+    z-index: 3;
+}
+.sticky-th {
+            position: sticky;
+            top: 0; /* 固定在顶部 */
+            z-index: 2; /* 设定堆叠顺序 */
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 3px -2px;
+        }
+.double-underline {
+            position: relative;
+            display: inline-block;
+            /* font: inherit; 继承父元素的字体样式 */
+        }
+        .double-underline::after,
+        .double-underline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px; /* 下划线的厚度 */
+            background-color: black; /* 下划线的颜色 */
+        }
+        .double-underline::before {
+            bottom: 3px; /* 第一条下划线的位置 */
+        }
+        .double-underline::after {
+            bottom: 0px; /* 第二条下划线的位置 */
+        }
+.shadow-right{
+    /* box-shadow: rgba(0, 0, 0, 0.4) 2px 0px 3px -2px; */
+}
+ .shadow-right::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0px; /* 调整阴影位置 */
+    width: 5px;
+    height: 105%;
+    box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.4); /* 右侧阴影 */
+}
+</style>
+
+
+      
+    
+    </div>
+    
+    
+      <footer class="article-footer">
+        <!-- <div class="well" style="width:100px; height:30px;"></div>  by blair-->
+        
+ <!-- by blair add 160724-->
+        <!--
+        <div style="width:100px; height:30px;"></div> by blair add 160724
+        -->
+        
+
+      </footer>
+    
+  </div>
+  
+    
+  
+</article>
+
+</section>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 DecisionIntelligence |&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a target="_blank" rel="noopener" href="http://github.com/52binge/hexo-theme-blairos">blairos</a>
+    </div>
+  </div>
+</footer> -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      displayMath: [ ['$$','$$']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" >
+</script>
+
+    
+
+
+
+
+
+
+<script src="/OpenTS/js/script.js"></script>
+
+
+  </div>
+  <!-- 把它放在 </body> 标签之前 -->
+<script>
+  // function updateLanguageLink() {
+  //   // 获取页面上我们设置的那个链接元素
+  //   const link = document.getElementById('lang-toggle-link');
+  //   if (!link) {
+  //     // 如果页面上没有这个链接，就什么都不做
+  //     return;
+  //   }
+
+  //   // 这两个值需要和你的项目配置保持一致
+  //   const DEFAULT_LANG = 'zh-cn'; // 你的默认语言，可能是 'zh' 或 'zh-cn'
+  //   const SECOND_LANG = 'en';
+
+  //   // 不再使用 page.path，而是使用浏览器当前真实的 URL
+  //   const currentPathname = window.location.pathname;
+    
+  //   // 从 config 中获取站点的根目录，以便正确拼接 URL
+  //   // hexo.config.root 通常是 '/' 或者 '/your-repo-name/'
+  //   const root = '/OpenTS/';
+  //   // console.log(currentPathname)
+  //   // console.log(root)
+  //   let targetPath;
+
+  //   // 判断当前 URL 是否以 /en/ 开头
+  //   if (currentPathname.startsWith(root + SECOND_LANG + '/')) {
+  //     // 当前是英文页, 目标是中文页
+  //     // e.g., /en/get-started/ -> /get-started/
+  //     const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
+  //     targetPath = root.slice(0, -1) + '/' + DEFAULT_LANG +  pathWithoutLang; // 拼接路径
+  //   } else if(currentPathname.startsWith(root + DEFAULT_LANG + '/')){
+  //     const pathWithoutLang = currentPathname.substring((root + DEFAULT_LANG).length);
+  //     targetPath = root.slice(0, -1) + '/' + 'en' +  pathWithoutLang; // 拼接路径
+  //   } 
+  //   else {
+  //     // 当前是中文页, 目标是英文页
+  //     // e.g., /get-started/ -> /en/get-started/
+  //     const pathWithoutRoot = currentPathname.substring(root.length);
+  //     targetPath = root + SECOND_LANG + '/' + pathWithoutRoot;
+  //   }
+
+  //   // 更新链接的 href 属性
+  //   link.href = targetPath;
+  // }
+
+  // // 监听 Pjax 加载完成事件
+  // // 注意：事件名可能是 'pjax:end', 'pjax:complete' 等，取决于主题用的库
+  // // 你可以在主题的 JS 文件里搜索 'pjax' 来确认
+  // document.addEventListener('pjax:end', updateLanguageLink);
+
+  // // 页面首次加载时也执行一次
+  // document.addEventListener('DOMContentLoaded', updateLanguageLink);
+  function updateLanguageUI() {
+    const root = '/OpenTS/';
+    const DEFAULT_LANG = 'en';
+    const SECOND_LANG = 'zh-cn';
+    const currentPathname = window.location.pathname;
+
+    // --- 1. 更新 Body Class 来切换菜单 ---
+    const isEnglishPage = currentPathname.startsWith(root + SECOND_LANG + '/');
+    
+    if (isEnglishPage) {
+      document.body.classList.add('lang-zh-cn');
+      document.body.classList.remove('lang-en');
+    } else {
+
+      document.body.classList.add('lang-en');
+      document.body.classList.remove('lang-zh-cn');
+    }
+
+    // --- 2. 更新语言切换链接的 href (新逻辑) ---
+    let linkToUpdate;
+    let targetPath;
+
+    if (isEnglishPage) {
+      // 在英文页，英文菜单可见。我们需要更新它里面的那个切换器。
+      // linkToUpdate = document.getElementById('main-nav');
+      linkToUpdate = document.getElementById('lang-toggle-link-zh-cn');
+      // 目标是中文页 (不带语言前缀)
+      const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
+      targetPath = (root.endsWith('/') ? root.slice(0, -1) : root)  + '/' + DEFAULT_LANG + pathWithoutLang;
+      if (targetPath === '') targetPath = '/';
+
+    } else {
+      // 在中文页，中文菜单可见。我们需要更新它里面的那个切换器。
+      linkToUpdate = document.getElementById('lang-toggle-link-en');
+      // linkToUpdate = document.getElementById('main-nav');
+      console.log(linkToUpdate.href)
+      // 目标是英文页
+      let pathWithoutLang = currentPathname.substring(root.length);
+      if (pathWithoutLang.startsWith(DEFAULT_LANG + '/')) {
+        pathWithoutLang = pathWithoutLang.substring((DEFAULT_LANG + '/').length);
+      }
+      targetPath = root + SECOND_LANG + '/' + pathWithoutLang;
+    }
+
+    // 如果找到了对应的链接，就更新它
+    if (linkToUpdate) {
+      linkToUpdate.href = targetPath;
+      console.log(linkToUpdate.href)
+    }
+  }
+
+  // 监听 Pjax 加载完成事件
+  document.addEventListener('pjax:end', updateLanguageUI);
+  // 页面首次加载时也执行一次
+  document.addEventListener('DOMContentLoaded', updateLanguageUI);
+</script>
+</body>
+</html>

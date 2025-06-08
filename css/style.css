@@ -1666,3 +1666,36 @@ table {
 #header-outer {
   width: 100%;
 }
+/* 默认情况下，隐藏所有语言的菜单容器 */
+#main-nav .menu-container {
+  display: none;
+}
+/* 当 body 有 .lang-zh-cn 类时，只显示中文菜单 */
+body.lang-zh-cn #main-nav .menu-container[data-lang="zh-cn"] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex; /* 或者 block, inline-flex, 取决于你菜单的原始布局 */
+/* 如果你的菜单项是横向排列的，很可能需要 flex */
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+/* 当 body 有 .lang-en 类时，只显示英文菜单 */
+body.lang-en #main-nav .menu-container[data-lang="en"] {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex; /* 同上 */
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}

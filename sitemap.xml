@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/team/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/overview/index.html</loc>
     
     <lastmod>2025-06-08</lastmod>
     
@@ -13,6 +13,87 @@
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/2024/07/25/hello-world/</loc>
     
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/index.html</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/datasets/index.html</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/datasets/index.html</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/get%20started/index.html</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/get%20started/index.html</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/overview/index.html</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/team/index.html</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/team/index.html</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/papers/index.html</loc>
+    
     <lastmod>2025-06-06</lastmod>
     
     <changefreq>monthly</changefreq>
@@ -20,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/papers/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/papers/index.html</loc>
     
     <lastmod>2025-06-06</lastmod>
     
@@ -29,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/papers/TAB/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/papers/TAB/index.html</loc>
     
     <lastmod>2025-06-05</lastmod>
     
@@ -38,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/papers/TFB/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/papers/TAB/index.html</loc>
     
     <lastmod>2025-06-05</lastmod>
     
@@ -47,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/papers/TSFM-Bench/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/papers/TFB/index.html</loc>
     
     <lastmod>2025-06-05</lastmod>
     
@@ -56,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/papers/index%20copy.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/papers/TFB/index.html</loc>
     
     <lastmod>2025-06-05</lastmod>
     
@@ -65,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/univariate_time_series/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/papers/TSFM-Bench/index.html</loc>
     
     <lastmod>2025-06-05</lastmod>
     
@@ -74,7 +155,52 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/get%20started/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/papers/TSFM-Bench/index.html</loc>
+    
+    <lastmod>2025-06-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/papers/index%20copy.html</loc>
+    
+    <lastmod>2025-06-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/papers/index%20copy.html</loc>
+    
+    <lastmod>2025-06-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/leaderboards/univariate_time_series/index.html</loc>
+    
+    <lastmod>2025-06-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/univariate_time_series/index.html</loc>
+    
+    <lastmod>2025-06-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/algorithms/methods/index.html</loc>
     
     <lastmod>2025-06-04</lastmod>
     
@@ -83,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/algorithms/methods/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/algorithms/methods/index.html</loc>
     
     <lastmod>2025-06-04</lastmod>
     
@@ -92,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/datasets/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/leaderboards/multivariate_time_series/index.html</loc>
     
     <lastmod>2025-06-04</lastmod>
     
@@ -101,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/multivariate_time_series/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/multivariate_time_series/index.html</loc>
     
     <lastmod>2025-06-04</lastmod>
     
@@ -110,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/foundation_model/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/leaderboards/foundation_model/index.html</loc>
     
     <lastmod>2025-06-04</lastmod>
     
@@ -119,7 +245,16 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/algorithms/AutoCTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/foundation_model/index.html</loc>
+    
+    <lastmod>2025-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/algorithms/AutoCTS/index.html</loc>
     
     <lastmod>2025-05-18</lastmod>
     
@@ -128,7 +263,16 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/multivariate_time_series/index_double_source.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/algorithms/AutoCTS/index.html</loc>
+    
+    <lastmod>2025-05-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/leaderboards/multivariate_time_series/index_double_source.html</loc>
     
     <lastmod>2024-12-20</lastmod>
     
@@ -137,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/multivariate_time_series/index%20copy%202.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/multivariate_time_series/index_double_source.html</loc>
     
     <lastmod>2024-12-20</lastmod>
     
@@ -146,7 +290,25 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/foundation_model/index%20copy.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/leaderboards/multivariate_time_series/index%20copy%202.html</loc>
+    
+    <lastmod>2024-12-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/multivariate_time_series/index%20copy%202.html</loc>
+    
+    <lastmod>2024-12-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/leaderboards/foundation_model/index%20copy.html</loc>
     
     <lastmod>2024-10-25</lastmod>
     
@@ -155,7 +317,16 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/algorithms/FoundTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/foundation_model/index%20copy.html</loc>
+    
+    <lastmod>2024-10-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/algorithms/FoundTS/index.html</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -164,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/algorithms/TFB/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/algorithms/FoundTS/index.html</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -173,7 +344,25 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/spatio_temporal_data/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/algorithms/TFB/index.html</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/algorithms/TFB/index.html</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/leaderboards/spatio_temporal_data/index.html</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -182,7 +371,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/get%20started/steps_to_evaluate_your_own_time_series.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/spatio_temporal_data/index.html</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -191,7 +380,34 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/get%20started/steps_to_develop_your_own_method.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/get%20started/steps_to_evaluate_your_own_time_series.html</loc>
+    
+    <lastmod>2024-10-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/get%20started/steps_to_evaluate_your_own_time_series.html</loc>
+    
+    <lastmod>2024-10-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/get%20started/steps_to_develop_your_own_method.html</loc>
+    
+    <lastmod>2024-10-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/get%20started/steps_to_develop_your_own_method.html</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -209,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/200seetings/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/leaderboards/200seetings/index.html</loc>
     
     <lastmod>2024-07-24</lastmod>
     
@@ -218,7 +434,25 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/about/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/200seetings/index.html</loc>
+    
+    <lastmod>2024-07-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/en/about/index.html</loc>
+    
+    <lastmod>2024-05-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/about/index.html</loc>
     
     <lastmod>2024-05-31</lastmod>
     

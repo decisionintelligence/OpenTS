@@ -1,0 +1,6 @@
+Dataset,AGCRN,AutoCTS,AutoCTS++,DCRNN,GraphWaveNet,MTGNN,STGCN
+paper_url,https://arxiv.org/abs/2007.02842,https://arxiv.org/abs/2112.11174,,https://arxiv.org/abs/1707.01926,https://arxiv.org/abs/1906.00121,https://arxiv.org/abs/2005.11650,https://arxiv.org/abs/1709.04875
+publication,NIPS,VLDB,VLDB,ICLR,IJCAI,KDD,IJCAI
+bib,https://dblp.org/rec/conf/nips/0001YL0020.html?view=bibtex,https://dblp.org/rec/journals/pvldb/WuZGHYJ21.html?view=bibtex,,https://dblp.org/rec/conf/iclr/LiYS018.html?view=bibtex,https://dblp.org/rec/conf/ijcai/WuPLJZ19.html?view=bibtex,https://dblp.org/rec/conf/kdd/WuPL0CZ20.html?view=bibtex,https://dblp.org/rec/conf/ijcai/YuYZ18.html?view=bibtex
+year,2020,2021,2024,2018,2019,2020,2018
+paradigm,DL,DL,DL,DL,DL,DL,DL
