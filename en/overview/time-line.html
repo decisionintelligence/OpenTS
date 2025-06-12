@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/OpenTS/js/jquery.min.js"></script>
+  <link rel="icon" type="image/png" href="https://decisionintelligence.github.io/OpenTS/figures/logo10.png">
+  <meta name="google-site-verification" content="0HzGL60Z8ChYs-wL6ogMpNB-px7tcu9PcRD1z6OQWe8" />
+  <meta name="msvalidate.01" content="FD2A799A0C64AAB3A8289819F1C2DFFB" />
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta http-equiv='content-language' content='en-gb'>
+  <meta charset="utf-8">
+  
+  
+  <title>OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
+  <meta name="description" content="视觉加速的波浪时间轴（最终版）      &#x2F;* CSS样式与上一版完全相同，这里保持不变 *&#x2F;     body {         font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif;         background-colo">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
+<meta property="og:url" content="https://chy181.github.io/OpenTS/en/overview/time-line.html">
+<meta property="og:site_name" content="OpenTS - A Comprehensive and Fair Benchmark for Time Series Analytics">
+<meta property="og:description" content="视觉加速的波浪时间轴（最终版）      &#x2F;* CSS样式与上一版完全相同，这里保持不变 *&#x2F;     body {         font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif;         background-colo">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-06-12T16:49:31.639Z">
+<meta property="article:modified_time" content="2025-06-12T16:49:31.639Z">
+<meta property="article:author" content="DecisionIntelligence |">
+<meta name="twitter:card" content="summary">
+  
+
+  <link href="/OpenTS/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/OpenTS/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/OpenTS/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <!-- blair add baidu tongji start... @2017.10.03 -->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?8864d";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+<!-- blair add baidu tongji end ! @2017.10.03 -->
+<!-- jiangting add start... @2020.08.30 -->
+
+<!-- jiangting add end !  @2020.08.30 -->
+
+<header id="header" style="min-width:1040px">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <!-- <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a> -->
+      
+
+      <nav id="main-nav">
+        
+        
+          
+          
+            <div class="menu-container" data-lang="zh-cn">
+              <!-- <p style="font-size: 25px;font-weight: 620;">OpenTS</p> -->
+              <a id="logo" style="margin:3px 0; margin-left: 5px;" class="logo" href="/OpenTS/"></a>
+              <!-- <div style="width: 4px;height: 58px;border-right: 2px solid #797777;"></div> -->
+              
+                
+                
+                
+                  <a class="main-nav-link" href="/OpenTS/zh-cn/">OpenTS</a>
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">测评基准 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/overview">概述</a>
+                      
+                        <a href="/OpenTS/zh-cn/datasets">数据集</a>
+                      
+                        <a href="/OpenTS/zh-cn/get%20started/">快速开始</a>
+                      
+                        <a href="/OpenTS/zh-cn/algorithms">算法</a>
+                      
+                        <a href="/OpenTS/zh-cn/team">团队</a>
+                      
+                        <a href="/OpenTS/zh-cn/papers">论文</a>
+                      
+                        <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">代码</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">模型 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/algorithms/methods/#Specific-Methods-introduction">端到端模型</a>
+                      
+                        <a href="/OpenTS/zh-cn/algorithms/methods/#Foundation-Methods-introduction">基础模型</a>
+                      
+                        <a href="/OpenTS/zh-cn/algorithms/AutoCTS">自动化机器学习</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">应用 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/datasets/#Overview">AI运维</a>
+                      
+                        <a href="/OpenTS/zh-cn/datasets/#Univariate-time-series">智能交通</a>
+                      
+                        <a href="/OpenTS/zh-cn/datasets/#Multivariate-time-series">虚拟电厂</a>
+                      
+                        <a href="/OpenTS/null">AI4DB</a>
+                      
+                        <a href="/OpenTS/null">金融科技</a>
+                      
+                        <a href="/OpenTS/null">智能应急响应</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">排行榜 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/univariate_time_series">单变量预测</a>
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/multivariate_time_series">多变量预测</a>
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/foundation_model">基础模型</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://decisionintelligence.github.io/index">实验室</a>
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://github.com/decisionintelligence">Github</a>
+                
+      
+              
+                
+                
+                
+                  <a id="lang-toggle-link-zh-cn" class="main-nav-link" href="javascript:;">中文|English</a>
+
+                
+                
+      
+              
+            </div>
+          
+        
+          
+          
+            <div class="menu-container" data-lang="en">
+              <!-- <p style="font-size: 25px;font-weight: 620;">OpenTS</p> -->
+              <a id="logo" style="margin:3px 0; margin-left: 5px;" class="logo" href="/OpenTS/"></a>
+              <!-- <div style="width: 4px;height: 58px;border-right: 2px solid #797777;"></div> -->
+              
+                
+                
+                
+                  <a class="main-nav-link" href="/OpenTS/en/">OpenTS</a>
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">Benchmark <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/overview">Overview</a>
+                      
+                        <a href="/OpenTS/en/datasets">Datasets</a>
+                      
+                        <a href="/OpenTS/en/get%20started/">Get started</a>
+                      
+                        <a href="/OpenTS/en/algorithms">Algorithms</a>
+                      
+                        <a href="/OpenTS/en/team">Team</a>
+                      
+                        <a href="/OpenTS/en/papers">Papers</a>
+                      
+                        <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">Codes</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">Models <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/algorithms/methods/#Specific-Methods-introduction">Specific models</a>
+                      
+                        <a href="/OpenTS/en/algorithms/methods/#Foundation-Methods-introduction">Foundation models</a>
+                      
+                        <a href="/OpenTS/en/algorithms/AutoCTS">AutoML methods</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">Application <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/datasets/#Overview">AIOps</a>
+                      
+                        <a href="/OpenTS/en/datasets/#Univariate-time-series">Intelligent Transportation</a>
+                      
+                        <a href="/OpenTS/en/datasets/#Multivariate-time-series">Virtual Power Plants</a>
+                      
+                        <a href="/OpenTS/null">AI4DB</a>
+                      
+                        <a href="/OpenTS/null">FinTech</a>
+                      
+                        <a href="/OpenTS/null">Smart Emergency Response</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a class="main-nav-link dropdown-toggle">Leaderboard <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/leaderboards/univariate_time_series">Univariate time series</a>
+                      
+                        <a href="/OpenTS/en/leaderboards/multivariate_time_series">Multivariate time series</a>
+                      
+                        <a href="/OpenTS/en/leaderboards/foundation_model">Foundation model</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://decisionintelligence.github.io/index">Lab</a>
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://github.com/decisionintelligence">Github</a>
+                
+      
+              
+                
+                
+                
+                  <a id="lang-toggle-link-en" class="main-nav-link" href="javascript:;">English|中文</a>
+
+                
+                
+      
+              
+            </div>
+          
+        
+      </nav>
+    
+    </div>
+  </div>
+</header>
+
+<style>
+  #header {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+  }
+
+  #header-outer {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+  }
+
+  #header-inner {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    width: 1000px; /* 设置最大宽度 */
+    margin: auto; /* 居中对齐 */ /* 确保占满父元素的宽度 */
+    flex-wrap: nowrap; /* 保持内容在同一行 */
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    text-align: right;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    top: 100%;
+    right: 0;
+    width: auto;
+    min-width: 100%;
+    white-space: nowrap;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-top: 1px solid #ddd;
+  }
+
+  .dropdown-content a:first-child {
+    border-top: none;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-toggle::after {
+    content: " ▼";
+    font-size: 0.55em;
+    vertical-align: middle;
+  }
+
+  #main-nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-around;
+    flex-wrap: nowrap; /* 保持内容在同一行 */
+  }
+
+  .main-nav-link {
+    padding: 0 10px; /* 减少 padding，缩小栏目间距 */
+  }
+
+  
+
+  @media (max-width: 480px) {
+    .main-nav-link {
+      padding: 5px; /* 进一步减少 padding，在小屏幕上更紧凑 */
+      flex: 1;
+      text-align: center;
+    }
+  }
+</style>
+
+    <br>
+    <section id="main" class="outer"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    <div class="article-meta">
+      <!--<a href="/OpenTS/en/overview/time-line.html" class="article-date">
+  <time datetime="2025-06-12T16:49:31.639Z" itemprop="datePublished">2025-06-13</time>
+</a>-->
+      <!-- 
+--><!-- by blair 160724 -->
+      <!-- by blair
+      
+      -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>视觉加速的波浪时间轴（最终版）</title>
+<style>
+    /* CSS样式与上一版完全相同，这里保持不变 */
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background-color: #f4f7f9;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 80px 20px;
+        box-sizing: border-box;
+    }
+    .timeline-container {
+        width: 100%;
+        max-width: 1400px;
+        position: relative;
+        height: 600px;
+    }
+    .timeline-wave {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    .timeline-wave path {
+        fill: none;
+        stroke: #3da5eb;
+        stroke-width: 3;
+        stroke-linecap: round;
+    }
+    .timeline-event {
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+    .timeline-point {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 16px;
+        height: 16px;
+        background-color: #3498db;
+        border: 3px solid #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        z-index: 2;
+    }
+    .timeline-content {
+        position: absolute;
+        width: 190px;
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        z-index: 1;
+    }
+    .timeline-content h3 {
+        margin: 0 0 10px 0;
+        font-size: 1.1rem;
+        color: #2c3e50;
+        font-weight: 600;
+    }
+    .timeline-content p {
+        margin: 0;
+        font-size: 0.85rem;
+        color: #555;
+        line-height: 1.5;
+    }
+    .event-top .timeline-content {
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%) translateY(-8px);
+    }
+    .event-bottom .timeline-content {
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%) translateY(8px);
+    }
+</style>
+</head>
+<body>
+
+<div class="timeline-container">
+    <svg class="timeline-wave" id="timelineWave"></svg>
+    <div class="timeline-events-wrapper"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const timelineData = [ /* ... 数据不变 ... */
+        { year: 2013, description: "公司成立，发布首款核心产品。" },
+        // { year: 2018, description: "用户数突破百万，完成A轮融资。" },
+        // { year: 2019, description: "推出海外版本，拓展国际市场。" },
+        // { year: 2020, description: "应对疫情挑战，推出线上协作新功能。" },
+        // { year: 2021, description: "技术架构全面升级，性能提升300%。" },
+        // { year: 2022, description: "荣获“年度创新产品”大奖。" },
+        // { year: 2023, description: "启动AI战略，成立人工智能实验室。" },
+        // { year: 2024, description: "发布集成AI助手的新一代产品。" },
+        // { year: 2025, description: "计划上市，开启公司发展新篇章。" },
+    ];
+    const container = document.querySelector('.timeline-container');
+    const eventsWrapper = document.querySelector('.timeline-events-wrapper');
+    const svgWave = document.getElementById('timelineWave');
+    let eventElements = [];
+
+    function createTimelineEvents() { /* ... 此函数不变 ... */
+        eventsWrapper.innerHTML = '';
+        eventElements = [];
+        timelineData.forEach(data => {
+            const eventDiv = document.createElement('div');
+            eventDiv.className = 'timeline-event';
+            eventDiv.innerHTML = `
+                <div class="timeline-point"></div>
+                <div class="timeline-content">
+                    <h3>${data.year}</h3>
+                    <p>${data.description}</p>
+                </div>
+            `;
+            eventsWrapper.appendChild(eventDiv);
+            eventElements.push(eventDiv);
+        });
+    }
+
+    function drawAndPosition() {
+        if (eventElements.length === 0) return;
+
+        const containerWidth = container.offsetWidth;
+        const verticalCenter = container.offsetHeight / 2;
+        
+        // --- 视觉效果核心参数 ---
+        const startAmplitude = 20;
+        const endAmplitude = 90;
+        const totalCycles = 5; 
+        const frequencyPower = 0.6; 
+        const spacingPower = 1.3; // NEW: 间隔加速因子。 > 1 使间隔越来越大。2(平方)是一个很好的选择。
+        
+        // --- 辅助函数 ---
+        const getPhase = (x) => Math.pow(x / containerWidth, frequencyPower) * totalCycles * 2 * Math.PI;
+        const getAmplitude = (x) => startAmplitude + (endAmplitude - startAmplitude) * (x / containerWidth);
+
+        // --- SVG路径生成 (使用路径采样法，逻辑不变) ---
+        let pathData = '';
+        const step = 2;
+        for (let x = 0; x <= containerWidth; x += step) {
+            const y = verticalCenter - getAmplitude(x) * Math.sin(getPhase(x) - Math.PI / 2);
+            if (x === 0) {
+                pathData += `M ${x},${y}`;
+            } else {
+                pathData += ` L ${x},${y}`;
+            }
+        }
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', pathData);
+        svgWave.innerHTML = '';
+        svgWave.appendChild(path);
+
+        // --- 定位节点 (核心改动：使用加速间隔) ---
+        const numEvents = eventElements.length;
+        const horizontalPadding = 0.05;
+        const effectiveWidth = containerWidth * (1 - horizontalPadding * 2);
+        const startOffset = containerWidth * horizontalPadding;
+
+        // 计算非线性比例尺上的最大值
+        const maxWarpedValue = (numEvents > 1) ? Math.pow(numEvents - 1, spacingPower) : 0;
+
+        eventElements.forEach((event, index) => {
+            
+            // 1. 计算当前事件在线性索引上的“扭曲”值
+            const warpedValue = Math.pow(index, spacingPower);
+            
+            // 2. 将扭曲值归一化，得到0到1之间的百分比位置
+            const percentagePosition = (maxWarpedValue > 0) ? (warpedValue / maxWarpedValue) : 0;
+            
+            // 3. 将这个非线性的百分比映射到屏幕的有效宽度上，得到x坐标
+            const x = startOffset + percentagePosition * effectiveWidth;
+            
+            // 4. 使用x坐标计算y坐标 (这部分逻辑不变)
+            const currentAmplitude = getAmplitude(x);
+            const currentPhase = getPhase(x);
+            const y = verticalCenter - currentAmplitude * Math.sin(currentPhase - Math.PI / 2);
+
+            event.style.left = `${x}px`;
+            event.style.top = `${y}px`;
+
+            event.classList.remove('event-top', 'event-bottom');
+            if (index % 2 === 0) {
+                event.classList.add('event-top');
+            } else {
+                event.classList.add('event-bottom');
+            }
+        });
+    }
+    
+    createTimelineEvents();
+    drawAndPosition();
+    window.addEventListener('resize', drawAndPosition);
+});
+</script>
+
+</body>
+</html>
+      
+    
+    </div>
+    
+    
+      <footer class="article-footer">
+        <!-- <div class="well" style="width:100px; height:30px;"></div>  by blair-->
+        
+ <!-- by blair add 160724-->
+        <!--
+        <div style="width:100px; height:30px;"></div> by blair add 160724
+        -->
+        
+
+      </footer>
+    
+  </div>
+  
+    
+  
+</article>
+
+</section>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 DecisionIntelligence |&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a target="_blank" rel="noopener" href="http://github.com/52binge/hexo-theme-blairos">blairos</a>
+    </div>
+  </div>
+</footer> -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      displayMath: [ ['$$','$$']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" >
+</script>
+
+    
+
+
+
+
+
+
+<script src="/OpenTS/js/script.js"></script>
+
+
+  </div>
+  <!-- 把它放在 </body> 标签之前 -->
+<script>
+  // function updateLanguageLink() {
+  //   // 获取页面上我们设置的那个链接元素
+  //   const link = document.getElementById('lang-toggle-link');
+  //   if (!link) {
+  //     // 如果页面上没有这个链接，就什么都不做
+  //     return;
+  //   }
+
+  //   // 这两个值需要和你的项目配置保持一致
+  //   const DEFAULT_LANG = 'zh-cn'; // 你的默认语言，可能是 'zh' 或 'zh-cn'
+  //   const SECOND_LANG = 'en';
+
+  //   // 不再使用 page.path，而是使用浏览器当前真实的 URL
+  //   const currentPathname = window.location.pathname;
+    
+  //   // 从 config 中获取站点的根目录，以便正确拼接 URL
+  //   // hexo.config.root 通常是 '/' 或者 '/your-repo-name/'
+  //   const root = '/OpenTS/';
+  //   // console.log(currentPathname)
+  //   // console.log(root)
+  //   let targetPath;
+
+  //   // 判断当前 URL 是否以 /en/ 开头
+  //   if (currentPathname.startsWith(root + SECOND_LANG + '/')) {
+  //     // 当前是英文页, 目标是中文页
+  //     // e.g., /en/get-started/ -> /get-started/
+  //     const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
+  //     targetPath = root.slice(0, -1) + '/' + DEFAULT_LANG +  pathWithoutLang; // 拼接路径
+  //   } else if(currentPathname.startsWith(root + DEFAULT_LANG + '/')){
+  //     const pathWithoutLang = currentPathname.substring((root + DEFAULT_LANG).length);
+  //     targetPath = root.slice(0, -1) + '/' + 'en' +  pathWithoutLang; // 拼接路径
+  //   } 
+  //   else {
+  //     // 当前是中文页, 目标是英文页
+  //     // e.g., /get-started/ -> /en/get-started/
+  //     const pathWithoutRoot = currentPathname.substring(root.length);
+  //     targetPath = root + SECOND_LANG + '/' + pathWithoutRoot;
+  //   }
+
+  //   // 更新链接的 href 属性
+  //   link.href = targetPath;
+  // }
+
+  // // 监听 Pjax 加载完成事件
+  // // 注意：事件名可能是 'pjax:end', 'pjax:complete' 等，取决于主题用的库
+  // // 你可以在主题的 JS 文件里搜索 'pjax' 来确认
+  // document.addEventListener('pjax:end', updateLanguageLink);
+
+  // // 页面首次加载时也执行一次
+  // document.addEventListener('DOMContentLoaded', updateLanguageLink);
+  function updateLanguageUI() {
+    const root = '/OpenTS/';
+    const DEFAULT_LANG = 'en';
+    const SECOND_LANG = 'zh-cn';
+    const currentPathname = window.location.pathname;
+
+    // --- 1. 更新 Body Class 来切换菜单 ---
+    const isEnglishPage = currentPathname.startsWith(root + SECOND_LANG + '/');
+    
+    if (isEnglishPage) {
+      document.body.classList.add('lang-zh-cn');
+      document.body.classList.remove('lang-en');
+    } else {
+
+      document.body.classList.add('lang-en');
+      document.body.classList.remove('lang-zh-cn');
+    }
+
+    // --- 2. 更新语言切换链接的 href (新逻辑) ---
+    let linkToUpdate;
+    let targetPath;
+
+    if (isEnglishPage) {
+      // 在英文页，英文菜单可见。我们需要更新它里面的那个切换器。
+      // linkToUpdate = document.getElementById('main-nav');
+      linkToUpdate = document.getElementById('lang-toggle-link-zh-cn');
+      // 目标是中文页 (不带语言前缀)
+      const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
+      targetPath = (root.endsWith('/') ? root.slice(0, -1) : root)  + '/' + DEFAULT_LANG + pathWithoutLang;
+      if (targetPath === '') targetPath = '/';
+
+    } else {
+      // 在中文页，中文菜单可见。我们需要更新它里面的那个切换器。
+      linkToUpdate = document.getElementById('lang-toggle-link-en');
+      // linkToUpdate = document.getElementById('main-nav');
+      console.log(linkToUpdate.href)
+      // 目标是英文页
+      let pathWithoutLang = currentPathname.substring(root.length);
+      if (pathWithoutLang.startsWith(DEFAULT_LANG + '/')) {
+        pathWithoutLang = pathWithoutLang.substring((DEFAULT_LANG + '/').length);
+      }
+      targetPath = root + SECOND_LANG + '/' + pathWithoutLang;
+    }
+
+    // 如果找到了对应的链接，就更新它
+    if (linkToUpdate) {
+      linkToUpdate.href = targetPath;
+      console.log(linkToUpdate.href)
+    }
+  }
+
+  // 监听 Pjax 加载完成事件
+  document.addEventListener('pjax:end', updateLanguageUI);
+  // 页面首次加载时也执行一次
+  document.addEventListener('DOMContentLoaded', updateLanguageUI);
+</script>
+</body>
+</html>
