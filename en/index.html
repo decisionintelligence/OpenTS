@@ -22,8 +22,8 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://chy181.github.io/figures/paper.png">
 <meta property="og:image" content="https://chy181.github.io/figures/download.png">
-<meta property="article:published_time" content="2025-06-13T04:38:52.812Z">
-<meta property="article:modified_time" content="2025-06-13T04:38:52.812Z">
+<meta property="article:published_time" content="2025-06-13T05:30:58.689Z">
+<meta property="article:modified_time" content="2025-06-13T05:30:58.689Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://chy181.github.io/figures/paper.png">
@@ -82,7 +82,7 @@
                 
                 
                   <div class="dropdown">
-                    <a class="main-nav-link dropdown-toggle">测评基准 <span class="caret"></span></a>
+                    <a href="/OpenTS/zh-cn/overview" class="main-nav-link dropdown-toggle" style="">测评基准 <span class="caret"></span></a>
                     <div class="dropdown-content">
                       
                         <a href="/OpenTS/zh-cn/overview">概述</a>
@@ -109,7 +109,20 @@
                 
                 
                 
-                  <a class="main-nav-link" href="/OpenTS/zh-cn/">模型</a>
+                  <div class="dropdown">
+                    <a  class="main-nav-link dropdown-toggle" style="">模型 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/null">端到端模型</a>
+                      
+                        <a href="/OpenTS/null">基础模型</a>
+                      
+                        <a href="/OpenTS/zh-cn/algorithms/AutoCTS">自动化机器学习</a>
+                      
+                    </div>
+                  </div>
+      
+                
                 
       
               
@@ -117,7 +130,7 @@
                 
                 
                   <div class="dropdown">
-                    <a class="main-nav-link dropdown-toggle">应用 <span class="caret"></span></a>
+                    <a  class="main-nav-link dropdown-toggle" style="">应用 <span class="caret"></span></a>
                     <div class="dropdown-content">
                       
                         <a href="/OpenTS/null">AI运维</a>
@@ -143,7 +156,7 @@
                 
                 
                   <div class="dropdown">
-                    <a class="main-nav-link dropdown-toggle">排行榜 <span class="caret"></span></a>
+                    <a  class="main-nav-link dropdown-toggle" style="">排行榜 <span class="caret"></span></a>
                     <div class="dropdown-content">
                       
                         <a href="/OpenTS/zh-cn/leaderboards/univariate_time_series">单变量预测</a>
@@ -203,7 +216,7 @@
                 
                 
                   <div class="dropdown">
-                    <a class="main-nav-link dropdown-toggle">Benchmark <span class="caret"></span></a>
+                    <a href="/OpenTS/en/overview" class="main-nav-link dropdown-toggle" style="">Benchmarks <span class="caret"></span></a>
                     <div class="dropdown-content">
                       
                         <a href="/OpenTS/en/overview">Overview</a>
@@ -230,7 +243,20 @@
                 
                 
                 
-                  <a class="main-nav-link" href="/OpenTS/en/algorithms">Models</a>
+                  <div class="dropdown">
+                    <a  class="main-nav-link dropdown-toggle" style="">Models <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/null">Specific models</a>
+                      
+                        <a href="/OpenTS/null">Foundation models</a>
+                      
+                        <a href="/OpenTS/en/algorithms/AutoCTS">AutoML methods</a>
+                      
+                    </div>
+                  </div>
+      
+                
                 
       
               
@@ -238,7 +264,7 @@
                 
                 
                   <div class="dropdown">
-                    <a class="main-nav-link dropdown-toggle">Application <span class="caret"></span></a>
+                    <a  class="main-nav-link dropdown-toggle" style="">Applications <span class="caret"></span></a>
                     <div class="dropdown-content">
                       
                         <a href="/OpenTS/null">AIOps</a>
@@ -264,7 +290,7 @@
                 
                 
                   <div class="dropdown">
-                    <a class="main-nav-link dropdown-toggle">Leaderboard <span class="caret"></span></a>
+                    <a  class="main-nav-link dropdown-toggle" style="">Leaderboards <span class="caret"></span></a>
                     <div class="dropdown-content">
                       
                         <a href="/OpenTS/en/leaderboards/univariate_time_series">Univariate time series</a>
@@ -396,7 +422,9 @@
     padding: 0 10px; /* 减少 padding，缩小栏目间距 */
   }
 
-  
+  .main-nav-link:not([href]) {
+  cursor: default;
+}
 
   @media (max-width: 480px) {
     .main-nav-link {
@@ -414,7 +442,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/en/index.html" class="article-date">
-  <time datetime="2025-06-13T04:38:52.812Z" itemprop="datePublished">2025-06-13</time>
+  <time datetime="2025-06-13T05:30:58.689Z" itemprop="datePublished">2025-06-13</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -435,7 +463,7 @@
 
 <hr>
 <script src="timeline.js"></script>
-<div style="height:25px;"></div>
+<!-- <div style="height:25px;"></div>
   <svg style="position: absolute;z-index: 55;margin-top:-20px" width="1000" height="270" viewBox="0 0 1000 270" xmlns="http://www.w3.org/2000/svg"><defs><marker 
         id="arrow-right" 
         viewBox="0 0 10 10" 
@@ -459,11 +487,11 @@
       marker-end="url(#arrow-right)" 
     />
 
-  </svg>
+  </svg> -->
 <div class="main-wrapper">
         <div class="content-block">
             <div class="block-section heading">
-                <a href="datasets/"><h2>Benchmark</h2></a>
+                <a href="overview/"><h2>Benchmarks</h2></a>
             </div>
             <div class="boxx">
             <p align="center">Fair & comprehensive Benchmarking</p>
@@ -474,7 +502,15 @@
         </div>
         <div class="content-block">
             <div class="block-section heading">
-                <a href="algorithms/methods"><h2>AutoML</h2></a>
+                <a ><h2>Foudation Models</h2></a>
+            </div>
+            <div class="boxx">
+            <p align="center">Strong Zero-shot / Few-shot ability</p>
+            </div>
+        </div>
+        <div class="content-block">
+            <div class="block-section heading">
+                <a ><h2>AutoML</h2></a>
             </div>
             <div class="boxx">
             <p align="center">Automated model selection, ensemble and neural architecture search</p>
@@ -482,15 +518,7 @@
         </div>
         <div class="content-block">
             <div class="block-section heading">
-                <a href="get started/#Pipeline-introduction"><h2>Foudation Models</h2></a>
-            </div>
-            <div class="boxx">
-            <p align="center">Stroing Zero-shot / Few-shot ability</p>
-            </div>
-        </div>
-                <div class="content-block">
-            <div class="block-section heading">
-                <a href="get started/#Pipeline-introduction"><h2>Deep Learning</h2></a>
+                <a ><h2>Deep Learning</h2></a>
             </div>
             <div class="boxx">
             <p align="center">Specific challenges</p>
@@ -1128,6 +1156,7 @@ createLegend();
   display: flex;
 
     }
+
 </style>
       
     
