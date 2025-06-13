@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chy181.github.io/OpenTS/en/index.html</loc>
+    
+    <lastmod>2025-06-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chy181.github.io/OpenTS/zh-cn/index.html</loc>
     
     <lastmod>2025-06-12</lastmod>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>https://chy181.github.io/OpenTS/en/leaderboards/multivariate_time_series/index.html</loc>
-    
-    <lastmod>2025-06-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/en/index.html</loc>
     
     <lastmod>2025-06-12</lastmod>
     
@@ -598,7 +598,7 @@
 
   <url>
     <loc>https://chy181.github.io/OpenTS</loc>
-    <lastmod>2025-06-12</lastmod>
+    <lastmod>2025-06-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
