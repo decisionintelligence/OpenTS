@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Data Configuration ---
     const articleTypes = {
         'AutoML': 'square',
-        'Benchmark': 'circle',
-        'End2EndModel': 'triangle',
-        'Foundation_Models': 'diamond',
-        'Plugin': 'star' // Added Plugin type with star shape
+        'Benchmarks': 'circle',
+        'Foundation Models': 'diamond',
+        'Plugins': 'star', // Added Plugins type with star shape
+        'Specific Models': 'triangle'
     };
     const taskTypes = {
         'Forecasting': 'blue',
@@ -24,68 +24,68 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Use the new data provided by the user ---
     const timelineData = [
         {"year":2013, "papers":[
-            { "name": "STHMM [PVLDB]", "articleType": "End2EndModel", "taskType": "Forecasting","url":""}
+            { "name": "STHMM [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":""}
 
         ]},
         {"year":2018, "papers":[
-            { "name": "UncertainTS [VLDBJ]", "articleType": "End2EndModel", "taskType": "Others","url":"Efficient Stochastic Routing in Path-Centric Uncertain Road Networks"},
-            { "name": "DAE [MDM]", "articleType": "End2EndModel", "taskType": "Outlier","url":""},
-            { "name": "AECRNN [CIKM]", "articleType": "End2EndModel", "taskType": "Forecasting","url":""}
+            { "name": "UncertainTS [VLDBJ]", "articleType": "Specific Models", "taskType": "Others","url":"Efficient Stochastic Routing in Path-Centric Uncertain Road Networks"},
+            { "name": "DAE [MDM]", "articleType": "Specific Models", "taskType": "Outlier","url":""},
+            { "name": "AECRNN [CIKM]", "articleType": "Specific Models", "taskType": "Forecasting","url":""}
         ]},
         {"year":2019, "papers":[
-            { "name": "RAE [IJCAI]", "articleType": "End2EndModel", "taskType": "Outlier","url":""}
+            { "name": "RAE [IJCAI]", "articleType": "Specific Models", "taskType": "Outlier","url":""}
         ]},
         {"year":2020, "papers":[
-            { "name": "DGCRNN [ICDE]", "articleType": "End2EndModel", "taskType": "Forecasting","url":""}
+            { "name": "DGCRNN [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":""}
         ]},
         {"year":2021, "papers":[
-            { "name": "EnhanceNet [ICDE]", "articleType": "Plugin", "taskType": "Forecasting","url":"https://ieeexplore.ieee.org/document/9458855"},
+            { "name": "EnhanceNet [ICDE]", "articleType": "Plugins", "taskType": "Forecasting","url":"https://ieeexplore.ieee.org/document/9458855"},
             { "name": "AutoCTS [PVLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://arxiv.org/abs/2112.11174"},
-            { "name": "CAE [PVLDB]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3494124.3494142"}
+            { "name": "CAE [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3494124.3494142"}
         ]},
         {"year":2022, "papers":[
-            { "name": "Triformer [PVLDB]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://arxiv.org/abs/2204.13767"},
-            { "name": "ST-WA [ICDE]", "articleType": "End2EndModel", "taskType": "Forecasting","url":""},
-            { "name": "RAE [ICDE]", "articleType": "End2EndModel", "taskType": "Outlier","url":"https://ieeexplore.ieee.org/abstract/document/9835268"},
-            { "name": "VQRAE [ICDE]", "articleType": "End2EndModel", "taskType": "Outlier","url":""},
-            { "name": "HyperVerlet [AAAI]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://aaai.org/papers/04575-hyperverlet-a-symplectic-hypersolver-for-hamiltonian-systems/"}
+            { "name": "Triformer [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2204.13767"},
+            { "name": "ST-WA [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":""},
+            { "name": "RAE [ICDE]", "articleType": "Specific Models", "taskType": "Outlier","url":"https://ieeexplore.ieee.org/abstract/document/9835268"},
+            { "name": "VQRAE [ICDE]", "articleType": "Specific Models", "taskType": "Outlier","url":""},
+            { "name": "HyperVerlet [AAAI]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://aaai.org/papers/04575-hyperverlet-a-symplectic-hypersolver-for-hamiltonian-systems/"}
         ]},
         {"year":2023, "papers":[
-            { "name": "MagicSclar [PVLDB]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3611540.3611566"},
             { "name": "AutoCTS+ [SIGMOD]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.1145/3588951"},
-            { "name": "LightTS [SIGMOD]", "articleType": "End2EndModel", "taskType": "Classification","url":"https://openreview.net/forum?id=1oECpm4Xm9"},
-            { "name": "CGF [TKDE]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://ieeexplore.ieee.org/document/10064188"}
+            { "name": "MagicSclar [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3611540.3611566"},
+            { "name": "LightTS [SIGMOD]", "articleType": "Specific Models", "taskType": "Classification","url":"https://openreview.net/forum?id=1oECpm4Xm9"},
+            { "name": "CGF [TKDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://ieeexplore.ieee.org/document/10064188"}
         ]},
         {"year":2024, "papers":[
             { "name": "AutoCTS++ [VLDBJ]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://link.springer.com/article/10.1007/s00778-024-00872-x"},
-            { "name": "PatchFormer [ICLR]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://arxiv.org/abs/2402.05956"},
-            { "name": "TFB [PVLDB]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3665844.3665863"},
-            { "name": "MTSF-DG [PVLDB]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://dl.acm.org/doi/abs/10.14778/3636218.3636230"},
-            { "name": "DARF [PVLDB]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3636218.3636231"},
-            { "name": "STSimSiam [PVLDB]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://arxiv.org/abs/2404.14999"},
-            { "name": "QCore [PVLDB]", "articleType": "End2EndModel", "taskType": "Classification","url":"https://dl.acm.org/doi/10.14778/3681954.3681957"},
-            { "name": "Orca [CIKM]", "articleType": "End2EndModel", "taskType": "Forecasting","url":""}
+            { "name": "PatchFormer [ICLR]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2402.05956"},
+            { "name": "TFB [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3665844.3665863"},
+            { "name": "MTSF-DG [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/abs/10.14778/3636218.3636230"},
+            { "name": "DARF [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3636218.3636231"},
+            { "name": "STSimSiam [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2404.14999"},
+            { "name": "QCore [PVLDB]", "articleType": "Specific Models", "taskType": "Classification","url":"https://dl.acm.org/doi/10.14778/3681954.3681957"},
+            { "name": "Orca [CIKM]", "articleType": "Specific Models", "taskType": "Forecasting","url":""}
         ]},
         // --- NEW: Example of a split display --- "display": "split", "index": 6,
         {"year":2025,  "papers":[
-            { "name": "TAB [PVLDB]", "articleType": "Benchmark", "taskType": "Forecasting","url":""},
-            { "name": "TSFM-Bench [KDD]", "articleType": "Benchmark", "taskType": "Forecasting","url":""},
-            { "name": "AimTS [ICDE]", "articleType": "Foundation_Models", "taskType": "Classification","url":"https://arxiv.org/abs/2504.09993"},
-            { "name": "DADA [ICLR]", "articleType": "Foundation_Models", "taskType": "Outlier","url":"https://arxiv.org/abs/2405.15273"},
-            { "name": "ROSE [ICML]", "articleType": "Foundation_Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2405.17478"},
-            { "name": "LightGTS [ICML]", "articleType": "Foundation_Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2506.06005"},
+            { "name": "TAB [PVLDB]", "articleType": "Benchmarks", "taskType": "Forecasting","url":""},
+            { "name": "TSFM-Bench [KDD]", "articleType": "Benchmarks", "taskType": "Forecasting","url":""},
+            { "name": "AimTS [ICDE]", "articleType": "Foundation Models", "taskType": "Classification","url":"https://arxiv.org/abs/2504.09993"},
+            { "name": "DADA [ICLR]", "articleType": "Foundation Models", "taskType": "Outlier","url":"https://arxiv.org/abs/2405.15273"},
+            { "name": "ROSE [ICML]", "articleType": "Foundation Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2405.17478"},
+            { "name": "LightGTS [ICML]", "articleType": "Foundation Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2506.06005"},
             { "name": "FACT [PVLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":""},
-            { "name": "LipFormer [ICDE]", "articleType": "End2EndModel", "taskType": "Forecasting","url":""},
-            { "name": "SSD-TS [KDD]", "articleType": "Benchmark", "taskType": "Others","url":""},
-            { "name": "IGCL [KDD]", "articleType": "End2EndModel", "taskType": "Others","url":""},
-            { "name": "DUET [KDD]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://arxiv.org/abs/2412.10859"},
-            { "name": "K2VAE [ICML]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"AAhttps://arxiv.org/abs/2505.23017AAA"},
-            { "name": "MemFormer [PVLDB]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3705829.3705842"},
-            { "name": "TEAM [PVLDB]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://arxiv.org/abs/2410.19192"},
-            { "name": "ContraAD [PVLDB]", "articleType": "End2EndModel", "taskType": "Outlier","url":""},
-            { "name": "TimeDC [PVLDB]", "articleType": "End2EndModel", "taskType": "Forecasting","url":""},
-            { "name": "Catch [ICLR]", "articleType": "End2EndModel", "taskType": "Outlier","url":"https://arxiv.org/abs/2410.12261"},
-            { "name": "Air-DualODE [ICLR]", "articleType": "End2EndModel", "taskType": "Forecasting","url":"https://arxiv.org/abs/2410.19892"}
+            { "name": "LipFormer [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":""},
+            { "name": "SSD-TS [KDD]", "articleType": "Specific Models", "taskType": "Others","url":""},
+            { "name": "IGCL [KDD]", "articleType": "Specific Models", "taskType": "Others","url":""},
+            { "name": "DUET [KDD]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2412.10859"},
+            { "name": "K2VAE [ICML]", "articleType": "Specific Models", "taskType": "Forecasting","url":"AAhttps://arxiv.org/abs/2505.23017AAA"},
+            { "name": "MemFormer [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3705829.3705842"},
+            { "name": "TEAM [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2410.19192"},
+            { "name": "ContraAD [PVLDB]", "articleType": "Specific Models", "taskType": "Outlier","url":""},
+            { "name": "TimeDC [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":""},
+            { "name": "Catch [ICLR]", "articleType": "Specific Models", "taskType": "Outlier","url":"https://arxiv.org/abs/2410.12261"},
+            { "name": "Air-DualODE [ICLR]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2410.19892"}
         ]}
     ];
 
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
      */
 function createLegend() {
         // Use Chinese translations for legend titles
-        let articleHtml = '<h4>Marker</h4>';
+        let articleHtml = '<h4>Markers</h4>';
         for (const [type, shape] of Object.entries(articleTypes)) {
             // Replace underscores for better display
             const displayType = type.replace(/_/g, ' ');
@@ -209,8 +209,8 @@ function createLegend() {
         if (eventElements.length === 0) return;
 
         // --- WAVE AND POSITIONING LOGIC ---
-        const firstHalfCycleWidth = 70;
-        const subsequentCycleWidth = 190;
+        const firstHalfCycleWidth = 110;
+        const subsequentCycleWidth = 183;
 
         /**
          * Calculates the x-coordinate on the wave from a given phase.
@@ -251,8 +251,8 @@ function createLegend() {
         const verticalCenter = areaHeight / 2;
 
         // Wave amplitude parameters
-        const startAmplitude = 40;
-        const endAmplitude = 120;
+        const startAmplitude = 0;
+        const endAmplitude = 0;
 
         /**
          * Calculates the y-position of the wave at a given x-coordinate.

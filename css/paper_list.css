@@ -1,0 +1,109 @@
+.easyScholarDOI
+{
+    display:none
+}
+.publications-container {
+    max-width: 95%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.publication-item {
+    display: flex;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.publication-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.publication-image-container {
+    flex: 0 0 200px; /* 固定宽度 */
+    height: 100%;   /* 新增：固定高度，用于裁剪 */
+    margin-right: 20px;
+    position: relative; /* For positioning the year tag */
+    overflow: hidden; /* 确保超出容器的部分被裁剪 (虽然 object-fit 通常能处理) */
+    margin-top: 2px;
+}
+
+.publication-image-container img {
+    width: 100%;     /* 宽度充满容器 */
+    height: 100%;    /* 高度充满容器 */
+    display: block;
+    object-fit: cover; /* 核心：缩放并裁剪图片以填充容器，保持宽高比 */
+    /* object-position: center; */ /* 可选：控制裁剪焦点，默认是 center center */
+    /* border: 1px solid #ddd; */ /* 可以保留或移除，看效果 */
+}
+.year-tag {
+position: absolute;
+top: 0px;
+left: 0px;
+background-color: #0056b3;
+color: white;
+padding: 3px 8px;
+font-size: 0.8em;
+font-weight: bold;
+border-radius: 3px 0 3px 0;
+z-index: 1; /* 确保年份标签在图片之上 */
+}
+.award-tag
+{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #e74d3c;
+    color: white;
+    padding: 3px 8px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 3px 0 3px 0;
+    z-index: 1; /* 确保年份标签在图片之上 */
+    }
+.publication-details {
+    flex: 1;
+}
+
+.publication-details h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+}
+
+.publication-details h3 a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.publication-details h3 a:hover {
+    text-decoration: underline;
+}
+
+.publication-authors {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.publication-venue {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.publication-links a {
+    font-size: 0.9em;
+    color: #0056b3;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.publication-links a:hover {
+    text-decoration: underline;
+}

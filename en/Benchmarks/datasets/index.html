@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/OpenTS/js/jquery.min.js"></script>
+  <link rel="icon" type="image/png" href="https://decisionintelligence.github.io/OpenTS/figures/logo10.png">
+  <meta name="google-site-verification" content="0HzGL60Z8ChYs-wL6ogMpNB-px7tcu9PcRD1z6OQWe8" />
+  <meta name="msvalidate.01" content="FD2A799A0C64AAB3A8289819F1C2DFFB" />
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta http-equiv='content-language' content='en-gb'>
+  <meta charset="utf-8">
+  
+  
+  <title>OpenTS - Democratizing AI for Time series and Spatio-temporal data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
+  <meta name="description" content="OpenTS-Bench DatasetsTable of Contents Overview  Univariate time series  Multivariate time series     Overview        .container {         display: flex;         width: 100%;         max-width:100%;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
+<meta property="og:url" content="https://chy181.github.io/OpenTS/en/Benchmarks/datasets/index.html">
+<meta property="og:site_name" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
+<meta property="og:description" content="OpenTS-Bench DatasetsTable of Contents Overview  Univariate time series  Multivariate time series     Overview        .container {         display: flex;         width: 100%;         max-width:100%;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chy181.github.io/OpenTS/figures/Main-datasets-leaderboard.drawio.png">
+<meta property="article:published_time" content="2025-06-13T12:28:41.770Z">
+<meta property="article:modified_time" content="2025-06-13T12:28:41.770Z">
+<meta property="article:author" content="DecisionIntelligence |">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chy181.github.io/OpenTS/figures/Main-datasets-leaderboard.drawio.png">
+  
+
+  <link href="/OpenTS/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/OpenTS/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/OpenTS/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <!-- blair add baidu tongji start... @2017.10.03 -->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?8864d";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+<!-- blair add baidu tongji end ! @2017.10.03 -->
+<!-- jiangting add start... @2020.08.30 -->
+
+<!-- jiangting add end !  @2020.08.30 -->
+
+<header id="header" style="min-width:1040px">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <!-- <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a> -->
+      
+
+      <nav id="main-nav">
+        
+        
+          
+          
+            <div class="menu-container" data-lang="zh-cn">
+              <!-- <p style="font-size: 25px;font-weight: 620;">OpenTS</p> -->
+              <a id="logo" style="margin:3px 0; margin-left: 5px;" class="logo" href="/OpenTS/"></a>
+              <!-- <div style="width: 4px;height: 58px;border-right: 2px solid #797777;"></div> -->
+              
+                
+                
+                
+                  <a class="main-nav-link" href="/OpenTS/zh-cn/">易步时空</a>
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a href="/OpenTS/zh-cn/benchmarks/overview" class="main-nav-link dropdown-toggle" style="">测评基准 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/benchmarks/overview">概述</a>
+                      
+                        <a href="/OpenTS/zh-cn/benchmarks/get%20started/">快速开始</a>
+                      
+                        <a href="/OpenTS/zh-cn/benchmarks/datasets">数据集</a>
+                      
+                        <a href="/OpenTS/zh-cn/benchmarks/algorithms/methods">算法</a>
+                      
+                        <a href="/OpenTS/zh-cn/benchmarks/team">团队</a>
+                      
+                        <a href="/OpenTS/zh-cn/benchmarks/papers">论文</a>
+                      
+                        <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">代码</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a  class="main-nav-link dropdown-toggle" style="">模型 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/Foundation%20models">基础模型</a>
+                      
+                        <a href="/OpenTS/zh-cn/AutoML">自动化机器学习</a>
+                      
+                        <a href="/OpenTS/zh-cn/Deep%20Learning">深度学习</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a href="/OpenTS/zh-cn/Applications" class="main-nav-link dropdown-toggle" style="">应用 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#AIOps">智能运维</a>
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#Intelligent-Transportation">智慧交通</a>
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#Virtual-Power-Plants">虚拟电厂</a>
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#AI4DB">智能数据库优化</a>
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#FinTech">金融科技</a>
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#Smart-Emergency-Response">智能应急响应e</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a  class="main-nav-link dropdown-toggle" style="">排行榜 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/univariate_time_series">单变量预测</a>
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/multivariate_time_series">多变量预测</a>
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/foundation_model">基础模型</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://decisionintelligence.github.io/index">实验室</a>
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://github.com/decisionintelligence">Github</a>
+                
+      
+              
+                
+                
+                
+                  <a id="lang-toggle-link-zh-cn" class="main-nav-link" href="javascript:;">中文|English</a>
+
+                
+                
+      
+              
+            </div>
+          
+        
+          
+          
+            <div class="menu-container" data-lang="en">
+              <!-- <p style="font-size: 25px;font-weight: 620;">OpenTS</p> -->
+              <a id="logo" style="margin:3px 0; margin-left: 5px;" class="logo" href="/OpenTS/"></a>
+              <!-- <div style="width: 4px;height: 58px;border-right: 2px solid #797777;"></div> -->
+              
+                
+                
+                
+                  <a class="main-nav-link" href="/OpenTS/en/">OpenTS</a>
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a href="/OpenTS/en/benchmarks/overview" class="main-nav-link dropdown-toggle" style="">Benchmarks <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/benchmarks/overview">Overview</a>
+                      
+                        <a href="/OpenTS/en/benchmarks/get%20started/">Get started</a>
+                      
+                        <a href="/OpenTS/en/benchmarks/datasets">Datasets</a>
+                      
+                        <a href="/OpenTS/en/benchmarks/algorithms/methods">Algorithms</a>
+                      
+                        <a href="/OpenTS/en/benchmarks/team">Team</a>
+                      
+                        <a href="/OpenTS/en/benchmarks/papers">Papers</a>
+                      
+                        <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">Codes</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a  class="main-nav-link dropdown-toggle" style="">Models <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/Foundation%20models">Foundation models</a>
+                      
+                        <a href="/OpenTS/en/AutoML">AutoML</a>
+                      
+                        <a href="/OpenTS/en/Deep%20Learning">Deep Learning</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a href="/OpenTS/en/Applications" class="main-nav-link dropdown-toggle" style="">Applications <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/Applications/#AIOps">AIOps</a>
+                      
+                        <a href="/OpenTS/en/Applications/#Intelligent-Transportation">Intelligent Transportation</a>
+                      
+                        <a href="/OpenTS/en/Applications/#Virtual-Power-Plants">Virtual Power Plants</a>
+                      
+                        <a href="/OpenTS/en/Applications/#AI4DB">AI4DB</a>
+                      
+                        <a href="/OpenTS/en/Applications/#FinTech">FinTech</a>
+                      
+                        <a href="/OpenTS/en/Applications/#Smart-Emergency-Response">Smart Emergency Response</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a  class="main-nav-link dropdown-toggle" style="">Leaderboards <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/en/leaderboards/univariate_time_series">Univariate time series</a>
+                      
+                        <a href="/OpenTS/en/leaderboards/multivariate_time_series">Multivariate time series</a>
+                      
+                        <a href="/OpenTS/en/leaderboards/foundation_model">Foundation model</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://decisionintelligence.github.io/index">Lab</a>
+                
+      
+              
+                
+                
+                
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://github.com/decisionintelligence">Github</a>
+                
+      
+              
+                
+                
+                
+                  <a id="lang-toggle-link-en" class="main-nav-link" href="javascript:;">English|中文</a>
+
+                
+                
+      
+              
+            </div>
+          
+        
+      </nav>
+    
+    </div>
+  </div>
+</header>
+
+<style>
+  #header {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+  }
+
+  #header-outer {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+  }
+
+  #header-inner {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    width: 1000px; /* 设置最大宽度 */
+    margin: auto; /* 居中对齐 */ /* 确保占满父元素的宽度 */
+    flex-wrap: nowrap; /* 保持内容在同一行 */
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    text-align: right;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    top: 100%;
+    right: 0;
+    width: auto;
+    min-width: 100%;
+    white-space: nowrap;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-top: 1px solid #ddd;
+  }
+
+  .dropdown-content a:first-child {
+    border-top: none;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-toggle::after {
+    content: " ▼";
+    font-size: 0.55em;
+    vertical-align: middle;
+  }
+
+  #main-nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-around;
+    flex-wrap: nowrap; /* 保持内容在同一行 */
+  }
+
+  .main-nav-link {
+    padding: 0 10px; /* 减少 padding，缩小栏目间距 */
+  }
+
+  .main-nav-link:not([href]) {
+  cursor: default;
+}
+
+  @media (max-width: 480px) {
+    .main-nav-link {
+      padding: 5px; /* 进一步减少 padding，在小屏幕上更紧凑 */
+      flex: 1;
+      text-align: center;
+    }
+  }
+</style>
+
+    <br>
+    <section id="main" class="outer"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    <div class="article-meta">
+      <!--<a href="/OpenTS/en/Benchmarks/datasets/index.html" class="article-date">
+  <time datetime="2025-06-13T12:28:41.770Z" itemprop="datePublished">2025-06-13</time>
+</a>-->
+      <!-- 
+--><!-- by blair 160724 -->
+      <!-- by blair
+      
+      -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="OpenTS-Bench-Datasets"><a href="#OpenTS-Bench-Datasets" class="headerlink" title="OpenTS-Bench Datasets"></a>OpenTS-Bench Datasets</h1><h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ol>
+<li><p><a href="#Overview">Overview</a></p>
+</li>
+<li><p><a href="#Univariate-time-series">Univariate time series</a></p>
+</li>
+<li><p><a href="#Multivariate-time-series">Multivariate time series</a></p>
+</li>
+</ol>
+<!-- 1. [Dataset comprehensiveness](#Dataset-comprehensiveness) -->
+
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><style>       
+.container {
+        display: flex;
+        width: 100%;
+        max-width:100%;
+        padding:0;
+    }
+    .text-section {
+        /* flex: 3; */
+        /* width:60%; */
+        padding-right:50px;
+        /* max-width:607px */
+        width:500px;
+    }
+    .image-section {
+        /* flex: 2.3; */
+        text-align: center;
+        width:675px;
+    }
+    .image-section img {
+        max-width: 100%;
+        height: auto;
+        margin-top:8px;
+
+    }
+    .header {
+        font-size: 3.5em;
+        margin-bottom:3%
+    }
+    .section-title {
+        font-weight: bold;
+        display:inline;
+    }
+    .content {
+      font-size: 1.2em;
+      /* margin-bottom:3%; */
+      margin-bottom:10px;
+      width:100%;
+      line-height:1.5
+    }
+    .link {
+        color: blue;
+        text-decoration: none;
+    }
+    .link:hover {
+        text-decoration: underline;
+    }
+</style>
+<div class="content">
+            The OpenTS aims to provide a wide variety of time series datasets that cover diverse charactistics, rich domains, multiple tasks, and varying lengths and dimensions.
+        </div>
+<div class="container">
+    <div class="text-section">
+        <!-- <div class="header">OGB Dataset Overview</div> -->
+        <div class="content"> 
+            <div class="section-title">Diverse charactistics: </div>
+           OpenTS covers diverse time series data characteristics, including seasonality, trend, stationarity, transition, shifting, and correlation.
+        </div>
+        <div class="content">
+          <div class="section-title">Rich domains: </div>
+            OpenTS datasets come from ten different domains, including traffic, electricity, energy, the environment, nature, economic, stock markets, banking, health, and the web.
+      </div>
+    <div class="content">
+        <div class="section-title">Multiple tasks: </div>
+        We cover two fundamental time series forecasting tasks: <a href="#Univariate-time-series" class="link">univariate forecating</a> and <a href="#Multivariate-time-series" class="link">multivariate forecating</a>.
+  </div>
+    </div>
+    <div class="image-section">
+        <img src="../../../figures/Main-datasets-leaderboard.drawio.png">
+    </div>
+
+</div>
+
+
+<h2 id="Univariate-time-series"><a href="#Univariate-time-series" class="headerlink" title="Univariate time series"></a>Univariate time series</h2><p>The univariate dataset includes 8,068 time series which are carefully curated from 16 open-source datasets from multiple domains. Table 1 categorizes the univariate dataset by sampling frequency; and for each frequency category, it reports the number of time series with different charactistics, including seasonality, trend, shifting, transition, stationarity, and the average lengths.  </p>
+<div style="display: flex;justify-content: center; /* 水平居中 */padding: 0;">
+<table class="my-table" style="width: 90%;">
+  <thead>
+    <tr>
+      <th>Frequency</th>
+      <th>#Series</th>
+      <th>Seasonality</th>
+      <th>Trend</th>
+      <th>Shifting</th>
+      <th>Transition</th>
+      <th>Stationarity</th>
+      <th>Average Lens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Yearly</td>
+      <td>1,500</td>
+      <td>611</td>
+      <td>1,086</td>
+      <td>978</td>
+      <td>633</td>
+      <td>354</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td>Quarterly</td>
+      <td>1,514</td>
+      <td>486</td>
+      <td>933</td>
+      <td>889</td>
+      <td>894</td>
+      <td>471</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <td>Monthly</td>
+      <td>1,674</td>
+      <td>883</td>
+      <td>884</td>
+      <td>778</td>
+      <td>1,212</td>
+      <td>667</td>
+      <td>259</td>
+    </tr>
+    <tr>
+      <td>Weekly</td>
+      <td>805</td>
+      <td>253</td>
+      <td>330</td>
+      <td>445</td>
+      <td>407</td>
+      <td>372</td>
+      <td>536</td>
+    </tr>
+    <tr>
+      <td>Daily</td>
+      <td>1,484</td>
+      <td>374</td>
+      <td>502</td>
+      <td>487</td>
+      <td>1,176</td>
+      <td>714</td>
+      <td>4,951</td>
+    </tr>
+    <tr>
+      <td>Hourly</td>
+      <td>706</td>
+      <td>435</td>
+      <td>276</td>
+      <td>284</td>
+      <td>680</td>
+      <td>472</td>
+      <td>5,109</td>
+    </tr>
+    <tr>
+      <td>Other</td>
+      <td>385</td>
+      <td>75</td>
+      <td>248</td>
+      <td>236</td>
+      <td>195</td>
+      <td>124</td>
+      <td>1,678</td>
+    </tr>
+    <tr>
+      <td><i>Total</i></td>
+      <td><i>8,068</i></td>
+      <td><i>3,117</i></td>
+      <td><i>4,259</i></td>
+      <td><i>4,097</i></td>
+      <td><i>5,197</i></td>
+      <td><i>3,174</i></td>
+      <td><i>1,569</i></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+<!-- ![](../../../figures/single-data.png) -->
+
+<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Table 1: Statistics of univariate datasets.</center>
+
+<h2 id="Multivariate-time-series"><a href="#Multivariate-time-series" class="headerlink" title="Multivariate time series"></a>Multivariate time series</h2><p>The multivariate datasets include 25 multivariate time series from 10 domains. The sampling frequencies vary from every 5 minutes to 1 month, the range of feature dimensions varies from 5 to 2,000, and the time series length varies from 728 to 57,600. This substantial diversity of the multivariate datasets enables comprehensive benchmarking of different forecasting methods. To ensure fair comparisons, we choose a fixed data split ratio for each dataset chronologically, e.g., 7:1:2 or 6:2:2, for training, validation and testing. </p>
+<style>
+  /* 基本表格样式 */
+  table.my-table {
+    min-width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border: none; /* 去除表格边框 */
+
+  }
+
+  /* 表头样式 */
+  table.my-table th {
+    background-color: #f2f2f2; /* 表头背景色（奇数行浅灰色） */
+    color: black; /* 表头文字颜色 */
+    font-weight: bold; /* 表头字体加粗 */
+    padding: 10px; /* 调整表头内边距 */
+    text-align: center; /* 居中对齐 */
+    border: none;
+  }
+
+  /* 偶数行背景色 */
+  table.my-table tr:nth-child(odd) {
+    background-color: #ffffff; /* 偶数行背景色（白色） */
+  }
+
+  /* 奇数行背景色 */
+  table.my-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* 奇数行背景色（浅灰色） */
+  }
+
+
+  /* 单元格样式 */
+  table.my-table td {
+    padding: 10px; /* 调整单元格内边距 */
+    text-align: center; /* 居中对齐 */
+    border: none; /* 去除单元格边框 */
+    white-space: nowrap; /* 防止文本换行 */
+  }
+
+</style>
+
+<style>
+  /* 基本表格样式 */
+  table.my-table1 {
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border: none; /* 去除表格边框 */
+    margin:0
+  }
+
+  /* 表头样式 */
+  table.my-table1 th {
+    background-color: #f2f2f2; /* 表头背景色（奇数行浅灰色） */
+    color: black; /* 表头文字颜色 */
+    font-weight: bold; /* 表头字体加粗 */
+    padding: 10px; /* 调整表头内边距 */
+    text-align: center; /* 居中对齐 */
+    border: none;
+  }
+
+  /* 偶数行背景色 */
+  table.my-table1 tr:nth-child(odd) {
+    background-color: #ffffff; /* 偶数行背景色（白色） */
+  }
+
+  /* 奇数行背景色 */
+  table.my-table1 tr:nth-child(even) {
+    background-color: #f2f2f2; /* 奇数行背景色（浅灰色） */
+  }
+
+
+  /* 单元格样式 */
+  table.my-table1 td {
+    padding: 10px; /* 调整单元格内边距 */
+    text-align: center; /* 居中对齐 */
+    border: none; /* 去除单元格边框 */
+    white-space: nowrap; /* 防止文本换行 */
+  }
+  table.my-table1 tr td:nth-child(7),table.my-table1 tr th:nth-child(7)   {
+  /* max-width: 0px; 设置第4行单元格最大宽度 */
+  text-align: left;
+}
+
+.table-container {
+  width: 100%; /* Adjust width as needed */
+  /* max-width: 100%; Ensure it doesn't exceed the container width */
+  /* Adjust height as needed */
+  overflow-x: auto; /* Enable horizontal scroll */
+  margin:auto;
+  overflow-y: hidden; /* Enable vertical scroll */
+  display: flex;justify-content: LEFT;
+}
+
+
+</style>
+
+<!-- ![](../../../figures/multi-datasets.png) -->
+<div style="width:100%" class="table-container">
+<table class="my-table1" style="">
+  <thead>
+    <tr>
+      <th>Dataset</th>
+      <th>Domain</th>
+      <th>Frequency</th>
+      <th>Lengths</th>
+      <th>Dim</th>
+      <th>Split</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1707.01926">METR-LA</a></td>
+      <td>Traffic</td>
+      <td>5 mins</td>
+      <td>34,272</td>
+      <td>207</td>
+      <td>7:1:2</td>
+      <td title='>Traffic speed dataset collected from loopdetectors in the LA County road network'>Traffic speed dataset collected from loopdetectors in the LA County road network</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1707.01926">PEMS-BAY</a></td>
+      <td>Traffic</td>
+      <td>5 mins</td>
+      <td>52,116</td>
+      <td>325</td>
+      <td>7:1:2</td>
+      <td title='Traffic speed dataset collected from the CalTrans PeMS'>Traffic speed dataset collected from the CalTrans PeMS</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/5438">PEMS04</a></td>
+      <td>Traffic</td>
+      <td>5 mins</td>
+      <td>16,992</td>
+      <td>307</td>
+      <td>6:2:2</td>
+      <td title='Traffic flow time series collected from the CalTrans PeMS'>Traffic flow time series collected from the CalTrans PeMS</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/5438">PEMS08</a></td>
+      <td>Traffic</td>
+      <td>5 mins</td>
+      <td>17,856</td>
+      <td>170</td>
+      <td>6:2:2</td>
+      <td title='Traffic flow time series collected from the CalTrans PeMS'>Traffic flow time series collected from the CalTrans PeMS</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html">Traffic</a></td>
+      <td>Traffic</td>
+      <td>1 hour</td>
+      <td>17,544</td>
+      <td>862</td>
+      <td>7:1:2</td>
+      <td title='Road occupancy rates measured by 862 sensors on San Francisco Bay area freeways'>Road occupancy rates measured by 862 sensors on San Francisco Bay area freeways</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/17325">ETTh1</a></td>
+      <td>Electricity</td>
+      <td>1 hour</td>
+      <td>14,400</td>
+      <td>7</td>
+      <td>6:2:2</td>
+      <td title='Power transformer 1, comprising seven indicators such as oil temperature and useful load'>Power transformer 1, comprising seven indicators such as oil temperature and useful load</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/17325">ETTh2</a></td>
+      <td>Electricity</td>
+      <td>1 hour</td>
+      <td>14,400</td>
+      <td>7</td>
+      <td>6:2:2</td>
+      <td title='Power transformer 2, comprising seven indicators such as oil temperature and useful load'>Power transformer 2, comprising seven indicators such as oil temperature and useful load</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/17325">ETTm1</a></td>
+      <td>Electricity</td>
+      <td>15 mins</td>
+      <td>57,600</td>
+      <td>7</td>
+      <td>6:2:2</td>
+      <td title='Power transformer 1, comprising seven indicators such as oil temperature and useful load'>Power transformer 1, comprising seven indicators such as oil temperature and useful load</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/17325">ETTm2</a></td>
+      <td>Electricity</td>
+      <td>15 mins</td>
+      <td>57,600</td>
+      <td>7</td>
+      <td>6:2:2</td>
+      <td title='Power transformer 2, comprising seven indicators such as oil temperature and useful load'>Power transformer 2, comprising seven indicators such as oil temperature and useful load</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://ergodicity.net/2013/07/">Electricity</a></td>
+      <td>Electricity</td>
+      <td>1 hour</td>
+      <td>26,304</td>
+      <td>321</td>
+      <td>7:1:2</td>
+      <td title='Electricity records the electricity consumption in kWh every 1 hour from 2012 to 2014'>Electricity records the electricity consumption in kWh every 1 hour from 2012 to 2014</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3209978.3210006">Solar</a></td>
+      <td>Energy</td>
+      <td>10 mins</td>
+      <td>52,560</td>
+      <td>137</td>
+      <td>6:2:2</td>
+       <td title='Solar production records collected from 137 PV plants in Alabama'>Solar production records collected from 137 PV plants in Alabama</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3209978.3210006">Wind</a></td>
+      <td>Energy</td>
+      <td>15 mins</td>
+      <td>48,673</td>
+      <td>7</td>
+      <td>7:1:2</td>
+      <td title='Wind power records from 2020-2021 at 15-minute intervals'>Wind power records from 2020-2021 at 15-minute intervals</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html">Weather</a></td>
+      <td>Environment</td>
+      <td>10 mins</td>
+      <td>52,696</td>
+      <td>21</td>
+      <td>7:1:2</td>
+      <td title='Recorded every for the whole year 2020, which contains 21 meteorological indicators'>Recorded every for the whole year 2020, which contains 21 meteorological indicators</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://royalsocietypublishing.org/doi/abs/10.1098/rspa.2017.0457">AQShunyi</a></td>
+      <td>Environment</td>
+      <td>1 hour</td>
+      <td>35,064</td>
+      <td>11</td>
+      <td>6:2:2</td>
+      <td title='Air quality datasets from a measurement station, over a period of 4 years'>Air quality datasets from a measurement station, over a period of 4 years</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://royalsocietypublishing.org/doi/abs/10.1098/rspa.2017.0457">AQWan</a></td>
+      <td>Environment</td>
+      <td>1 hour</td>
+      <td>35,064</td>
+      <td>11</td>
+      <td>6:2:2</td>
+      <td title='Air quality datasets from a measurement station, over a period of 4 years'>Air quality datasets from a measurement station, over a period of 4 years</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://academic.oup.com/treephys/article-abstract/36/12/1449/2571314">ZafNoo</a></td>
+      <td>Nature</td>
+      <td>30 mins</td>
+      <td>19,225</td>
+      <td>11</td>
+      <td>7:1:2</td>
+      <td title='From the Sapflux data project includes sap flow measurements and nvironmental variables'>From the Sapflux data project includes sap flow measurements and nvironmental variables</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://academic.oup.com/treephys/article-abstract/36/12/1449/2571314">CzeLan</a></td>
+      <td>Nature</td>
+      <td>30 mins</td>
+      <td>19,934</td>
+      <td>11</td>
+      <td>7:1:2</td>
+      <td title='From the Sapflux data project includes sap flow measurements and nvironmental variables'>From the Sapflux data project includes sap flow measurements and nvironmental variables</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://www.tandfonline.com/doi/abs/10.1080/07350015.2015.1086655">FRED-MD</a></td>
+      <td>Economic</td>
+      <td>1 month</td>
+      <td>728</td>
+      <td>107</td>
+      <td>7:1:2</td>
+      <td title='Time series showing a set of macroeconomic indicators from the Federal Reserve Bank'>Time series showing a set of macroeconomic indicators from the Federal Reserve Bank</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3209978.3210006">Exchange</a></td>
+      <td>Economic</td>
+      <td>1 day</td>
+      <td>7,588</td>
+      <td>8</td>
+      <td>7:1:2</td>
+      <td title='ExchangeRate collects the daily exchange rates of eight countries'>ExchangeRate collects the daily exchange rates of eight countries</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3309547">NASDAQ</a></td>
+      <td>Stock</td>
+      <td>1 day</td>
+      <td>1,244</td>
+      <td>5</td>
+      <td>7:1:2</td>
+      <td title='Records opening price, closing price, trading volume, lowest price, and highest price'>Records opening price, closing price, trading volume, lowest price, and highest price</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.1145/3309547">NYSE</a></td>
+      <td>Stock</td>
+      <td>1 day</td>
+      <td>1,243</td>
+      <td>5</td>
+      <td>7:1:2</td>
+      <td title='Records opening price, closing price, trading volume, lowest price, and highest price'>Records opening price, closing price, trading volume, lowest price, and highest price</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0957417412000528">NN5</a></td>
+      <td>Banking</td>
+      <td>1 day</td>
+      <td>791</td>
+      <td>111</td>
+      <td>7:1:2</td>
+      <td title='NN5 is from banking, records the daily cash withdrawals from ATMs in UK'>NN5 is from banking, records the daily cash withdrawals from ATMs in UK</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html">ILI</a></td>
+      <td>Health</td>
+      <td>1 week</td>
+      <td>966</td>
+      <td>7</td>
+      <td>7:1:2</td>
+      <td title='Recorded indicators of patients data from Centers for Disease Control and Prevention'>Recorded indicators of patients data from Centers for Disease Control and Prevention</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/16616">Covid-19</a></td>
+      <td>Health</td>
+      <td>1 day</td>
+      <td>1,392</td>
+      <td>948</td>
+      <td>7:1:2</td>
+      <td title="Provide opportunities for researchers to investigate the dynamics of COVID-19">Provide opportunities for researchers to investigate the dynamics of COVID-19</td>
+    </tr>
+    <tr>
+      <td><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v89/gasthaus19a.html">Wike2000</a></td>
+      <td>Web</td>
+      <td>1 day</td>
+      <td>792</td>
+      <td>2,000</td>
+      <td>7:1:2</td>
+      <td  title="Wike2000 is daily page views of 2000 Wikipedia pages">Wike2000 is daily page views of 2000 Wikipedia pages</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">Table 2: Statistics of multivariate datasets.</center>
+
+
+      
+    
+    </div>
+    
+    
+      <footer class="article-footer">
+        <!-- <div class="well" style="width:100px; height:30px;"></div>  by blair-->
+        
+ <!-- by blair add 160724-->
+        <!--
+        <div style="width:100px; height:30px;"></div> by blair add 160724
+        -->
+        
+
+      </footer>
+    
+  </div>
+  
+    
+  
+</article>
+
+</section>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 DecisionIntelligence |&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a target="_blank" rel="noopener" href="http://github.com/52binge/hexo-theme-blairos">blairos</a>
+    </div>
+  </div>
+</footer> -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      displayMath: [ ['$$','$$']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" >
+</script>
+
+    
+
+
+
+
+
+
+<script src="/OpenTS/js/script.js"></script>
+
+
+  </div>
+  <!-- 把它放在 </body> 标签之前 -->
+<script>
+  // function updateLanguageLink() {
+  //   // 获取页面上我们设置的那个链接元素
+  //   const link = document.getElementById('lang-toggle-link');
+  //   if (!link) {
+  //     // 如果页面上没有这个链接，就什么都不做
+  //     return;
+  //   }
+
+  //   // 这两个值需要和你的项目配置保持一致
+  //   const DEFAULT_LANG = 'zh-cn'; // 你的默认语言，可能是 'zh' 或 'zh-cn'
+  //   const SECOND_LANG = 'en';
+
+  //   // 不再使用 page.path，而是使用浏览器当前真实的 URL
+  //   const currentPathname = window.location.pathname;
+    
+  //   // 从 config 中获取站点的根目录，以便正确拼接 URL
+  //   // hexo.config.root 通常是 '/' 或者 '/your-repo-name/'
+  //   const root = '/OpenTS/';
+  //   // console.log(currentPathname)
+  //   // console.log(root)
+  //   let targetPath;
+
+  //   // 判断当前 URL 是否以 /en/ 开头
+  //   if (currentPathname.startsWith(root + SECOND_LANG + '/')) {
+  //     // 当前是英文页, 目标是中文页
+  //     // e.g., /en/get-started/ -> /get-started/
+  //     const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
+  //     targetPath = root.slice(0, -1) + '/' + DEFAULT_LANG +  pathWithoutLang; // 拼接路径
+  //   } else if(currentPathname.startsWith(root + DEFAULT_LANG + '/')){
+  //     const pathWithoutLang = currentPathname.substring((root + DEFAULT_LANG).length);
+  //     targetPath = root.slice(0, -1) + '/' + 'en' +  pathWithoutLang; // 拼接路径
+  //   } 
+  //   else {
+  //     // 当前是中文页, 目标是英文页
+  //     // e.g., /get-started/ -> /en/get-started/
+  //     const pathWithoutRoot = currentPathname.substring(root.length);
+  //     targetPath = root + SECOND_LANG + '/' + pathWithoutRoot;
+  //   }
+
+  //   // 更新链接的 href 属性
+  //   link.href = targetPath;
+  // }
+
+  // // 监听 Pjax 加载完成事件
+  // // 注意：事件名可能是 'pjax:end', 'pjax:complete' 等，取决于主题用的库
+  // // 你可以在主题的 JS 文件里搜索 'pjax' 来确认
+  // document.addEventListener('pjax:end', updateLanguageLink);
+
+  // // 页面首次加载时也执行一次
+  // document.addEventListener('DOMContentLoaded', updateLanguageLink);
+  function updateLanguageUI() {
+    const root = '/OpenTS/';
+    const DEFAULT_LANG = 'en';
+    const SECOND_LANG = 'zh-cn';
+    const currentPathname = window.location.pathname;
+
+    // --- 1. 更新 Body Class 来切换菜单 ---
+    const isEnglishPage = currentPathname.startsWith(root + SECOND_LANG + '/');
+    
+    if (isEnglishPage) {
+      document.body.classList.add('lang-zh-cn');
+      document.body.classList.remove('lang-en');
+    } else {
+
+      document.body.classList.add('lang-en');
+      document.body.classList.remove('lang-zh-cn');
+    }
+
+    // --- 2. 更新语言切换链接的 href (新逻辑) ---
+    let linkToUpdate;
+    let targetPath;
+
+    if (isEnglishPage) {
+      // 在英文页，英文菜单可见。我们需要更新它里面的那个切换器。
+      // linkToUpdate = document.getElementById('main-nav');
+      linkToUpdate = document.getElementById('lang-toggle-link-zh-cn');
+      // 目标是中文页 (不带语言前缀)
+      const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
+      targetPath = (root.endsWith('/') ? root.slice(0, -1) : root)  + '/' + DEFAULT_LANG + pathWithoutLang;
+      if (targetPath === '') targetPath = '/';
+
+    } else {
+      // 在中文页，中文菜单可见。我们需要更新它里面的那个切换器。
+      linkToUpdate = document.getElementById('lang-toggle-link-en');
+      // linkToUpdate = document.getElementById('main-nav');
+      console.log(linkToUpdate.href)
+      // 目标是英文页
+      let pathWithoutLang = currentPathname.substring(root.length);
+      if (pathWithoutLang.startsWith(DEFAULT_LANG + '/')) {
+        pathWithoutLang = pathWithoutLang.substring((DEFAULT_LANG + '/').length);
+      }
+      targetPath = root + SECOND_LANG + '/' + pathWithoutLang;
+    }
+
+    // 如果找到了对应的链接，就更新它
+    if (linkToUpdate) {
+      linkToUpdate.href = targetPath;
+      console.log(linkToUpdate.href)
+    }
+  }
+
+  // 监听 Pjax 加载完成事件
+  document.addEventListener('pjax:end', updateLanguageUI);
+  // 页面首次加载时也执行一次
+  document.addEventListener('DOMContentLoaded', updateLanguageUI);
+</script>
+</body>
+</html>

@@ -3,89 +3,89 @@ document.addEventListener('DOMContentLoaded', function() {
     const articleTypes = {
         '自动化机器学习': 'square',
         '测评基准': 'circle',
-        '端到端模型': 'triangle',
         '基础模型': 'diamond',
-        '插件': 'star' // Added 插件 type with star shape
+        '插件': 'star', // Added 插件 type with star shape
+        '特定模型': 'triangle'
     };
     const taskTypes = {
-        '预测': 'blue',
-        '分类': 'green',
+        '时序预测': 'blue',
+        '时序分类': 'green',
         '异常检测': 'red',
-        '其他': 'black'
+        '其他任务': 'black'
     };
     
     const taskColor = {
-        '预测': '#3b82f6',
-        '分类': '#22c55e',
+        '时序预测': '#3b82f6',
+        '时序分类': '#22c55e',
         '异常检测': '#ef4444',
-        '其他': '#575757'
+        '其他任务': '#575757'
     };
 
     // --- Use the new data provided by the user ---
     const timelineData = [
         {"year":2013, "papers":[
-            { "name": "STHMM [PVLDB]", "articleType": "端到端模型", "taskType": "预测","url":""}
+            { "name": "STHMM [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":""}
 
         ]},
         {"year":2018, "papers":[
-            { "name": "UncertainTS [VLDBJ]", "articleType": "端到端模型", "taskType": "其他","url":"Efficient Stochastic Routing in Path-Centric Uncertain Road Networks"},
-            { "name": "DAE [MDM]", "articleType": "端到端模型", "taskType": "异常检测","url":""},
-            { "name": "AECRNN [CIKM]", "articleType": "端到端模型", "taskType": "预测","url":""}
+            { "name": "UncertainTS [VLDBJ]", "articleType": "特定模型", "taskType": "其他任务","url":"Efficient Stochastic Routing in Path-Centric Uncertain Road Networks"},
+            { "name": "DAE [MDM]", "articleType": "特定模型", "taskType": "异常检测","url":""},
+            { "name": "AECRNN [CIKM]", "articleType": "特定模型", "taskType": "时序预测","url":""}
         ]},
         {"year":2019, "papers":[
-            { "name": "RAE [IJCAI]", "articleType": "端到端模型", "taskType": "异常检测","url":""}
+            { "name": "RAE [IJCAI]", "articleType": "特定模型", "taskType": "异常检测","url":""}
         ]},
         {"year":2020, "papers":[
-            { "name": "DGCRNN [ICDE]", "articleType": "端到端模型", "taskType": "预测","url":""}
+            { "name": "DGCRNN [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":""}
         ]},
         {"year":2021, "papers":[
-            { "name": "EnhanceNet [ICDE]", "articleType": "插件", "taskType": "预测","url":"https://ieeexplore.ieee.org/document/9458855"},
-            { "name": "AutoCTS [PVLDB]", "articleType": "自动化机器学习", "taskType": "预测","url":"https://arxiv.org/abs/2112.11174"},
-            { "name": "CAE [PVLDB]", "articleType": "端到端模型", "taskType": "预测","url":"https://dl.acm.org/doi/10.14778/3494124.3494142"}
+            { "name": "EnhanceNet [ICDE]", "articleType": "插件", "taskType": "时序预测","url":"https://ieeexplore.ieee.org/document/9458855"},
+            { "name": "AutoCTS [PVLDB]", "articleType": "自动化机器学习", "taskType": "时序预测","url":"https://arxiv.org/abs/2112.11174"},
+            { "name": "CAE [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3494124.3494142"}
         ]},
         {"year":2022, "papers":[
-            { "name": "Triformer [PVLDB]", "articleType": "端到端模型", "taskType": "预测","url":"https://arxiv.org/abs/2204.13767"},
-            { "name": "ST-WA [ICDE]", "articleType": "端到端模型", "taskType": "预测","url":""},
-            { "name": "RAE [ICDE]", "articleType": "端到端模型", "taskType": "异常检测","url":"https://ieeexplore.ieee.org/abstract/document/9835268"},
-            { "name": "VQRAE [ICDE]", "articleType": "端到端模型", "taskType": "异常检测","url":""},
-            { "name": "HyperVerlet [AAAI]", "articleType": "端到端模型", "taskType": "预测","url":"https://aaai.org/papers/04575-hyperverlet-a-symplectic-hypersolver-for-hamiltonian-systems/"}
+            { "name": "Triformer [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/abs/2204.13767"},
+            { "name": "ST-WA [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":""},
+            { "name": "RAE [ICDE]", "articleType": "特定模型", "taskType": "异常检测","url":"https://ieeexplore.ieee.org/abstract/document/9835268"},
+            { "name": "VQRAE [ICDE]", "articleType": "特定模型", "taskType": "异常检测","url":""},
+            { "name": "HyperVerlet [AAAI]", "articleType": "特定模型", "taskType": "时序预测","url":"https://aaai.org/papers/04575-hyperverlet-a-symplectic-hypersolver-for-hamiltonian-systems/"}
         ]},
         {"year":2023, "papers":[
-            { "name": "MagicSclar [PVLDB]", "articleType": "端到端模型", "taskType": "预测","url":"https://dl.acm.org/doi/10.14778/3611540.3611566"},
-            { "name": "AutoCTS+ [SIGMOD]", "articleType": "自动化机器学习", "taskType": "预测","url":"https://dl.acm.org/doi/10.1145/3588951"},
-            { "name": "LightTS [SIGMOD]", "articleType": "端到端模型", "taskType": "分类","url":"https://openreview.net/forum?id=1oECpm4Xm9"},
-            { "name": "CGF [TKDE]", "articleType": "端到端模型", "taskType": "预测","url":"https://ieeexplore.ieee.org/document/10064188"}
+            { "name": "AutoCTS+ [SIGMOD]", "articleType": "自动化机器学习", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.1145/3588951"},
+            { "name": "MagicSclar [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3611540.3611566"},
+            { "name": "LightTS [SIGMOD]", "articleType": "特定模型", "taskType": "时序分类","url":"https://openreview.net/forum?id=1oECpm4Xm9"},
+            { "name": "CGF [TKDE]", "articleType": "特定模型", "taskType": "时序预测","url":"https://ieeexplore.ieee.org/document/10064188"}
         ]},
         {"year":2024, "papers":[
-            { "name": "AutoCTS++ [VLDBJ]", "articleType": "自动化机器学习", "taskType": "预测","url":"https://link.springer.com/article/10.1007/s00778-024-00872-x"},
-            { "name": "PatchFormer [ICLR]", "articleType": "端到端模型", "taskType": "预测","url":"https://arxiv.org/abs/2402.05956"},
-            { "name": "TFB [PVLDB]", "articleType": "端到端模型", "taskType": "预测","url":"https://dl.acm.org/doi/10.14778/3665844.3665863"},
-            { "name": "MTSF-DG [PVLDB]", "articleType": "端到端模型", "taskType": "预测","url":"https://dl.acm.org/doi/abs/10.14778/3636218.3636230"},
-            { "name": "DARF [PVLDB]", "articleType": "端到端模型", "taskType": "预测","url":"https://dl.acm.org/doi/10.14778/3636218.3636231"},
-            { "name": "STSimSiam [PVLDB]", "articleType": "端到端模型", "taskType": "预测","url":"https://arxiv.org/abs/2404.14999"},
-            { "name": "QCore [PVLDB]", "articleType": "端到端模型", "taskType": "分类","url":"https://dl.acm.org/doi/10.14778/3681954.3681957"},
-            { "name": "Orca [CIKM]", "articleType": "端到端模型", "taskType": "预测","url":""}
+            { "name": "AutoCTS++ [VLDBJ]", "articleType": "自动化机器学习", "taskType": "时序预测","url":"https://link.springer.com/article/10.1007/s00778-024-00872-x"},
+            { "name": "PatchFormer [ICLR]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/abs/2402.05956"},
+            { "name": "TFB [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3665844.3665863"},
+            { "name": "MTSF-DG [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/abs/10.14778/3636218.3636230"},
+            { "name": "DARF [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3636218.3636231"},
+            { "name": "STSimSiam [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/abs/2404.14999"},
+            { "name": "QCore [PVLDB]", "articleType": "特定模型", "taskType": "时序分类","url":"https://dl.acm.org/doi/10.14778/3681954.3681957"},
+            { "name": "Orca [CIKM]", "articleType": "特定模型", "taskType": "时序预测","url":""}
         ]},
         // --- NEW: Example of a split display --- "display": "split", "index": 6,
         {"year":2025,  "papers":[
-            { "name": "TAB [PVLDB]", "articleType": "测评基准", "taskType": "预测","url":""},
-            { "name": "TSFM-Bench [KDD]", "articleType": "测评基准", "taskType": "预测","url":""},
-            { "name": "AimTS [ICDE]", "articleType": "基础模型", "taskType": "分类","url":"https://arxiv.org/abs/2504.09993"},
+            { "name": "TAB [PVLDB]", "articleType": "测评基准", "taskType": "时序预测","url":""},
+            { "name": "TSFM-Bench [KDD]", "articleType": "测评基准", "taskType": "时序预测","url":""},
+            { "name": "AimTS [ICDE]", "articleType": "基础模型", "taskType": "时序分类","url":"https://arxiv.org/abs/2504.09993"},
             { "name": "DADA [ICLR]", "articleType": "基础模型", "taskType": "异常检测","url":"https://arxiv.org/abs/2405.15273"},
-            { "name": "ROSE [ICML]", "articleType": "基础模型", "taskType": "预测","url":"https://arxiv.org/abs/2405.17478"},
-            { "name": "LightGTS [ICML]", "articleType": "基础模型", "taskType": "预测","url":"https://arxiv.org/abs/2506.06005"},
-            { "name": "FACT [PVLDB]", "articleType": "自动化机器学习", "taskType": "预测","url":""},
-            { "name": "LipFormer [ICDE]", "articleType": "端到端模型", "taskType": "预测","url":""},
-            { "name": "SSD-TS [KDD]", "articleType": "测评基准", "taskType": "其他","url":""},
-            { "name": "IGCL [KDD]", "articleType": "端到端模型", "taskType": "其他","url":""},
-            { "name": "DUET [KDD]", "articleType": "端到端模型", "taskType": "预测","url":"https://arxiv.org/abs/2412.10859"},
-            { "name": "K2VAE [ICML]", "articleType": "端到端模型", "taskType": "预测","url":"AAhttps://arxiv.org/abs/2505.23017AAA"},
-            { "name": "MemFormer [PVLDB]", "articleType": "端到端模型", "taskType": "预测","url":"https://dl.acm.org/doi/10.14778/3705829.3705842"},
-            { "name": "TEAM [PVLDB]", "articleType": "端到端模型", "taskType": "预测","url":"https://arxiv.org/abs/2410.19192"},
-            { "name": "ContraAD [PVLDB]", "articleType": "端到端模型", "taskType": "异常检测","url":""},
-            { "name": "TimeDC [PVLDB]", "articleType": "端到端模型", "taskType": "预测","url":""},
-            { "name": "Catch [ICLR]", "articleType": "端到端模型", "taskType": "异常检测","url":"https://arxiv.org/abs/2410.12261"},
-            { "name": "Air-DualODE [ICLR]", "articleType": "端到端模型", "taskType": "预测","url":"https://arxiv.org/abs/2410.19892"}
+            { "name": "ROSE [ICML]", "articleType": "基础模型", "taskType": "时序预测","url":"https://arxiv.org/abs/2405.17478"},
+            { "name": "LightGTS [ICML]", "articleType": "基础模型", "taskType": "时序预测","url":"https://arxiv.org/abs/2506.06005"},
+            { "name": "FACT [PVLDB]", "articleType": "自动化机器学习", "taskType": "时序预测","url":""},
+            { "name": "LipFormer [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":""},
+            { "name": "SSD-TS [KDD]", "articleType": "特定模型", "taskType": "其他任务","url":""},
+            { "name": "IGCL [KDD]", "articleType": "特定模型", "taskType": "其他任务","url":""},
+            { "name": "DUET [KDD]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/abs/2412.10859"},
+            { "name": "K2VAE [ICML]", "articleType": "特定模型", "taskType": "时序预测","url":"AAhttps://arxiv.org/abs/2505.23017AAA"},
+            { "name": "MemFormer [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3705829.3705842"},
+            { "name": "TEAM [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/abs/2410.19192"},
+            { "name": "ContraAD [PVLDB]", "articleType": "特定模型", "taskType": "异常检测","url":""},
+            { "name": "TimeDC [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":""},
+            { "name": "Catch [ICLR]", "articleType": "特定模型", "taskType": "异常检测","url":"https://arxiv.org/abs/2410.12261"},
+            { "name": "Air-DualODE [ICLR]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/abs/2410.19892"}
         ]}
     ];
 
@@ -107,15 +107,15 @@ function createLegend() {
         for (const [type, shape] of Object.entries(articleTypes)) {
             // Replace underscores for better display
             const displayType = type.replace(/_/g, ' ');
-            articleHtml += `<div class="legend-item"><span class="marker legend-marker ${shape} black"></span><span >${displayType}</span></div>`;
+            articleHtml += `<div class="legend-item"><span class="marker legend-marker ${shape} black"></span><span>${displayType}</span></div>`;
         }
 
         let taskHtml = '<h4>颜色</h4>';
         const taskTranslations = {
-            '预测': '预测',
-            '分类': '分类',
+            '时序预测': '时序预测',
+            '时序分类': '时序分类',
             '异常检测': '异常检测',
-            '其他': '其他'
+            '其他任务': '其他任务'
         };
         for (const [type, color] of Object.entries(taskColor)) {
              const translatedType = taskTranslations[type] || type;
@@ -209,8 +209,8 @@ function createLegend() {
         if (eventElements.length === 0) return;
 
         // --- WAVE AND POSITIONING LOGIC ---
-        const firstHalfCycleWidth = 70;
-        const subsequentCycleWidth = 190;
+        const firstHalfCycleWidth = 110;
+        const subsequentCycleWidth = 183;
 
         /**
          * Calculates the x-coordinate on the wave from a given phase.
@@ -251,8 +251,8 @@ function createLegend() {
         const verticalCenter = areaHeight / 2;
 
         // Wave amplitude parameters
-        const startAmplitude = 40;
-        const endAmplitude = 120;
+        const startAmplitude = 0;
+        const endAmplitude = 0;
 
         /**
          * Calculates the y-position of the wave at a given x-coordinate.
