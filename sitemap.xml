@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Benchmarks/team/index.html</loc>
-    
-    <lastmod>2025-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chy181.github.io/OpenTS/zh-cn/index.html</loc>
     
     <lastmod>2025-06-16</lastmod>
@@ -21,6 +12,15 @@
   
   <url>
     <loc>https://chy181.github.io/OpenTS/en/index.html</loc>
+    
+    <lastmod>2025-06-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Benchmarks/team/index.html</loc>
     
     <lastmod>2025-06-16</lastmod>
     
