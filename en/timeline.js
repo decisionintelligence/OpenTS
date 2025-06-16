@@ -40,11 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
         ]},
         {"year":2021, "papers":[
             { "name": "EnhanceNet [ICDE]", "articleType": "Plugins", "taskType": "Forecasting","url":"https://ieeexplore.ieee.org/document/9458855"},
-            { "name": "AutoCTS [PVLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://arxiv.org/abs/2112.11174"},
+            { "name": "AutoCTS [PVLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2112.11174"},
             { "name": "CAE [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3494124.3494142"}
         ]},
         {"year":2022, "papers":[
-            { "name": "Triformer [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2204.13767"},
+            { "name": "Triformer [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2204.13767"},
             { "name": "ST-WA [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":""},
             { "name": "RAE [ICDE]", "articleType": "Specific Models", "taskType": "Outlier","url":"https://ieeexplore.ieee.org/abstract/document/9835268"},
             { "name": "VQRAE [ICDE]", "articleType": "Specific Models", "taskType": "Outlier","url":""},
@@ -58,11 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
         ]},
         {"year":2024, "papers":[
             { "name": "AutoCTS++ [VLDBJ]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://link.springer.com/article/10.1007/s00778-024-00872-x"},
-            { "name": "PatchFormer [ICLR]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2402.05956"},
-            { "name": "TFB [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3665844.3665863"},
-            { "name": "MTSF-DG [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/abs/10.14778/3636218.3636230"},
+            { "name": "PatchFormer [ICLR]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2402.05956"},
+            { "name": "TFB [PVLDB]", "articleType": "Benchmarks", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3665844.3665863"},
+            { "name": "MTSF-DG [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/pdf/10.14778/3636218.3636230"},
             { "name": "DARF [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3636218.3636231"},
-            { "name": "STSimSiam [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2404.14999"},
+            { "name": "STSimSiam [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2404.14999"},
             { "name": "QCore [PVLDB]", "articleType": "Specific Models", "taskType": "Classification","url":"https://dl.acm.org/doi/10.14778/3681954.3681957"},
             { "name": "Orca [CIKM]", "articleType": "Specific Models", "taskType": "Forecasting","url":""}
         ]},
@@ -70,22 +70,24 @@ document.addEventListener('DOMContentLoaded', function() {
         {"year":2025,  "papers":[
             { "name": "TAB [PVLDB]", "articleType": "Benchmarks", "taskType": "Forecasting","url":""},
             { "name": "TSFM-Bench [KDD]", "articleType": "Benchmarks", "taskType": "Forecasting","url":""},
-            { "name": "AimTS [ICDE]", "articleType": "Foundation Models", "taskType": "Classification","url":"https://arxiv.org/abs/2504.09993"},
-            { "name": "DADA [ICLR]", "articleType": "Foundation Models", "taskType": "Outlier","url":"https://arxiv.org/abs/2405.15273"},
-            { "name": "ROSE [ICML]", "articleType": "Foundation Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2405.17478"},
-            { "name": "LightGTS [ICML]", "articleType": "Foundation Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2506.06005"},
+            { "name": "AimTS [ICDE]", "articleType": "Foundation Models", "taskType": "Classification","url":"https://arxiv.org/pdf/2504.09993"},
+            { "name": "DADA [ICLR]", "articleType": "Foundation Models", "taskType": "Outlier","url":"https://arxiv.org/pdf/2405.15273"},
+            { "name": "ROSE [ICML]", "articleType": "Foundation Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2405.17478"},
+            { "name": "LightGTS [ICML]", "articleType": "Foundation Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2506.06005"},
             { "name": "FACT [PVLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":""},
             { "name": "LipFormer [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":""},
             { "name": "SSD-TS [KDD]", "articleType": "Specific Models", "taskType": "Others","url":""},
             { "name": "IGCL [KDD]", "articleType": "Specific Models", "taskType": "Others","url":""},
-            { "name": "DUET [KDD]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2412.10859"},
-            { "name": "K2VAE [ICML]", "articleType": "Specific Models", "taskType": "Forecasting","url":"AAhttps://arxiv.org/abs/2505.23017AAA"},
+            { "name": "DUET [KDD]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2412.10859"},
+            { "name": "K2VAE [ICML]", "articleType": "Specific Models", "taskType": "Forecasting","url":"AAhttps://arxiv.org/pdf/2505.23017AAA"},
             { "name": "MemFormer [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3705829.3705842"},
-            { "name": "TEAM [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2410.19192"},
+            { "name": "TEAM [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2410.19192"},
             { "name": "ContraAD [PVLDB]", "articleType": "Specific Models", "taskType": "Outlier","url":""},
             { "name": "TimeDC [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":""},
-            { "name": "Catch [ICLR]", "articleType": "Specific Models", "taskType": "Outlier","url":"https://arxiv.org/abs/2410.12261"},
-            { "name": "Air-DualODE [ICLR]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2410.19892"}
+            { "name": "Catch [ICLR]", "articleType": "Specific Models", "taskType": "Outlier","url":"https://arxiv.org/pdf/2410.12261"},
+            { "name": "Air-DualODE [ICLR]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2410.19892"},
+            { "name": "MM-Path [KDD]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2411.18428"}
+
         ]}
     ];
 
