@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chy181.github.io/OpenTS/2025/06/17/index/</loc>
+    
+    <lastmod>2025-06-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chy181.github.io/OpenTS/zh-cn/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
@@ -138,15 +147,6 @@
   
   <url>
     <loc>https://chy181.github.io/OpenTS/Benchmarks/algorithms/TFB/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/2025/06/17/index/</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -560,7 +560,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/Deep%20Learning/MM-Path/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/Deep%20Learning/K2VAE/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -569,7 +569,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/Deep%20Learning/K2VAE/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/Deep%20Learning/MM-Path/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
