@@ -74,12 +74,12 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "DADA [ICLR]", "articleType": "基础模型", "taskType": "异常检测","url":"https://arxiv.org/pdf/2405.15273"},
             { "name": "ROSE [ICML]", "articleType": "基础模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2405.17478"},
             { "name": "LightGTS [ICML]", "articleType": "基础模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2506.06005"},
-            { "name": "FACT [PVLDB]", "articleType": "自动化机器学习", "taskType": "时序预测","url":""},
-            { "name": "LipFormer [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":""},
+            { "name": "FACT [PVLDB]", "articleType": "自动化机器学习", "taskType": "时序预测","url":"https://www.vldb.org/pvldb/vol18/p144-wu.pdf"},
+            { "name": "LipFormer [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/abs/2501.10448"},
             { "name": "SSD-TS [KDD]", "articleType": "特定模型", "taskType": "其他任务","url":""},
             { "name": "IGCL [KDD]", "articleType": "特定模型", "taskType": "其他任务","url":""},
             { "name": "DUET [KDD]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2412.10859"},
-            { "name": "K2VAE [ICML]", "articleType": "特定模型", "taskType": "时序预测","url":"AAhttps://arxiv.org/pdf/2505.23017AAA"},
+            { "name": "K<sup>2</sup>VAE [ICML]", "articleType": "特定模型", "taskType": "时序预测","url":"AAhttps://arxiv.org/pdf/2505.23017AAA"},
             { "name": "MemFormer [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3705829.3705842"},
             { "name": "TEAM [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2410.19192"},
             { "name": "ContraAD [PVLDB]", "articleType": "特定模型", "taskType": "异常检测","url":""},
@@ -98,25 +98,25 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "Stochastic Skyline Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://homes.cs.aau.dk/~csj/Papers/Files/2014_YangICDE.pdf"},
         ]},
         {"year":2015, "papers":[
-            { "name": "Persollney Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://vbn.aau.dk/en/publications/personalized-route-recommendation-using-big-trajectory-data"},
+            { "name": "Personalized Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://vbn.aau.dk/en/publications/personalized-route-recommendation-using-big-trajectory-data"},
             { "name": "Context-aware Routing [VLDB]", "articleType": "Specific Models", "taskType": "Others","url":"https://link.springer.com/article/10.1007/s00778-015-0378-1"},
 
         ]},
         {"year":2016, "papers":[
-            { "name": "Path-centric Dynamic Uncertain Graph [PVLDB]", "articleType": "Specific Models", "taskType": "Others","url":"https://dl.acm.org/doi/10.14778/3681954.3681971"},
+            { "name": "Path-centric Dynamic Uncertain Graphs [PVLDB]", "articleType": "Specific Models", "taskType": "Others","url":"https://dl.acm.org/doi/10.14778/3681954.3681971"},
         ]},
         {"year":2018, "papers":[
-            { "name": "Top-K Optional Sequenced Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://homes.cs.aau.dk/~byang/papers/ICDE2018-OSR.pdf"},
+            { "name": "Top-K Optimal Sequenced Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://homes.cs.aau.dk/~byang/papers/ICDE2018-OSR.pdf"},
             { "name": "Leaning2Route [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://people.cs.aau.dk/~byang/papers/ICDE2018-L2R.pdf"},
             { "name": "PACE [VLDBJ]", "articleType": "Specific Models", "taskType": "Others","url":"https://vbn.aau.dk/en/publications/pace-a-path-centric-paradigm-for-stochastic-path-finding"},
             { "name": "TopK SP Diversity [TKDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://homes.cs.aau.dk/~byang/papers/TKDE2018-ICDE-Poster.pdf"},
 
         ]},
         {"year":2019, "papers":[
-            { "name": "GCWC [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://people.cs.aau.dk/~byang/papers/ICDE2019-GCWC.pdf"},
+            { "name": "Stochastic Weight Completion [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://people.cs.aau.dk/~byang/papers/ICDE2019-Stochastic Weight Completion.pdf"},
          ]},
         {"year":2020, "papers":[
-            { "name": "TUCH [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":""},
+            { "name": "TUCH [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://link.springer.com/article/10.1007/s00778-019-00585-6"},
             { "name": "Preferenced Routing [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://link.springer.com/article/10.1007/s00778-020-00608-7"},
             { "name": "Anytime Routing [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://www.vldb.org/pvldb/vol13/p1555-pedersen.pdf"},
             { "name": "Path Ranking [TKDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://vbn.aau.dk/files/408227118/09204384.pdf"},
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "Path Representation Learning [IJCAI]", "articleType": "Plugins", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2106.09373"},
         ]},
         {"year":2022, "papers":[
-            { "name": "WSCCL [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2203.16110"},
+            { "name": "Temporal Path Representation Learning [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2203.16110"},
         ]},
         {"year":2023, "papers":[
             { "name": "LightPath [KDD]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2307.10171"},
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {"year":2024, "papers":[
             { "name": "DOT [SIGMOD]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2307.03048"},
             { "name": "PACE Routing [VLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://vbn.aau.dk/en/publications/pace-a-path-centric-paradigm-for-stochastic-path-finding"},
-            { "name": "Crystal [ECML]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://link.springer.com/chapter/10.1007/978-3-031-70381-2_15"},
+            { "name": "Crystal Property Estimation [ECML]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://link.springer.com/chapter/10.1007/978-3-031-70381-2_15"},
         ]},
         // --- NEW: Example of a split display --- "display": "split", "index": 6,
         {"year":2025,  "papers":[

@@ -451,13 +451,15 @@
       
         <h1 style="display:inline;color:#1195db"> OpenTS<span>:</span></h1><h2 style="font-size:24px;display:inline;color:#1195db">Democratizing AI for Time series and Spatio-temporal data (AI4TS)</h2>
 
-<p>OpenTS is an open, comprehensive AI suite designed to make cutting-edge AI4TS research accessible to all. Built on the <b>AGREE principles</b>—Automation, Generalization. Robustness, Explainability, and Efficiency—it empowers researchers and practitioners with<span>:</span></p>
+<p style="margin-top:15px;">OpenTS is an open, comprehensive AI suite designed to make cutting-edge AI4TS research accessible to all. Built on the <b>AGREE principles</b>—Automation, Generalization, Robustness, Explainability, and Efficiency—it empowers researchers and practitioners with<span>:</span></p>
+
 <ul>
 <li><b>Benchmarks</b><span>:</span> Standardized evaluations for fair comparisons and reproducible AI4TS research.</li>
 <li><b>Models</b><span>:</span> Cutting-edge AI4TS models—including Foundation Models, AutoML, and Deep Learning—ready for both academic research and real-world deployment, covering the full-cycle workflow from data governance, analytics, to decision making. </li>
 <li><b>Applications</b><span>:</span> End-to-end solutions across domains such as AIOps, Intelligent Transportation, Virtual Power Plants, AI4DB, FinTech, and Smart Emergency Response.</li>
 </ul>
-<p>Developed by the <a target="_blank" rel="noopener" href="https://decisionintelligence.github.io/index">Decision Intelligence Lab</a> at East China Normal University, in collaboration with the <a target="_blank" rel="noopener" href="https://www.cs.aau.dk/">Department of Computer Science</a> at Aalborg University, OpenTS advances <b>data-driven decision intelligence</b> by transforming complex data into AI-powered decisions, bridging cutting-edge research with real-world impact.</p>
+<p style="margin-top:15px;">Developed by the <a target="_blank" rel="noopener" href="https://decisionintelligence.github.io/index ">Decision Intelligence Lab</a> at East China Normal University, in collaboration with the <a target="_blank" rel="noopener" href="https://www.cs.aau.dk/"> Department of Computer Science</a>  at Aalborg University, OpenTS advances <b>data-driven decision intelligence</b> by transforming complex data into AI-powered decisions, bridging cutting-edge research with real-world impact.</p>
+
 <div style="height:5px"></div>
 
 <hr>
@@ -491,7 +493,7 @@
         <div class="content-block">
             <div class="boxx">
                         <div class="block-section heading">
-                <a href="overview/"><h2>Benchmarks</br>(OpenTS-BM)</h2></a>
+                <a href="overview/"><h2>Benchmarks</br><span class='down-tittle'>(OpenTS-BM)</span></h2></a>
             </div>
             <div class="inner-box">
             <p align="center">Fair & comprehensive benchmarking</p>
@@ -504,7 +506,7 @@
         <div class="content-block">
             <div class="boxx">
             <div class="block-section heading">
-                <a href="Foundation models"><h2 style="width:120%;margin-left: -21px;">Foudation Models</br>(OpenTS-FM)</h2></a>
+                <a href="Foundation models"><h2 style="width:120%;margin-left: -21px;">Foudation Models</br><span class='down-tittle'>(OpenTS-FM)</span></h2></a>
             </div>
              <div class="inner-box">
             <p align="center">Time Series Foundation Models (TSFMs) with strong Zero-shot/Few-shot abilities across different tasks</p>
@@ -514,7 +516,7 @@
         <div class="content-block">
             <div class="boxx">
             <div class="block-section heading">
-                <a href="AutoML"><h2>AutoML</br>(OpenTS-Auto)</h2></a>
+                <a href="AutoML"><h2>AutoML</br><span class='down-tittle'>(OpenTS-Auto)</span></h2></a>
             </div>
             <div class="inner-box">
             <p align="center">Automated model selection, automated ensemble, and neural architecture search</p>
@@ -524,7 +526,7 @@
         <div class="content-block">
             <div class="boxx">
                         <div class="block-section heading">
-                <a href="Deep Learning"><h2>Deep Learning</br>(OpenTS-DL)</h2></a>
+                <a href="Deep Learning"><h2>Deep Learning</br><span class='down-tittle'>(OpenTS-DL)</span></h2></a>
             </div>
              <div class="inner-box">
             <p align="center">Addressing specific challenges  with the AGREE properties</p>
@@ -552,6 +554,10 @@
 </div>
     
 <style>
+    .down-tittle
+    {
+        font-size:20px;
+    }
     #main article {
   margin: 0;
   border-bottom: 0px solid #ddd;
@@ -901,12 +907,12 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "DADA [ICLR]", "articleType": "Foundation Models", "taskType": "Outlier","url":"https://arxiv.org/pdf/2405.15273"},
             { "name": "ROSE [ICML]", "articleType": "Foundation Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2405.17478"},
             { "name": "LightGTS [ICML]", "articleType": "Foundation Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2506.06005"},
-            { "name": "FACT [PVLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":""},
-            { "name": "LipFormer [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":""},
+            { "name": "FACT [PVLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://www.vldb.org/pvldb/vol18/p144-wu.pdf"},
+            { "name": "LipFormer [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/abs/2501.10448"},
             { "name": "SSD-TS [KDD]", "articleType": "Specific Models", "taskType": "Others","url":""},
             { "name": "IGCL [KDD]", "articleType": "Specific Models", "taskType": "Others","url":""},
             { "name": "DUET [KDD]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2412.10859"},
-            { "name": "K2VAE [ICML]", "articleType": "Specific Models", "taskType": "Forecasting","url":"AAhttps://arxiv.org/pdf/2505.23017AAA"},
+            { "name": "K<sup>2</sup>VAE [ICML]", "articleType": "Specific Models", "taskType": "Forecasting","url":"AAhttps://arxiv.org/pdf/2505.23017AAA"},
             { "name": "MemFormer [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3705829.3705842"},
             { "name": "TEAM [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2410.19192"},
             { "name": "ContraAD [PVLDB]", "articleType": "Specific Models", "taskType": "Outlier","url":""},
@@ -925,25 +931,25 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "Stochastic Skyline Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://homes.cs.aau.dk/~csj/Papers/Files/2014_YangICDE.pdf"},
         ]},
         {"year":2015, "papers":[
-            { "name": "Persollney Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://vbn.aau.dk/en/publications/personalized-route-recommendation-using-big-trajectory-data"},
+            { "name": "Personalized Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://vbn.aau.dk/en/publications/personalized-route-recommendation-using-big-trajectory-data"},
             { "name": "Context-aware Routing [VLDB]", "articleType": "Specific Models", "taskType": "Others","url":"https://link.springer.com/article/10.1007/s00778-015-0378-1"},
 
         ]},
         {"year":2016, "papers":[
-            { "name": "Path-centric Dynamic Uncertain Graph [PVLDB]", "articleType": "Specific Models", "taskType": "Others","url":"https://dl.acm.org/doi/10.14778/3681954.3681971"},
+            { "name": "Path-centric Dynamic Uncertain Graphs [PVLDB]", "articleType": "Specific Models", "taskType": "Others","url":"https://dl.acm.org/doi/10.14778/3681954.3681971"},
         ]},
         {"year":2018, "papers":[
-            { "name": "Top-K Optional Sequenced Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://homes.cs.aau.dk/~byang/papers/ICDE2018-OSR.pdf"},
+            { "name": "Top-K Optimal Sequenced Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://homes.cs.aau.dk/~byang/papers/ICDE2018-OSR.pdf"},
             { "name": "Leaning2Route [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://people.cs.aau.dk/~byang/papers/ICDE2018-L2R.pdf"},
             { "name": "PACE [VLDBJ]", "articleType": "Specific Models", "taskType": "Others","url":"https://vbn.aau.dk/en/publications/pace-a-path-centric-paradigm-for-stochastic-path-finding"},
             { "name": "TopK SP Diversity [TKDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://homes.cs.aau.dk/~byang/papers/TKDE2018-ICDE-Poster.pdf"},
 
         ]},
         {"year":2019, "papers":[
-            { "name": "GCWC [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://people.cs.aau.dk/~byang/papers/ICDE2019-GCWC.pdf"},
+            { "name": "Stochastic Weight Completion [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://people.cs.aau.dk/~byang/papers/ICDE2019-Stochastic Weight Completion.pdf"},
          ]},
         {"year":2020, "papers":[
-            { "name": "TUCH [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":""},
+            { "name": "TUCH [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://link.springer.com/article/10.1007/s00778-019-00585-6"},
             { "name": "Preferenced Routing [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://link.springer.com/article/10.1007/s00778-020-00608-7"},
             { "name": "Anytime Routing [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://www.vldb.org/pvldb/vol13/p1555-pedersen.pdf"},
             { "name": "Path Ranking [TKDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://vbn.aau.dk/files/408227118/09204384.pdf"},
@@ -952,7 +958,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "Path Representation Learning [IJCAI]", "articleType": "Plugins", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2106.09373"},
         ]},
         {"year":2022, "papers":[
-            { "name": "WSCCL [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2203.16110"},
+            { "name": "Temporal Path Representation Learning [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2203.16110"},
         ]},
         {"year":2023, "papers":[
             { "name": "LightPath [KDD]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2307.10171"},
@@ -960,7 +966,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {"year":2024, "papers":[
             { "name": "DOT [SIGMOD]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2307.03048"},
             { "name": "PACE Routing [VLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://vbn.aau.dk/en/publications/pace-a-path-centric-paradigm-for-stochastic-path-finding"},
-            { "name": "Crystal [ECML]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://link.springer.com/chapter/10.1007/978-3-031-70381-2_15"},
+            { "name": "Crystal Property Estimation [ECML]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://link.springer.com/chapter/10.1007/978-3-031-70381-2_15"},
         ]},
         // --- NEW: Example of a split display --- "display": "split", "index": 6,
         {"year":2025,  "papers":[
