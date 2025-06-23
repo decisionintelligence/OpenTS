@@ -2,18 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/2025/06/17/index/</loc>
+    <loc>https://chy181.github.io/OpenTS/Applications/index.html</loc>
     
-    <lastmod>2025-06-19</lastmod>
+    <lastmod>2025-06-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Benchmarks/datasets/index.html</loc>
     
-    <lastmod>2025-06-19</lastmod>
+    <lastmod>2025-06-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/Benchmarks/datasets/index.html</loc>
+    
+    <lastmod>2025-06-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,25 +31,106 @@
   <url>
     <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/index.html</loc>
     
-    <lastmod>2025-06-17</lastmod>
+    <lastmod>2025-06-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/Applications/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/Benchmarks/overview/index%20copy.html</loc>
     
-    <lastmod>2025-06-17</lastmod>
+    <lastmod>2025-06-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/Applications/MagicScaler/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/Benchmarks/overview/index.html</loc>
     
-    <lastmod>2025-06-17</lastmod>
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/2025/06/17/index/</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Benchmarks/overview/index%20copy.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Benchmarks/overview/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/DARF/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Foundation%20models/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Efficient/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Context-Aware/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -48,6 +138,186 @@
   
   <url>
     <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/MagicScaler/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Stochastic/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/preference-based/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Anytime/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/RCRank/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/Air-DualODE/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/ContraAD/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/CATCH/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/Enhancing/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/DUET/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/K2VAE/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/MM-Path/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/MemFormer/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/Position/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/Towards/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/Applications/Stochastic/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/Applications/Context-Aware/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/Deep%20Learning/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/Deep%20Learning/DARF/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/Foundation%20models/index.html</loc>
+    
+    <lastmod>2025-06-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/Applications/MagicScaler/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -65,33 +335,6 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Efficient/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/Applications/Stochastic/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Stochastic/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chy181.github.io/OpenTS/Applications/Anytime/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
@@ -101,43 +344,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Anytime/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chy181.github.io/OpenTS/Applications/preference-based/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/preference-based/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/Applications/Context-Aware/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Context-Aware/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -156,24 +363,6 @@
   
   <url>
     <loc>https://chy181.github.io/OpenTS/Applications/RCRank/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/RCRank/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/Deep%20Learning/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -263,15 +452,6 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Benchmarks/datasets/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chy181.github.io/OpenTS/zh-cn/leaderboards/multivariate_time_series/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
@@ -299,43 +479,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Benchmarks/overview/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/Benchmarks/datasets/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chy181.github.io/OpenTS/Benchmarks/get%20started/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/Benchmarks/overview/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/Benchmarks/overview/index%20copy.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -461,25 +605,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Benchmarks/overview/index%20copy.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chy181.github.io/OpenTS/zh-cn/leaderboards/foundation_model/index%20copy.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -497,25 +623,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Foundation%20models/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chy181.github.io/OpenTS/AutoML/index.html</loc>
-    
-    <lastmod>2025-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/Foundation%20models/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -587,7 +695,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/AutoML/AutoCTS/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/AutoML/AutoCTS+/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -596,7 +704,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/AutoML/AutoCTS+/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/AutoML/AutoCTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -687,96 +795,6 @@
   
   <url>
     <loc>https://chy181.github.io/OpenTS/Deep%20Learning/Enhancing/index.html</loc>
-    
-    <lastmod>2025-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/Air-DualODE/index.html</loc>
-    
-    <lastmod>2025-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/CATCH/index.html</loc>
-    
-    <lastmod>2025-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/ContraAD/index.html</loc>
-    
-    <lastmod>2025-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/DUET/index.html</loc>
-    
-    <lastmod>2025-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/Enhancing/index.html</loc>
-    
-    <lastmod>2025-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/K2VAE/index.html</loc>
-    
-    <lastmod>2025-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/MM-Path/index.html</loc>
-    
-    <lastmod>2025-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/MemFormer/index.html</loc>
-    
-    <lastmod>2025-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/Position/index.html</loc>
-    
-    <lastmod>2025-06-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Deep%20Learning/Towards/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -1048,7 +1066,7 @@
 
   <url>
     <loc>https://chy181.github.io/OpenTS</loc>
-    <lastmod>2025-06-19</lastmod>
+    <lastmod>2025-06-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

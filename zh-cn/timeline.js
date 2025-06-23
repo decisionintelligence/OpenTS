@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "ROSE [ICML]", "articleType": "基础模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2405.17478"},
             { "name": "LightGTS [ICML]", "articleType": "基础模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2506.06005"},
             { "name": "FACT [PVLDB]", "articleType": "自动化机器学习", "taskType": "时序预测","url":"https://www.vldb.org/pvldb/vol18/p144-wu.pdf"},
-            { "name": "LipFormer [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/abs/2501.10448"},
+            { "name": "LipFormer [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2501.10448"},
             { "name": "SSD-TS [KDD]", "articleType": "特定模型", "taskType": "其他任务","url":""},
             { "name": "IGCL [KDD]", "articleType": "特定模型", "taskType": "其他任务","url":""},
             { "name": "DUET [KDD]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2412.10859"},

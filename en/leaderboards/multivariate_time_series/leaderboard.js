@@ -25,7 +25,7 @@ METHOD = {
       "year": "2021"
     },
     "Triformer": {
-      "paper-url": "https://arxiv.org/abs/2204.13767",
+      "paper-url": "https://arxiv.org/pdf/2204.13767",
       "publication": "IJCAI",
       "bib": "https://dblp.org/rec/conf/ijcai/CirsteaG0KDP22.html?view=bibtex",
       "year": "2022"
@@ -55,7 +55,7 @@ METHOD = {
       "year": "2023"
     },
     "TCN": {
-      "paper-url": "https://arxiv.org/abs/1803.01271",
+      "paper-url": "https://arxiv.org/pdf/1803.01271",
       "publication": "arXiv",
       "bib": "https://dblp.org/rec/journals/corr/abs-1803-01271.html?view=bibtex",
       "year": "2018"
@@ -85,7 +85,7 @@ METHOD = {
       "year": "1994"
     },
     "iTransformer": {
-      "paper-url": "https://arxiv.org/abs/2310.06625",
+      "paper-url": "https://arxiv.org/pdf/2310.06625",
       "publication": "ICLR",
       "bib": "https://dblp.org/rec/journals/corr/abs-2310-06625.html?view=bibtex",
       "year": "2024"
@@ -97,19 +97,19 @@ METHOD = {
       "year": "2024"
     },
     "TimeMixer": {
-      "paper-url": "https://arxiv.org/abs/2405.14616",
+      "paper-url": "https://arxiv.org/pdf/2405.14616",
       "publication": "ICLR",
       "bib": "https://dblp.org/rec/journals/corr/abs-2405-14616.html?view=bibtex",
       "year": "2024"
     },
     "Non-stationary Transformer": {
-      "paper-url": "https://arxiv.org/abs/2205.14415",
+      "paper-url": "https://arxiv.org/pdf/2205.14415",
       "publication": "NeurIPS",
       "bib": "https://dblp.org/rec/conf/nips/LiuWWL22.html?view=bibtex",
       "year": "2022"
     },
     "Pathformer": {
-      "paper-url": "https://arxiv.org/abs/2402.05956",
+      "paper-url": "https://arxiv.org/pdf/2402.05956",
       "publication": "ICLR",
       "bib": "https://dblp.org/rec/journals/corr/abs-2402-05956.html?view=bibtex",
       "year": "2024"

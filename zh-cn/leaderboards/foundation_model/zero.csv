@@ -1,7 +1,7 @@
 Dataset-Quantity-metrics,TimesFM,Timer,UniTS,TTM,MOIRAI,ROSE
 contact-text,Rajat Sen,Yong Liu,Shanghua Gao,Vijay Ekambaram,Gerald Woo,Yihang Wang
 contact-url,senrajat@google.com,liuyong21@mails.tsinghua.edu.cn,shanghua_gao@hms.harvard.edu,vijaye12@in.ibm.com,gwoo@salesforce.com,yhwang@stu.ecnu.edu.cn
-paper-url,https://openreview.net/forum?id=jn2iTJas6h,https://openreview.net/forum?id=bYRYb7DMNo,https://arxiv.org/abs/2403.00131,https://arxiv.org/abs/2401.03955,https://openreview.net/forum?id=Yd8eHMY1wz,https://arxiv.org/abs/2405.17478
+paper-url,https://openreview.net/forum?id=jn2iTJas6h,https://openreview.net/forum?id=bYRYb7DMNo,https://arxiv.org/pdf/2403.00131,https://arxiv.org/pdf/2401.03955,https://openreview.net/forum?id=Yd8eHMY1wz,https://arxiv.org/pdf/2405.17478
 code-url,https://github.com/google-research/timesfm,https://github.com/thuml/Large-Time-Series-Model?tab=readme-ov-file#code-for-fine-tuning,https://github.com/mims-harvard/UniTS,https://github.com/ibm-granite/granite-tsfm/tree/ttm,https://github.com/SalesforceAIResearch/uni2ts,
 publication,ICML,ICML,arXiv,arXiv,ICML,arXiv
 bib,https://dblp.uni-trier.de/rec/conf/icml/DasKSZ24.html?view=bibtex,https://dblp.uni-trier.de/rec/conf/icml/LiuZLH0L24.html?view=bibtex,,https://dblp.uni-trier.de/rec/journals/corr/abs-2401-03955.html?view=bibtex,https://dblp.uni-trier.de/rec/conf/icml/WooLKXSS24.html?view=bibtex,https://dblp.uni-trier.de/rec/journals/corr/abs-2405-17478.html?view=bibtex
