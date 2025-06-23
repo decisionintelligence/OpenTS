@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // --- Data Configuration ---
     const articleTypes = {
-        '自动化机器学习': 'square',
+        '自动机器学习': 'square',
         '评测基准': 'circle',
         '基础模型': 'diamond',
         '插件': 'star', // Added 插件 type with star shape
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ]},
         {"year":2021, "papers":[
             { "name": "EnhanceNet [ICDE]", "articleType": "插件", "taskType": "时序预测","url":"https://ieeexplore.ieee.org/document/9458855"},
-            { "name": "AutoCTS [PVLDB]", "articleType": "自动化机器学习", "taskType": "时序预测","url":"https://arxiv.org/pdf/2112.11174"},
+            { "name": "AutoCTS [PVLDB]", "articleType": "自动机器学习", "taskType": "时序预测","url":"https://arxiv.org/pdf/2112.11174"},
             { "name": "CAE [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3494124.3494142"}
         ]},
         {"year":2022, "papers":[
@@ -51,13 +51,13 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "HyperVerlet [AAAI]", "articleType": "特定模型", "taskType": "时序预测","url":"https://aaai.org/papers/04575-hyperverlet-a-symplectic-hypersolver-for-hamiltonian-systems/"}
         ]},
         {"year":2023, "papers":[
-            { "name": "AutoCTS+ [SIGMOD]", "articleType": "自动化机器学习", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.1145/3588951"},
+            { "name": "AutoCTS+ [SIGMOD]", "articleType": "自动机器学习", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.1145/3588951"},
             { "name": "MagicSclar [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3611540.3611566"},
             { "name": "LightTS [SIGMOD]", "articleType": "特定模型", "taskType": "时序分类","url":"https://openreview.net/forum?id=1oECpm4Xm9"},
             { "name": "CGF [TKDE]", "articleType": "特定模型", "taskType": "时序预测","url":"https://ieeexplore.ieee.org/document/10064188"}
         ]},
         {"year":2024, "papers":[
-            { "name": "AutoCTS++ [VLDBJ]", "articleType": "自动化机器学习", "taskType": "时序预测","url":"https://link.springer.com/article/10.1007/s00778-024-00872-x"},
+            { "name": "AutoCTS++ [VLDBJ]", "articleType": "自动机器学习", "taskType": "时序预测","url":"https://link.springer.com/article/10.1007/s00778-024-00872-x"},
             { "name": "PatchFormer [ICLR]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2402.05956"},
             { "name": "TFB [PVLDB]", "articleType": "评测基准", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3665844.3665863"},
             { "name": "MTSF-DG [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/pdf/10.14778/3636218.3636230"},
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "DADA [ICLR]", "articleType": "基础模型", "taskType": "异常检测","url":"https://arxiv.org/pdf/2405.15273"},
             { "name": "ROSE [ICML]", "articleType": "基础模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2405.17478"},
             { "name": "LightGTS [ICML]", "articleType": "基础模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2506.06005"},
-            { "name": "FACT [PVLDB]", "articleType": "自动化机器学习", "taskType": "时序预测","url":"https://www.vldb.org/pvldb/vol18/p144-wu.pdf"},
+            { "name": "FACT [PVLDB]", "articleType": "自动机器学习", "taskType": "时序预测","url":"https://www.vldb.org/pvldb/vol18/p144-wu.pdf"},
             { "name": "LipFormer [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2501.10448"},
             { "name": "SSD-TS [KDD]", "articleType": "特定模型", "taskType": "其他任务","url":""},
             { "name": "IGCL [KDD]", "articleType": "特定模型", "taskType": "其他任务","url":""},
