@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "SSD-TS [KDD]", "articleType": "Specific Models", "taskType": "Others","url":""},
             { "name": "IGCL [KDD]", "articleType": "Specific Models", "taskType": "Others","url":""},
             { "name": "DUET [KDD]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2412.10859"},
-            { "name": "K2VAE [ICML]", "articleType": "Specific Models", "taskType": "Forecasting","url":"AAhttps://arxiv.org/pdf/2505.23017AAA"},
+            { "name": "K<sup>2</sup>VAE [ICML]", "articleType": "Specific Models", "taskType": "Forecasting","url":"AAhttps://arxiv.org/pdf/2505.23017AAA"},
             { "name": "MemFormer [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3705829.3705842"},
             { "name": "TEAM [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2410.19192"},
             { "name": "ContraAD [PVLDB]", "articleType": "Specific Models", "taskType": "Outlier","url":""},
