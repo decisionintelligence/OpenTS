@@ -10,14 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskTypes = {
         'Forecasting': 'blue',
         'Classification': 'green',
-        'Outlier': 'red',
+        'Outlier Detection': 'red',
         'Others': 'black'
     };
     
     const taskColor = {
         'Forecasting': '#3b82f6',
         'Classification': '#22c55e',
-        'Outlier': '#ef4444',
+        'Outlier Detection': '#ef4444',
         'Others': '#575757'
     };
 
@@ -29,11 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
         ]},
         {"year":2018, "papers":[
             { "name": "UncertainTS [VLDBJ]", "articleType": "Specific Models", "taskType": "Others","url":"Efficient Stochastic Routing in Path-Centric Uncertain Road Networks"},
-            { "name": "DAE [MDM]", "articleType": "Specific Models", "taskType": "Outlier","url":""},
+            { "name": "DAE [MDM]", "articleType": "Specific Models", "taskType": "Outlier Detection","url":""},
             { "name": "AECRNN [CIKM]", "articleType": "Specific Models", "taskType": "Forecasting","url":""}
         ]},
         {"year":2019, "papers":[
-            { "name": "RAE [IJCAI]", "articleType": "Specific Models", "taskType": "Outlier","url":""}
+            { "name": "RAE [IJCAI]", "articleType": "Specific Models", "taskType": "Outlier Detection","url":""}
         ]},
         {"year":2020, "papers":[
             { "name": "DGCRNN [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":""}
@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         {"year":2022, "papers":[
             { "name": "Triformer [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2204.13767"},
             { "name": "ST-WA [ICDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":""},
-            { "name": "RAE [ICDE]", "articleType": "Specific Models", "taskType": "Outlier","url":"https://ieeexplore.ieee.org/abstract/document/9835268"},
-            { "name": "VQRAE [ICDE]", "articleType": "Specific Models", "taskType": "Outlier","url":""},
+            { "name": "RAE [ICDE]", "articleType": "Specific Models", "taskType": "Outlier Detection","url":"https://ieeexplore.ieee.org/abstract/document/9835268"},
+            { "name": "VQRAE [ICDE]", "articleType": "Specific Models", "taskType": "Outlier Detection","url":""},
             { "name": "HyperVerlet [AAAI]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://aaai.org/papers/04575-hyperverlet-a-symplectic-hypersolver-for-hamiltonian-systems/"}
         ]},
         {"year":2023, "papers":[
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "TAB [PVLDB]", "articleType": "Benchmarks", "taskType": "Forecasting","url":""},
             { "name": "TSFM-Bench [KDD]", "articleType": "Benchmarks", "taskType": "Forecasting","url":""},
             { "name": "AimTS [ICDE]", "articleType": "Foundation Models", "taskType": "Classification","url":"https://arxiv.org/pdf/2504.09993"},
-            { "name": "DADA [ICLR]", "articleType": "Foundation Models", "taskType": "Outlier","url":"https://arxiv.org/pdf/2405.15273"},
+            { "name": "DADA [ICLR]", "articleType": "Foundation Models", "taskType": "Outlier Detection","url":"https://arxiv.org/pdf/2405.15273"},
             { "name": "ROSE [ICML]", "articleType": "Foundation Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2405.17478"},
             { "name": "LightGTS [ICML]", "articleType": "Foundation Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2506.06005"},
             { "name": "FACT [PVLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":""},
@@ -82,9 +82,9 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "K<sup>2</sup>VAE [ICML]", "articleType": "Specific Models", "taskType": "Forecasting","url":"AAhttps://arxiv.org/pdf/2505.23017AAA"},
             { "name": "MemFormer [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3705829.3705842"},
             { "name": "TEAM [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2410.19192"},
-            { "name": "ContraAD [PVLDB]", "articleType": "Specific Models", "taskType": "Outlier","url":""},
+            { "name": "ContraAD [PVLDB]", "articleType": "Specific Models", "taskType": "Outlier Detection","url":""},
             { "name": "TimeDC [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":""},
-            { "name": "Catch [ICLR]", "articleType": "Specific Models", "taskType": "Outlier","url":"https://arxiv.org/pdf/2410.12261"},
+            { "name": "Catch [ICLR]", "articleType": "Specific Models", "taskType": "Outlier Detection","url":"https://arxiv.org/pdf/2410.12261"},
             { "name": "Air-DualODE [ICLR]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2410.19892"}
         ]}
     ];
@@ -114,7 +114,7 @@ function createLegend() {
         const taskTranslations = {
             'Forecasting': 'Forecasting',
             'Classification': 'Classification',
-            'Outlier': 'Outlier',
+            'Outlier Detection': 'Outlier Detection',
             'Others': 'Others'
         };
         for (const [type, color] of Object.entries(taskColor)) {

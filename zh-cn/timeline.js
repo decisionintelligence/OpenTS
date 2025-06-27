@@ -169,7 +169,7 @@ function createLegend() {
     const taskTranslations = {
         'Forecasting': 'Forecasting',
         'Classification': 'Classification',
-        'Outlier': 'Outlier',
+        'Outlier Detection': 'Outlier Detection',
         'Others': 'Others'
     };
     for (const [type, color] of Object.entries(taskColor)) {
