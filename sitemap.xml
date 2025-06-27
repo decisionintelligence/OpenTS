@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/Applications/index.html</loc>
     
     <lastmod>2025-06-27</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Applications/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/index.html</loc>
     
     <lastmod>2025-06-27</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/MM-Path/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/MemFormer/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/MemFormer/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/MM-Path/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
