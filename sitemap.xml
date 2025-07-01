@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Applications/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/index.html</loc>
     
-    <lastmod>2025-06-28</lastmod>
+    <lastmod>2025-07-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/Applications/index.html</loc>
     
-    <lastmod>2025-06-28</lastmod>
+    <lastmod>2025-07-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1084,7 +1084,7 @@
 
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS</loc>
-    <lastmod>2025-06-28</lastmod>
+    <lastmod>2025-07-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
