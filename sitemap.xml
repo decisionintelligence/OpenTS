@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/Foundation%20models/index.html</loc>
+    
+    <lastmod>2025-07-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/Applications/index.html</loc>
     
     <lastmod>2025-07-02</lastmod>
@@ -74,15 +83,6 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Foundation%20models/index.html</loc>
-    
-    <lastmod>2025-06-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Air-DualODE/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
@@ -110,6 +110,15 @@
   </url>
   
   <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/DARF/index.html</loc>
+    
+    <lastmod>2025-06-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/DUET/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
@@ -120,15 +129,6 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Enhancing/index.html</loc>
-    
-    <lastmod>2025-06-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/DARF/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Towards/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Position/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Position/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Towards/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -308,7 +308,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/Efficient/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/Context-Aware/index.html</loc>
     
     <lastmod>2025-06-22</lastmod>
     
@@ -317,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/Context-Aware/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/Efficient/index.html</loc>
     
     <lastmod>2025-06-22</lastmod>
     
@@ -1084,7 +1084,7 @@
 
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
