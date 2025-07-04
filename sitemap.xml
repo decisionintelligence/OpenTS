@@ -2,7 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Foundation%20models/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/index.html</loc>
+    
+    <lastmod>2025-07-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/index.html</loc>
+    
+    <lastmod>2025-07-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-FM/index.html</loc>
     
     <lastmod>2025-07-03</lastmod>
     
@@ -65,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/AutoML/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Auto/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -74,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/AutoML/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-Auto/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -83,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Air-DualODE/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Air-DualODE/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -92,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/CATCH/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/CATCH/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -101,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/ContraAD/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/DARF/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -110,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/DUET/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/ContraAD/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -119,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/DARF/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/DUET/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -128,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Enhancing/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Enhancing/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -137,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/K2VAE/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/K2VAE/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -146,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/MM-Path/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/MM-Path/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -155,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/MemFormer/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/MemFormer/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -164,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Multiple/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Multiple/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -173,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Pathformer/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Pathformer/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -182,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Position/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Position/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -191,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/Towards/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Towards/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -200,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Deep%20Learning/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -209,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/K2VAE/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/K2VAE/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -218,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -245,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/datasets/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/datasets/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -254,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/datasets/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/datasets/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -263,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/overview/index%20copy.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/overview/index%20copy.html</loc>
     
     <lastmod>2025-06-22</lastmod>
     
@@ -272,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/overview/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/overview/index.html</loc>
     
     <lastmod>2025-06-22</lastmod>
     
@@ -281,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/overview/index%20copy.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/overview/index%20copy.html</loc>
     
     <lastmod>2025-06-22</lastmod>
     
@@ -290,7 +308,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/overview/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/overview/index.html</loc>
     
     <lastmod>2025-06-22</lastmod>
     
@@ -299,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Foundation%20models/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-FM/index.html</loc>
     
     <lastmod>2025-06-22</lastmod>
     
@@ -362,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/DARF/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/DARF/index.html</loc>
     
     <lastmod>2025-06-22</lastmod>
     
@@ -407,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/Multiple/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/Multiple/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -416,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/MemFormer/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/MemFormer/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -425,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/Position/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/Position/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -434,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/Pathformer/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/Pathformer/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -443,7 +461,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/Towards/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/Towards/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -452,7 +470,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/MM-Path/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/MM-Path/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -461,7 +479,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/DUET/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/DUET/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -470,7 +488,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/CATCH/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/CATCH/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -479,7 +497,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/Air-DualODE/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/Air-DualODE/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -506,7 +524,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/team/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/team/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -515,7 +533,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/get%20started/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/get%20started/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -524,7 +542,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/algorithms/TFB/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/algorithms/TFB/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -650,7 +668,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/algorithms/methods/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/algorithms/methods/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -659,7 +677,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/papers/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/papers/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -668,7 +686,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/team/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/team/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -677,7 +695,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/get%20started/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/get%20started/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -686,7 +704,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/papers/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/papers/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -695,7 +713,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/algorithms/methods/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/algorithms/methods/index.html</loc>
     
     <lastmod>2025-06-17</lastmod>
     
@@ -704,7 +722,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/papers/TAB/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/papers/TAB/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -713,7 +731,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/AutoML/AutoCTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Auto/AutoCTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -722,7 +740,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/AutoML/AutoCTS+/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Auto/AutoCTS+/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -731,7 +749,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/AutoML/AutoCTS++/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Auto/AutoCTS++/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -740,7 +758,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/AutoML/FACTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Auto/FACTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -749,7 +767,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Foundation%20models/AimTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-FM/AimTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -758,7 +776,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Foundation%20models/DADA/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-FM/LightGTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -767,7 +785,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Foundation%20models/LightGTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-FM/DADA/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -776,7 +794,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Foundation%20models/ROSE/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-FM/ROSE/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -785,7 +803,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/papers/TFB/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/papers/TFB/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -794,7 +812,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/papers/TSFM-Bench/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/papers/TSFM-Bench/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -803,7 +821,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/ContraAD/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/ContraAD/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -812,7 +830,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Deep%20Learning/Enhancing/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-DL/Enhancing/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -821,7 +839,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/AutoML/AutoCTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-Auto/AutoCTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -830,7 +848,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/AutoML/AutoCTS+/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-Auto/AutoCTS+/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -839,7 +857,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/AutoML/AutoCTS++/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-Auto/AutoCTS++/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -848,7 +866,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/AutoML/FACTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-Auto/FACTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -857,7 +875,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Foundation%20models/DADA/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-FM/DADA/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -866,7 +884,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Foundation%20models/LightGTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-FM/LightGTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -875,7 +893,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Foundation%20models/ROSE/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-FM/ROSE/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -884,7 +902,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Foundation%20models/AimTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-FM/AimTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -920,7 +938,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/papers/TAB/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/papers/TAB/index.html</loc>
     
     <lastmod>2025-06-05</lastmod>
     
@@ -929,7 +947,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/papers/TFB/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/papers/TFB/index.html</loc>
     
     <lastmod>2025-06-05</lastmod>
     
@@ -938,7 +956,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/papers/TSFM-Bench/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/papers/TSFM-Bench/index.html</loc>
     
     <lastmod>2025-06-05</lastmod>
     
@@ -947,7 +965,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/papers/index%20copy.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/papers/index%20copy.html</loc>
     
     <lastmod>2025-06-05</lastmod>
     
@@ -956,7 +974,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/papers/index%20copy.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/papers/index%20copy.html</loc>
     
     <lastmod>2025-06-05</lastmod>
     
@@ -983,7 +1001,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/algorithms/FoundTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/algorithms/FoundTS/index.html</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -992,7 +1010,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/algorithms/FoundTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/algorithms/FoundTS/index.html</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -1001,7 +1019,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/algorithms/TFB/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/algorithms/TFB/index.html</loc>
     
     <lastmod>2024-10-23</lastmod>
     
@@ -1010,7 +1028,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/get%20started/steps_to_evaluate_your_own_time_series.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/get%20started/steps_to_evaluate_your_own_time_series.html</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -1019,7 +1037,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/get%20started/steps_to_evaluate_your_own_time_series.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/get%20started/steps_to_evaluate_your_own_time_series.html</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -1028,7 +1046,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/Benchmarks/get%20started/steps_to_develop_your_own_method.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-BM/get%20started/steps_to_develop_your_own_method.html</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -1037,7 +1055,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Benchmarks/get%20started/steps_to_develop_your_own_method.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-BM/get%20started/steps_to_develop_your_own_method.html</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -1084,7 +1102,7 @@
 
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS</loc>
-    <lastmod>2025-07-03</lastmod>
+    <lastmod>2025-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
