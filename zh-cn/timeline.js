@@ -24,19 +24,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Use the new data provided by the user ---
     const timelineData = [
         {"year":2013, "papers":[
-            { "name": "STHMM [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":""}
+            { "name": "STHMM [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://www.vldb.org/pvldb/vol6/p769-yang.pdf"}
 
         ]},
         {"year":2018, "papers":[
-            { "name": "UncertainTS [VLDBJ]", "articleType": "特定模型", "taskType": "其他任务","url":"Efficient Stochastic Routing in Path-Centric Uncertain Road Networks"},
-            { "name": "DAE [MDM]", "articleType": "特定模型", "taskType": "异常检测","url":""},
-            { "name": "AECRNN [CIKM]", "articleType": "特定模型", "taskType": "时序预测","url":""}
+            { "name": "UncertainTS [VLDBJ]", "articleType": "特定模型", "taskType": "其他任务","url":"https://doi.org/10.1007/s00778-018-0494-9"},
+            { "name": "DAE [MDM]", "articleType": "特定模型", "taskType": "异常检测","url":"doi.org/10.1109/MDM.2018.00029"},
+            { "name": "AECRNN [CIKM]", "articleType": "特定模型", "taskType": "时序预测","url":"https://doi.org/10.1145/3269206.3271762"}
         ]},
         {"year":2019, "papers":[
-            { "name": "RAE [IJCAI]", "articleType": "特定模型", "taskType": "异常检测","url":""}
+            { "name": "RAE [IJCAI]", "articleType": "特定模型", "taskType": "异常检测","url":"https://doi.org/10.24963/ijcai.2019/378"}
         ]},
         {"year":2020, "papers":[
-            { "name": "DGCRNN [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":""}
+            { "name": "DGCRNN [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2104.14917"}
         ]},
         {"year":2021, "papers":[
             { "name": "EnhanceNet [ICDE]", "articleType": "插件", "taskType": "时序预测","url":"https://ieeexplore.ieee.org/document/9458855"},
@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         ]},
         {"year":2022, "papers":[
             { "name": "Triformer [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2204.13767"},
-            { "name": "ST-WA [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":""},
+            { "name": "ST-WA [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2203.15737"},
             { "name": "RAE [ICDE]", "articleType": "特定模型", "taskType": "异常检测","url":"https://ieeexplore.ieee.org/abstract/document/9835268"},
-            { "name": "VQRAE [ICDE]", "articleType": "特定模型", "taskType": "异常检测","url":""},
+            { "name": "VQRAE [ICDE]", "articleType": "特定模型", "taskType": "异常检测","url":"https://doi.org/10.1109/ICDE53745.2022.00105"},
             { "name": "HyperVerlet [AAAI]", "articleType": "特定模型", "taskType": "时序预测","url":"https://aaai.org/papers/04575-hyperverlet-a-symplectic-hypersolver-for-hamiltonian-systems/"}
         ]},
         {"year":2023, "papers":[
@@ -58,18 +58,18 @@ document.addEventListener('DOMContentLoaded', function() {
         ]},
         {"year":2024, "papers":[
             { "name": "AutoCTS++ [VLDBJ]", "articleType": "自动机器学习", "taskType": "时序预测","url":"https://link.springer.com/article/10.1007/s00778-024-00872-x"},
-            { "name": "PatchFormer [ICLR]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2402.05956"},
+            { "name": "PathFormer [ICLR]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2402.05956"},
             { "name": "TFB [PVLDB]", "articleType": "评测基准", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3665844.3665863"},
             { "name": "MTSF-DG [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/pdf/10.14778/3636218.3636230"},
             { "name": "DARF [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3636218.3636231"},
             { "name": "STSimSiam [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2404.14999"},
             { "name": "QCore [PVLDB]", "articleType": "特定模型", "taskType": "时序分类","url":"https://dl.acm.org/doi/10.14778/3681954.3681957"},
-            { "name": "Orca [CIKM]", "articleType": "特定模型", "taskType": "时序预测","url":""}
+            { "name": "Orca [CIKM]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2407.20053"}
         ]},
         // --- NEW: Example of a split display --- "display": "split", "index": 6,
         {"year":2025,  "papers":[
-            { "name": "TAB [PVLDB]", "articleType": "评测基准", "taskType": "时序预测","url":""},
-            { "name": "TSFM-Bench [KDD]", "articleType": "评测基准", "taskType": "时序预测","url":""},
+            { "name": "TAB [PVLDB]", "articleType": "评测基准", "taskType": "时序预测","url":"https://arxiv.org/pdf/2506.18046"},
+            { "name": "TSFM-Bench [KDD]", "articleType": "评测基准", "taskType": "时序预测","url":"https://arxiv.org/pdf/2410.11802"},
             { "name": "AimTS [ICDE]", "articleType": "基础模型", "taskType": "时序分类","url":"https://arxiv.org/pdf/2504.09993"},
             { "name": "DADA [ICLR]", "articleType": "基础模型", "taskType": "异常检测","url":"https://arxiv.org/pdf/2405.15273"},
             { "name": "ROSE [ICML]", "articleType": "基础模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2405.17478"},
@@ -95,10 +95,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         ]},
         {"year":2014, "papers":[
-            { "name": "Stochastic Skyline Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://homes.cs.aau.dk/~csj/Papers/Files/2014_YangICDE.pdf"},
+            { "name": "Stochastic Skyline Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://doi.org/10.1109/ICDE.2014.6816646"},
         ]},
         {"year":2015, "papers":[
-            { "name": "Personalized Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://vbn.aau.dk/en/publications/personalized-route-recommendation-using-big-trajectory-data"},
+            { "name": "Personalized Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://doi.org/10.1109/ICDE.2015.7113313"},
             { "name": "Context-aware Routing [VLDB]", "articleType": "Specific Models", "taskType": "Others","url":"https://link.springer.com/article/10.1007/s00778-015-0378-1"},
 
         ]},
@@ -106,10 +106,10 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "Path-centric Dynamic Uncertain Graphs [PVLDB]", "articleType": "Specific Models", "taskType": "Others","url":"https://dl.acm.org/doi/10.14778/3681954.3681971"},
         ]},
         {"year":2018, "papers":[
-            { "name": "Top-K Optimal Sequenced Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://homes.cs.aau.dk/~byang/papers/ICDE2018-OSR.pdf"},
-            { "name": "Leaning2Route [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://people.cs.aau.dk/~byang/papers/ICDE2018-L2R.pdf"},
-            { "name": "PACE [VLDBJ]", "articleType": "Specific Models", "taskType": "Others","url":"https://vbn.aau.dk/en/publications/pace-a-path-centric-paradigm-for-stochastic-path-finding"},
-            { "name": "TopK SP Diversity [TKDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://homes.cs.aau.dk/~byang/papers/TKDE2018-ICDE-Poster.pdf"},
+            { "name": "Top-K Optimal Sequenced Routing [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://doi.org/10.1109/ICDE.2018.00058"},
+            { "name": "Leaning2Route [ICDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://doi.org/10.1109/ICDE.2018.00100"},
+            { "name": "PACE [VLDBJ]", "articleType": "Specific Models", "taskType": "Others","url":"https://doi.org/10.1007/s00778-017-0491-4"},
+            { "name": "TopK SP Diversity [TKDE]", "articleType": "Specific Models", "taskType": "Others","url":"https://doi.org/10.1109/ICDE.2018.00238"},
 
         ]},
         {"year":2019, "papers":[
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "TUCH [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://link.springer.com/article/10.1007/s00778-019-00585-6"},
             { "name": "Preferenced Routing [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://link.springer.com/article/10.1007/s00778-020-00608-7"},
             { "name": "Anytime Routing [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://www.vldb.org/pvldb/vol13/p1555-pedersen.pdf"},
-            { "name": "Path Ranking [TKDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://vbn.aau.dk/files/408227118/09204384.pdf"},
+            { "name": "Path Ranking [TKDE]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://doi.org/10.1109/TKDE.2020.3025024"},
         ]},
         {"year":2021, "papers":[
             { "name": "Path Representation Learning [IJCAI]", "articleType": "Plugins", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2106.09373"},
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ]},
         {"year":2024, "papers":[
             { "name": "DOT [SIGMOD]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2307.03048"},
-            { "name": "PACE Routing [VLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://vbn.aau.dk/en/publications/pace-a-path-centric-paradigm-for-stochastic-path-finding"},
+            { "name": "PACE Routing [VLDB]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://doi.org/10.1007/s00778-017-0491-4"},
             { "name": "Crystal Property Estimation [ECML]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://link.springer.com/chapter/10.1007/978-3-031-70381-2_15"},
         ]},
         // --- NEW: Example of a split display --- "display": "split", "index": 6,

@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ]},
         {"year":2024, "papers":[
             { "name": "AutoCTS++ [VLDBJ]", "articleType": "AutoML", "taskType": "Forecasting","url":"https://link.springer.com/article/10.1007/s00778-024-00872-x"},
-            { "name": "PatchFormer [ICLR]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2402.05956"},
+            { "name": "PathFormer [ICLR]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://arxiv.org/pdf/2402.05956"},
             { "name": "TFB [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3665844.3665863"},
             { "name": "MTSF-DG [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/abs/10.14778/3636218.3636230"},
             { "name": "DARF [PVLDB]", "articleType": "Specific Models", "taskType": "Forecasting","url":"https://dl.acm.org/doi/10.14778/3636218.3636231"},
