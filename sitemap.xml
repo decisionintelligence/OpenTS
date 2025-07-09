@@ -4,7 +4,7 @@
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/2025/06/17/index/</loc>
     
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Enhancing/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/K2VAE/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/K2VAE/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Enhancing/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -1102,7 +1102,7 @@
 
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

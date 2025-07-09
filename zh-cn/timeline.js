@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
         ]},
         {"year":2018, "papers":[
             { "name": "UncertainTS [VLDBJ]", "articleType": "特定模型", "taskType": "其他任务","url":"https://doi.org/10.1007/s00778-018-0494-9"},
-            { "name": "DAE [MDM]", "articleType": "特定模型", "taskType": "异常检测","url":"doi.org/10.1109/MDM.2018.00029"},
-            { "name": "AECRNN [CIKM]", "articleType": "特定模型", "taskType": "时序预测","url":"https://doi.org/10.1145/3269206.3271762"}
+            { "name": "DAE [MDM]", "articleType": "特定模型", "taskType": "异常检测","url":"https://doi.org/10.1109/MDM.2018.00029"},
+            { "name": "AECRNN [CIKM]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.1145/3269206.3269310"}
         ]},
         {"year":2019, "papers":[
             { "name": "RAE [IJCAI]", "articleType": "特定模型", "taskType": "异常检测","url":"https://doi.org/10.24963/ijcai.2019/378"}
         ]},
         {"year":2020, "papers":[
-            { "name": "DGCRNN [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2104.14917"}
+            { "name": "DGCRNN [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":"https://doi.org/10.1109/ICDE48307.2020.00126"}
         ]},
         {"year":2021, "papers":[
             { "name": "EnhanceNet [ICDE]", "articleType": "插件", "taskType": "时序预测","url":"https://ieeexplore.ieee.org/document/9458855"},
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {"year":2022, "papers":[
             { "name": "Triformer [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2204.13767"},
             { "name": "ST-WA [ICDE]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2203.15737"},
-            { "name": "RAE [ICDE]", "articleType": "特定模型", "taskType": "异常检测","url":"https://ieeexplore.ieee.org/abstract/document/9835268"},
+            { "name": "RAE [ICDE]", "articleType": "特定模型", "taskType": "异常检测","url":"https://doi.org/10.1109/ICDE53745.2022.00273"},
             { "name": "VQRAE [ICDE]", "articleType": "特定模型", "taskType": "异常检测","url":"https://doi.org/10.1109/ICDE53745.2022.00105"},
             { "name": "HyperVerlet [AAAI]", "articleType": "特定模型", "taskType": "时序预测","url":"https://aaai.org/papers/04575-hyperverlet-a-symplectic-hypersolver-for-hamiltonian-systems/"}
         ]},
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "SSD-TS [KDD]", "articleType": "特定模型", "taskType": "其他任务","url":""},
             { "name": "IGCL [KDD]", "articleType": "特定模型", "taskType": "其他任务","url":""},
             { "name": "DUET [KDD]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2412.10859"},
-            { "name": "K<sup>2</sup>VAE [ICML]", "articleType": "特定模型", "taskType": "时序预测","url":"AAhttps://arxiv.org/pdf/2505.23017AAA"},
+            { "name": "K<sup>2</sup>VAE [ICML]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2505.23017"},
             { "name": "MemFormer [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://dl.acm.org/doi/10.14778/3705829.3705842"},
             { "name": "TEAM [PVLDB]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2410.19192"},
             { "name": "ContraAD [PVLDB]", "articleType": "特定模型", "taskType": "异常检测","url":""},
