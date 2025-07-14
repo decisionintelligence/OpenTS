@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/OpenTS/js/jquery.min.js"></script>
+  <link rel="icon" type="image/png" href="https://decisionintelligence.github.io/OpenTS/figures/logo10.png">
+  <meta name="google-site-verification" content="0HzGL60Z8ChYs-wL6ogMpNB-px7tcu9PcRD1z6OQWe8" />
+  <meta name="msvalidate.01" content="FD2A799A0C64AAB3A8289819F1C2DFFB" />
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta http-equiv='content-language' content='en-gb'>
+  <meta charset="utf-8">
+  
+  
+  <title>OpenTS - Democratizing AI for Time series and Spatio-temporal data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
+  <meta name="description" content="TAB如果您发现我们的工作有帮助，欢迎引用我们的论文。 12345678@inproceedings&#123;qiu2025tab,    title   &#x3D; &#123;TAB: Unified Benchmarking of Time Series Anomaly Detection Methods&#125;,    author  &#x3D; &#123;Xiangfei Qiu and Zhe">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
+<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-Bench/papers/TAB/index.html">
+<meta property="og:site_name" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
+<meta property="og:description" content="TAB如果您发现我们的工作有帮助，欢迎引用我们的论文。 12345678@inproceedings&#123;qiu2025tab,    title   &#x3D; &#123;TAB: Unified Benchmarking of Time Series Anomaly Detection Methods&#125;,    author  &#x3D; &#123;Xiangfei Qiu and Zhe">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-06-13T17:23:08.391Z">
+<meta property="article:modified_time" content="2025-06-13T17:23:08.391Z">
+<meta property="article:author" content="DecisionIntelligence |">
+<meta name="twitter:card" content="summary">
+  
+
+  <link href="/OpenTS/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/OpenTS/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/OpenTS/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <!-- blair add baidu tongji start... @2017.10.03 -->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?8864d";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+<!-- blair add baidu tongji end ! @2017.10.03 -->
+<!-- jiangting add start... @2020.08.30 -->
+
+<!-- jiangting add end !  @2020.08.30 -->
+
+<header id="header" style="min-width:1040px">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <!-- <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a> -->
+      
+
+      <nav id="main-nav">
+        
+        
+          
+          
+            <div class="menu-container" data-lang="zh-cn">
+              <!-- <p style="font-size: 25px;font-weight: 620;">OpenTS</p> -->
+              <a id="logo" style="margin:3px 0; margin-left: 5px;" class="logo" href="/OpenTS/"></a>
+              <!-- <div style="width: 4px;height: 58px;border-right: 2px solid #797777;"></div> -->
+              
+                
+                
+                
+                  
+                  <a class="main-nav-link" href="/OpenTS/zh-cn/">易步时空</a>
+                    
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a href="/OpenTS/zh-cn/OpenTS-Bench" class="main-nav-link dropdown-toggle" style="">评测基准 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/OpenTS-Bench/overview">概述</a>
+                      
+                        <a href="/OpenTS/zh-cn/OpenTS-Bench/get%20started/">快速开始</a>
+                      
+                        <a href="/OpenTS/zh-cn/OpenTS-Bench/datasets">数据集</a>
+                      
+                        <a href="/OpenTS/zh-cn/OpenTS-Bench/algorithms/methods">算法</a>
+                      
+                        <a href="/OpenTS/zh-cn/OpenTS-Bench/team">团队</a>
+                      
+                        <a href="/OpenTS/zh-cn/OpenTS-Bench/papers">论文</a>
+                      
+                        <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">代码</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a  class="main-nav-link dropdown-toggle" style="">模型 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/OpenTS-FM/">基础模型</a>
+                      
+                        <a href="/OpenTS/zh-cn/OpenTS-Auto/">自动机器学习</a>
+                      
+                        <a href="/OpenTS/zh-cn/OpenTS-DL/">深度学习</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a href="/OpenTS/zh-cn/Applications" class="main-nav-link dropdown-toggle" style="">应用 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#%E6%99%BA%E8%83%BD%E8%BF%90%E7%BB%B4%EF%BC%88AIOps%EF%BC%89">智能运维</a>
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#%E6%99%BA%E6%85%A7%E4%BA%A4%E9%80%9A">智慧交通</a>
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#%E8%99%9A%E6%8B%9F%E7%94%B5%E5%8E%82">虚拟电厂</a>
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#%E6%99%BA%E8%83%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96%EF%BC%88AI4DB%EF%BC%89">智能数据库优化</a>
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#%E9%87%91%E8%9E%8D%E7%A7%91%E6%8A%80">金融科技</a>
+                      
+                        <a href="/OpenTS/zh-cn/Applications/#%E6%99%BA%E8%83%BD%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94">智能应急响应</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a  class="main-nav-link dropdown-toggle" style="">排行榜 <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/univariate_time_series">单变量预测</a>
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/multivariate_time_series">多变量预测</a>
+                      
+                        <a href="/OpenTS/zh-cn/leaderboards/foundation_model">基础模型</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  
+                    <a class="main-nav-link" target="_blank" href="https://decisionintelligence.github.io/index">实验室</a>
+                    
+                
+      
+              
+                
+                
+                
+                  
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://github.com/decisionintelligence">Github</a>
+                    
+                
+      
+              
+                
+                
+                
+                  <a id="lang-toggle-link-zh-cn" class="main-nav-link" href="javascript:;">中文|English</a>
+
+                
+                
+      
+              
+            </div>
+          
+        
+          
+          
+            <div class="menu-container" data-lang="en">
+              <!-- <p style="font-size: 25px;font-weight: 620;">OpenTS</p> -->
+              <a id="logo" style="margin:3px 0; margin-left: 5px;" class="logo" href="/OpenTS/"></a>
+              <!-- <div style="width: 4px;height: 58px;border-right: 2px solid #797777;"></div> -->
+              
+                
+                
+                
+                  
+                  <a class="main-nav-link" href="/OpenTS/">OpenTS</a>
+                    
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a href="/OpenTS/OpenTS-Bench" class="main-nav-link dropdown-toggle" style="">Benchmarks <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/OpenTS-Bench/overview">Overview</a>
+                      
+                        <a href="/OpenTS/OpenTS-Bench/get%20started/">Get started</a>
+                      
+                        <a href="/OpenTS/OpenTS-Bench/datasets">Datasets</a>
+                      
+                        <a href="/OpenTS/OpenTS-Bench/algorithms/methods">Algorithms</a>
+                      
+                        <a href="/OpenTS/OpenTS-Bench/team">Team</a>
+                      
+                        <a href="/OpenTS/OpenTS-Bench/papers">Papers</a>
+                      
+                        <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">Code</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a  class="main-nav-link dropdown-toggle" style="">Models <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/OpenTS-FM/">Foundation models</a>
+                      
+                        <a href="/OpenTS/OpenTS-Auto/">AutoML</a>
+                      
+                        <a href="/OpenTS/OpenTS-DL/">Deep Learning</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a href="/OpenTS/Applications" class="main-nav-link dropdown-toggle" style="">Applications <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/Applications/#AIOps">AIOps</a>
+                      
+                        <a href="/OpenTS/Applications/#Intelligent-Transportation">Intelligent Transportation</a>
+                      
+                        <a href="/OpenTS/Applications/#Virtual%20Power%20Plants%20(VPP)">Virtual Power Plants</a>
+                      
+                        <a href="/OpenTS/Applications/#AI4DB">AI4DB</a>
+                      
+                        <a href="/OpenTS/Applications/#FinTech">FinTech</a>
+                      
+                        <a href="/OpenTS/Applications/#Smart-Emergency-Response">Smart Emergency Response</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  <div class="dropdown">
+                    <a  class="main-nav-link dropdown-toggle" style="">Leaderboards <span class="caret"></span></a>
+                    <div class="dropdown-content">
+                      
+                        <a href="/OpenTS/leaderboards/univariate_time_series">Univariate time series</a>
+                      
+                        <a href="/OpenTS/leaderboards/multivariate_time_series">Multivariate time series</a>
+                      
+                        <a href="/OpenTS/leaderboards/foundation_model">Foundation model</a>
+                      
+                    </div>
+                  </div>
+      
+                
+                
+      
+              
+                
+                
+                
+                  
+                    <a class="main-nav-link" target="_blank" href="https://decisionintelligence.github.io">Lab</a>
+                    
+                
+      
+              
+                
+                
+                
+                  
+                  <a class="main-nav-link" target="_blank" rel="noopener" href="https://github.com/decisionintelligence">Github</a>
+                    
+                
+      
+              
+                
+                
+                
+                  <a id="lang-toggle-link-en" class="main-nav-link" href="javascript:;">English|中文</a>
+
+                
+                
+      
+              
+            </div>
+          
+        
+      </nav>
+    
+    </div>
+  </div>
+</header>
+
+<style>
+  #header {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+  }
+
+  #header-outer {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+  }
+
+  #header-inner {
+    position: relative;
+    z-index: 10;
+    overflow: visible;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    width: 1040px; /* 设置最大宽度 */
+    margin: auto; /* 居中对齐 */ /* 确保占满父元素的宽度 */
+    flex-wrap: nowrap; /* 保持内容在同一行 */
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    text-align: right;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    top: 100%;
+    right: 0;
+    width: auto;
+    min-width: 100%;
+    white-space: nowrap;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-top: 1px solid #ddd;
+  }
+
+  .dropdown-content a:first-child {
+    border-top: none;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-toggle::after {
+    content: " ▼";
+    font-size: 0.55em;
+    vertical-align: middle;
+  }
+
+  #main-nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-around;
+    flex-wrap: nowrap; /* 保持内容在同一行 */
+  }
+
+  .main-nav-link {
+    padding: 0 10px; /* 减少 padding，缩小栏目间距 */
+  }
+
+  .main-nav-link:not([href]) {
+  cursor: default;
+}
+
+  @media (max-width: 480px) {
+    .main-nav-link {
+      padding: 5px; /* 进一步减少 padding，在小屏幕上更紧凑 */
+      flex: 1;
+      text-align: center;
+    }
+  }
+</style>
+
+    <br>
+    <section id="main" class="outer"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    <div class="article-meta">
+      <!--<a href="/OpenTS/en/zh-cn/OpenTS-Bench/papers/TAB/index.html" class="article-date">
+  <time datetime="2025-06-13T17:23:08.391Z" itemprop="datePublished">2025-06-14</time>
+</a>-->
+      <!-- 
+--><!-- by blair 160724 -->
+      <!-- by blair
+      
+      -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="TAB"><a href="#TAB" class="headerlink" title="TAB"></a>TAB</h1><p>如果您发现我们的工作有帮助，欢迎引用我们的论文。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@inproceedings&#123;qiu2025tab,</span><br><span class="line">    title   = &#123;TAB: Unified Benchmarking of Time Series Anomaly Detection Methods&#125;,</span><br><span class="line">    author  = &#123;Xiangfei Qiu and Zhe Li and Wanghui Qiu and Shiyan Hu and Lekui Zhou and Xingjian Wu and Zhengyu Li and Chenjuan Guo and Aoying Zhou and Zhenli Sheng and Jilin Hu and Christian S. Jensen and Bin Yang&#125;,</span><br><span class="line">    booktitle = &#123;Proc. &#123;VLDB&#125; Endow.&#125;,</span><br><span class="line">    year    = &#123;2025&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    
+    </div>
+    
+    
+      <footer class="article-footer">
+        <!-- <div class="well" style="width:100px; height:30px;"></div>  by blair-->
+        
+ <!-- by blair add 160724-->
+        <!--
+        <div style="width:100px; height:30px;"></div> by blair add 160724
+        -->
+        
+
+      </footer>
+    
+  </div>
+  
+    
+  
+</article>
+
+</section>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2025 DecisionIntelligence |&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a target="_blank" rel="noopener" href="http://github.com/52binge/hexo-theme-blairos">blairos</a>
+    </div>
+  </div>
+</footer> -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+      displayMath: [ ['$$','$$']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" >
+</script>
+
+    
+
+
+
+
+
+
+<script src="/OpenTS/js/script.js"></script>
+
+
+  </div>
+  <!-- 把它放在 </body> 标签之前 -->
+<script>
+  // function updateLanguageLink() {
+  //   // 获取页面上我们设置的那个链接元素
+  //   const link = document.getElementById('lang-toggle-link');
+  //   if (!link) {
+  //     // 如果页面上没有这个链接，就什么都不做
+  //     return;
+  //   }
+
+  //   // 这两个值需要和你的项目配置保持一致
+  //   const DEFAULT_LANG = 'zh-cn'; // 你的默认语言，可能是 'zh' 或 'zh-cn'
+  //   const SECOND_LANG = 'en';
+
+  //   // 不再使用 page.path，而是使用浏览器当前真实的 URL
+  //   const currentPathname = window.location.pathname;
+    
+  //   // 从 config 中获取站点的根目录，以便正确拼接 URL
+  //   // hexo.config.root 通常是 '/' 或者 '/your-repo-name/'
+  //   const root = '/OpenTS/';
+  //   // console.log(currentPathname)
+  //   // console.log(root)
+  //   let targetPath;
+
+  //   // 判断当前 URL 是否以 /en/ 开头
+  //   if (currentPathname.startsWith(root + SECOND_LANG + '/')) {
+  //     // 当前是英文页, 目标是中文页
+  //     // e.g., /en/get-started/ -> /get-started/
+  //     const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
+  //     targetPath = root.slice(0, -1) + '/' + DEFAULT_LANG +  pathWithoutLang; // 拼接路径
+  //   } else if(currentPathname.startsWith(root + DEFAULT_LANG + '/')){
+  //     const pathWithoutLang = currentPathname.substring((root + DEFAULT_LANG).length);
+  //     targetPath = root.slice(0, -1) + '/' + 'en' +  pathWithoutLang; // 拼接路径
+  //   } 
+  //   else {
+  //     // 当前是中文页, 目标是英文页
+  //     // e.g., /get-started/ -> /en/get-started/
+  //     const pathWithoutRoot = currentPathname.substring(root.length);
+  //     targetPath = root + SECOND_LANG + '/' + pathWithoutRoot;
+  //   }
+
+  //   // 更新链接的 href 属性
+  //   link.href = targetPath;
+  // }
+
+  // // 监听 Pjax 加载完成事件
+  // // 注意：事件名可能是 'pjax:end', 'pjax:complete' 等，取决于主题用的库
+  // // 你可以在主题的 JS 文件里搜索 'pjax' 来确认
+  // document.addEventListener('pjax:end', updateLanguageLink);
+
+  // // 页面首次加载时也执行一次
+  // document.addEventListener('DOMContentLoaded', updateLanguageLink);
+  function updateLanguageUI() {
+    const root = '/OpenTS/';
+    const DEFAULT_LANG = '';
+    const SECOND_LANG = 'zh-cn';
+    const currentPathname = window.location.pathname;
+
+
+    const isChinesePage = currentPathname.startsWith(root + SECOND_LANG + '/');
+    
+    if (isChinesePage) {
+      document.body.classList.add('lang-zh-cn');
+      document.body.classList.remove('lang-en');
+    } else {
+
+      document.body.classList.add('lang-en');
+      document.body.classList.remove('lang-zh-cn');
+    }
+
+    // --- 2. 更新语言切换链接的 href (新逻辑) ---
+    let linkToUpdate;
+    let targetPath;
+
+    if (isChinesePage) {
+      // 在英文页，英文菜单可见。我们需要更新它里面的那个切换器。
+      // linkToUpdate = document.getElementById('main-nav');
+      linkToUpdate = document.getElementById('lang-toggle-link-zh-cn');
+      // 目标是中文页 (不带语言前缀)
+      const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
+      targetPath = (root.endsWith('/') ? root.slice(0, -1) : root)  + pathWithoutLang;
+      if (targetPath === '') targetPath = '/';
+
+    } else {
+
+      linkToUpdate = document.getElementById('lang-toggle-link-en');
+      // 目标是英文页
+      let pathWithoutLang = currentPathname.substring(root.length);
+      if (pathWithoutLang.startsWith(DEFAULT_LANG + '/')) {
+        pathWithoutLang = pathWithoutLang.substring((DEFAULT_LANG + '/').length);
+      }
+      targetPath = root +SECOND_LANG+ '/'+ pathWithoutLang;
+    }
+
+    // 如果找到了对应的链接，就更新它
+    if (linkToUpdate) {
+      linkToUpdate.href = targetPath;
+      // console.log(linkToUpdate.href)
+    }
+  }
+
+  // 监听 Pjax 加载完成事件
+  document.addEventListener('pjax:end', updateLanguageUI);
+  // 页面首次加载时也执行一次
+  document.addEventListener('DOMContentLoaded', updateLanguageUI);
+</script>
+</body>
+</html>
