@@ -13,12 +13,12 @@
   <title>OpenTS - Democratizing AI for Time series and Spatio-temporal data</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
-  <meta name="description" content="OpenTS-BenchOpenTS-Bench is a comprehensive and fair benchmarking of time series analytics, mainly including foreacsting and anaomly detection. OpenTS-Bench inlucdes Time series Forecasting Benchmark">
+  <meta name="description" content="OpenTS-BenchOpenTS-Bench is a comprehensive and fair benchmark of time series analytics, mainly including foreacsting and anaomly detection. OpenTS-Bench inlucdes Time series Forecasting Benchmark (TF">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
 <meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/OpenTS-Bench/index.html">
 <meta property="og:site_name" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
-<meta property="og:description" content="OpenTS-BenchOpenTS-Bench is a comprehensive and fair benchmarking of time series analytics, mainly including foreacsting and anaomly detection. OpenTS-Bench inlucdes Time series Forecasting Benchmark">
+<meta property="og:description" content="OpenTS-BenchOpenTS-Bench is a comprehensive and fair benchmark of time series analytics, mainly including foreacsting and anaomly detection. OpenTS-Bench inlucdes Time series Forecasting Benchmark (TF">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/figures/timeseries.svg">
 <meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/figures/alg_icon.svg">
@@ -28,8 +28,8 @@
 <meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/figures/TSFM-Bench.png">
 <meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/figures/paper.png">
 <meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/figures/download.png">
-<meta property="article:published_time" content="2025-07-14T05:38:10.764Z">
-<meta property="article:modified_time" content="2025-07-14T05:38:10.764Z">
+<meta property="article:published_time" content="2025-07-15T11:02:25.585Z">
+<meta property="article:modified_time" content="2025-07-15T11:02:25.585Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://decisionintelligence.github.io/OpenTS/figures/timeseries.svg">
@@ -93,9 +93,11 @@
                     <a href="/OpenTS/zh-cn/OpenTS-Bench" class="main-nav-link dropdown-toggle" style="">评测基准 <span class="caret"></span></a>
                     <div class="dropdown-content">
                       
-                        <a href="/OpenTS/zh-cn/OpenTS-Bench/overview">概述</a>
+                        <a href="/OpenTS/zh-cn/OpenTS-Bench">概述</a>
                       
                         <a href="/OpenTS/zh-cn/OpenTS-Bench/get%20started/">快速开始</a>
+                      
+                        <a href="/OpenTS/zh-cn/OpenTS-Bench/pipeline">流程介绍</a>
                       
                         <a href="/OpenTS/zh-cn/OpenTS-Bench/datasets">数据集</a>
                       
@@ -104,8 +106,6 @@
                         <a href="/OpenTS/zh-cn/OpenTS-Bench/team">团队</a>
                       
                         <a href="/OpenTS/zh-cn/OpenTS-Bench/papers">论文</a>
-                      
-                        <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">代码</a>
                       
                     </div>
                   </div>
@@ -233,9 +233,11 @@
                     <a href="/OpenTS/OpenTS-Bench" class="main-nav-link dropdown-toggle" style="">Benchmarks <span class="caret"></span></a>
                     <div class="dropdown-content">
                       
-                        <a href="/OpenTS/OpenTS-Bench/overview">Overview</a>
+                        <a href="/OpenTS/OpenTS-Bench">Overview</a>
                       
                         <a href="/OpenTS/OpenTS-Bench/get%20started/">Get started</a>
+                      
+                        <a href="/OpenTS/OpenTS-Bench/pipeline">Pipeline</a>
                       
                         <a href="/OpenTS/OpenTS-Bench/datasets">Datasets</a>
                       
@@ -244,8 +246,6 @@
                         <a href="/OpenTS/OpenTS-Bench/team">Team</a>
                       
                         <a href="/OpenTS/OpenTS-Bench/papers">Papers</a>
-                      
-                        <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB">Code</a>
                       
                     </div>
                   </div>
@@ -460,7 +460,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/OpenTS-Bench/index.html" class="article-date">
-  <time datetime="2025-07-14T05:38:10.764Z" itemprop="datePublished">2025-07-14</time>
+  <time datetime="2025-07-15T11:02:25.585Z" itemprop="datePublished">2025-07-15</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -470,7 +470,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="OpenTS-Bench"><a href="#OpenTS-Bench" class="headerlink" title="OpenTS-Bench"></a>OpenTS-Bench</h1><p>OpenTS-Bench is a comprehensive and fair benchmarking of time series analytics, mainly including foreacsting and anaomly detection. OpenTS-Bench inlucdes <b>Time series Forecasting Benchmark (TFB)</b>, <b>Time series Anomaly detection Benchmark (TAB)</b>, and <b>Time Series Foundation Model Benchmark (TSFM-Bench)</b>. OpenTS provides comprehensive time series datasets, rich time series analtycis algorithms, and a unified evaluation pipeline with various strategies and metrics.</p>
+        <h1 id="OpenTS-Bench"><a href="#OpenTS-Bench" class="headerlink" title="OpenTS-Bench"></a>OpenTS-Bench</h1><p>OpenTS-Bench is a comprehensive and fair benchmark of time series analytics, mainly including foreacsting and anaomly detection. OpenTS-Bench inlucdes <b>Time series Forecasting Benchmark (TFB)</b>, <b>Time series Anomaly detection Benchmark (TAB)</b>, and <b>Time Series Foundation Model Benchmark (TSFM-Bench)</b>. OpenTS-Bench provides comprehensive time series datasets, rich time series analtycis algorithms, and a unified evaluation pipeline with various strategies and metrics.</p>
+<!-- <p>OpenTS-Bench empowers you with three key capabilities：<a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB/blob/master/docs/tutorials/steps_to_develop_your_own_method.md">benchmark your own algorithm</a>,  -->
+<!-- <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB/blob/master/docs/tutorials/steps_to_evaluate_your_own_time_series.md"> test your custom dataset</a>, and <a href="../leaderboards/multivariate_time_series">track algorithm rankings</a>. Please <a href="get started">click here</a> to get started.</p>  -->
+
+<p>OpenTS-Bench empowers you with three key capabilities：benchmark your own algorithm, test your custom dataset, and track algorithm rankings. Please <a href="get started">click here</a> to get started.</p> 
+
 <div style="height:5px"></div>
 
 <hr>
@@ -517,6 +522,10 @@
 
 
 <style>
+    .article-entry a{
+        color:#1195db;
+        font-weight:bold
+    }
 .main-wrapper {
     display:flex;
     justify-content:space-between;
