@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Bench/papers/index.html</loc>
+    
+    <lastmod>2025-07-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-Bench/papers/index.html</loc>
+    
+    <lastmod>2025-07-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/index.html</loc>
+    
+    <lastmod>2025-07-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Bench/pipeline/index.html</loc>
     
     <lastmod>2025-07-15</lastmod>
@@ -65,15 +92,6 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-Bench/papers/index.html</loc>
-    
-    <lastmod>2025-07-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/Applications/index.html</loc>
     
     <lastmod>2025-07-15</lastmod>
@@ -93,15 +111,6 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/2025/06/17/index/</loc>
-    
-    <lastmod>2025-07-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Bench/papers/index.html</loc>
     
     <lastmod>2025-07-15</lastmod>
     
@@ -167,15 +176,6 @@
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Bench/team/index.html</loc>
     
     <lastmod>2025-07-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/index.html</loc>
-    
-    <lastmod>2025-07-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
