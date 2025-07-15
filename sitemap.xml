@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Bench/pipeline/index.html</loc>
+    
+    <lastmod>2025-07-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Bench/algorithms/methods/index.html</loc>
+    
+    <lastmod>2025-07-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-Bench/algorithms/methods/index.html</loc>
+    
+    <lastmod>2025-07-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Bench/get%20started/index.html</loc>
     
     <lastmod>2025-07-15</lastmod>
@@ -12,15 +39,6 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-Bench/get%20started/index.html</loc>
-    
-    <lastmod>2025-07-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Bench/pipeline/index.html</loc>
     
     <lastmod>2025-07-15</lastmod>
     
@@ -119,15 +137,6 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-Bench/algorithms/methods/index.html</loc>
-    
-    <lastmod>2025-07-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/index.html</loc>
     
     <lastmod>2025-07-14</lastmod>
@@ -156,15 +165,6 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Bench/team/index.html</loc>
-    
-    <lastmod>2025-07-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-Bench/algorithms/methods/index.html</loc>
     
     <lastmod>2025-07-14</lastmod>
     

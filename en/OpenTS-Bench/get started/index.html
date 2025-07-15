@@ -24,8 +24,8 @@
 <meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/figures/TFB1.png">
 <meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/figures/TAB.png">
 <meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/figures/TSFM-Bench.png">
-<meta property="article:published_time" content="2025-07-15T11:12:17.502Z">
-<meta property="article:modified_time" content="2025-07-15T11:12:17.502Z">
+<meta property="article:published_time" content="2025-07-15T11:26:38.263Z">
+<meta property="article:modified_time" content="2025-07-15T11:26:38.263Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://decisionintelligence.github.io/OpenTS/en/figures/Pipeline.png">
@@ -93,11 +93,11 @@
                       
                         <a href="/OpenTS/zh-cn/OpenTS-Bench/get%20started/">快速开始</a>
                       
-                        <a href="/OpenTS/zh-cn/OpenTS-Bench/pipeline">流程介绍</a>
-                      
                         <a href="/OpenTS/zh-cn/OpenTS-Bench/datasets">数据集</a>
                       
                         <a href="/OpenTS/zh-cn/OpenTS-Bench/algorithms/methods">算法</a>
+                      
+                        <a href="/OpenTS/zh-cn/OpenTS-Bench/pipeline">流程</a>
                       
                         <a href="/OpenTS/zh-cn/OpenTS-Bench/team">团队</a>
                       
@@ -233,11 +233,11 @@
                       
                         <a href="/OpenTS/OpenTS-Bench/get%20started/">Get started</a>
                       
-                        <a href="/OpenTS/OpenTS-Bench/pipeline">Pipeline</a>
-                      
                         <a href="/OpenTS/OpenTS-Bench/datasets">Datasets</a>
                       
                         <a href="/OpenTS/OpenTS-Bench/algorithms/methods">Algorithms</a>
+                      
+                        <a href="/OpenTS/OpenTS-Bench/pipeline">Pipeline</a>
                       
                         <a href="/OpenTS/OpenTS-Bench/team">Team</a>
                       
@@ -456,7 +456,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/en/OpenTS-Bench/get%20started/index.html" class="article-date">
-  <time datetime="2025-07-15T11:12:17.502Z" itemprop="datePublished">2025-07-15</time>
+  <time datetime="2025-07-15T11:26:38.263Z" itemprop="datePublished">2025-07-15</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -477,12 +477,9 @@
 </ul>
 <h2 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h2><ol>
 <li><a href="#Quickstart">Quickstart</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB/blob/master/docs/tutorials/steps_to_develop_your_own_method.md">Benchmark Your Algorithm</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB/blob/master/docs/tutorials/steps_to_evaluate_your_own_time_series.md">Test Your Dataset</a></li>
-<li><a href="../../leaderboards/multivariate_time_series">Track Algorithm Rankings</a><!-- 1. [Steps to include your own method](#Steps-to-include-your-own-method) -->
-<!-- 1. [Steps to develop your own method](#Steps-to-develop-your-own-method) -->
-<!-- 1. [Steps to evaluate on your own time series](#Steps-to-evaluate-on-your-own-time-series) --></li>
-<li><a href="#Pipeline-introduction">Pipeline introduction</a></li>
+<li><a href="#Benchmark-Your-Algorithm">Benchmark Your Algorithm</a></li>
+<li><a href="#Test-Your-Dataset">Test Your Dataset</a></li>
+<li><a href="../../leaderboards/multivariate_time_series">Track Algorithm Rankings</a></li>
 <li><a href="#FAQ">FAQ</a></li>
 <li><a href="#Citing-us">Citing us</a></li>
 <li><a href="#Contact">Contact</a></li>
@@ -499,16 +496,18 @@
 <h3 id="Train-and-evaluate-model"><a href="#Train-and-evaluate-model" class="headerlink" title="Train and evaluate model"></a>Train and evaluate model</h3><p>We provide the experiment scripts for all benchmarks under the folder <code>./scripts/multivariate_forecast</code>, and <code>./scripts/univariate_forecast</code>. For example you can reproduce a experiment result as the following:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh ./scripts/multivariate_forecast/ILI_script/DLinear.sh</span><br></pre></td></tr></table></figure>
 
-<h2 id="Steps-to-develop-your-own-method"><a href="#Steps-to-develop-your-own-method" class="headerlink" title="Steps to develop your own method"></a>Steps to develop your own method</h2><p>We provide tutorial about how to develop your own method, you can <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB/blob/master/docs/tutorials/steps_to_develop_your_own_method.md">click here</a>.</p>
-<h2 id="Steps-to-evaluate-on-your-own-time-series"><a href="#Steps-to-evaluate-on-your-own-time-series" class="headerlink" title="Steps to evaluate on your own time series"></a>Steps to evaluate on your own time series</h2><p>We provide tutorial about how to evaluate on your own time series, you can <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB/blob/master/docs/tutorials/steps_to_evaluate_your_own_time_series.md">click here</a>.</p>
-<h2 id="Pipeline-introduction"><a href="#Pipeline-introduction" class="headerlink" title="Pipeline introduction"></a>Pipeline introduction</h2><p>The below figure provides a visual overview of TFB’s pipeline.</p>
-<ul>
-<li>The data layer is a repository of univariate and multivariate time series from diverse domains, structured according to their distinct characteristics, frequencies, and sequence lengths. The data is uniformly according to a standardized format. </li>
-<li>The method layer supports embedding statistical learning, machine learning and deep learning methods. Additionally, TFB is designed to be compatible with any third-party TSF library, such as Darts, TSlib. Users can easily integrate forecasting methods implemented in third-party libraries into TFB by writing a simple Universal Interface, facilitating fair comparisons. </li>
-<li>The evaluation layer offers support for a diverse range of evaluation strategies and metrics. And it also covers evaluation metrics found in other studies and enables the use of customized metrics for a more comprehensive assessment of method performance. </li>
-<li>The reporting layer encompasses a logging system for tracking information, enabling the capture of experimental settings to enable traceability.</li>
-</ul>
-<img src="../../figures/Pipeline.png" alt="TFB Pipeline" style="zoom:50%;" />
+<h2 id="Benchmark-Your-Algorithm"><a href="#Benchmark-Your-Algorithm" class="headerlink" title="Benchmark Your Algorithm"></a>Benchmark Your Algorithm</h2><p>We provide tutorial about how to develop your own method, you can <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB/blob/master/docs/tutorials/steps_to_develop_your_own_method.md">click here</a>.</p>
+<h2 id="Test-Your-Dataset"><a href="#Test-Your-Dataset" class="headerlink" title="Test Your Dataset"></a>Test Your Dataset</h2><p>We provide tutorial about how to evaluate on your own time series, you can <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/TFB/blob/master/docs/tutorials/steps_to_evaluate_your_own_time_series.md">click here</a>.</p>
+<!-- ## Pipeline introduction
+
+The below figure provides a visual overview of TFB's pipeline.
+
+- The data layer is a repository of univariate and multivariate time series from diverse domains, structured according to their distinct characteristics, frequencies, and sequence lengths. The data is uniformly according to a standardized format. 
+- The method layer supports embedding statistical learning, machine learning and deep learning methods. Additionally, TFB is designed to be compatible with any third-party TSF library, such as Darts, TSlib. Users can easily integrate forecasting methods implemented in third-party libraries into TFB by writing a simple Universal Interface, facilitating fair comparisons. 
+- The evaluation layer offers support for a diverse range of evaluation strategies and metrics. And it also covers evaluation metrics found in other studies and enables the use of customized metrics for a more comprehensive assessment of method performance. 
+- The reporting layer encompasses a logging system for tracking information, enabling the capture of experimental settings to enable traceability. 
+
+<img src="../../figures/Pipeline.png" alt="TFB Pipeline" style="zoom:50%;" /> -->
 
 <h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="How-to-use-Pycharm-to-run-code？"><a href="#How-to-use-Pycharm-to-run-code？" class="headerlink" title="How to use Pycharm to run code？"></a>How to use Pycharm to run code？</h3><p>When running under pycharm，please escape the double quotes, remove the spaces, and remove the single quotes at the beginning and end.</p>
 <p>Such as: <strong>‘{“d_ff”: 512, “d_model”: 256}’ —&gt; {\“d_ff\“:512,\“d_model\“:256}</strong></p>
@@ -576,7 +575,7 @@
 
 <h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p>If you have any questions or suggestions, feel free to contact:</p>
 <ul>
-<li>Xiangfei Qiu (<a href="mailto:&#120;&#x66;&#113;&#105;&#117;&#x40;&#x73;&#116;&#117;&#46;&#101;&#99;&#x6e;&#117;&#x2e;&#101;&#x64;&#117;&#x2e;&#x63;&#x6e;">&#120;&#x66;&#113;&#105;&#117;&#x40;&#x73;&#116;&#117;&#46;&#101;&#99;&#x6e;&#117;&#x2e;&#101;&#x64;&#117;&#x2e;&#x63;&#x6e;</a>)</li>
+<li>Xiangfei Qiu (<a href="mailto:&#x78;&#102;&#113;&#105;&#x75;&#64;&#x73;&#116;&#117;&#x2e;&#x65;&#x63;&#110;&#117;&#x2e;&#101;&#100;&#x75;&#x2e;&#99;&#110;">&#x78;&#102;&#113;&#105;&#x75;&#64;&#x73;&#116;&#117;&#x2e;&#x65;&#x63;&#110;&#117;&#x2e;&#101;&#100;&#x75;&#x2e;&#99;&#110;</a>)</li>
 </ul>
 <style>
 .main-wrapper {
