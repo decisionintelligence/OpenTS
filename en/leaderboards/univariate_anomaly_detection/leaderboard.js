@@ -10,7 +10,7 @@ const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'http://120.77.11.87:3333/outlier/uni/rank',
+    API_URL: 'https://120.77.11.87:3333/outlier/uni/rank',
     MODELS_INFO: { 
       },
     
