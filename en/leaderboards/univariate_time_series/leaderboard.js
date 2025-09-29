@@ -91,10 +91,26 @@ const LeaderboardApp = {
       if (target.id.startsWith('select-all-')) {
         const category = target.id.replace('select-all-', '');
         this.toggleCategory(category, target.checked);
+        if (category=='Characteristics' && target.checked)
+        {
+          this.toggleCategoryDataset("Characteristics", true,true, false);
+          this.toggleCategoryDataset("Frequency", true,false, true);
+        }else if(category=='Frequency' && target.checked)
+        {
+          this.toggleCategoryDataset("Frequency", true,true, false);
+          this.toggleCategoryDataset("Characteristics", true,false, true);
+        }
       }
       else if (target.className.startsWith('checkbox-')) {
         const category = target.className.split('-')[1];
         this._updateParentCheckboxState(category);
+        // if (category=='Characteristics'&&target.checked)
+        // {
+        //   this.toggleCategoryDataset("Frequency", target.checked, true);
+        // }else if(category=='Frequency'&&target.checked)
+        // {
+        //   this.toggleCategoryDataset("Characteristics", target.checked, true);
+        // }
       }
       this.updateLeaderboard();
     });
@@ -161,7 +177,9 @@ const LeaderboardApp = {
   // },
   
   _setInitialState() {
-    this.toggleSelectAll(true);
+    // this.toggleSelectAll(true);
+    this.toggleCategoryDataset("Frequency", true,true, false);
+    this.toggleCategoryDataset("Characteristics", true,false, true);
     this.toggleCategory('Horizons', true);
     this.toggleCategory('Metrics', true);
     this.toggleCategory('Setting', true);
@@ -215,7 +233,7 @@ const LeaderboardApp = {
   },
 
   _getSelections() {
-    const getCheckedValues = (selector, transform) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked).map(transform);
+    const getCheckedValues = (selector, transform) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked&&!cb.disabled).map(transform);
     const metrics = getCheckedValues('.checkbox-Metrics', cb => cb.value).filter(Boolean);
 
     datasets = getCheckedValues('.checkbox-container input[type="checkbox"]', cb => cb.value.split('/')[1]?.replace('-', '_')).filter(Boolean);
@@ -318,7 +336,17 @@ const LeaderboardApp = {
         this._setCategoryChecked(category, isChecked);
     }
   },
-  
+  toggleCategoryDataset(category, isChecked,parentChecked,isDisable) {
+
+      const parentCb = document.getElementById(`select-all-${category}`);
+      if(parentCb) parentCb.checked = parentChecked;
+    
+    
+    
+    document.querySelectorAll(`.checkbox-${category}`).forEach(cb => {cb.checked = isChecked
+      cb.disabled = isDisable;
+      });
+  },
   _setCategoryChecked(category, isChecked){
       const parentCb = document.getElementById(`select-all-${category}`);
       if(parentCb) parentCb.checked = isChecked;

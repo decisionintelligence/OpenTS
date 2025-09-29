@@ -107,6 +107,7 @@
     /* 此处的 display: flex; 是有效的，因为没有内联样式覆盖它 */
     display: flex;
     justify-content: LEFT;
+
   }
   
   /* --- 复选框和过滤器侧边栏 --- */
@@ -347,6 +348,9 @@
     - 使用 flex 布局让加载动画居中
     - 默认隐藏 (display: none)
   */
+  .checkbox-item label{
+    margin-left: 3px;
+  }
   .loading-overlay {
     position: absolute;
     top: 0;

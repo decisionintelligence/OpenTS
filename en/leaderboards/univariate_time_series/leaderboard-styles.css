@@ -13,7 +13,12 @@
     align-items: stretch;
     height: 100%;
   }
-  
+  /* .checkbox-item label{
+    margin-left: 3px;
+  } */
+  .checkbox-wrapper3  label{
+    margin-left: 0px;
+  }
   .table-container {
     width: 100%;
     max-width: 100%;
@@ -254,7 +259,9 @@
     height: 105%;
     box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.4);
   }
-  
+  .checkbox-item label{
+    margin-left: 3px;
+  }
   .sticky-col-header {
     z-index: 3;
   }

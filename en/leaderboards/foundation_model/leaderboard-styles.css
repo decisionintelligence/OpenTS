@@ -6,7 +6,15 @@
 .easyScholarDOI {
     display: none;
   }
-  
+    .checkbox-item label{
+    margin-left: 3px;
+  }
+  .checkbox-wrapper3  label{
+    margin-left: 0px;
+  }
+  /* .checkbox-item label{
+    margin-left: 3px;
+  } */
   /* --- 主要布局容器 --- */
   .main-container {
     display: flex;

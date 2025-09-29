@@ -10,11 +10,11 @@ const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'https://www.opents.top/rank',
+    API_URL: 'https://www.opents.top/forecasting/exog/rank',
     MODELS_INFO: {
       "DAG": {
         "paper-url": "https://arxiv.org/pdf/2509.14933",
-        "publication": "preprint",
+        "publication": "arXiv",
         "bib": "",
         "year": "2026"
       },
@@ -28,14 +28,14 @@ const LeaderboardApp = {
     
       "Temporal Fusion Transformers": {
         "paper-url": "https://doi.org/10.1016/j.ijforecast.2021.03.012",
-        "publication": "International Journal of Forecasting",
+        "publication": "IJF",
         "bib": "https://dblp.org/rec/journals/corr/abs-1912-09363.html?view=bibtex",
         "year": "2019"
       },
     
       "TiDE": {
         "paper-url": "https://arxiv.org/pdf/2304.08424",
-        "publication": "preprint",
+        "publication": "arXiv",
         "bib": "https://dblp.org/rec/journals/tmlr/DasKLMSY23.html?view=bibtex",
         "year": "2023"
       },
@@ -83,7 +83,7 @@ const LeaderboardApp = {
       }
     },
     MODELS_LIST: ["DAG","TimeXer","TiDE","DUET", "Amplifier", "TimeKAN", "xPatch", "PatchTST", "DLinear", "Temporal Fusion Transformers"],
-    DATASET_LIST: dataset_name = [
+    DATASET_LIST:[
       "Weather",
       "Traffic",
       "Sdwpfm2",
@@ -133,6 +133,7 @@ const LeaderboardApp = {
   _cacheElements() {
     this.elements.tableBody = document.getElementById('multivariateTable2')?.querySelector('tbody');
     this.elements.metricsContainer = document.getElementById('Metrics');
+    this.elements.horizonsContainer = document.getElementById('Horizons');
     this.elements.datasetsContainer = document.getElementById('dataset-container-mul');
     this.elements.mainContainer = document.getElementById('main-container-mul');
     this.elements.scoreInput1 = document.getElementById('score/3/1');
@@ -253,11 +254,10 @@ const LeaderboardApp = {
   
   _setInitialState() {
     this.toggleSelectAll(true);
-    this.toggleCategory('Horizons', true);
     this.toggleCategory('Metrics', true);
+    this.toggleCategory('Horizons', true);
     const score2 = document.getElementById('Score/2');
     if (score2) score2.checked = true;
-    if (this.elements.rankCountSelect) this.elements.rankCountSelect.value = "10";
   },
 
   updateLeaderboard() {
@@ -271,7 +271,6 @@ const LeaderboardApp = {
     
     this.state.isLoading = true;
     this._showLoadingOverlay();
-
     fetch(this.config.API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -279,7 +278,7 @@ const LeaderboardApp = {
         "metrics": selections.metrics, 
         "datasets": selections.datasets, 
         "models": this.config.MODELS_LIST, 
-        "pred_len": selections.horizons,
+        "pred_len":selections.horizons,
       })
     })
     .then(response => { if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`); return response.json(); })
@@ -304,10 +303,16 @@ const LeaderboardApp = {
 
   _getSelections() {
     const getCheckedValues = (selector, transform) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked).map(transform);
-    const datasets = getCheckedValues('.checkbox-container input[type="checkbox"]', cb => cb.value.split('/')[1]?.replace('-', '_')).filter(Boolean);
+    const datasets = getCheckedValues('#dataset-container-mul input[type="checkbox"]', cb => cb.value.split('/')[1]?.replace('-', '_')).filter(Boolean);
     const metrics = [...getCheckedValues('.checkbox-Normalized', cb => cb.value.split('/')[1]), ...getCheckedValues('.checkbox-Denormalized', cb => cb.value.split('/')[1] + "_Denorm")].filter(Boolean);
-    console.log(metrics)
-    const horizons = getCheckedValues('.checkbox-Horizons', cb => cb.value.split('/')[1]).filter(Boolean);
+    const horizons = getCheckedValues('.checkbox-Horizons', cb => 
+    {if (cb.value.split('/')[1]=='60')
+    {
+      return '600'
+    }else{
+      return cb.value.split('/')[1]
+    }
+  })
     const scoreOption = document.querySelector('.checkbox-Score:checked')?.value.split('/')[1] || '2';
     let scoreWeights = [1, 1, 1];
     if (scoreOption === '1') scoreWeights = [1, 0, 0];
@@ -346,11 +351,11 @@ const LeaderboardApp = {
       this.config.METRICS.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name}`, name, `checkbox-${category}`)));
       this.elements.metricsContainer.appendChild(categoryDiv);
     });
-    Object.entries(this.config.DATASET_CATEGORIES).forEach(([category, datasets]) => {
-      const categoryDiv = this._createCategoryElement(category);
-      datasets.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category}`)));
-      this.elements.datasetsContainer.appendChild(categoryDiv);
-    });
+
+    category = 'dataset'
+    this.config.DATASET_LIST.forEach(name=>{
+       this.elements.datasetsContainer.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category}`))
+    })
   },
   
   _createCategoryElement(category) {
@@ -395,7 +400,8 @@ const LeaderboardApp = {
   toggleSelectAll(isChecked) {
     const mainSelectAll = document.getElementById('select-all');
     if (mainSelectAll) mainSelectAll.checked = isChecked;
-    Object.keys(this.config.DATASET_CATEGORIES).forEach(category => this.toggleCategory(category, isChecked));
+    category='dataset'
+    this.toggleCategory(category, isChecked);
   },
 
   p1(isChecked) {

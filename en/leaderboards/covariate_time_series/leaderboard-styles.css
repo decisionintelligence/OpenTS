@@ -6,7 +6,9 @@
 .easyScholarDOI {
     display: none;
   }
-  
+  .checkbox-item label{
+    margin-left: 3px;
+  }
   /* --- 主要布局容器 --- */
   .main-container {
     display: flex;
@@ -133,7 +135,19 @@
     /* padding-right: 20px; */
     overflow-y: auto;
   }
-  
+  .checkbox-container-dataset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* 针对旧版 IE 和 Edge 浏览器 */
+    -ms-overflow-style: none;
+    padding-left:15px;
+  }
+  .checkbox-container-dataset::-webkit-scrollbar {
+    display: none;
+  }
   .checkbox-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -143,6 +157,7 @@
     /* 针对旧版 IE 和 Edge 浏览器 */
     -ms-overflow-style: none;
     padding-left:15px;
+    row-gap: 3px;
   }
   .checkbox-container::-webkit-scrollbar {
     display: none;

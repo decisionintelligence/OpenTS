@@ -68,7 +68,7 @@ text-align: center;
     align-items: stretch;
     height: 100%;
     flex-direction: column;
-    row-gap: 45px;
+    row-gap: 8px;
   }
   
   .table-container {
@@ -164,6 +164,7 @@ text-align: center;
     /* 此处的 display: flex; 是有效的，因为没有内联样式覆盖它 */
     display: flex;
     justify-content: LEFT;
+    width: 95%;
   }
   
   /* --- 复选框和过滤器侧边栏 --- */
@@ -205,7 +206,7 @@ text-align: center;
     -ms-overflow-style: none;
     padding-left:15px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 2.2fr;
     gap: 12px; /* 网格间距 */
     row-gap: 0px;
     column-gap: 15px;

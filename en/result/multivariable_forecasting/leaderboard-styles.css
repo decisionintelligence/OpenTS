@@ -3,6 +3,61 @@
    ========================================================================== */
 
 /* --- 全局隐藏样式 --- */
+
+#myGrid { 
+  width: 100%; 
+  height: 700px; 
+}
+
+.ag-header-group-cell-label span{
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px !important; /* <-- 在值的后面加上 !important */
+  font-family: "Microsoft YaHei", Verdana, sans-serif;
+}
+.ag-header-cell-label
+{
+  justify-content:center;
+}
+.ag-header-cell-label span {
+  font-weight: bold;
+
+  justify-content: center;
+  text-align: center;
+  font-size: 14px !important; /* <-- 在值的后面加上 !important */
+  font-family: "Microsoft YaHei", Verdana, sans-serif;
+}
+/* 2. 所有单元格内容居中 */
+.ag-cell {
+  text-align: center;
+}
+.ag-header-cell {
+text-align: center;
+}
+
+/* --- 原有样式 --- */
+.dataset-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding: 5px;
+  /* font-weight: bold; 已被上面的通用规则覆盖，可以保留或删除 */
+      /* 垂直居中文本 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* 文本垂直显示 */
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        padding: 5px;
+        font-weight: bold;
+        /* 确保背景和边框在合并时看起来正确 */
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+}
 .easyScholarDOI {
     display: none;
   }
@@ -12,13 +67,10 @@
     display: flex;
     align-items: stretch;
     height: 100%;
+    flex-direction: column;
+    row-gap: 8px;
   }
-  /* .checkbox-item label{
-    margin-left: 3px;
-  } */
-  .checkbox-wrapper3  label{
-    margin-left: 0px;
-  }
+  
   .table-container {
     width: 100%;
     max-width: 100%;
@@ -112,6 +164,7 @@
     /* 此处的 display: flex; 是有效的，因为没有内联样式覆盖它 */
     display: flex;
     justify-content: LEFT;
+    width: 95%;
   }
   
   /* --- 复选框和过滤器侧边栏 --- */
@@ -132,28 +185,156 @@
     display: none;
   }
   .checkbox-container1 {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    display: flex;
+    /* grid-template-columns: 1fr; */
+    flex-direction: column;
+    gap: 0px;
     /* padding-right: 20px; */
     overflow-y: auto;
   }
-  
-  .checkbox-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+
+  .checkbox-container3{
+
+        
+    /* flex-direction: column; */
+    
+    /* grid-template-columns: 1fr 1fr; */
+
     overflow-y: auto;
     scrollbar-width: none;
     /* 针对旧版 IE 和 Edge 浏览器 */
     -ms-overflow-style: none;
     padding-left:15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 12px; /* 网格间距 */
+    row-gap: 0px;
+    column-gap: 15px;
+  }
+
+  .checkbox-container2{
+
+        
+    /* flex-direction: column; */
+    
+    /* grid-template-columns: 1fr 1fr; */
+
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* 针对旧版 IE 和 Edge 浏览器 */
+    -ms-overflow-style: none;
+    padding-left:15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 12px; /* 网格间距 */
+    row-gap: 0px;
+    column-gap: 55px;
+  }
+  .checkbox-container {
+    
+    /* flex-direction: column; */
+    
+    /* grid-template-columns: 1fr 1fr; */
+
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* 针对旧版 IE 和 Edge 浏览器 */
+    -ms-overflow-style: none;
+    padding-left:15px;
+
+    display: flex;
+    flex-wrap: wrap;     
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    gap: 12px; /* 网格间距 */
+    column-gap: 55px;
+ 
   }
   .checkbox-container::-webkit-scrollbar {
     display: none;
   }
+  /* leaderboard-styles.css */
+
+.download {
+  position: absolute;
+  z-index: 100;
+  right: 20px;
+  top: 10px;
+  /* --- 1. 移除默认的按钮样式 --- */
+  background-color: transparent; /* 移除背景色 */
+  border: none;                /* 移除边框 */
+  padding: 0;                  /* 移除内边距 */
+  cursor: pointer;             /* 保持手形光标 */
+
+  /* --- 2. 设置图片 --- */
+  /* 将 'path/to/your-icon.svg' 替换为您的图片路径 */
+  background-image: url('../../figures/export.png'); 
+  background-repeat: no-repeat;  /* 防止图片平铺 */
+  background-repeat: round;
+
+  width: 30px;
+  height: 30px;
+  /* --- 4. [可选] 提升用户体验 --- */
+  transition: opacity 0.2s ease; /* 添加平滑的过渡效果 */
+}
+
+.ag-horizontal-left-spacer{
+    /* --- 针对 Firefox --- */
+    scrollbar-width: none;
+    background-color: #f0f0f0;
+    /* --- 针对旧版 IE 和 Edge --- */
+    -ms-overflow-style: none;
+  /* display: none; */
+}
+.ag-horizontal-left-spacer::-webkit-scrollbar {
+  display: none;
+}
+/* 当鼠标悬停在按钮上时，稍微降低透明度，给用户一个反馈 */
+.download:hover {
+  opacity: 0.7;
+}
+
+  /* .download{
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    padding-left: 5px;
+    padding-right: 5px;
+    right: 20px;
+    top: 10px;
+    background-color:#fafafb;
+  }  */
+  .checkbox-item
+  {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  
+  .category_inner_grid{
+    gap: 15px;
+    align-items: baseline;
+    margin-bottom: 0px;
+    column-gap: 10px;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 5px;
+  }
+
+  .category_inner {
+    /* flex-grow: 1; */
+    gap: 15px;
+    align-items: baseline;
+    margin-bottom: 0px;
+    column-gap: 10px;
+    /* display: flex;   */
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+  }
+
   .category {
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
   }
   
   .category h3 {
@@ -166,6 +347,7 @@
     align-items: center;
     margin-bottom: 10px;
   }
+  
   
   .checkbox-wrapper1 {
     display: grid;
@@ -259,9 +441,7 @@
     height: 105%;
     box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.4);
   }
-  .checkbox-item label{
-    margin-left: 3px;
-  }
+  
   .sticky-col-header {
     z-index: 3;
   }
@@ -360,14 +540,15 @@
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 100;
     /* min-height: 350px; */
-    background-color: rgba(255, 255, 255, 0.7);
+    /* background-color: rgba(255, 255, 255, 0.7); */
     display: none;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding-top: 25%;
-    z-index: 10;
+    /* z-index: 10; */
     gap: 15px;
     box-sizing: border-box;
     /* 移除了这里的 font-size 和 color */
@@ -377,7 +558,7 @@
     当需要显示时，我们将为它添加 .is-active 类，
     将其 display 设置为 flex。
   */
-  .loading-overlay.is-active {
+  .loading-overlay {
     display: flex;
   }
   .loading-overlay p {
@@ -404,7 +585,7 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  .article-entry span{
+  .collapsible-header span{
     font:19px "Microsoft YaHei", Verdana, sans-serif;
     font-weight: 600;
 
