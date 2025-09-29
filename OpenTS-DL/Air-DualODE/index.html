@@ -16,7 +16,7 @@
   <meta name="description" content="Air-DualODE: Air Quality Prediction with Physics-guided Dual Neural ODEs in Open Systems.If you find our work useful, please cite our paper. 123456@InProceedings&#123;Tian_2025_Air-DualODE,    author">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
-<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/OpenTS-DL/Air-DualODE/index.html">
+<meta property="og:url" content="https://chy181.github.io/OpenTS/OpenTS-DL/Air-DualODE/index.html">
 <meta property="og:site_name" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
 <meta property="og:description" content="Air-DualODE: Air Quality Prediction with Physics-guided Dual Neural ODEs in Open Systems.If you find our work useful, please cite our paper. 123456@InProceedings&#123;Tian_2025_Air-DualODE,    author">
 <meta property="og:locale" content="zh_CN">
@@ -524,54 +524,17 @@
   </div>
   <!-- 把它放在 </body> 标签之前 -->
 <script>
-  // function updateLanguageLink() {
-  //   // 获取页面上我们设置的那个链接元素
-  //   const link = document.getElementById('lang-toggle-link');
-  //   if (!link) {
-  //     // 如果页面上没有这个链接，就什么都不做
-  //     return;
-  //   }
+  (function() {
+    // 检查 URL 中是否包含 'embedded=true'
+    const isEmbedded = new URLSearchParams(window.location.search).get('embedded') === 'true';
 
-  //   // 这两个值需要和你的项目配置保持一致
-  //   const DEFAULT_LANG = 'zh-cn'; // 你的默认语言，可能是 'zh' 或 'zh-cn'
-  //   const SECOND_LANG = 'en';
-
-  //   // 不再使用 page.path，而是使用浏览器当前真实的 URL
-  //   const currentPathname = window.location.pathname;
-    
-  //   // 从 config 中获取站点的根目录，以便正确拼接 URL
-  //   // hexo.config.root 通常是 '/' 或者 '/your-repo-name/'
-  //   const root = '/OpenTS/';
-  //   // console.log(currentPathname)
-  //   // console.log(root)
-  //   let targetPath;
-
-  //   // 判断当前 URL 是否以 /en/ 开头
-  //   if (currentPathname.startsWith(root + SECOND_LANG + '/')) {
-  //     // 当前是英文页, 目标是中文页
-  //     // e.g., /en/get-started/ -> /get-started/
-  //     const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
-  //     targetPath = root.slice(0, -1) + '/' + DEFAULT_LANG +  pathWithoutLang; // 拼接路径
-  //   } else if(currentPathname.startsWith(root + DEFAULT_LANG + '/')){
-  //     const pathWithoutLang = currentPathname.substring((root + DEFAULT_LANG).length);
-  //     targetPath = root.slice(0, -1) + '/' + 'en' +  pathWithoutLang; // 拼接路径
-  //   } 
-  //   else {
-  //     // 当前是中文页, 目标是英文页
-  //     // e.g., /get-started/ -> /en/get-started/
-  //     const pathWithoutRoot = currentPathname.substring(root.length);
-  //     targetPath = root + SECOND_LANG + '/' + pathWithoutRoot;
-  //   }
-
-  //   // 更新链接的 href 属性
-  //   link.href = targetPath;
-  // }
-
-  // // 监听 Pjax 加载完成事件
-  // // 注意：事件名可能是 'pjax:end', 'pjax:complete' 等，取决于主题用的库
-  // // 你可以在主题的 JS 文件里搜索 'pjax' 来确认
-  // document.addEventListener('pjax:end', updateLanguageLink);
-
+    if (isEmbedded) {
+      // 如果是嵌入模式，给 body 元素添加一个特殊类
+      document.body.classList.add('is-embedded');
+    }
+  })();
+</script>
+<script>
   // // 页面首次加载时也执行一次
   // document.addEventListener('DOMContentLoaded', updateLanguageLink);
   function updateLanguageUI() {
