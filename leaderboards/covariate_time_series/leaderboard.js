@@ -6,36 +6,119 @@
  * to filter the number of ranks displayed.
  * It requires all onchange/onclick attributes to be removed from the HTML.
  */
-
-
 const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'http://120.77.11.87:3333/outlier/multi/rank',
-    MODELS_INFO: { },
+    API_URL: 'http://120.77.11.87:3333/rank',
+    MODELS_INFO: {
+      "DAG": {
+        "paper-url": "https://arxiv.org/pdf/2509.14933",
+        "publication": "preprint",
+        "bib": "",
+        "year": "2026"
+      },
     
-    MODEL_TYPES_LIST:{"Non-Learning":["LOF","CBLOF","HBOS"],
-    "Machine-Learning":["OCSVM","DP","KNN","KMeans","IF","EIF","LODA","PCA"], 
-    "Deep-Learning":["DAGMM","Torsk","iTransformer","TimesNet","DUET","ATrans","PatchTST","ModernTCN","TranAD","DualTF","AE","VAE","NLinear","DLinear","LSTMED","DCdetector","ContraAD","CATCH"  ],
-  },
-    DATASET_CATEGORIES: {"Web":["CICIDS","KDDcup99"],"Server Machine":["PSM","SMD"],"Health":["DLR","ECG","LTDB","MITDB","SVDB"],"Water Treatment":["GECCO","PUMP","SWAT"],"Machinery":["CATSv2","GHL","Genesis","SKAB"],"Movement":["Daphnet","OPP"],"Climate":["TAO"],"Application Server":["ASD","Exathlon"],"Finance":["Credit"],"Space Weather":["SWAN"],"Transport":["NYC"],"Visitor Flowrate":["CalIt2"],"Synthetic":["GutenTAG","TODS"],"Spacecraft":["MSL","SMAP"]},
-    METRICS: {"Label":["Acc","P","R","F1","R-P","R-R","R-F1","Aff-P","Aff-F1","Aff-R",],"Score":["A-P","A-R","R-A-P","R-A-R", "V-PR","V-ROC "]}
+      "TimeXer": {
+        "paper-url": "https://arxiv.org/pdf/2402.19072",
+        "publication": "NeurIPS",
+        "bib": "https://dblp.org/rec/conf/nips/WangWDQZLQWL24.html?view=bibtex",
+        "year": "2024"
+      },
+    
+      "Temporal Fusion Transformers": {
+        "paper-url": "https://doi.org/10.1016/j.ijforecast.2021.03.012",
+        "publication": "International Journal of Forecasting",
+        "bib": "https://dblp.org/rec/journals/corr/abs-1912-09363.html?view=bibtex",
+        "year": "2019"
+      },
+    
+      "TiDE": {
+        "paper-url": "https://arxiv.org/pdf/2304.08424",
+        "publication": "preprint",
+        "bib": "https://dblp.org/rec/journals/tmlr/DasKLMSY23.html?view=bibtex",
+        "year": "2023"
+      },
+    
+      "DUET": {
+        "paper-url": "https://arxiv.org/pdf/2412.10859",
+        "publication": "KDD",
+        "bib": "",
+        "year": "2025"
+      },
+    
+      "Amplifier": {
+        "paper-url": "https://arxiv.org/pdf/2501.17216",
+        "publication": "AAAI",
+        "bib": "https://dblp.org/rec/conf/aaai/Fei000N25.html?view=bibtex",
+        "year": "2025"
+      },
+    
+      "TimeKAN": {
+        "paper-url": "https://arxiv.org/pdf/2502.06910",
+        "publication": "ICLR",
+        "bib": "https://dblp.org/rec/conf/iclr/HuangZL025.html?view=bibtex",
+        "year": "2025"
+      },
+    
+      "xPatch": {
+        "paper-url": "https://arxiv.org/pdf/2412.17323",
+        "publication": "AAAI",
+        "bib": "https://dblp.org/rec/conf/aaai/StitsyukC25.html?view=bibtex",
+        "year": "2025"
+      },
+    
+      "PatchTST": {
+        "paper-url": "https://openreview.net/forum?id=Jbdc0vTOcol",
+        "publication": "ICLR",
+        "bib": "https://dblp.org/rec/conf/iclr/NieNSK23.html?view=bibtex",
+        "year": "2023"
+      },
+    
+      "DLinear": {
+        "paper-url": "https://ojs.aaai.org/index.php/AAAI/article/view/26317",
+        "publication": "AAAI",
+        "bib": "https://dblp.org/rec/conf/aaai/ZengCZ023.html?view=bibtex",
+        "year": "2023"
+      }
+    },
+    MODELS_LIST: ["DAG","TimeXer","TiDE","DUET", "Amplifier", "TimeKAN", "xPatch", "PatchTST", "DLinear", "Temporal Fusion Transformers"],
+    DATASET_LIST: dataset_name = [
+      "Weather",
+      "Traffic",
+      "Sdwpfm2",
+      "Sdwpfm1",
+      "Sdwpfh2",
+      "Sdwpfh1",
+      "Rapel",
+      "PJM",
+      "NP",
+      "FR",
+      "Exchange",
+      "ETTm2",
+      "ETTm1",
+      "ETTh2",
+      "ETTh1",
+      "Energy",
+      "Electricity",
+      "DE",
+      "Colbun",
+      "BE",
+  ],
+    METRICS: ['MAE', 'MAPE', 'MSE', 'MSMAPE', 'RMSE', 'SMAPE', 'WAPE']
   },
   state: { isReady: false, isLoading: false, lastResults: [] }, // 新增 lastResults 用于存储上次的API结果
   elements: {},
 
-  async init() {
+  init() {
     this._cacheElements();
     this._initCollapsibles(); // <-- 在这里添加调用
     this._bindEventListeners();
     this._populateCheckboxes();
-    this.sendHeight();
     this._setInitialState();
-    await this._loadJSON();
+    this.sendHeight();
     this.state.isReady = true;
     this.updateLeaderboard();
-    
   },
   sendHeight(){
     // 使用 document.documentElement.scrollHeight 更可靠
@@ -47,19 +130,9 @@ const LeaderboardApp = {
         height: height
     }, '*'); 
   },
-  async _loadJSON()
-  {
-    const response = await fetch('../paper.json');
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    this.config.MODELS_INFO = await response.json();
-  },
   _cacheElements() {
     this.elements.tableBody = document.getElementById('multivariateTable2')?.querySelector('tbody');
     this.elements.metricsContainer = document.getElementById('Metrics');
-    this.elements.typesContainer = document.getElementById('ModelType');
-    this.elements.settingsContainer = document.getElementById('Setting');
     this.elements.datasetsContainer = document.getElementById('dataset-container-mul');
     this.elements.mainContainer = document.getElementById('main-container-mul');
     this.elements.scoreInput1 = document.getElementById('score/3/1');
@@ -84,14 +157,14 @@ const LeaderboardApp = {
 
             const text = target.textContent;
             const isChecked = (text === 'all' || text === 'profile1');
+            
             if (parentH3.textContent.includes('Metrics')) this.toggleCategory('Metrics', isChecked);
             else if (parentH3.textContent.includes('Datasets')) {
                 if (text === 'profile1') this.p1(true);
                 else this.toggleSelectAll(isChecked);
             }
             else if (parentH3.textContent.includes('Horizons')) this.toggleCategory('Horizons', isChecked);
-            else if (parentH3.textContent.includes('Learning Paradigm')) this.toggleCategory('LearningParadigm', isChecked);
-
+            
             this.updateLeaderboard();
         }
     });
@@ -182,33 +255,31 @@ const LeaderboardApp = {
     this.toggleSelectAll(true);
     this.toggleCategory('Horizons', true);
     this.toggleCategory('Metrics', true);
-    // this.toggleCategory('Setting', true);
-    this.toggleCategory('ModelType', true);
-    this.toggleCategory('LearningParadigm', true);
     const score2 = document.getElementById('Score/2');
     if (score2) score2.checked = true;
-    if (this.elements.rankCountSelect) this.elements.rankCountSelect.value = "all";
+    if (this.elements.rankCountSelect) this.elements.rankCountSelect.value = "10";
   },
 
   updateLeaderboard() {
     if (!this.state.isReady || this.state.isLoading) return;
 
     const selections = this._getSelections();
-    if (!selections || selections.datasets.length === 0 || selections.models.length === 0 || selections.metrics.length === 0) {
+    if (!selections || selections.datasets.length === 0 || selections.metrics.length === 0 || selections.horizons.length === 0) {
       this._renderEmptyTable();
       return;
     }
     
     this.state.isLoading = true;
     this._showLoadingOverlay();
+
     fetch(this.config.API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        "datasets": selections.datasets, 
         "metrics": selections.metrics, 
-        "models": selections.models, 
-        "settings": ["full"],
+        "datasets": selections.datasets, 
+        "models": this.config.MODELS_LIST, 
+        "pred_len": selections.horizons,
       })
     })
     .then(response => { if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`); return response.json(); })
@@ -233,16 +304,15 @@ const LeaderboardApp = {
 
   _getSelections() {
     const getCheckedValues = (selector, transform) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked).map(transform);
-    const datasets = getCheckedValues('.checkbox-container input[type="checkbox"]', cb =>  ['on','Label','Score'].includes(cb.value.split('/')[0])?null:cb.value.split('/')[1]).filter(Boolean);
-    
-    const metrics = [...getCheckedValues('.checkbox-Label', cb => cb.value.split('/')[1]), ...getCheckedValues('.checkbox-Score', cb => cb.value.split('/')[1])].filter(Boolean);
-    const modeltypes = getCheckedValues('.checkbox-LearningParadigm', cb => cb.value).filter(Boolean)
-    const models = modeltypes.flatMap(modeltype => this.config.MODEL_TYPES_LIST[modeltype] || [])
+    const datasets = getCheckedValues('.checkbox-container input[type="checkbox"]', cb => cb.value.split('/')[1]?.replace('-', '_')).filter(Boolean);
+    const metrics = [...getCheckedValues('.checkbox-Normalized', cb => cb.value.split('/')[1]), ...getCheckedValues('.checkbox-Denormalized', cb => cb.value.split('/')[1] + "_Denorm")].filter(Boolean);
+    console.log(metrics)
+    const horizons = getCheckedValues('.checkbox-Horizons', cb => cb.value.split('/')[1]).filter(Boolean);
     const scoreOption = document.querySelector('.checkbox-Score:checked')?.value.split('/')[1] || '2';
     let scoreWeights = [1, 1, 1];
     if (scoreOption === '1') scoreWeights = [1, 0, 0];
     else if (scoreOption === '3') scoreWeights = [parseFloat(this.elements.scoreInput1.value) || 0, parseFloat(this.elements.scoreInput2.value) || 0, parseFloat(this.elements.scoreInput3.value) || 0];
-    return { datasets, metrics, scoreWeights, models };
+    return { datasets, metrics, horizons, scoreWeights };
   },
 
   _renderTable(results, isRanked) {
@@ -256,17 +326,10 @@ const LeaderboardApp = {
     const finalResults = countToShow === 'all' ? results : results.slice(0, parseInt(countToShow, 10));
 
     this.elements.tableBody.innerHTML = finalResults.map((result, index) => {
-      var name = result.model.replace(" (full)","")
-      const info = this.config.MODELS_INFO[name] || {};
-      return `<tr><td>${isRanked ? index + 1 : ''}</td><td>${name}</td><td>${result.rank4}</td><td>${result.rank1}</td><td>${result.rank2}</td><td>${result.rank3}</td><td><a href="${info['paper-url'] || '#'}" target="_blank">paper</a></td><td>${info.publication || 'N/A'} [<a href="${info.bib || '#'}" target="_blank">bib</a>]</td><td>${info.year || 'N/A'}</td></tr>`;
-  
+      const info = this.config.MODELS_INFO[result.model] || {};
+      return `<tr><td>${isRanked ? index + 1 : ''}</td><td>${result.model}</td><td>${result.rank4}</td><td>${result.rank1}</td><td>${result.rank2}</td><td>${result.rank3}</td><td><a href="${info['paper-url'] || '#'}" target="_blank">paper</a></td><td>${info.publication || 'N/A'} [<a href="${info.bib || '#'}" target="_blank">bib</a>]</td><td>${info.year || 'N/A'}</td></tr>`;
     }).join('');
     this.sendHeight();
-  },
-
-  _renderParameters(p){
-    p=p/1000000
-    return p.toFixed(2)+'M'
   },
 
   _renderEmptyTable() {
@@ -278,15 +341,14 @@ const LeaderboardApp = {
 
   _populateCheckboxes() {
     if (!this.elements.metricsContainer || !this.elements.datasetsContainer) return;
-    ['Label', 'Score'].forEach(category => {
+    ['Normalized', 'Denormalized'].forEach(category => {
       const categoryDiv = this._createCategoryElement(category);
-      this.config.METRICS[category].forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name}`, name, `checkbox-${category}`)));
+      this.config.METRICS.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name}`, name, `checkbox-${category}`)));
       this.elements.metricsContainer.appendChild(categoryDiv);
     });
     Object.entries(this.config.DATASET_CATEGORIES).forEach(([category, datasets]) => {
-      // category = category.replace(' ','_')
       const categoryDiv = this._createCategoryElement(category);
-      datasets.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category.replace(" ",'')}`)));
+      datasets.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category}`)));
       this.elements.datasetsContainer.appendChild(categoryDiv);
     });
   },
@@ -307,7 +369,7 @@ const LeaderboardApp = {
   
   toggleCategory(category, isChecked) {
     if (category === 'Metrics') {
-        ['Metrics', 'Label', 'Score'].forEach(cat => this._setCategoryChecked(cat, isChecked));
+        ['Metrics', 'Normalized', 'Denormalized'].forEach(cat => this._setCategoryChecked(cat, isChecked));
     } else {
         this._setCategoryChecked(category, isChecked);
     }
@@ -316,7 +378,7 @@ const LeaderboardApp = {
   _setCategoryChecked(category, isChecked){
       const parentCb = document.getElementById(`select-all-${category}`);
       if(parentCb) parentCb.checked = isChecked;
-      document.querySelectorAll(`.checkbox-${category.replace(" ",'')}`).forEach(cb => cb.checked = isChecked);
+      document.querySelectorAll(`.checkbox-${category}`).forEach(cb => cb.checked = isChecked);
   },
 
   _updateParentCheckboxState(category) {
@@ -334,6 +396,16 @@ const LeaderboardApp = {
     const mainSelectAll = document.getElementById('select-all');
     if (mainSelectAll) mainSelectAll.checked = isChecked;
     Object.keys(this.config.DATASET_CATEGORIES).forEach(category => this.toggleCategory(category, isChecked));
+  },
+
+  p1(isChecked) {
+    this.toggleSelectAll(false);
+    if (!isChecked) return;
+    ['Traffic/Traffic', 'Energy/Solar', 'Health/ILI', 'Environment/Weather', 'Economic/Exchange'].forEach(id => {
+      const el = document.getElementById(id);
+      if(el) { el.checked = true; this._updateParentCheckboxState(id.split('/')[0]); }
+    });
+    this.toggleCategory('Electricity', true);
   },
   
   _validateScoreInput(inputElement) {
@@ -357,7 +429,7 @@ const LeaderboardApp = {
         // 1. 默认给标题加上 'is-collapsed' 类，让箭头旋转
         // header.classList.add('is-collapsed');
         // 2. 默认将内容区域的高度设为 0，实现折叠效果
-        // content.style.maxHeight = content.scrollHeight + "px"; ;
+        // content.style.maxHeight = content.scrollHeight + "px"; 
 
         header.addEventListener('click', (event) => {
           // 确保点击链接不会触发折叠

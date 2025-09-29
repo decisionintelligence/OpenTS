@@ -10,7 +10,7 @@ const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'https://120.77.11.87:3333/foundts/multi/rank',
+    API_URL: 'http://120.77.11.87:3333/foundts/multi/rank',
     MODELS_INFO: { 
       "AutoTimes": {"paper-url": "https://openreview.net/pdf?id=FOvZztnp1H", "publication": "NeurIPS", "bib": "https://dblp.uni-trier.de/rec/conf/nips/LiuQ00L24.html?view=bibtex", "year": "2024", "parameters": "124588129"}, 
       "CALF": {"paper-url": "https://ojs.aaai.org/index.php/AAAI/article/view/34082", "publication": "AAAI", "bib": "https://dblp.uni-trier.de/rec/conf/aaai/LiuG0LBR0X25.html?view=bibtex", "year": "2025", "parameters": "134434400"}, 
