@@ -107,7 +107,7 @@ const LeaderboardApp = {
     // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
     config: {
         // !! 重要：更新 API URL
-        API_URL: 'http://120.77.11.87:3333/forecasting/multi/query',
+        API_URL: 'https://www.opents.top/forecasting/multi/query',
         MODELS_LIST: ["DUET", "Amplifier", "PatchMLP", "xPatch", "TimeKAN", "PatchTST", "Crossformer", "FEDformer", "Informer", "Triformer", "DLinear", "NLinear", 
         "MICN", "TimesNet", "TCN", "FiLM", "RNN", "Linear Regression", "VAR", "iTransformer", "FITS", 
         "TimeMixer", "Pathformer", "PDF", "Non-stationary Transformer"],

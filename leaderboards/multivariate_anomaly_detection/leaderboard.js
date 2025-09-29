@@ -12,7 +12,7 @@ const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'http://120.77.11.87:3333/outlier/multi/rank',
+    API_URL: 'https://www.opents.top/outlier/multi/rank',
     MODELS_INFO: { },
     
     MODEL_TYPES_LIST:{"Non-Learning":["LOF","CBLOF","HBOS"],

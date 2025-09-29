@@ -10,7 +10,7 @@ const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'http://120.77.11.87:3333/rank',
+    API_URL: 'https://www.opents.top/rank',
     MODELS_INFO: {
       "DAG": {
         "paper-url": "https://arxiv.org/pdf/2509.14933",
