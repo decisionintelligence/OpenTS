@@ -291,11 +291,34 @@ text-align: center;
   .ag-cell.group-separator-cell {
     border-right: 2px solid #d9d9d9 !important; /* 确保与表头样式一致 */
   }
+
+    .fullScreen{
+    position: absolute;
+    z-index: 100;
+    left: 10px;
+    top: 5px;
+    /* --- 1. 移除默认的按钮样式 --- */
+    background-color: transparent; /* 移除背景色 */
+    border: none;                /* 移除边框 */
+    padding: 0;                  /* 移除内边距 */
+    cursor: pointer;             /* 保持手形光标 */
+  
+    /* --- 2. 设置图片 --- */
+    /* 将 'path/to/your-icon.svg' 替换为您的图片路径 */
+    background-image: url('../../../figures/full.png'); 
+    background-repeat: no-repeat;  /* 防止图片平铺 */
+    background-repeat: round;
+  
+    width: 20px;
+    height: 20px;
+    /* --- 4. [可选] 提升用户体验 --- */
+    transition: opacity 0.2s ease; /* 添加平滑的过渡效果 */
+  }
 .download {
   position: absolute;
   z-index: 100;
-  right: 20px;
-  top: 10px;
+  left: 36px;
+  top: 5px;
   /* --- 1. 移除默认的按钮样式 --- */
   background-color: transparent; /* 移除背景色 */
   border: none;                /* 移除边框 */
@@ -304,12 +327,12 @@ text-align: center;
 
   /* --- 2. 设置图片 --- */
   /* 将 'path/to/your-icon.svg' 替换为您的图片路径 */
-  background-image: url('../../../figures/export.png'); 
+  background-image: url('../../../figures/import.png'); 
   background-repeat: no-repeat;  /* 防止图片平铺 */
   background-repeat: round;
 
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   /* --- 4. [可选] 提升用户体验 --- */
   transition: opacity 0.2s ease; /* 添加平滑的过渡效果 */
 }
@@ -558,6 +581,7 @@ text-align: center;
     background: rgba(0, 0, 0, 0.05);
   }
   .table-container {
+    margin-top: 30px;
     position: relative;
     height: fit-content;
     min-height: 350px;

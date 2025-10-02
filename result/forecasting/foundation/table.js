@@ -9,116 +9,7 @@
 // 全局变量
 let gridApi;
 
-// --- AG-Grid 的辅助函数 (来自新页面，保持不变) ---
-function generateColumnDefs(data) {
-    if (!data || data.length === 0) return []; // 处理空数据情况
-    const methodMetricMap = new Map();
-    data.forEach(item => {
-        if (!methodMetricMap.has(item.method)) {
-            methodMetricMap.set(item.method, new Set());
-        }
-        methodMetricMap.get(item.method).add(item.metric);
-    });
-    const fixedColumns = [
-      {
-        headerName: "Dataset",
-        field: "dataset",
-        width: 120,
-        pinned: 'left',
-        // 直接使用我们预先计算好的值
-        rowSpan: params => params.data.datasetRowSpan,
-        cellClass: 'dataset-cell',
-        sortable: false,
-        suppressMovable: true ,
-        filter: false
-    },
-        { headerName: "Horizon", field: "horizon", width: 100, pinned: 'left',suppressMovable: true , sortable: false, filter: false }
-    ];
-    // 先获取所有 keys，方便在外层 map 中获取索引
-const allMethods = Array.from(methodMetricMap.keys());
-const dynamicColumns = allMethods.map((method, methodIndex) => { // <-- 1. 获取外层循环的索引
 
-  // 2. 判断当前是否为最后一个列组
-  const isLastGroup = methodIndex === allMethods.length - 1;
-
-  return {
-      headerName: method,
-      suppressMovable: true ,
-      children: Array.from(methodMetricMap.get(method)).map((metric, index, arr) => {
-          
-          const colDef = {
-              headerName: metric.toUpperCase(),
-              field: `${method}_${metric}`,
-              suppressovable: true,
-              width: 150,
-              valueFormatter: params => params.value ? parseFloat(params.value).toFixed(3) : 'NaN'
-          };
-  
-          // 判断这是否是当前 children 数组中的最后一项
-          const isLastChildInGroup = index === arr.length - 1;
-
-          // --- 3. 修改判断条件 ---
-          // 只有当“它是组里的最后一列” 并且 “它不属于整个表格的最后一个组”时，才添加类
-          if (isLastChildInGroup && !isLastGroup) {
-              colDef.headerClass = 'group-separator-header';
-              colDef.cellClass = 'group-separator-cell';
-          }
-  
-          return colDef;
-      })
-  };
-});
-    return [...fixedColumns, ...dynamicColumns];
-}
-
-// 这是修改后的 generateRowData 函数
-function generateRowData(data) {
-  if (!data || data.length === 0) return [];
-  const dataMap = new Map();
-  data.forEach(item => {
-      const { dataset, horizon, method, metric, value } = item;
-      const compositeKey = `${dataset}-${horizon}`;
-      if (!dataMap.has(compositeKey)) {
-          dataMap.set(compositeKey, { dataset, horizon });
-      }
-      const row = dataMap.get(compositeKey);
-      const dynamicColumnName = `${method}_${metric}`;
-      row[dynamicColumnName] = value;
-  });
-
-  const pivotedData = Array.from(dataMap.values());
-  
-  // 1. 必须先按 dataset 排序，这是计算 rowSpan 的基础
-  pivotedData.sort((a, b) => {
-      const datasetCompare = a.dataset.localeCompare(b.dataset);
-      if (datasetCompare !== 0) return datasetCompare;
-      return a.horizon - b.horizon;
-  });
-
-  // 2. 预先计算 RowSpan
-  for (let i = 0; i < pivotedData.length; i++) {
-      const currentRow = pivotedData[i];
-      // 检查是否是新的 dataset 分组的开始
-      if (i === 0 || currentRow.dataset !== pivotedData[i - 1].dataset) {
-          let span = 1;
-          // 向后查找所有属于同一个 dataset 的行
-          for (let j = i + 1; j < pivotedData.length; j++) {
-              if (pivotedData[j].dataset === currentRow.dataset) {
-                  span++;
-              } else {
-                  break; // 遇到不同 dataset，停止查找
-              }
-          }
-          // 将计算好的 span 值存入该分组的第一行数据中
-          currentRow.datasetRowSpan = span;
-      } else {
-          // 同一个分组内的其他行，span 设为 0 (AG-Grid 会自动处理)
-          currentRow.datasetRowSpan = 0;
-      }
-  }
-  
-  return pivotedData;
-}
 function exportToCsv() {
     if (gridApi) {
         gridApi.exportDataAsCsv();
@@ -129,17 +20,20 @@ function exportToCsv() {
 
 
 const LeaderboardApp = {
-
-    // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
+  // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
     config: {
         // !! 重要：更新 API URL
         API_URL: 'https://www.opents.top/foundts/multi/query',
         MODELS_LIST: ["DUET", "Amplifier", "PatchMLP", "xPatch", "TimeKAN", "PatchTST", "Crossformer", "FEDformer", "Informer", "Triformer", "DLinear", "NLinear", 
         "MICN", "TimesNet", "TCN", "FiLM", "RNN", "Linear Regression", "VAR", "iTransformer", "FITS", "TimeMixer", "Pathformer", "PDF", "Non-stationary Transformer"],
-        MODEL_TYPES_LIST:{"TS-Pretrain":["Chronos","MOIRAI","Moment","ROSE",'TimesFM',"Timer","TTMs","UniTS"], "LLM-Based":["AutoTimes","CALF","GPT4TS","LLMMixer","S2IPLLM","TimeLLM","UniTime"], "Specific":["PatchTST","Dlinear","FedFormer","FITS","TimeMixer","TimesNet","iTransformer"]},
+        MODEL_TYPES_LIST: {"TS-Pretrain":["Chronos","MOIRAI","Moment","ROSE",'TimesFM',"Timer","TTMs","UniTS"], "LLM-Based":["AutoTimes","CALF","GPT4TS","LLMMixer","S2IPLLM","TimeLLM","UniTime"], "Specific":["PatchTST","Dlinear","FedFormer","FITS","TimeMixer","TimesNet","iTransformer"]},
         DATASET_CATEGORIES: {"Electricity": ["ETTh1", "ETTh2", "ETTm1", "ETTm2", "Electricity"], "Traffic": ["Traffic", "PEMS-BAY", "METR-LA", "PEMS04", "PEMS08"], "Environment": ["Weather", "AQShunyi", "AQWan"], "Economic": ["Exchange", "FRED-MD"], "Health": ["ILI", "Covid-19"], "Energy": ["Solar", "Wind"], "Nature": ["ZafNoo", "CzeLan"], "Stock": ["NASDAQ", "NYSE"], "Banking": ["NN5"], "Web": ["Wike2000"] },
         METRICS_LIST: ['MAE', 'MSE'],
-        SETTINGS_LIST:['Zero-shot', 'Few-shot', 'Full-shot']
+        SETTINGS_LIST:['Zero-shot', 'Few-shot', 'Full-shot'],
+        SETTINGS_ORDER:[],
+        METRICS_ORDER:[],
+        DATASETS_ORDER:[],
+        METHODS_ORDER:Object.values({"TS-Pretrain":["Chronos","MOIRAI","Moment","ROSE",'TimesFM',"Timer","TTMs","UniTS"], "LLM-Based":["AutoTimes","CALF","GPT4TS","LLMMixer","S2IPLLM","TimeLLM","UniTime"], "Specific":["PatchTST","Dlinear","FedFormer","FITS","TimeMixer","TimesNet","iTransformer"]}).flat().sort(), 
     },
     state: { isReady: false, isLoading: false },
     elements: {},
@@ -154,6 +48,179 @@ const LeaderboardApp = {
         this.state.isReady = true;
         this.updateLeaderboard();
     },
+    // --- AG-Grid 的辅助函数 (来自新页面，保持不变) ---
+generateColumnDefs(data) {
+  if (!data || data.length === 0) return []; // 处理空数据情况
+  const methodMetricMap = new Map();
+  data.forEach(item => {
+      if (!methodMetricMap.has(item.method)) {
+          methodMetricMap.set(item.method, new Set());
+      }
+      methodMetricMap.get(item.method).add(item.metric);
+  });
+  const fixedColumns = [
+    {
+      headerName: "Dataset",
+      field: "dataset",
+      width: 120,
+      pinned: 'left',
+      // 直接使用我们预先计算好的值
+      rowSpan: params => params.data.datasetRowSpan,
+      cellClass: 'dataset-cell',
+      sortable: false,
+      suppressMovable: true ,
+      filter: false
+  },
+      { headerName: "Horizon", field: "horizon", width: 100, pinned: 'left',suppressMovable: true , sortable: false, filter: false }
+  ];
+  
+  // 先获取所有 keys，方便在外层 map 中获取索引
+  const allMethods = Array.from(methodMetricMap.keys()).sort((a, b) => {
+    // findIndex 会返回后缀在 order 数组中的索引 (0, 1, 2)
+    // 如果找不到，会返回 -1，可以利用它将不匹配的项排在最后
+    var indexA = this.config.METHODS_ORDER.findIndex(suffix => a.toLowerCase().includes(suffix.toLowerCase()));
+    var indexB = this.config.METHODS_ORDER.findIndex(suffix => b.toLowerCase().includes(suffix.toLowerCase()));
+    if (indexA==indexB){
+      indexA = this.config.SETTINGS_ORDER.findIndex(suffix => a.includes(suffix.toLowerCase().replace('-','_')));
+      indexB = this.config.SETTINGS_ORDER.findIndex(suffix => b.includes(suffix.toLowerCase().replace('-','_')));
+    }
+    // 处理找不到后缀的情况，将它们排在最后面
+    const finalIndexA = indexA === -1 ? Infinity : indexA;
+    const finalIndexB = indexB === -1 ? Infinity : indexB;
+
+    return finalIndexA - finalIndexB;
+});
+
+const dynamicColumns = allMethods.map((method, methodIndex) => { // <-- 1. 获取外层循环的索引
+
+// 2. 判断当前是否为最后一个列组
+const isLastGroup = methodIndex === allMethods.length - 1;
+
+return {
+    headerName: method,
+    suppressMovable: true ,
+    children: Array.from(methodMetricMap.get(method)).sort((a, b) => {
+      // findIndex 会返回后缀在 order 数组中的索引 (0, 1, 2)
+      // 如果找不到，会返回 -1，可以利用它将不匹配的项排在最后
+      const indexA = this.config.METRICS_ORDER.findIndex(suffix => a.toLowerCase() == suffix.toLowerCase());
+      const indexB = this.config.METRICS_ORDER.findIndex(suffix => b.toLowerCase() == suffix.toLowerCase());
+
+      // 处理找不到后缀的情况，将它们排在最后面
+      const finalIndexA = indexA === -1 ? Infinity : indexA;
+      const finalIndexB = indexB === -1 ? Infinity : indexB;
+
+      return finalIndexA - finalIndexB;
+  }).map((metric, index, arr) => {
+        
+        const colDef = {
+            headerName: metric.toUpperCase(),
+            field: `${method}_${metric}`,
+            suppressovable: true,
+            width: 150,
+            valueFormatter: params => {
+                    // 1. 检查值是否存在且不为空
+                    if (params.value == null || params.value === '') {
+                        return 'NaN';
+                    }
+            
+                    // 2. 将值转换为数字
+                    const numericValue = parseFloat(params.value);
+            
+                    // 3. 检查转换后的结果是否是一个有效的数字
+                    if (isNaN(numericValue)) {
+                        return 'NaN';
+                    }
+            
+                    // 4. 根据条件进行格式化
+                    if (numericValue > 1000) {
+                        // 大于1000，使用科学计数法，保留两位小数（即三位有效数字）
+                        return numericValue.toExponential(3);
+                    } else {
+                        // 不大于1000，保留三位小数
+                        return numericValue.toFixed(3);
+                    }
+                }
+              };
+
+        // 判断这是否是当前 children 数组中的最后一项
+        const isLastChildInGroup = index === arr.length - 1;
+
+        // --- 3. 修改判断条件 ---
+        // 只有当“它是组里的最后一列” 并且 “它不属于整个表格的最后一个组”时，才添加类
+        if (isLastChildInGroup && !isLastGroup) {
+            colDef.headerClass = 'group-separator-header';
+            colDef.cellClass = 'group-separator-cell';
+        }
+
+        return colDef;
+    })
+};
+});
+
+  return [...fixedColumns, ...dynamicColumns];
+},
+
+// 这是修改后的 generateRowData 函数
+generateRowData(data) {
+if (!data || data.length === 0) return [];
+const dataMap = new Map();
+data.forEach(item => {
+    const { dataset, horizon, method, metric, value } = item;
+    const compositeKey = `${dataset}-${horizon}`;
+    if (!dataMap.has(compositeKey)) {
+        dataMap.set(compositeKey, { dataset, horizon });
+    }
+    const row = dataMap.get(compositeKey);
+    const dynamicColumnName = `${method}_${metric}`;
+    row[dynamicColumnName] = value;
+});
+
+const pivotedData = Array.from(dataMap.values());
+
+// 1. 必须先按 dataset 排序，这是计算 rowSpan 的基础
+pivotedData.sort((a, b) => {
+  const indexA = this.config.DATASETS_ORDER.indexOf(a.dataset);
+  const indexB = this.config.DATASETS_ORDER.indexOf(b.dataset);
+
+  // 如果 dataset 在 order 列表中找不到，则将它们放到列表的末尾
+  const effectiveIndexA = indexA === -1 ? Infinity : indexA;
+  const effectiveIndexB = indexB === -1 ? Infinity : indexB;
+  
+  const datasetCompare = effectiveIndexA - effectiveIndexB;
+  
+  if (datasetCompare !== 0) {
+      return datasetCompare;
+  }
+
+  // 如果 dataset 顺序相同（或都不在 order 列表中），则按 horizon 排序
+  return a.horizon - b.horizon;
+});
+
+// 2. 预先计算 RowSpan
+for (let i = 0; i < pivotedData.length; i++) {
+    const currentRow = pivotedData[i];
+    // 检查是否是新的 dataset 分组的开始
+    if (i === 0 || currentRow.dataset !== pivotedData[i - 1].dataset) {
+        let span = 1;
+        // 向后查找所有属于同一个 dataset 的行
+        for (let j = i + 1; j < pivotedData.length; j++) {
+            if (pivotedData[j].dataset === currentRow.dataset) {
+                span++;
+            } else {
+                break; // 遇到不同 dataset，停止查找
+            }
+        }
+        // 将计算好的 span 值存入该分组的第一行数据中
+        currentRow.datasetRowSpan = span;
+    } else {
+        // 同一个分组内的其他行，span 设为 0 (AG-Grid 会自动处理)
+        currentRow.datasetRowSpan = 0;
+    }
+}
+
+return pivotedData;
+},
+
     sendHeight(){
       // 使用 document.documentElement.scrollHeight 更可靠
       const height = document.documentElement.scrollHeight;
@@ -178,6 +245,76 @@ const LeaderboardApp = {
       // 新增：缓存下拉框元素
       this.elements.rankCountSelect = document.getElementById('rank-display-count');
     },
+    _change_list(list, item, checked)
+    {
+      
+      if (checked)
+      {
+        list.push(item)
+      }else{
+        list.pop(item)
+      }
+      return list
+    },
+    _order_list(id, checked)
+    {   
+        if (id.includes('select-all-'))
+        {
+          className = id.replace('select-all-','')
+          if ((className=='TS-Pretrain'||className=='LLM-Based'||className=='Specific')&&checked)
+          {
+            this.config.MODEL_TYPES_LIST[className].forEach(e=>{
+              if (!this.config.METHODS_ORDER.includes(e))
+              {
+                this._change_list(this.config.METHODS_ORDER,e,checked)
+              }
+            })
+          }else if ((className=='TS-Pretrain'||className=='LLM-Based'||className=='Specific')&&!checked)
+          {
+            this.config.MODEL_TYPES_LIST[className].forEach(e=>{
+              this.config.METHODS_ORDER.pop(e)
+            })
+          }else if (checked)
+          {
+            this.config.DATASET_CATEGORIES[className].forEach(e=>{
+              if (!this.config.DATASETS_ORDER.includes(e))
+              {
+                this._change_list(this.config.DATASETS_ORDER,e,checked)
+              }
+            })
+          }else if (!checked)
+          {
+            this.config.DATASET_CATEGORIES[className].forEach(e=>{
+
+              this.config.DATASETS_ORDER.pop(e)
+            })
+          }
+        }else{
+          className = id.split('/')[0]
+          itemName = id.split('/')[1]
+  
+          if (className=='Metrics')
+          {
+            list = this.config.METRICS_ORDER
+            item = itemName
+          }else if(className=='Settings')
+          {
+            list = this.config.SETTINGS_ORDER
+            item = itemName
+          }
+          else if(className=='TS-Pretrain'||className=='LLM-Based'||className=='Specific')
+          {
+            list = this.config.METHODS_ORDER
+            item = itemName
+          }else
+          {
+            list = this.config.DATASETS_ORDER
+            item = itemName
+          }
+  
+          list = this._change_list(list,item,checked)
+        }
+    },
     _bindEventListeners() {
       if (!this.elements.mainContainer) return;
   
@@ -195,13 +332,29 @@ const LeaderboardApp = {
               const text = target.textContent;
               const isChecked = (text === 'all' || text === 'profile1');
               
-              if (parentH3.textContent.includes('Metrics')) this.toggleCategory('Metrics', isChecked);
+              if (parentH3.textContent.includes('Metrics')){
+                this.config.METRICS_ORDER=[]
+                this.toggleCategory('Metrics', isChecked);
+              } 
               else if (parentH3.textContent.includes('Datasets')) {
+                this.config.DATASETS_ORDER=[]
                   if (text === 'profile1') this.p1(true);
                   else this.toggleSelectAll(isChecked);
               }
-              else if (parentH3.textContent.includes('Methods')) this.toggleCategory('Methods', isChecked);
-              else if (parentH3.textContent.includes('Settings')) this.toggleCategory('Settings', isChecked);
+              else if (parentH3.textContent.includes('Methods'))
+              {
+                if (isChecked)
+                {this.config.METHODS_ORDER = Object.values(this.config.MODEL_TYPES_LIST).flat().sort();}
+                else
+                {
+                  this.config.METHODS_ORDER = []
+                }
+
+                this.toggleCategory('Methods', isChecked);
+              }
+              else if (parentH3.textContent.includes('Settings')) 
+              {this.toggleCategory('Settings', isChecked);
+            this.config.SETTINGS_ORDER=[]}
               // this.updateLeaderboard();
               this.debouncedUpdate()
           }
@@ -209,7 +362,7 @@ const LeaderboardApp = {
   
       this.elements.mainContainer.addEventListener('change', (event) => {
         const target = event.target;
-        
+        this._order_list(target.id,target.checked)
         if (target.id === 'rank-display-count') {
           this._renderTable(this.state.lastResults, true);
           return;
@@ -294,11 +447,10 @@ const LeaderboardApp = {
   },
     // !! 核心改造点 1: 修改 _processApiResponse
     _processApiResponse(rawData) {
-      console.log(rawData)
     if (!gridApi) return;
     // 使用 AG-Grid 的函数来生成列和行
-    const newColumnDefs = generateColumnDefs(rawData);
-    const newRowData = generateRowData(rawData);
+    const newColumnDefs = this.generateColumnDefs(rawData);
+    const newRowData = this.generateRowData(rawData);
 
     // 使用 AG-Grid API 来更新表格
     gridApi.setGridOption('columnDefs', newColumnDefs);
@@ -466,6 +618,18 @@ const LeaderboardApp = {
   function start()
   {
     const gridDiv = document.querySelector('#myGrid');
+globalButton =  document.querySelector('#globalButton');
+
+    globalButton.addEventListener('click', (event) => {
+      // gridDiv.className='ag-theme-alpine .grid-fullscreen'
+      if (gridDiv.requestFullscreen) {
+        gridDiv.requestFullscreen();
+        } else if (gridDiv.webkitRequestFullscreen) { /* Safari, Chrome, Opera */
+        gridDiv.webkitRequestFullscreen();
+        } else if (gridDiv.msRequestFullscreen) { /* IE11 */
+        gridDiv.msRequestFullscreen();
+        }
+    })
       
     // 1. 初始化一个空的 AG-Grid
     const gridOptions = {

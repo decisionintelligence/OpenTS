@@ -8,7 +8,7 @@
  */
 // 全局变量
 let gridApi;
-
+let gridDiv;
 
 function exportToCsv() {
     if (gridApi) {
@@ -32,7 +32,7 @@ const LeaderboardApp = {
         METRICS: ['MSE', 'MAE', 'MAPE',  'MSMAPE', 'RMSE', 'SMAPE', 'WAPE'],
         METRICS_ORDER:[],
         DATASETS_ORDER:[],
-        METHODS_ORDER:[],
+        METHODS_ORDER:[], 
     },
     state: { isReady: false, isLoading: false },
     elements: {},
@@ -67,8 +67,8 @@ const LeaderboardApp = {
       const allMethods = Array.from(methodMetricMap.keys()).sort((a, b) => {
         // findIndex 会返回后缀在 order 数组中的索引 (0, 1, 2)
         // 如果找不到，会返回 -1，可以利用它将不匹配的项排在最后
-        const indexA = this.config.METHODS_ORDER.findIndex(suffix => a.endsWith(suffix));
-        const indexB = this.config.METHODS_ORDER.findIndex(suffix => b.endsWith(suffix));
+        const indexA = this.config.METHODS_ORDER.findIndex(suffix => a.includes(suffix));
+        const indexB = this.config.METHODS_ORDER.findIndex(suffix => b.includes(suffix));
 
         // 处理找不到后缀的情况，将它们排在最后面
         const finalIndexA = indexA === -1 ? Infinity : indexA;
@@ -103,7 +103,29 @@ const LeaderboardApp = {
                     field: `${method}_${metric}`,
                     suppressovable: true,
                     width: 150,
-                    valueFormatter: params => params.value ? parseFloat(params.value).toFixed(3) : 'NaN'
+                    valueFormatter: params => {
+                      // 1. 检查值是否存在且不为空
+                      if (params.value == null || params.value === '') {
+                          return 'NaN';
+                      }
+              
+                      // 2. 将值转换为数字
+                      const numericValue = parseFloat(params.value);
+              
+                      // 3. 检查转换后的结果是否是一个有效的数字
+                      if (isNaN(numericValue)) {
+                          return 'NaN';
+                      }
+              
+                      // 4. 根据条件进行格式化
+                      if (numericValue > 1000) {
+                          // 大于1000，使用科学计数法，保留两位小数（即三位有效数字）
+                          return numericValue.toExponential(3);
+                      } else {
+                          // 不大于1000，保留三位小数
+                          return numericValue.toFixed(3);
+                      }
+                  }
                 };
         
                 // 判断这是否是当前 children 数组中的最后一项
@@ -249,7 +271,7 @@ const LeaderboardApp = {
           }else if (className=='Denormalized'&&checked)
           {
             this.config.METRICS.forEach(e=>{
-              e = e+'_DENORM'
+              e = e+'_D'
               if (!this.config.METRICS_ORDER.includes(e))
               {
                 this._change_list(this.config.METRICS_ORDER,e,checked)
@@ -258,7 +280,7 @@ const LeaderboardApp = {
           }else if (className=='Denormalized'&&!checked)
           {
             this.config.METRICS.forEach(e=>{
-              e = e+'_DENORM'
+              e = e+'_D'
               this.config.METRICS_ORDER.pop(e)
             })
           } else {
@@ -279,11 +301,6 @@ const LeaderboardApp = {
 
           }
 
-
-
-
-
-
         }else{
           className = id.split('/')[0]
           itemName = id.split('/')[1]
@@ -295,7 +312,7 @@ const LeaderboardApp = {
           }else if(className=='Denormalized')
           {
             list = this.config.METRICS_ORDER
-            item = itemName+"_DENORM"
+            item = itemName+"_D"
           }
           else if(className=='Methods')
           {
@@ -430,21 +447,12 @@ const LeaderboardApp = {
           }, delay);
       };
   },
-  _globalTable(){
-    if (!gridApi) return;
-    rawData = this.config.currentData 
-    // 使用 AG-Grid 的函数来生成列和行
-    const newColumnDefs = this.generateColumnDefs(rawData);
-    const newRowData = this.generateRowData(rawData);
-
-    // 使用 AG-Grid API 来更新表格
-    gridApi.setGridOption('columnDefs', newColumnDefs);
-    gridApi.setGridOption('rowData', newRowData);
-  },
     // !! 核心改造点 1: 修改 _processApiResponse
     _processApiResponse(rawData) {
     if (!gridApi) return;
-    this.config.currentData = rawData
+    rawData = rawData.map(e=>{
+      e.metric = e.metric.replace('_DENORM','_D') 
+    return e})  
     // 使用 AG-Grid 的函数来生成列和行
     const newColumnDefs = this.generateColumnDefs(rawData);
     const newRowData = this.generateRowData(rawData);
@@ -604,22 +612,19 @@ const LeaderboardApp = {
 
   function start()
   {
-    const gridDiv = document.querySelector('#myGrid');
-    gridDiv.addEventListener('click', () => {
+    gridDiv = document.querySelector('#myGrid');
+    globalButton =  document.querySelector('#globalButton');
+
+    globalButton.addEventListener('click', (event) => {
+      // gridDiv.className='ag-theme-alpine .grid-fullscreen'
       if (gridDiv.requestFullscreen) {
-        console.log(1)
         gridDiv.requestFullscreen();
         } else if (gridDiv.webkitRequestFullscreen) { /* Safari, Chrome, Opera */
-        console.log(2)
         gridDiv.webkitRequestFullscreen();
         } else if (gridDiv.msRequestFullscreen) { /* IE11 */
-        console.log(3)
         gridDiv.msRequestFullscreen();
         }
-    });
-
-
-
+    })
     // 1. 初始化一个空的 AG-Grid
     const gridOptions = {
         columnDefs: [],
