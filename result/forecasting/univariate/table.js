@@ -221,7 +221,7 @@ const LeaderboardApp = {
             "year": "2017"
           }
         },
-        MODEL_TYPES_LIST:{"TS-Pretrain":["Chronos","MOIRAI","Moment","ROSE",'TimesFM',"Timer","TTMs","UniTS"], "LLM-Based":["AutoTimes","CALF","GPT4TS","LLMMixer","S2IPLLM","TimeLLM","UniTime"], "Specific":["PatchTST","Dlinear","FedFormer","FITS","TimeMixer","TimesNet","iTransformer"]},
+        MODEL_TYPES_LIST:{"TS-Pretrain":["Chronos","MOIRAI","Moment","ROSE",'TimesFM',"Timer","TTM","UniTS"], "LLM-Based":["CALF","GPT4TS","LLMMixer","S2IPLLM","TimeLLM","UniTime"], "Specific":["PatchTST","Dlinear","FedFormer","FITS","TimeMixer","TimesNet","iTransformer"]},
         DATASET_CATEGORIES: { "Frequency": ["Hourly","Daily","Weekly","Monthly","Quarterly","Yearly","Other"], 
         "Characteristics": ["w Trend", "w Transition","w Shifting", "w Seasonality","w Stationarity", "w-o Trend", "w-o Transition","w-o Shifting", "w-o Seasonality","w-o Stationarity"]},
         METRICS_LIST: ['mae',
