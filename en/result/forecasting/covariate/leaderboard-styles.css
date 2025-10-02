@@ -1,0 +1,618 @@
+/* ==========================================================================
+   Leaderboard Stylesheet
+   ========================================================================== */
+
+/* --- 全局隐藏样式 --- */
+
+.ag-header-group-cell{
+  border-right: 2px solid #d9d9d9 !important;
+}
+
+.ag-header-group-cell:last-of-type{
+  border-right: 0px solid #d9d9d9 !important;
+}
+.ag-header-cell.group-separator-header {
+  border-right: 2px solid #d9d9d9 !important; /* 可以调整颜色和宽度 */
+}
+
+.ag-cell.group-separator-cell {
+  border-right: 2px solid #d9d9d9 !important; /* 确保与表头样式一致 */
+}
+
+#myGrid { 
+  width: 100%; 
+  height: 700px; 
+}
+
+.checkbox-container input{
+  margin-right: 5px;
+}
+.category input{
+  margin-right: 5px;
+}
+
+.collapsible-content  input{
+  margin-right: 5px;
+}
+
+.ag-header-group-cell-label span{
+  font-weight: bold;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px !important; /* <-- 在值的后面加上 !important */
+  font-family: "Microsoft YaHei", Verdana, sans-serif;
+}
+.ag-header-cell-label
+{
+  justify-content:center;
+}
+.ag-header-cell-label span {
+  font-weight: bold;
+
+  justify-content: center;
+  text-align: center;
+  font-size: 14px !important; /* <-- 在值的后面加上 !important */
+  font-family: "Microsoft YaHei", Verdana, sans-serif;
+}
+/* 2. 所有单元格内容居中 */
+.ag-cell {
+  text-align: center;
+}
+.ag-header-cell {
+text-align: center;
+}
+
+/* --- 原有样式 --- */
+.dataset-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding: 5px;
+  /* font-weight: bold; 已被上面的通用规则覆盖，可以保留或删除 */
+      /* 垂直居中文本 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* 文本垂直显示 */
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        padding: 5px;
+        font-weight: bold;
+        /* 确保背景和边框在合并时看起来正确 */
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+}
+.easyScholarDOI {
+    display: none;
+  }
+  
+  /* --- 主要布局容器 --- */
+  .main-container {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    flex-direction: column;
+    row-gap: 8px;
+  }
+  
+  .table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto; /* 启用水平滚动 */
+    overflow-y: hidden;
+    padding-left: 0px;
+  }
+  /* --- 新增：折叠面板样式 --- */
+  .collapsible-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start; /* 修改后，所有元素都会从左边开始排列 */
+    align-items: center;
+    user-select: none; /* 防止点击时选中文本 */
+}
+  
+.toggle-arrow {
+    font-size: 14px;
+    font-weight: 400;
+    transition: transform 0.3s ease;
+    order: -1; /* 新增：让箭头在视觉上排到最前面 */
+    margin-right: 8px; /* 将边距调整为箭头和文字之间的间距 */
+}
+  /* --- 新增：美化后的下拉框样式 --- */
+  
+ /* --- 新增：美化后的下拉框样式 (箭头居左 & 自适应宽度版) --- */
+
+/* --- 唯一的、美化后的下拉框样式 (箭头居左 & 自适应宽度版) --- */
+/* --- 唯一的、美化后的下拉框样式 (最终修正版) --- */
+#rank-display-count {
+    /* 1. 重置浏览器默认样式 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    
+    /* 2. 定义新的外观 */
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 5px 12px 5px 30px; 
+    font-family: inherit;
+    font-size: 14px;
+    color: #495057;
+    cursor: pointer;
+    text-align: left; /* <-- 新增这一行，覆盖继承的居中对齐 */
+  
+    /* 3. 使用SVG作为自定义箭头，并放置在背景中 */
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3e%3cpath fill="none" stroke="%23343a40" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/%3e%3c/svg%3e');
+    background-repeat: no-repeat;
+    background-position: left 8px center;
+    background-size: 12px 12px;
+  
+    /* 4. 添加核心的动画效果 */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  }
+  
+  /* 鼠标悬浮时的动画效果 */
+  #rank-display-count:hover {
+    border-color: #adb5bd;
+    background-color: #e9ecef;
+  }
+  
+  /* 获得焦点 (被点击时) 的动画效果 */
+  #rank-display-count:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  }
+  /* 当折叠时，箭头旋转 */
+  .collapsible-header.is-collapsed .toggle-arrow {
+    transform: rotate(-90deg);
+  }
+  
+  /* 折叠内容的容器 */
+  .collapsible-content {
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+  }
+  
+  /* JS将通过设置 max-height 来控制显示/隐藏，而不是 display:none，以允许动画 */
+
+  /* 针对排行榜表格的特定布局 */
+/* 针对排行榜表格的特定布局 */
+#main-container-mul .table-container {
+    flex-grow: 1; /* 让它自动填充所有剩余空间 */
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* 此处的 display: flex; 是有效的，因为没有内联样式覆盖它 */
+    display: flex;
+    justify-content: LEFT;
+    width: 95%;
+  }
+  
+  /* --- 复选框和过滤器侧边栏 --- */
+  .checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    min-width: 280px;   /* 设置一个最小宽度，例如280px */
+    flex-shrink: 0;     /* 防止该容器在空间不足时被压缩 */
+    padding-right: 15px; /* 与右侧表格之间增加一些间距 */
+    box-sizing: border-box; /* 确保 padding 不会增加总宽度 */
+    scrollbar-width: none;
+    /* 针对旧版 IE 和 Edge 浏览器 */
+    -ms-overflow-style: none;
+  }
+  .checkbox-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .checkbox-container1 {
+    display: flex;
+    /* grid-template-columns: 1fr; */
+    flex-direction: column;
+    gap: 0px;
+    /* padding-right: 20px; */
+    overflow-y: auto;
+  }
+
+  .checkbox-container3{
+
+        
+    /* flex-direction: column; */
+    
+    /* grid-template-columns: 1fr 1fr; */
+
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* 针对旧版 IE 和 Edge 浏览器 */
+    -ms-overflow-style: none;
+    padding-left:15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 2.2fr;
+    gap: 12px; /* 网格间距 */
+    row-gap: 0px;
+    column-gap: 15px;
+  }
+
+  .checkbox-container2{
+
+        
+    /* flex-direction: column; */
+    
+    /* grid-template-columns: 1fr 1fr; */
+
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* 针对旧版 IE 和 Edge 浏览器 */
+    -ms-overflow-style: none;
+    padding-left:15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 12px; /* 网格间距 */
+    row-gap: 0px;
+    column-gap: 55px;
+  }
+  .checkbox-container {
+    
+    /* flex-direction: column; */
+    
+    /* grid-template-columns: 1fr 1fr; */
+
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* 针对旧版 IE 和 Edge 浏览器 */
+    -ms-overflow-style: none;
+    padding-left:15px;
+
+    display: flex;
+    flex-wrap: wrap;     
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    gap: 12px; /* 网格间距 */
+    column-gap: 55px;
+ 
+  }
+  .checkbox-container::-webkit-scrollbar {
+    display: none;
+  }
+  /* leaderboard-styles.css */
+
+.download {
+  position: absolute;
+  z-index: 100;
+  right: 20px;
+  top: 10px;
+  /* --- 1. 移除默认的按钮样式 --- */
+  background-color: transparent; /* 移除背景色 */
+  border: none;                /* 移除边框 */
+  padding: 0;                  /* 移除内边距 */
+  cursor: pointer;             /* 保持手形光标 */
+
+  /* --- 2. 设置图片 --- */
+  /* 将 'path/to/your-icon.svg' 替换为您的图片路径 */
+  background-image: url('../../../figures/export.png'); 
+  background-repeat: no-repeat;  /* 防止图片平铺 */
+  background-repeat: round;
+
+  width: 30px;
+  height: 30px;
+  /* --- 4. [可选] 提升用户体验 --- */
+  transition: opacity 0.2s ease; /* 添加平滑的过渡效果 */
+}
+
+.ag-horizontal-left-spacer{
+    /* --- 针对 Firefox --- */
+    scrollbar-width: none;
+    background-color: #f0f0f0;
+    /* --- 针对旧版 IE 和 Edge --- */
+    -ms-overflow-style: none;
+  /* display: none; */
+}
+.ag-horizontal-left-spacer::-webkit-scrollbar {
+  display: none;
+}
+/* 当鼠标悬停在按钮上时，稍微降低透明度，给用户一个反馈 */
+.download:hover {
+  opacity: 0.7;
+}
+
+  /* .download{
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    padding-left: 5px;
+    padding-right: 5px;
+    right: 20px;
+    top: 10px;
+    background-color:#fafafb;
+  }  */
+  .checkbox-item
+  {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  
+  .category_inner_grid{
+    gap: 15px;
+    align-items: baseline;
+    margin-bottom: 0px;
+    column-gap: 10px;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 5px;
+  }
+
+  .category_inner {
+    /* flex-grow: 1; */
+    gap: 15px;
+    align-items: baseline;
+    margin-bottom: 0px;
+    column-gap: 10px;
+    /* display: flex;   */
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
+  }
+
+  .category {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .category h3 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .all-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  
+  .checkbox-wrapper1 {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    width: 260px;
+  }
+  
+  .checkbox-wrapper2 {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1.5fr 1.5fr;
+    width: 260px;
+  }
+  
+  .checkbox-wrapper3 {
+    display: grid;
+    grid-template-columns: 1fr; /* 原为 1，改为 1fr 更标准 */
+    width: 100%;
+  }
+  
+  .checkbox-wrapper3 .checkbox-item {
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+  
+  .checkbox-wrapper2 .checkbox-item {
+    margin-left: 15px;
+  }
+  
+  /* --- 表格样式 --- */
+  table.my-table2 {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  table.my-table2 th {
+    background-color: #f2f2f2;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;
+    border: none;
+  }
+  
+  table.my-table2 tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+  
+  table.my-table2 tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  table.my-table2 td {
+    padding: 8px;
+    text-align: center;
+    border: none;
+    vertical-align: middle;
+  }
+  
+  /* 表格粘性定位 (Sticky Header/Column) */
+  .sticky-th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  
+  .sticky-col {
+    background-color: white;
+    position: sticky;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .sticky-col2 {
+    position: sticky;
+    left: 36px; /* 根据第一列的宽度设置 */
+    z-index: 1;
+    background-color: #fff;
+  }
+  
+  .sticky-col2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 5px;
+    height: 105%;
+    box-shadow: 2px 0 3px -2px rgba(0, 0, 0, 0.4);
+  }
+  
+  .sticky-col-header {
+    z-index: 3;
+  }
+    
+  option {
+    padding: 5px 0;
+  }
+  
+  input[type="number"] {
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    padding: 0px;
+    width: 31px;
+    font-size: 14px;
+    text-align: center;
+    -moz-appearance: textfield; /* For Firefox */
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* For Chrome, Safari, Edge */
+    margin: 0;
+  }
+  
+  
+  /* --- 杂项和辅助类 --- */
+  .article-entry h3 {
+    margin: 0;
+  }
+  
+  .double-underline {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .double-underline::after,
+  .double-underline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: black;
+  }
+  
+  .double-underline::before { bottom: 3px; }
+  .double-underline::after { bottom: 0px; }
+  
+  /* 加载动画 */
+  .loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1.5s linear infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-top: 50%;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .loading-row {
+    text-align: center;
+    padding: 40px 0;
+    color: #888;
+    font-style: italic;
+    position: absolute;
+    font-size: 18px;
+    height: 894px;
+    width: 666px;
+    background: rgba(0, 0, 0, 0.05);
+  }
+  .table-container {
+    position: relative;
+    height: fit-content;
+    min-height: 350px;
+  }
+  
+  /* 
+    加载蒙版样式
+    - 半透明背景
+    - 覆盖整个父容器
+    - 使用 flex 布局让加载动画居中
+    - 默认隐藏 (display: none)
+  */
+  .loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    /* min-height: 350px; */
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 25%;
+    /* z-index: 10; */
+    gap: 15px;
+    box-sizing: border-box;
+    /* 移除了这里的 font-size 和 color */
+  }
+  
+  /* 
+    当需要显示时，我们将为它添加 .is-active 类，
+    将其 display 设置为 flex。
+  */
+  .loading-overlay {
+    display: flex;
+  }
+  .loading-overlay p {
+    font-size: 1rem;   /* 设置为一个较大的字体尺寸，例如 2rem */
+    font-weight: bold; /* 让字体更突出一些 (可选) */
+    color: #007bff;     /* 设置为您想要的蓝色，这是一个常见的 Bootstrap 蓝色 */
+  }
+  /* 
+    旋转加载动画 (Spinner)
+  */
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #007bff; /* [可选] 将旋转动画的颜色也改为蓝色，以保持一致 */
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+  }
+  
+  /* 
+    定义旋转动画的关键帧
+  */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .collapsible-header span{
+    font:19px "Microsoft YaHei", Verdana, sans-serif;
+    font-weight: 600;
+
+  }

@@ -16,12 +16,12 @@
   <meta name="description" content="&#x2F;* ... 您的 CSS 样式保持不变 ... *&#x2F; .tabs-container {     width: 99%;     margin-bottom: 24px;     border: 1px solid #dee2e6;     border-radius: 8px;     overflow: hidden;     background-color: #ffffff; } .t">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
-<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/en/result/index.html">
+<meta property="og:url" content="https://chy181.github.io/OpenTS/en/result/index.html">
 <meta property="og:site_name" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
 <meta property="og:description" content="&#x2F;* ... 您的 CSS 样式保持不变 ... *&#x2F; .tabs-container {     width: 99%;     margin-bottom: 24px;     border: 1px solid #dee2e6;     border-radius: 8px;     overflow: hidden;     background-color: #ffffff; } .t">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-09-30T07:15:51.974Z">
-<meta property="article:modified_time" content="2025-09-30T07:15:51.974Z">
+<meta property="article:published_time" content="2025-10-01T16:31:11.667Z">
+<meta property="article:modified_time" content="2025-10-01T16:31:11.667Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -455,7 +455,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/en/result/index.html" class="article-date">
-  <time datetime="2025-09-30T07:15:51.974Z" itemprop="datePublished">2025-09-30</time>
+  <time datetime="2025-10-01T16:31:11.667Z" itemprop="datePublished">2025-10-02</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -572,7 +572,7 @@
 .tab-content { display: none; }
 .tab-content.active { display: block; animation: fadeIn 0.3s; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.leaderboard-iframe { width: 95%; border: none; min-height: 1500px; margin-left:2.5% }
+.leaderboard-iframe { width: 95%; border: none; min-height: 1660px; margin-left:2.5% }
 </style>
 
 <h1>OpenTS-Leaderboards</h1>
@@ -592,10 +592,6 @@
     <div class="level-2-wrapper">
         <!-- [优化] 移除了 active 类 -->
         <ul class="tab-list level-2" data-tab-group-content="forecasting">
-            <!-- [优化] 移除了 active 类 -->
-            <li class="tab-item-l2">
-                <a href="#univariate_forecasting" data-tab-content="univariate_forecasting">Univariate forecasting</a>
-            </li>
             <li class="tab-item-l2">
                 <a href="#multivariate_forecasting" data-tab-content="multivariate_forecasting">Multivariate forecasting</a>
             </li>
@@ -605,16 +601,20 @@
             <li class="tab-item-l2">
                 <a href="#covariate_forecasting" data-tab-content="covariate_forecasting">Covariate forecasting</a>
             </li>
+              <!-- [优化] 移除了 active 类 -->
+            <li class="tab-item-l2">
+                <a href="#univariate_forecasting" data-tab-content="univariate_forecasting">Univariate forecasting</a>
+            </li>
         </ul>
         <ul class="tab-list level-2" data-tab-group-content="detection">
-            <li class="tab-item-l2">
-                <a href="#univariate_detection" data-tab-content="univariate_detection">Univariate Detection</a>
-            </li>
             <li class="tab-item-l2">
                 <a href="#multivariate_detection" data-tab-content="multivariate_detection">Multivariate Detection</a>
             </li>
             <li class="tab-item-l2">
                 <a href="#foundation_detection" data-tab-content="foundation_detection">Foundation Detection</a>
+            </li>
+                        <li class="tab-item-l2">
+                <a href="#univariate_detection" data-tab-content="univariate_detection">Univariate Detection</a>
             </li>
         </ul>
     </div>
@@ -623,25 +623,25 @@
 <div class="filter-content-wrapper">
     <!-- [优化] 移除了 active 类 -->
     <div class="tab-content" data-content="univariate_forecasting">
-        <iframe class="leaderboard-iframe" data-src="univariate_time_series/?embedded=true" scrolling="no"></iframe>
+        <iframe class="leaderboard-iframe" data-src="forecasting/univariate/?embedded=true" scrolling="no"></iframe>
     </div>
     <div class="tab-content" data-content="multivariate_forecasting">
-        <iframe class="leaderboard-iframe" data-src="multivariable_forecasting/?embedded=true" scrolling="no"></iframe>
+        <iframe class="leaderboard-iframe" data-src="forecasting/multivariate/?embedded=true" scrolling="no"></iframe>
     </div>
     <div class="tab-content" data-content="foundation_forecasting">
-        <iframe class="leaderboard-iframe" data-src="foundation_model/?embedded=true" scrolling="no"></iframe>
+        <iframe class="leaderboard-iframe" data-src="forecasting/foundation/?embedded=true" scrolling="no"></iframe>
     </div>
     <div class="tab-content" data-content="covariate_forecasting">
-        <iframe class="leaderboard-iframe" data-src="covariate_forecasting/?embedded=true" scrolling="no"></iframe>
+        <iframe class="leaderboard-iframe" data-src="forecasting/covariate/?embedded=true" scrolling="no"></iframe>
     </div>
     <div class="tab-content" data-content="univariate_detection">
-        <iframe class="leaderboard-iframe" data-src="univariate_anomaly_detection/?embedded=true" scrolling="no"></iframe>
+        <iframe class="leaderboard-iframe" data-src="detection/univariate/?embedded=true" scrolling="no"></iframe>
     </div>
     <div class="tab-content" data-content="multivariate_detection">
-        <iframe class="leaderboard-iframe" data-src="multivariate_anomaly_detection/?embedded=true" scrolling="no"></iframe>
+        <iframe class="leaderboard-iframe" data-src="detection/multivariate/?embedded=true" scrolling="no"></iframe>
     </div>
     <div class="tab-content" data-content="foundation_detection">
-        <iframe class="leaderboard-iframe" data-src="foundation_anomaly_detection/?embedded=true" scrolling="no" style="border: none;"></iframe>
+        <iframe class="leaderboard-iframe" data-src="detection/foundation/?embedded=true" scrolling="no" style="border: none;"></iframe>
     </div>
 </div>
 
