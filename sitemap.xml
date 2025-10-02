@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chy181.github.io/OpenTS/result/index.html</loc>
+    
+    <lastmod>2025-10-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/result/forecasting/multivariate/index.html</loc>
+    
+    <lastmod>2025-10-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chy181.github.io/OpenTS/result/detection/multivariate/index.html</loc>
     
     <lastmod>2025-10-01</lastmod>
@@ -21,15 +39,6 @@
   
   <url>
     <loc>https://chy181.github.io/OpenTS/result/detection/foundation/index.html</loc>
-    
-    <lastmod>2025-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/result/index.html</loc>
     
     <lastmod>2025-10-01</lastmod>
     
@@ -122,15 +131,6 @@
     <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/index.html</loc>
     
     <lastmod>2025-09-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/result/forecasting/multivariate/index.html</loc>
-    
-    <lastmod>2025-09-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
