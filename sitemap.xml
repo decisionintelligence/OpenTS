@@ -461,7 +461,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/DUET/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/CATCH/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -470,7 +470,16 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/Enhancing/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/ContraAD/index.html</loc>
+    
+    <lastmod>2025-06-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/DUET/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -488,25 +497,16 @@
   </url>
   
   <url>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/Enhancing/index.html</loc>
+    
+    <lastmod>2025-06-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/K2VAE/index.html</loc>
-    
-    <lastmod>2025-06-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/CATCH/index.html</loc>
-    
-    <lastmod>2025-06-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/ContraAD/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -551,7 +551,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/Position/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/Towards/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -560,7 +560,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/Towards/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/Position/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -866,7 +866,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-Auto/AutoCTS/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-Auto/AutoCTS+/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -875,7 +875,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-Auto/AutoCTS+/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-Auto/AutoCTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     

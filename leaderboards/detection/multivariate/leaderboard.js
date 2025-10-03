@@ -15,7 +15,7 @@ const LeaderboardApp = {
     API_URL: 'https://www.opents.top/outlier/multi/rank',
     MODELS_INFO: { },
     
-    MODEL_TYPES_LIST:{"Non-Learning":["LOF","CBLOF","HBOS"],
+    MODEL_TYPES_LIST:{"Non-Learning":["LOF","CBLOF","HBOS","ARIMA","SARIMA","StatThreshold","DWT-MLEAD","LeftSTAMPi","ZMS","Series2Graph"],
     "Machine-Learning":["OCSVM","DP","KNN","KMeans","IF","EIF","LODA","PCA"], 
     "Deep-Learning":["DAGMM","Torsk","iTransformer","TimesNet","DUET","ATrans","PatchTST","ModernTCN","TranAD","DualTF","AE","VAE","NLinear","DLinear","LSTMED","DCdetector","ContraAD","CATCH"  ],
   },
