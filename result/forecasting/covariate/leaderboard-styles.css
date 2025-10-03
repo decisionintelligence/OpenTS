@@ -299,8 +299,8 @@ text-align: center;
 .fullScreen{
   position: absolute;
   z-index: 100;
-  left: 10px;
-  top: 5px;
+  left: 40px;
+  top: 10px;
   /* --- 1. 移除默认的按钮样式 --- */
   background-color: transparent; /* 移除背景色 */
   border: none;                /* 移除边框 */
@@ -321,8 +321,8 @@ text-align: center;
 .download {
 position: absolute;
 z-index: 100;
-left: 36px;
-top: 5px;
+left: 65px;
+top: 10px;
 /* --- 1. 移除默认的按钮样式 --- */
 background-color: transparent; /* 移除背景色 */
 border: none;                /* 移除边框 */
