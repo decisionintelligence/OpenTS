@@ -12,13 +12,18 @@ const LeaderboardApp = {
   config: {
     API_URL: 'https://www.opents.top/forecasting/exog/rank',
     MODELS_INFO: {
+      "CrossLinear":{
+        "paper-url": "https://arxiv.org/pdf/2509.14933",
+        "publication": "arXiv",
+        "bib": "",
+        "year": "2025"
+      },
       "DAG": {
         "paper-url": "https://arxiv.org/pdf/2509.14933",
         "publication": "arXiv",
         "bib": "",
         "year": "2025"
       },
-    
       "TimeXer": {
         "paper-url": "https://arxiv.org/pdf/2402.19072",
         "publication": "NeurIPS",
@@ -26,41 +31,36 @@ const LeaderboardApp = {
         "year": "2024"
       },
     
-      "Temporal Fusion Transformers": {
+      "Temporal Fusion Transformer": {
         "paper-url": "https://doi.org/10.1016/j.ijforecast.2021.03.012",
         "publication": "IJF",
         "bib": "https://dblp.org/rec/journals/corr/abs-1912-09363.html?view=bibtex",
         "year": "2019"
       },
-    
       "TiDE": {
         "paper-url": "https://arxiv.org/pdf/2304.08424",
         "publication": "arXiv",
         "bib": "https://dblp.org/rec/journals/tmlr/DasKLMSY23.html?view=bibtex",
         "year": "2023"
       },
-    
       "DUET": {
         "paper-url": "https://arxiv.org/pdf/2412.10859",
         "publication": "KDD",
         "bib": "",
         "year": "2025"
       },
-    
       "Amplifier": {
         "paper-url": "https://arxiv.org/pdf/2501.17216",
         "publication": "AAAI",
         "bib": "https://dblp.org/rec/conf/aaai/Fei000N25.html?view=bibtex",
         "year": "2025"
       },
-    
       "TimeKAN": {
         "paper-url": "https://arxiv.org/pdf/2502.06910",
         "publication": "ICLR",
         "bib": "https://dblp.org/rec/conf/iclr/HuangZL025.html?view=bibtex",
         "year": "2025"
       },
-    
       "xPatch": {
         "paper-url": "https://arxiv.org/pdf/2412.17323",
         "publication": "AAAI",
@@ -80,9 +80,9 @@ const LeaderboardApp = {
         "publication": "AAAI",
         "bib": "https://dblp.org/rec/conf/aaai/ZengCZ023.html?view=bibtex",
         "year": "2023"
-      }
+      },
     },
-    MODELS_LIST: ["DAG","TimeXer","TiDE","DUET", "Amplifier", "TimeKAN", "xPatch", "PatchTST", "DLinear", "Cross Linear", "Temporal Fusion Transformers"],
+    MODELS_LIST: ["DAG","TimeXer","TiDE","DUET", "Amplifier", "TimeKAN", "xPatch", "PatchTST", "DLinear", "CrossLinear", "Temporal Fusion Transformer"],
     DATASET_LIST:[
       // "Weather",
       // "Traffic",
