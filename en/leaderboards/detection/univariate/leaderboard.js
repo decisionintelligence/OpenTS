@@ -18,7 +18,7 @@ const LeaderboardApp = {
     "Machine-Learning":["OCSVM","DP","KNN","KMeans","IF","EIF","LODA","PCA"], 
     "Deep-Learning":["DAGMM","Torsk","iTransformer","TimesNet","DUET","ATrans","PatchTST","ModernTCN","TranAD","DualTF","AE","VAE","NLinear","DLinear","LSTMED","DCdetector","ContraAD","CATCH"  ],
   },
-    DATASET_CATEGORIES: { "Health": ["ECG","SVDB"], "Spacecraft": ["MSL","SMAP"],"Movement": ["Daphnet", "OPP"], "Multiple": ["KDD21", "YAHOO"], "Machinery": ["Genesis"],"AIOps": ["GAIA"], "Server Machine": ["SMD"],  },
+    DATASET_CATEGORIES: {"Multiple": ["KDD21", "YAHOO","NAB"],"Health": ["ECG","SVDB"], "Spacecraft": ["MSL","SMAP"],"Movement": ["Daphnet", "OPP"], "Machinery": ["Genesis","GHL"],"AIOps": ["GAIA"], "Web":["IOPS"], "Mackey-Glass":["MGAB"], "Server Machine": ["SMD"],  },
     METRICS: {"Label":["Acc","P","R","F1","R-P","R-R","R-F1","Aff-P","Aff-F1","Aff-R",],"Score":["A-P","A-R","R-A-P","R-A-R", "V-PR","V-ROC "]}
   },
   state: { isReady: false, isLoading: false, lastResults: [] }, // 新增 lastResults 用于存储上次的API结果
