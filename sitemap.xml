@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/detection/paper.json</loc>
+    
+    <lastmod>2025-10-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/multivariate/paper.json</loc>
+    
+    <lastmod>2025-10-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/univariate/methods.json</loc>
+    
+    <lastmod>2025-10-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/covariate/index.html</loc>
     
     <lastmod>2025-10-03</lastmod>
@@ -110,15 +137,6 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/univariate/methods.json</loc>
-    
-    <lastmod>2025-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/multivariate/index.html</loc>
     
     <lastmod>2025-09-30</lastmod>
@@ -174,24 +192,6 @@
   
   <url>
     <loc>https://chy181.github.io/OpenTS/leaderboards/detection/univariate/index.html</loc>
-    
-    <lastmod>2025-08-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/detection/paper.json</loc>
-    
-    <lastmod>2025-08-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/multivariate/paper.json</loc>
     
     <lastmod>2025-08-31</lastmod>
     
@@ -623,7 +623,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Context-Aware/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Efficient/index.html</loc>
     
     <lastmod>2025-06-22</lastmod>
     
@@ -632,7 +632,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Efficient/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/Applications/Context-Aware/index.html</loc>
     
     <lastmod>2025-06-22</lastmod>
     
@@ -911,7 +911,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-FM/LightGTS/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-FM/DADA/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -920,7 +920,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-FM/DADA/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-FM/LightGTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     

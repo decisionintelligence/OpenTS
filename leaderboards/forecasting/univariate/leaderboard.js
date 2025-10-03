@@ -154,7 +154,7 @@ const LeaderboardApp = {
       },
       "FiLM": {
         "paper-url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/524ef58c2bd075775861234266e5e020-Abstract-Conference.html",
-        "publication": "NeurIPS",
+        "publication": "NIPS",
         "bib": "https://dblp.org/rec/conf/nips/ZhouMWW0YY022.html?view=bibtex",
         "paradigm": "DL",
         "year": "2022"
@@ -175,7 +175,7 @@ const LeaderboardApp = {
       },
       "Non-stationary Transformers": {
         "paper-url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/4054556fcaa934b0bf76da52cf4f92cb-Abstract-Conference.html",
-        "publication": "NeurIPS",
+        "publication": "NIPS",
         "bib": "https://dblp.org/rec/conf/nips/LiuWWL22.html?view=bibtex",
         "paradigm": "DL",
         "year": "2022"

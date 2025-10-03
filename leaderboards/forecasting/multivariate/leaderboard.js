@@ -74,7 +74,7 @@ const LeaderboardApp = {
       },
       "FiLM": {
         "paper-url": "https://openreview.net/forum?id=zTQdHSQUQWc",
-        "publication": "NeurIPS",
+        "publication": "NIPS",
         "bib": "https://dblp.org/rec/conf/nips/ZhouMWW0YY022.html?view=bibtex",
         "year": "2022"
       },
@@ -116,7 +116,7 @@ const LeaderboardApp = {
       },
       "Non-stationary Transformer": {
         "paper-url": "https://arxiv.org/pdf/2205.14415",
-        "publication": "NeurIPS",
+        "publication": "NIPS",
         "bib": "https://dblp.org/rec/conf/nips/LiuWWL22.html?view=bibtex",
         "year": "2022"
       },

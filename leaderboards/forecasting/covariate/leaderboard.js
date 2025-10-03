@@ -13,8 +13,8 @@ const LeaderboardApp = {
     API_URL: 'https://www.opents.top/forecasting/exog/rank',
     MODELS_INFO: {
       "CrossLinear":{
-        "paper-url": "https://arxiv.org/pdf/2509.14933",
-        "publication": "arXiv",
+        "paper-url": "https://arxiv.org/pdf/2505.23116",
+        "publication": "KDD",
         "bib": "",
         "year": "2025"
       },
@@ -26,20 +26,20 @@ const LeaderboardApp = {
       },
       "TimeXer": {
         "paper-url": "https://arxiv.org/pdf/2402.19072",
-        "publication": "NeurIPS",
+        "publication": "NIPS",
         "bib": "https://dblp.org/rec/conf/nips/WangWDQZLQWL24.html?view=bibtex",
         "year": "2024"
       },
     
-      "Temporal Fusion Transformer": {
+      "TFT": {
         "paper-url": "https://doi.org/10.1016/j.ijforecast.2021.03.012",
-        "publication": "IJF",
+        "publication": "Int. J. Forecast.",
         "bib": "https://dblp.org/rec/journals/corr/abs-1912-09363.html?view=bibtex",
         "year": "2019"
       },
       "TiDE": {
         "paper-url": "https://arxiv.org/pdf/2304.08424",
-        "publication": "arXiv",
+        "publication": "TMLR",
         "bib": "https://dblp.org/rec/journals/tmlr/DasKLMSY23.html?view=bibtex",
         "year": "2023"
       },
@@ -82,7 +82,7 @@ const LeaderboardApp = {
         "year": "2023"
       },
     },
-    MODELS_LIST: ["DAG","TimeXer","TiDE","DUET", "Amplifier", "TimeKAN", "xPatch", "PatchTST", "DLinear", "CrossLinear", "Temporal Fusion Transformer"],
+    MODELS_LIST: ["DAG","TimeXer","TiDE","DUET", "Amplifier", "TimeKAN", "xPatch", "PatchTST", "DLinear", "CrossLinear", "TFT"],
     DATASET_LIST:[
       // "Weather",
       // "Traffic",
