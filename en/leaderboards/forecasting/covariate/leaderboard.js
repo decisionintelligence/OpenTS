@@ -268,7 +268,6 @@ const LeaderboardApp = {
       this._renderEmptyTable();
       return;
     }
-    
     this.state.isLoading = true;
     this._showLoadingOverlay();
     fetch(this.config.API_URL, {
@@ -305,14 +304,7 @@ const LeaderboardApp = {
     const getCheckedValues = (selector, transform) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked).map(transform);
     const datasets = getCheckedValues('#dataset-container-mul input[type="checkbox"]', cb => cb.value.split('/')[1]?.replace('-', '_')).filter(Boolean);
     const metrics = [...getCheckedValues('.checkbox-Normalized', cb => cb.value.split('/')[1]), ...getCheckedValues('.checkbox-Denormalized', cb => cb.value.split('/')[1] + "_Denorm")].filter(Boolean);
-    const horizons = getCheckedValues('.checkbox-Horizons', cb => 
-    {if (cb.value.split('/')[1]=='60')
-    {
-      return '600'
-    }else{
-      return cb.value.split('/')[1]
-    }
-  })
+    const horizons = getCheckedValues('.checkbox-Horizons', cb => cb.value.split('/')[1])
     const scoreOption = document.querySelector('.checkbox-Score:checked')?.value.split('/')[1] || '2';
     let scoreWeights = [1, 1, 1];
     if (scoreOption === '1') scoreWeights = [1, 0, 0];

@@ -25,7 +25,7 @@ const LeaderboardApp = {
     config: {
         // !! 重要：更新 API URL
         API_URL: 'https://www.opents.top/forecasting/exog/query',
-        MODELS_LIST: ["DAG","TimeXer","TiDE","DUET", "Amplifier", "TimeKAN", "xPatch", "PatchTST", "DLinear", "CrossLinear", "Temporal Fusion Transformers"],
+        MODELS_LIST: ["DAG","TimeXer","TiDE","DUET", "Amplifier", "TimeKAN", "xPatch", "PatchTST", "DLinear", "CrossLinear", "Temporal Fusion Transformer"],
         // DATASET_LIST:["Weather","Traffic","Sdwpfm2","Sdwpfm1","Sdwpfh2","Sdwpfh1","Rapel","PJM","NP","FR","Exchange","ETTm2","ETTm1","ETTh2","ETTh1","Energy","Electricity","DE","Colbun","BE"],
         DATASET_LIST:["Sdwpfm2","Sdwpfm1","Sdwpfh2","Sdwpfh1","Rapel","PJM","NP","FR","Energy","DE","Colbun","BE"],
         METRICS: ['MAE', 'MAPE', 'MSE', 'MSMAPE', 'RMSE', 'SMAPE', 'WAPE'],
