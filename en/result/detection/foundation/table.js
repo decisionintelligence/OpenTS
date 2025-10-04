@@ -24,7 +24,9 @@ const LeaderboardApp = {
     // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
     config: {
         // !! 重要：更新 API URL
-        API_URL: 'https://www.opents.top/outlier/multi/query',
+        API_URL: 'https://www.opents.top/outlier/uni/query',
+        API_MULTI: 'https://www.opents.top/outlier/multi/query',
+        API_UNI: 'https://www.opents.top/outlier/uni/query',
         // MODELS_LIST: ["DUET", "Amplifier", "PatchMLP", "xPatch", "TimeKAN", "PatchTST", "Crossformer", "FEDformer", "Informer", "Triformer", "DLinear", "NLinear", 
         // "MICN", "TimesNet", "TCN", "FiLM", "RNN", "Linear Regression", "VAR", "iTransformer", "FITS", "TimeMixer", "Pathformer", "PDF", "Non-stationary Transformer"],
         // MODEL_TYPES_LIST:{"TS-Pretrain":["Chronos","MOIRAI","Moment","ROSE",'TimesFM',"Timer","TTM","UniTS"], "LLM-Based":["CALF","GPT4TS","LLMMixer","S2IPLLM","TimeLLM","UniTime"], "Specific":["PatchTST","Dlinear","FedFormer","FITS","TimeMixer","TimesNet","iTransformer"]},
@@ -35,8 +37,11 @@ const LeaderboardApp = {
         "Machine-Learning":["OCSVM","DP","KNN","KMeans","IF","EIF","LODA","PCA"], 
         "Foundation-Model":["CALF","Chronos","GPT4TS","LLMMixer","MOIRAI","Moment","ROSE","S2IPLLM","TimeLLM","TimeMixer",'TimesFM',"TTM","UniTS","UniTime","Timer","Dada"], 
         "Deep-Learning":["DAGMM","Torsk","iTransformer","TimesNet","DUET","ATrans","PatchTST","ModernTCN","TranAD","DualTF","AE","VAE","NLinear","DLinear","LSTMED","DCdetector","ContraAD","CATCH"  ],
-      },
-        DATASET_CATEGORIES: {"Health":["DLR","ECG","LTDB","MITDB","SVDB"],"Machinery":["CATSv2","GHL","Genesis","SKAB"],"Web":["CICIDS","KDDcup99"],"Water Treatment":["GECCO","PUMP","SWAT"],"Server Machine":["PSM","SMD"],"Movement":["Daphnet","OPP"],"Climate":["TAO"],"Finance":["Credit"],"Application Server":["ASD","Exathlon"],"Space Weather":["SWAN"],"Synthetic":["GutenTAG","TODS"],"Spacecraft":["MSL","SMAP"],"Transport":["NYC"],"Visitor Flowrate":["CalIt2"]},
+        },
+        DATASET_CATEGORIES: {
+          "Univariate": ["KDD21", "YAHOO","NAB","ECG","SVDB","MSL","SMAP","Daphnet", "OPP","Genesis","GHL","GAIA","IOPS","MGAB","SMD"],
+          "Multivariate":["CICIDS","KDDcup99","PSM","SMD","DLR","ECG","LTDB","MITDB","SVDB","GECCO","PUMP","SWAT","CATSv2","GHL","Genesis","SKAB","Daphnet","OPP","TAO","ASD","Exathlon","Credit","SWAN","NYC","CalIt2","GutenTAG","TODS","MSL","SMAP"],
+        },
         METRICS_LIST: {"Label":["Acc","P","R","F1","R-P","R-R","R-F1","Aff-P","Aff-F1","Aff-R",],"Score":["A-P","A-R","R-A-P","R-A-R", "V-PR","V-ROC "]},
         MODELS_INFO:{},
         METRICS_ORDER:[],
@@ -389,6 +394,17 @@ const LeaderboardApp = {
         if (target.id.startsWith('select-all-')) {
           const category = target.id.replace('select-all-', '');
           this.toggleCategory(category, target.checked);
+          if (category=='Univariate' && target.checked)
+          {
+            this.config.API_URL=this.config.API_UNI
+            this.toggleCategoryDataset("Univariate", true,true, false);
+            this.toggleCategoryDataset("Multivariate", true,false, true);
+          }else if(category=='Multivariate' && target.checked)
+          {
+            this.config.API_URL=this.config.API_MULTI
+            this.toggleCategoryDataset("Multivariate", true,true, false);
+            this.toggleCategoryDataset("Univariate", true,false, true);
+          }
         }
         else if (target.className.startsWith('checkbox-')) {
           const category = target.className.split('-')[1];
@@ -407,7 +423,9 @@ const LeaderboardApp = {
       });
     },  
     _setInitialState() {
-      this.toggleSelectAll(true);
+      // this.toggleSelectAll(true);
+      this.toggleCategoryDataset("Univariate", true,true, false);
+      this.toggleCategoryDataset("Multivariate", true,false, true);
       this.toggleCategory('Metrics', true);
       this.toggleCategory('Settings', true);
       this.toggleCategory('Label', true);
@@ -476,7 +494,7 @@ const LeaderboardApp = {
     },
   
     _getSelections() {
-        const getCheckedValues = (selector) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked).map(cb => cb.value.split('/')[1]);
+        const getCheckedValues = (selector) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked&&!cb.disabled).map(cb => cb.value.split('/')[1]);
         var datasets = getCheckedValues('.checkbox-container2 input[type="checkbox"]:not([id^="select-all-"])', cb => cb.value.replace('-','_')).filter(Boolean);
         var metrics = [...getCheckedValues('.checkbox-Label', cb => cb.value), ...getCheckedValues('.checkbox-Score', cb => cb.value)].filter(Boolean);
         var settings = getCheckedValues('.checkbox-Settings', cb => cb.value).filter(Boolean).map(e => e.replaceAll('-shot', ''));
@@ -522,7 +540,9 @@ const LeaderboardApp = {
       Object.entries(this.config.DATASET_CATEGORIES).forEach(([category, datasets]) => {
         category = category.replace(' ', '-')
         const categoryDiv = this._createCategoryElement(category);
-        datasets.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-').replace(' ', '-')}`, name.replace('_', '-'), `checkbox-${category}`)));
+        const categoryDivInner = this._createCategoryElement_inner(category,'category_inner_grid')
+        datasets.sort().forEach(name => categoryDivInner.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-').replace(' ', '-')}`, name.replace('_', '-'), `checkbox-${category}`)));
+        categoryDiv.appendChild(categoryDivInner)
         this.elements.datasetsContainer.appendChild(categoryDiv);
       });
     },
@@ -549,7 +569,17 @@ const LeaderboardApp = {
         div.innerHTML = `<input type="checkbox" id="${id}" value="${id}" class="${className}"><label for="${id}" >${label}</label>`;
         return div;
     },
+    toggleCategoryDataset(category, isChecked,parentChecked,isDisable) {
+
+      const parentCb = document.getElementById(`select-all-${category}`);
+      if(parentCb) parentCb.checked = parentChecked;
     
+    
+    
+    document.querySelectorAll(`.checkbox-${category}`).forEach(cb => {cb.checked = isChecked
+      cb.disabled = isDisable;
+      });
+  },
     toggleCategory(category, isChecked) {
       category = category.replace(' ','-')
 

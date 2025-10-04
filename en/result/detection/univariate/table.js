@@ -458,7 +458,8 @@ return pivotedData;
         var metrics = [...getCheckedValues('.checkbox-Label', cb => cb.value), ...getCheckedValues('.checkbox-Score', cb => cb.value)].filter(Boolean);
         // var settings = getCheckedValues('.checkbox-Settings', cb => cb.value).filter(Boolean).map(e => e.replaceAll('-shot', ''));
         var settings = ['full']
-        var methods = [...getCheckedValues('.checkbox-Non-Learning', cb => cb.value), ...getCheckedValues('.checkbox-Machine-Learning', cb => cb.value), ...getCheckedValues('.checkbox-Deep-Learning', cb => cb.value)].filter(Boolean).map(e => e.replace(/-/g, '_'));
+        var methods = [...getCheckedValues('.checkbox-Non-Learning', cb => cb.value), ...getCheckedValues('.checkbox-Machine-Learning', cb => cb.value), ...getCheckedValues('.checkbox-Deep-Learning', cb => cb.value)].filter(Boolean);
+        console.log(methods)
         return { datasets, metrics, methods, settings };
     },
   

@@ -267,10 +267,6 @@ text-align: center;
 
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap;      */
-    /* display: grid; */
-    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
-    gap: 12px; /* 网格间距 */
     column-gap: 55px;
  
   }

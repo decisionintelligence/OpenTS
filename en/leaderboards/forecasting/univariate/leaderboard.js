@@ -96,13 +96,13 @@ const LeaderboardApp = {
         "paradigm": "DL",
         "year": ""
       },
-      "AutoCES": {
-        "paper-url": "https://unit8co.github.io/darts/generated_api/darts.models.forecasting.sf_auto_ces.html",
-        "publication": "Darts",
-        "bib": "https://github.com/unit8co/darts",
-        "paradigm": "SL",
-        "year": ""
-      },
+      // "AutoCES": {
+      //   "paper-url": "https://unit8co.github.io/darts/generated_api/darts.models.forecasting.sf_auto_ces.html",
+      //   "publication": "Darts",
+      //   "bib": "https://github.com/unit8co/darts",
+      //   "paradigm": "SL",
+      //   "year": ""
+      // },
       "AutoETS": {
         "paper-url": "https://unit8co.github.io/darts/generated_api/darts.models.forecasting.sf_auto_ets.html",
         "publication": "Darts",
@@ -200,14 +200,15 @@ const LeaderboardApp = {
         "bib": "https://dblp.org/rec/conf/ijcai/CirsteaG0KDP22.html?view=bibtex",
         "paradigm": "DL",
         "year": "2022"
-      },
-      "LightGBM": {
-        "paper-url": "https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html",
-        "publication": "NIPS",
-        "bib": "https://dblp.uni-trier.de/rec/conf/nips/KeMFWCMYL17.html?view=bibtex",
-        "paradigm": "ML",
-        "year": "2017"
       }
+      // ,
+      // "LightGBM": {
+      //   "paper-url": "https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html",
+      //   "publication": "NIPS",
+      //   "bib": "https://dblp.uni-trier.de/rec/conf/nips/KeMFWCMYL17.html?view=bibtex",
+      //   "paradigm": "ML",
+      //   "year": "2017"
+      // }
     },   
     DATASET_CATEGORIES: { "Frequency": ["Hourly","Daily","Weekly","Monthly","Quarterly","Yearly","Other"], 
     "Characteristics": ["w Trend", "w Transition","w Shifting", "w Seasonality","w Stationarity", "w/o Trend", "w/o Transition","w/o Shifting", "w/o Seasonality","w/o Stationarity"]},
@@ -305,13 +306,6 @@ const LeaderboardApp = {
       else if (target.className.startsWith('checkbox-')) {
         const category = target.className.split('-')[1];
         this._updateParentCheckboxState(category);
-        // if (category=='Characteristics'&&target.checked)
-        // {
-        //   this.toggleCategoryDataset("Frequency", target.checked, true);
-        // }else if(category=='Frequency'&&target.checked)
-        // {
-        //   this.toggleCategoryDataset("Characteristics", target.checked, true);
-        // }
       }
       this.updateLeaderboard();
     });

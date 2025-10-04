@@ -12,15 +12,20 @@ const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'https://www.opents.top/outlier/multi/rank',
-    MODELS_INFO: { },
+    API_URL: 'https://www.opents.top/outlier/uni/rank',
+    API_MULTI: 'https://www.opents.top/outlier/multi/rank',
+    API_UNI: 'https://www.opents.top/outlier/uni/rank',
+    MODELS_INFO: {},
     
     MODEL_TYPES_LIST:{"Non-Learning":["LOF","CBLOF","HBOS"],
     "Machine-Learning":["OCSVM","DP","KNN","KMeans","IF","EIF","LODA","PCA"], 
     "Foundation-Model":["AutoTimes","CALF","Chronos","GPT4TS","LLMMixer","MOIRAI","Moment","ROSE","S2IPLLM","TimeLLM","TimeMixer",'TimesFM',"TTMs","UniTS","UniTime","Timer","Dada"], 
     "Deep-Learning":["DAGMM","Torsk","iTransformer","TimesNet","DUET","ATrans","PatchTST","ModernTCN","TranAD","DualTF","AE","VAE","NLinear","DLinear","LSTMED","DCdetector","ContraAD","CATCH"  ],
   },
-    DATASET_CATEGORIES: {"Web":["CICIDS","KDDcup99"],"Server Machine":["PSM","SMD"],"Health":["DLR","ECG","LTDB","MITDB","SVDB"],"Water Treatment":["GECCO","PUMP","SWAT"],"Machinery":["CATSv2","GHL","Genesis","SKAB"],"Movement":["Daphnet","OPP"],"Climate":["TAO"],"Application Server":["ASD","Exathlon"],"Finance":["Credit"],"Space Weather":["SWAN"],"Transport":["NYC"],"Visitor Flowrate":["CalIt2"],"Synthetic":["GutenTAG","TODS"],"Spacecraft":["MSL","SMAP"]},
+    DATASET_CATEGORIES: {
+    "Univariate": ["KDD21", "YAHOO","NAB","ECG","SVDB","MSL","SMAP","Daphnet", "OPP","Genesis","GHL","GAIA","IOPS","MGAB","SMD"],
+    "Multivariate":["CICIDS","KDDcup99","PSM","SMD","DLR","ECG","LTDB","MITDB","SVDB","GECCO","PUMP","SWAT","CATSv2","GHL","Genesis","SKAB","Daphnet","OPP","TAO","ASD","Exathlon","Credit","SWAN","NYC","CalIt2","GutenTAG","TODS","MSL","SMAP"],
+  },
     METRICS: {"Label":["Acc","P","R","F1","R-P","R-R","R-F1","Aff-P","Aff-F1","Aff-R",],"Score":["A-P","A-R","R-A-P","R-A-R", "V-PR","V-ROC "]}
   },
   state: { isReady: false, isLoading: false, lastResults: [] }, // 新增 lastResults 用于存储上次的API结果
@@ -95,7 +100,7 @@ const LeaderboardApp = {
             }
             else if (parentH3.textContent.includes('Horizons')) this.toggleCategory('Horizons', isChecked);
             else if (parentH3.textContent.includes('Learning Paradigm')) this.toggleCategory('LearningParadigm', isChecked);
-
+            else if (parentH3.textContent.includes('Setting')) this.toggleCategory('Setting', isChecked);
             this.updateLeaderboard();
         }
     });
@@ -113,6 +118,17 @@ const LeaderboardApp = {
       if (target.id.startsWith('select-all-')) {
         const category = target.id.replace('select-all-', '');
         this.toggleCategory(category, target.checked);
+        // if (category=='Univariate' && target.checked)
+        // {
+        //   this.config.API_URL=this.config.API_UNI
+        //   this.toggleCategoryDataset("Univariate", true,true, false);
+        //   this.toggleCategoryDataset("Multivariate", true,false, true);
+        // }else if(category=='Multivariate' && target.checked)
+        // {
+        //   this.config.API_URL=this.config.API_MULTI
+        //   this.toggleCategoryDataset("Multivariate", true,true, false);
+        //   this.toggleCategoryDataset("Univariate", true,false, true);
+        // }
       }
       else if (target.className.startsWith('checkbox-')) {
         const category = target.className.split('-')[1];
@@ -130,6 +146,8 @@ const LeaderboardApp = {
   },
    _setInitialState() {
     this.toggleSelectAll(true);
+    // this.toggleCategoryDataset("Univariate", true,true, false);
+    // this.toggleCategoryDataset("Multivariate", true,false, true);
     this.toggleCategory('Horizons', true);
     this.toggleCategory('Metrics', true);
     this.toggleCategory('Setting', true);
@@ -145,30 +163,137 @@ const LeaderboardApp = {
 
     const selections = this._getSelections();
     
-    if (!selections || selections.datasets.length === 0 || selections.models.length === 0 || selections.metrics.length === 0) {
+    if (!selections || selections.uniDatasets.length+selections.multiDatasets.length === 0 || selections.models.length === 0 || selections.metrics.length === 0) {
       this._renderEmptyTable();
       return;
     }
     
     this.state.isLoading = true;
     this._showLoadingOverlay();
-    fetch(this.config.API_URL, {
+
+    console.log(selections.uniDatasets.length)
+    console.log(selections.multiDatasets.length)
+    const uniRequest = selections.uniDatasets.length !== 0 ?
+    fetch(this.config.API_UNI, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      "datasets": selections.uniDatasets,
+      "metrics": selections.metrics,
+      "models": selections.models,
+      "settings": selections.settings.map(e => e.split('-')[0]),
+    })
+    }).then(response => {
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    return response.json();
+    }) :
+    Promise.resolve([]); // 如果没有数据，则返回一个解析为[]的Promise
+
+    const multiRequest = selections.multiDatasets.length !== 0 ?
+    fetch(this.config.API_MULTI, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        "datasets": selections.datasets, 
-        "metrics": selections.metrics, 
-        "models": selections.models, 
-        "settings": selections.settings.map(e=>e.split('-')[0]),
+        "datasets": selections.multiDatasets,
+        "metrics": selections.metrics,
+        "models": selections.models,
+        "settings": selections.settings.map(e => e.split('-')[0]),
       })
-    })
-    .then(response => { if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`); return response.json(); })
-    .then(data => this._processApiResponse(data, selections.scoreWeights))
-    .catch(error => { console.error('API request failed:', error); this._renderEmptyTable(); })
-    .finally(() => {
-      this.state.isLoading = false;
-      this._hideLoadingOverlay();
+    }).then(response => {
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      return response.json();
+    }) :
+    Promise.resolve([]); // 如果没有数据，则返回一个解析为[]的Promise
+    if (selections.uniDatasets.length!=0)
+    {
+      fetch(this.config.API_UNI, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          "datasets": selections.uniDatasets, 
+          "metrics": selections.metrics, 
+          "models": selections.models, 
+          "settings": selections.settings.map(e=>e.split('-')[0]),
+        })
+      })
+      .then(response => { if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`); return response.json(); })
+      .then(data =>{ 
+        console.log(data)
+        this._processApiResponse(data, selections.scoreWeights)})
+      .catch(error => { console.error('API request failed:', error); this._renderEmptyTable(); })
+      .finally(() => {
+        this.state.isLoading = false;
+        this._hideLoadingOverlay();
+      });
+    }
+
+    // 使用Promise.all等待所有请求完成
+    Promise.all([uniRequest, multiRequest])
+    .then(([uniData, multiData]) => {
+    // 合并两个请求返回的数据
+    const mergedData = {};
+
+    // 处理第一个API的返回数据
+    uniData.forEach(item => {
+    const key = Object.keys(item)[0];
+    const value = item[key];
+    if (!mergedData[key]) {
+      mergedData[key] = [0, 0, 0];
+    }
+    mergedData[key][0] += value[0];
+    mergedData[key][1] += value[1];
+    mergedData[key][2] += value[2];
     });
+
+    // 处理第二个API的返回数据
+    multiData.forEach(item => {
+    const key = Object.keys(item)[0];
+    const value = item[key];
+    if (!mergedData[key]) {
+      mergedData[key] = [0, 0, 0];
+    }
+    mergedData[key][0] += value[0];
+    mergedData[key][1] += value[1];
+    mergedData[key][2] += value[2];
+    });
+
+    // 将合并后的对象转换回您期望的数组格式
+    const finalData = Object.keys(mergedData).map(key => ({
+    [key]: mergedData[key]
+    }));
+
+    // console.log("Merged Data:", finalData);
+    this._processApiResponse(finalData, selections.scoreWeights);
+    })
+    .catch(error => {
+    console.error('API request failed:', error);
+    this._renderEmptyTable();
+    })
+    .finally(() => {
+    // 无论成功或失败，最后都执行
+    this.state.isLoading = false;
+    this._hideLoadingOverlay();
+    });
+    // if (selections.multiDatasets.length!=0){
+    //   fetch(this.config.API_MULTI, {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({
+    //       "datasets": selections.multiDatasets, 
+    //       "metrics": selections.metrics, 
+    //       "models": selections.models, 
+    //       "settings": selections.settings.map(e=>e.split('-')[0]),
+    //     })
+    //   })
+    //   .then(response => { if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`); return response.json(); })
+    //   .then(data => this._processApiResponse(data, selections.scoreWeights))
+    //   .catch(error => { console.error('API request failed:', error); this._renderEmptyTable(); })
+    //   .finally(() => {
+    //     this.state.isLoading = false;
+    //     this._hideLoadingOverlay();
+    //   });
+    // }
+
   },
   
   _processApiResponse(data, weights) {
@@ -184,8 +309,10 @@ const LeaderboardApp = {
   },
 
   _getSelections() {
-    const getCheckedValues = (selector, transform) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked).map(transform);
-    const datasets = getCheckedValues('.checkbox-container input[type="checkbox"]', cb =>  ['on','Label','Score'].includes(cb.value.split('/')[0])?null:cb.value.split('/')[1]).filter(Boolean);
+    const getCheckedValues = (selector, transform) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked&&!cb.disabled).map(transform);
+    // const datasets = getCheckedValues('.checkbox-container input[type="checkbox"]', cb =>  ['on','Label','Score'].includes(cb.value.split('/')[0])?null:cb.value.split('/')[1]).filter(Boolean);
+    const uniDatasets = getCheckedValues('.checkbox-Univariate', cb => cb.value.split('/')[1]).filter(Boolean)
+    const multiDatasets = getCheckedValues('.checkbox-Multivariate', cb => cb.value.split('/')[1]).filter(Boolean)
     const settings = getCheckedValues('.checkbox-Setting', cb => cb.value).filter(Boolean)
     const metrics = [...getCheckedValues('.checkbox-Label', cb => cb.value.split('/')[1]), ...getCheckedValues('.checkbox-Score', cb => cb.value.split('/')[1])].filter(Boolean);
     const modeltypes = getCheckedValues('.checkbox-LearningParadigm', cb => cb.value).filter(Boolean)
@@ -194,7 +321,7 @@ const LeaderboardApp = {
     let scoreWeights = [1, 1, 1];
     if (scoreOption === '1') scoreWeights = [1, 0, 0];
     else if (scoreOption === '3') scoreWeights = [parseFloat(this.elements.scoreInput1.value) || 0, parseFloat(this.elements.scoreInput2.value) || 0, parseFloat(this.elements.scoreInput3.value) || 0];
-    return { datasets, metrics, scoreWeights, models, settings };
+    return { uniDatasets, multiDatasets, metrics, scoreWeights, models, settings };
   },
 
   _renderTable(results, isRanked) {
@@ -242,7 +369,7 @@ const LeaderboardApp = {
     Object.entries(this.config.DATASET_CATEGORIES).forEach(([category, datasets]) => {
       // category = category.replace(' ','_')
       const categoryDiv = this._createCategoryElement(category);
-      datasets.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category.replace(" ",'')}`)));
+      datasets.sort().forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category.replace(" ",'')}`)));
       this.elements.datasetsContainer.appendChild(categoryDiv);
     });
   },
@@ -268,7 +395,17 @@ const LeaderboardApp = {
         this._setCategoryChecked(category, isChecked);
     }
   },
+  toggleCategoryDataset(category, isChecked,parentChecked,isDisable) {
+
+    const parentCb = document.getElementById(`select-all-${category}`);
+    if(parentCb) parentCb.checked = parentChecked;
   
+  
+  
+  document.querySelectorAll(`.checkbox-${category}`).forEach(cb => {cb.checked = isChecked
+    cb.disabled = isDisable;
+    });
+},
   _setCategoryChecked(category, isChecked){
       const parentCb = document.getElementById(`select-all-${category}`);
       if(parentCb) parentCb.checked = isChecked;

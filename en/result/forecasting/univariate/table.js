@@ -108,13 +108,13 @@ const LeaderboardApp = {
             "paradigm": "DL",
             "year": ""
           },
-          "AutoCES": {
-            "paper-url": "https://unit8co.github.io/darts/generated_api/darts.models.forecasting.sf_auto_ces.html",
-            "publication": "Darts",
-            "bib": "https://github.com/unit8co/darts",
-            "paradigm": "SL",
-            "year": ""
-          },
+          // "AutoCES": {
+          //   "paper-url": "https://unit8co.github.io/darts/generated_api/darts.models.forecasting.sf_auto_ces.html",
+          //   "publication": "Darts",
+          //   "bib": "https://github.com/unit8co/darts",
+          //   "paradigm": "SL",
+          //   "year": ""
+          // },
           "AutoETS": {
             "paper-url": "https://unit8co.github.io/darts/generated_api/darts.models.forecasting.sf_auto_ets.html",
             "publication": "Darts",
@@ -213,13 +213,13 @@ const LeaderboardApp = {
             "paradigm": "DL",
             "year": "2022"
           },
-          "LightGBM": {
-            "paper-url": "https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html",
-            "publication": "NIPS",
-            "bib": "https://dblp.uni-trier.de/rec/conf/nips/KeMFWCMYL17.html?view=bibtex",
-            "paradigm": "ML",
-            "year": "2017"
-          }
+          // "LightGBM": {
+          //   "paper-url": "https://proceedings.neurips.cc/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html",
+          //   "publication": "NIPS",
+          //   "bib": "https://dblp.uni-trier.de/rec/conf/nips/KeMFWCMYL17.html?view=bibtex",
+          //   "paradigm": "ML",
+          //   "year": "2017"
+          // }
         },
         MODEL_TYPES_LIST:{"TS-Pretrain":["Chronos","MOIRAI","Moment","ROSE",'TimesFM',"Timer","TTM","UniTS"], "LLM-Based":["CALF","GPT4TS","LLMMixer","S2IPLLM","TimeLLM","UniTime"], "Specific":["PatchTST","Dlinear","FedFormer","FITS","TimeMixer","TimesNet","iTransformer"]},
         DATASET_CATEGORIES: { "Frequency": ["Hourly","Daily","Weekly","Monthly","Quarterly","Yearly","Other"], 
@@ -709,7 +709,7 @@ return pivotedData;
       if (!this.elements.metricsContainer || !this.elements.datasetsContainer || !this.elements.methodsContainer) return;
       
       category = 'Metrics'
-      this.config.METRICS_LIST.forEach(name => this.elements.metricsContainer.appendChild(this._createCheckboxItem(`${category}/${name}`, name, `checkbox-${category}`)));
+      this.config.METRICS_LIST.forEach(name => this.elements.metricsContainer.appendChild(this._createCheckboxItem(`${category}/${name}`, name.toUpperCase(), `checkbox-${category}`)));
       // category = 'Methods'
 
       
