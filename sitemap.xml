@@ -650,6 +650,15 @@
   </url>
   
   <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/ContraAD/index.html</loc>
+    
+    <lastmod>2025-06-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/DARF/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
@@ -677,15 +686,6 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/ContraAD/index.html</loc>
-    
-    <lastmod>2025-06-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/K2VAE/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
@@ -695,7 +695,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/MemFormer/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/MM-Path/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -704,7 +704,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/MM-Path/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/MemFormer/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -731,7 +731,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Position/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Towards/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -740,7 +740,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Towards/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Position/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     

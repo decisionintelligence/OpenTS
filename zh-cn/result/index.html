@@ -866,61 +866,55 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 </script>
 <script>
-  // // 页面首次加载时也执行一次
-  // document.addEventListener('DOMContentLoaded', updateLanguageLink);
-  function updateLanguageUI() {
-    const root = '/OpenTS/';
-    const DEFAULT_LANG = '';
-    const SECOND_LANG = 'zh-cn';
-    const currentPathname = window.location.pathname;
+ function updateLanguageUI() {
+  const root = '/OpenTS/';
+  const DEFAULT_LANG = '';
+  const SECOND_LANG = 'zh-cn';
+  const currentPathname = window.location.pathname;
+  const currentHash = window.location.hash; // <-- 新增: 获取 URL 中的 # 部分
 
+  const isChinesePage = currentPathname.startsWith(root + SECOND_LANG + '/');
 
-    const isChinesePage = currentPathname.startsWith(root + SECOND_LANG + '/');
-    
-    if (isChinesePage) {
-      document.body.classList.add('lang-zh-cn');
-      document.body.classList.remove('lang-en');
-    } else {
-
-      document.body.classList.add('lang-en');
-      document.body.classList.remove('lang-zh-cn');
-    }
-
-    // --- 2. 更新语言切换链接的 href (新逻辑) ---
-    let linkToUpdate;
-    let targetPath;
-
-    if (isChinesePage) {
-      // 在英文页，英文菜单可见。我们需要更新它里面的那个切换器。
-      // linkToUpdate = document.getElementById('main-nav');
-      linkToUpdate = document.getElementById('lang-toggle-link-zh-cn');
-      // 目标是中文页 (不带语言前缀)
-      const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
-      targetPath = (root.endsWith('/') ? root.slice(0, -1) : root)  + pathWithoutLang;
-      if (targetPath === '') targetPath = '/';
-
-    } else {
-
-      linkToUpdate = document.getElementById('lang-toggle-link-en');
-      // 目标是英文页
-      let pathWithoutLang = currentPathname.substring(root.length);
-      if (pathWithoutLang.startsWith(DEFAULT_LANG + '/')) {
-        pathWithoutLang = pathWithoutLang.substring((DEFAULT_LANG + '/').length);
-      }
-      targetPath = root +SECOND_LANG+ '/'+ pathWithoutLang;
-    }
-
-    // 如果找到了对应的链接，就更新它
-    if (linkToUpdate) {
-      linkToUpdate.href = targetPath;
-      // console.log(linkToUpdate.href)
-    }
+  if (isChinesePage) {
+    document.body.classList.add('lang-zh-cn');
+    document.body.classList.remove('lang-en');
+  } else {
+    document.body.classList.add('lang-en');
+    document.body.classList.remove('lang-zh-cn');
   }
 
-  // 监听 Pjax 加载完成事件
-  document.addEventListener('pjax:end', updateLanguageUI);
-  // 页面首次加载时也执行一次
-  document.addEventListener('DOMContentLoaded', updateLanguageUI);
+  // --- 2. 更新语言切换链接的 href (新逻辑) ---
+  let linkToUpdate;
+  let targetPath;
+
+  if (isChinesePage) {
+    // 当前在中文页，目标是英文页
+    linkToUpdate = document.getElementById('lang-toggle-link-zh-cn');
+    const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
+    targetPath = (root.endsWith('/') ? root.slice(0, -1) : root) + pathWithoutLang;
+    if (targetPath === '') targetPath = '/';
+
+  } else {
+    // 当前在英文页，目标是中文页
+    linkToUpdate = document.getElementById('lang-toggle-link-en');
+    let pathWithoutLang = currentPathname.substring(root.length);
+    if (pathWithoutLang.startsWith(DEFAULT_LANG + '/')) {
+      pathWithoutLang = pathWithoutLang.substring((DEFAULT_LANG + '/').length);
+    }
+    targetPath = root + SECOND_LANG + '/' + pathWithoutLang;
+  }
+
+  // 如果找到了对应的链接，就更新它
+  if (linkToUpdate) {
+    // 在设置 href 之前，将原始的 hash 附加到新路径的末尾
+    linkToUpdate.href = targetPath + currentHash; // <-- 修改: 加上 hash
+    // console.log(linkToUpdate.href)
+  }
+}
+
+// 事件监听部分保持不变
+document.addEventListener('pjax:end', updateLanguageUI);
+document.addEventListener('DOMContentLoaded', updateLanguageUI);
 </script>
 </body>
 </html>
