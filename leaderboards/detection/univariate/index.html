@@ -16,12 +16,12 @@
   <meta name="description" content="Learning Paradigm                            [all|off]                                   ▼">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
-<meta property="og:url" content="https://chy181.github.io/OpenTS/leaderboards/detection/univariate/index.html">
+<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/leaderboards/detection/univariate/index.html">
 <meta property="og:site_name" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
 <meta property="og:description" content="Learning Paradigm                            [all|off]                                   ▼">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-04T12:49:18.833Z">
-<meta property="article:modified_time" content="2025-10-04T12:49:18.833Z">
+<meta property="article:published_time" content="2025-10-04T14:01:23.357Z">
+<meta property="article:modified_time" content="2025-10-04T14:01:23.357Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -160,11 +160,11 @@
                     <a  class="main-nav-link dropdown-toggle" style="">排行榜 <span class="caret"></span></a>
                     <div class="dropdown-content">
                       
-                        <a href="/OpenTS/zh-cn/leaderboards/univariate_time_series">单变量预测</a>
+                        <a href="/OpenTS/zh-cn/leaderboards/#multivariate_forecasting">时间序列预测</a>
                       
-                        <a href="/OpenTS/zh-cn/leaderboards/multivariate_time_series">多变量预测</a>
+                        <a href="/OpenTS/zh-cn/leaderboards/#multivariate_forecasting">时间序列异常检测</a>
                       
-                        <a href="/OpenTS/zh-cn/leaderboards/foundation_model">基础模型</a>
+                        <a href="/OpenTS/zh-cn/result/#multivariate_forecasting">结果</a>
                       
                     </div>
                   </div>
@@ -455,7 +455,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards/detection/univariate/index.html" class="article-date">
-  <time datetime="2025-10-04T12:49:18.833Z" itemprop="datePublished">2025-10-04</time>
+  <time datetime="2025-10-04T14:01:23.357Z" itemprop="datePublished">2025-10-04</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -594,10 +594,10 @@
 <div style='height:20px'></div>
 
 <h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
-<li>To evaluate univariate anomaly detection algorithms, we use 15 datasets and 16 evaluation metrics. If a univariate dataset contains multiple time series, the final evaluation result is the average of the results from all series. These 16 metrics fall into two categories: threshold-dependent “Label-based” metrics and threshold-independent “Score-based” metrics.</li>
-<li>For each anomaly detection algorithm, we count the number of gold, silver, and bronze medals it earns for having the lowest, second-lowest, and third-lowest error. Ties for first place are all counted as first place. Gold, silver, and bronze medals are represented by 🥇, 🥈, and 🥉.</li>
-<li>We provide three different types of scores for ranking the anomaly detection algorithms. First, the scores equal to the numbers of gold medals. Second, the scores are the sum of the numbers of gold, silver, and bronze medals. Third, the scores are the weighted sum of the gold, silver, and bronze medals, where the weights can be customized. The larger the score, the higher the ranking.</li>
-<li>For each algorithm, we use a single set of parameters across all 15 datasets. We treat evaluations based on label-based and score-based metrics as two independent tasks, thus allowing algorithms to set different parameters for each of these two task types. However, the critical requirement is that within any specific task type, the parameters used by an algorithm must remain consistent across all datasets.</li>
+<li><p>To evaluate univariate anomaly detection algorithms, we use 15 datasets and 16 evaluation metrics. If a univariate dataset contains multiple time series, the final evaluation result is the average of the results from all series. These 16 metrics fall into two categories: threshold-dependent "Label-based" metrics and threshold-independent "Score-based" metrics.</p></li>
+<li><p>For each anomaly detection algorithm, we count the number of gold, silver, and bronze medals it earns for having the lowest, second-lowest, and third-lowest error. Ties for first place are all counted as first place. Gold, silver, and bronze medals are represented by 🥇, 🥈, and 🥉.</li>
+<li><p>We provide three different types of scores for ranking the anomaly detection algorithms. First, the scores equal to the numbers of gold medals. Second, the scores are the sum of the numbers of gold, silver, and bronze medals. Third, the scores are the weighted sum of the gold, silver, and bronze medals, where the weights can be customized. The larger the score, the higher the ranking.</p></li>
+<li><p>For each algorithm, we use a single set of parameters across all 15 datasets. We treat evaluations based on label-based and score-based metrics as two independent tasks, thus allowing algorithms to set different parameters for each of these two task types. However, the critical requirement is that within any specific task type, the parameters used by an algorithm must remain consistent across all datasets.</p></li>
 </ul>
 <div style="height:30px"></div>
 
