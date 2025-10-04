@@ -62,9 +62,9 @@ const LeaderboardApp = {
     this.elements.settingsContainer = document.getElementById('Setting');
     this.elements.datasetsContainer = document.getElementById('dataset-container-mul');
     this.elements.mainContainer = document.getElementById('main-container-mul');
-    this.elements.scoreInput1 = document.getElementById('score/3/1');
-    this.elements.scoreInput2 = document.getElementById('score/3/2');
-    this.elements.scoreInput3 = document.getElementById('score/3/3');
+    this.elements.scoreInput1 = document.getElementById('scores/3/1');
+    this.elements.scoreInput2 = document.getElementById('scores/3/2');
+    this.elements.scoreInput3 = document.getElementById('scores/3/3');
     this.elements.loadingOverlay = document.querySelector('#table-container-mul .loading-overlay');
     // 新增：缓存下拉框元素
     this.elements.rankCountSelect = document.getElementById('rank-display-count');
@@ -185,7 +185,7 @@ const LeaderboardApp = {
     // this.toggleCategory('Setting', true);
     this.toggleCategory('ModelType', true);
     this.toggleCategory('LearningParadigm', true);
-    const score2 = document.getElementById('Score/2');
+    const score2 = document.getElementById('Scores/2');
     if (score2) score2.checked = true;
     if (this.elements.rankCountSelect) this.elements.rankCountSelect.value = "all";
   },
@@ -238,7 +238,7 @@ const LeaderboardApp = {
     const metrics = [...getCheckedValues('.checkbox-Label', cb => cb.value.split('/')[1]), ...getCheckedValues('.checkbox-Score', cb => cb.value.split('/')[1])].filter(Boolean);
     const modeltypes = getCheckedValues('.checkbox-LearningParadigm', cb => cb.value).filter(Boolean)
     const models = modeltypes.flatMap(modeltype => this.config.MODEL_TYPES_LIST[modeltype] || [])
-    const scoreOption = document.querySelector('.checkbox-Score:checked')?.value.split('/')[1] || '2';
+    const scoreOption = document.querySelector('.checkbox-Scores:checked')?.value.split('/')[1] || '2';
     let scoreWeights = [1, 1, 1];
     if (scoreOption === '1') scoreWeights = [1, 0, 0];
     else if (scoreOption === '3') scoreWeights = [parseFloat(this.elements.scoreInput1.value) || 0, parseFloat(this.elements.scoreInput2.value) || 0, parseFloat(this.elements.scoreInput3.value) || 0];

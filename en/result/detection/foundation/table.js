@@ -123,8 +123,6 @@ const LeaderboardApp = {
             filter: false
         }    ];
 
-
-        console.log(this.config.METHODS_ORDER)
         const allMethods = Array.from(methodMetricMap.keys()).sort((a, b) => {
           // findIndex 会返回后缀在 order 数组中的索引 (0, 1, 2)
           // 如果找不到，会返回 -1，可以利用它将不匹配的项排在最后
@@ -396,14 +394,19 @@ const LeaderboardApp = {
           this.toggleCategory(category, target.checked);
           if (category=='Univariate' && target.checked)
           {
+            this.config.DATASETS_ORDER = this.config.DATASET_CATEGORIES['Univariate'].sort()
             this.config.API_URL=this.config.API_UNI
             this.toggleCategoryDataset("Univariate", true,true, false);
             this.toggleCategoryDataset("Multivariate", true,false, true);
           }else if(category=='Multivariate' && target.checked)
           {
+            this.config.DATASETS_ORDER = this.config.DATASET_CATEGORIES['Multivariate'].sort()
             this.config.API_URL=this.config.API_MULTI
             this.toggleCategoryDataset("Multivariate", true,true, false);
             this.toggleCategoryDataset("Univariate", true,false, true);
+          }else if(!target.checked)
+          {
+            this.config.DATASETS_ORDER = []
           }
         }
         else if (target.className.startsWith('checkbox-')) {
@@ -437,7 +440,7 @@ const LeaderboardApp = {
         
         // if (!this.state.isReady || this.state.isLoading) return;
         const selections = this._getSelections();
-        if (!selections || selections.datasets.length === 0 || selections.metrics.length === 0 || selections.methods.length === 0 || selections.settings.length === 0) {
+        if (!selections || selections.uniDatasets.length + selections.multiDatasets.length=== 0 || selections.metrics.length === 0 || selections.methods.length === 0 || selections.settings.length === 0) {
             this._renderEmptyTable(); // 清空表格
             return;
         }
@@ -446,6 +449,11 @@ const LeaderboardApp = {
         // this._showLoadingOverlay();
 
 
+        if (selections.uniDatasets.length>0){
+          selections.datasets = selections.uniDatasets
+        }else{
+          selections.datasets = selections.multiDatasets
+        }
         fetch(this.config.API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -495,11 +503,12 @@ const LeaderboardApp = {
   
     _getSelections() {
         const getCheckedValues = (selector) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked&&!cb.disabled).map(cb => cb.value.split('/')[1]);
-        var datasets = getCheckedValues('.checkbox-container2 input[type="checkbox"]:not([id^="select-all-"])', cb => cb.value.replace('-','_')).filter(Boolean);
+        var uniDatasets = getCheckedValues('.checkbox-Univariate', cb => cb.value).filter(Boolean);
+        var multiDatasets = getCheckedValues('.checkbox-Multivariate', cb => cb.value).filter(Boolean);
         var metrics = [...getCheckedValues('.checkbox-Label', cb => cb.value), ...getCheckedValues('.checkbox-Score', cb => cb.value)].filter(Boolean);
         var settings = getCheckedValues('.checkbox-Settings', cb => cb.value).filter(Boolean).map(e => e.replaceAll('-shot', ''));
         var methods = [...getCheckedValues('.checkbox-Non-Learning', cb => cb.value), ...getCheckedValues('.checkbox-Machine-Learning', cb => cb.value), ...getCheckedValues('.checkbox-Foundation-Model', cb => cb.value), ...getCheckedValues('.checkbox-Deep-Learning', cb => cb.value)].filter(Boolean).map(e => e.replace(/-/g, '_'));
-        return { datasets, metrics, methods, settings };
+        return { uniDatasets, multiDatasets, metrics, methods, settings };
     },
   
     _renderEmptyTable() {

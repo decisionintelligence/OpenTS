@@ -69,9 +69,9 @@ const LeaderboardApp = {
     this.elements.settingsContainer = document.getElementById('Setting');
     this.elements.datasetsContainer = document.getElementById('dataset-container-mul');
     this.elements.mainContainer = document.getElementById('main-container-mul');
-    this.elements.scoreInput1 = document.getElementById('score/3/1');
-    this.elements.scoreInput2 = document.getElementById('score/3/2');
-    this.elements.scoreInput3 = document.getElementById('score/3/3');
+    this.elements.scoreInput1 = document.getElementById('scores/3/1');
+    this.elements.scoreInput2 = document.getElementById('scores/3/2');
+    this.elements.scoreInput3 = document.getElementById('scores/3/3');
     this.elements.loadingOverlay = document.querySelector('#table-container-mul .loading-overlay');
     // 新增：缓存下拉框元素
     this.elements.rankCountSelect = document.getElementById('rank-display-count');
@@ -153,11 +153,20 @@ const LeaderboardApp = {
     this.toggleCategory('Setting', true);
     this.toggleCategory('ModelType', true);
     this.toggleCategory('LearningParadigm', true);
-    const score2 = document.getElementById('Score/2');
+    const score2 = document.getElementById('Scores/2');
     if (score2) score2.checked = true;
     if (this.elements.rankCountSelect) this.elements.rankCountSelect.value = "all";
   },
-
+  count(result)
+  {
+    // cnt=0
+    // result.forEach(row=>{
+    //   Object.keys(row).forEach(key=>{
+    //     cnt+=row[key][0]
+    //   })
+    // })
+    // console.log(cnt)
+  },
   updateLeaderboard() {
     if (!this.state.isReady || this.state.isLoading) return;
 
@@ -171,8 +180,6 @@ const LeaderboardApp = {
     this.state.isLoading = true;
     this._showLoadingOverlay();
 
-    console.log(selections.uniDatasets.length)
-    console.log(selections.multiDatasets.length)
     const uniRequest = selections.uniDatasets.length !== 0 ?
     fetch(this.config.API_UNI, {
     method: 'POST',
@@ -218,7 +225,6 @@ const LeaderboardApp = {
       })
       .then(response => { if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`); return response.json(); })
       .then(data =>{ 
-        console.log(data)
         this._processApiResponse(data, selections.scoreWeights)})
       .catch(error => { console.error('API request failed:', error); this._renderEmptyTable(); })
       .finally(() => {
@@ -230,6 +236,8 @@ const LeaderboardApp = {
     // 使用Promise.all等待所有请求完成
     Promise.all([uniRequest, multiRequest])
     .then(([uniData, multiData]) => {
+      this.count(uniData)
+      this.count(multiData)
     // 合并两个请求返回的数据
     const mergedData = {};
 
@@ -261,8 +269,7 @@ const LeaderboardApp = {
     const finalData = Object.keys(mergedData).map(key => ({
     [key]: mergedData[key]
     }));
-
-    // console.log("Merged Data:", finalData);
+    this.count(finalData)
     this._processApiResponse(finalData, selections.scoreWeights);
     })
     .catch(error => {
@@ -274,26 +281,6 @@ const LeaderboardApp = {
     this.state.isLoading = false;
     this._hideLoadingOverlay();
     });
-    // if (selections.multiDatasets.length!=0){
-    //   fetch(this.config.API_MULTI, {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({
-    //       "datasets": selections.multiDatasets, 
-    //       "metrics": selections.metrics, 
-    //       "models": selections.models, 
-    //       "settings": selections.settings.map(e=>e.split('-')[0]),
-    //     })
-    //   })
-    //   .then(response => { if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`); return response.json(); })
-    //   .then(data => this._processApiResponse(data, selections.scoreWeights))
-    //   .catch(error => { console.error('API request failed:', error); this._renderEmptyTable(); })
-    //   .finally(() => {
-    //     this.state.isLoading = false;
-    //     this._hideLoadingOverlay();
-    //   });
-    // }
-
   },
   
   _processApiResponse(data, weights) {
@@ -317,7 +304,7 @@ const LeaderboardApp = {
     const metrics = [...getCheckedValues('.checkbox-Label', cb => cb.value.split('/')[1]), ...getCheckedValues('.checkbox-Score', cb => cb.value.split('/')[1])].filter(Boolean);
     const modeltypes = getCheckedValues('.checkbox-LearningParadigm', cb => cb.value).filter(Boolean)
     const models = modeltypes.flatMap(modeltype => this.config.MODEL_TYPES_LIST[modeltype] || [])
-    const scoreOption = document.querySelector('.checkbox-Score:checked')?.value.split('/')[1] || '2';
+    const scoreOption = document.querySelector('.checkbox-Scores:checked')?.value.split('/')[1] || '2';
     let scoreWeights = [1, 1, 1];
     if (scoreOption === '1') scoreWeights = [1, 0, 0];
     else if (scoreOption === '3') scoreWeights = [parseFloat(this.elements.scoreInput1.value) || 0, parseFloat(this.elements.scoreInput2.value) || 0, parseFloat(this.elements.scoreInput3.value) || 0];
