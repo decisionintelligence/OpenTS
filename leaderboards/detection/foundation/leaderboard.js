@@ -323,7 +323,6 @@ const LeaderboardApp = {
 
     this.elements.tableBody.innerHTML = finalResults.map((result, index) => {
       var name = result.model
-      // console.log(name)
       const info = this.config.MODELS_INFO[result.model.split(' ')[0]] ;
     
       return `<tr><td>${isRanked ? index + 1 : ''}</td><td>${name}</td><td>${result.rank4}</td><td>${result.rank1}</td><td>${result.rank2}</td><td>${result.rank3}</td><td><a href="${info['paper-url'] || '#'}" target="_blank">paper</a></td><td>${info.publication || 'N/A'} ${info.year || 'N/A'}</td></tr>`;

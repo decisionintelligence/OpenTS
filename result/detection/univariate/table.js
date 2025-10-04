@@ -247,7 +247,6 @@ return pivotedData;
     },
     _order_list(id, checked)
     {   
-      console.log(id)
         if (id.includes('select-all-'))
         {
           className = id.replace('select-all-','')
@@ -459,7 +458,6 @@ return pivotedData;
         // var settings = getCheckedValues('.checkbox-Settings', cb => cb.value).filter(Boolean).map(e => e.replaceAll('-shot', ''));
         var settings = ['full']
         var methods = [...getCheckedValues('.checkbox-Non-Learning', cb => cb.value), ...getCheckedValues('.checkbox-Machine-Learning', cb => cb.value), ...getCheckedValues('.checkbox-Deep-Learning', cb => cb.value)].filter(Boolean);
-        console.log(methods)
         return { datasets, metrics, methods, settings };
     },
   

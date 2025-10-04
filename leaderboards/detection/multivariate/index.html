@@ -20,8 +20,8 @@
 <meta property="og:site_name" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
 <meta property="og:description" content="Learning Paradigm                            [all|off]                                   ▼">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-04T12:11:01.017Z">
-<meta property="article:modified_time" content="2025-10-04T12:11:01.017Z">
+<meta property="article:published_time" content="2025-10-04T12:48:01.453Z">
+<meta property="article:modified_time" content="2025-10-04T12:48:01.453Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -455,7 +455,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/leaderboards/detection/multivariate/index.html" class="article-date">
-  <time datetime="2025-10-04T12:11:01.017Z" itemprop="datePublished">2025-10-04</time>
+  <time datetime="2025-10-04T12:48:01.453Z" itemprop="datePublished">2025-10-04</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -581,7 +581,7 @@
             </select> -->
             </th>
           <th>Model</th><th>Score</th><th>🥇</th><th>🥈</th><th>🥉</th>
-          <th>Paper</th><th>Publication</th><th>Year</th>
+          <th>Paper</th><th>Publication</th>
         </tr>
       </thead>
       <tbody>
@@ -594,10 +594,10 @@
 <div style="height:30px"></div>
 
 <h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
-<li><p>For each anomaly detection algorithm, we count the number of times that the algorithm receives the gold, silver, and bronze medals, i.e., having the lowest, 2nd lowest, and 3rd lowest errors, shown as 🥇, 🥈, and 🥉, respectively.</p>
-</li>
-<li><p>We provide three different types of scores for ranking the anomaly detection algorithms. First, the scores equal to the numbers of gold medals. Second, the scores are the sum of the numbers of gold, silver, and bronze medals. Third, the scores are the weighted sum of the gold, silver, and bronze medals, where the weights can be customized. The larger the score, the higher the ranking.</p>
-</li>
+<li>To evaluate multivariate anomaly detection algorithms, we use 29 datasets and 16 evaluation metrics. It is worth noting that if a dataset contains multiple multivariate time series, the final evaluation result is the average of the results from all series. These 16 metrics fall into two categories: threshold-dependent “Label-based” metrics and threshold-independent “Score-based” metrics.</li>
+<li>For each anomaly detection algorithm, we count the number of gold, silver, and bronze medals it earns for having the lowest, second-lowest, and third-lowest error. Ties for first place are all counted as first place. Gold, silver, and bronze medals are represented by 🥇, 🥈, and 🥉.</li>
+<li>We provide three different types of scores for ranking the anomaly detection algorithms. First, the scores equal to the numbers of gold medals. Second, the scores are the sum of the numbers of gold, silver, and bronze medals. Third, the scores are the weighted sum of the gold, silver, and bronze medals, where the weights can be customized. The larger the score, the higher the ranking.</li>
+<li>For each algorithm, we use a single set of parameters across all 29 datasets. We treat evaluations based on label-based and score-based metrics as two independent tasks, thus allowing algorithms to set different parameters for each of these two task types. However, the critical requirement is that within any specific task type, the parameters used by an algorithm must remain consistent across all datasets.</li>
 </ul>
 <div style="height:30px"></div>
 
@@ -615,6 +615,10 @@
 #main article
 {
   margin: -20px 0;
+}
+
+.article-entry{
+  width:95%
 }
 </style>
 

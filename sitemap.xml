@@ -2,7 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/detection/multivariate/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/univariate/index.html</loc>
+    
+    <lastmod>2025-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/covariate/index.html</loc>
+    
+    <lastmod>2025-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/foundation/index.html</loc>
+    
+    <lastmod>2025-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/multivariate/index.html</loc>
+    
+    <lastmod>2025-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/detection/univariate/index.html</loc>
     
     <lastmod>2025-10-04</lastmod>
     
@@ -20,7 +56,34 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/detection/univariate/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/detection/multivariate/index.html</loc>
+    
+    <lastmod>2025-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/result/index.html</loc>
+    
+    <lastmod>2025-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/index.html</loc>
+    
+    <lastmod>2025-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/detection/paper.json</loc>
     
     <lastmod>2025-10-04</lastmod>
     
@@ -47,25 +110,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/detection/paper.json</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/multivariate/paper.json</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/covariate/index.html</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -122,51 +167,6 @@
     <loc>https://chy181.github.io/OpenTS/result/forecasting/multivariate/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/result/index.html</loc>
-    
-    <lastmod>2025-10-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/foundation/index.html</loc>
-    
-    <lastmod>2025-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/univariate/index.html</loc>
-    
-    <lastmod>2025-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/index.html</loc>
-    
-    <lastmod>2025-10-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/multivariate/index.html</loc>
-    
-    <lastmod>2025-09-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -479,7 +479,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/DUET/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/DARF/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -488,7 +488,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/DARF/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/DUET/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -551,7 +551,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/Towards/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/Position/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -560,7 +560,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/Position/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-DL/Towards/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -866,7 +866,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-Auto/AutoCTS+/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-Auto/AutoCTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -875,7 +875,7 @@
   </url>
   
   <url>
-    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-Auto/AutoCTS/index.html</loc>
+    <loc>https://chy181.github.io/OpenTS/zh-cn/OpenTS-Auto/AutoCTS+/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     

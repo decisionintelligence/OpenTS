@@ -54,7 +54,6 @@ const LeaderboardApp = {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     this.config.MODELS_INFO = await response.json();
-    // console.log(this.config.MODELS_INFO)
   },
   _cacheElements() {
     this.elements.tableBody = document.getElementById('multivariateTable2')?.querySelector('tbody');
@@ -150,7 +149,6 @@ const LeaderboardApp = {
     this._showLoadingOverlay();
 
     selections.metrics = selections.metrics.map(e => e.replace('_', '-'));
-    // console.log(selections.metrics)
 
     fetch(this.config.API_URL, {
       method: 'POST',
@@ -164,7 +162,6 @@ const LeaderboardApp = {
     })
     .then(response => { if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`); return response.json(); })
     .then(data => this._processApiResponse(data, selections.scoreWeights))
-    // .then(data => console.log(data))
     .catch(error => { console.error('API request failed:', error); this._renderEmptyTable(); })
     .finally(() => {
       this.state.isLoading = false;
@@ -195,7 +192,6 @@ const LeaderboardApp = {
     if (scoreOption === '1') scoreWeights = [1, 0, 0];
     else if (scoreOption === '3') scoreWeights = [parseFloat(this.elements.scoreInput1.value) || 0, parseFloat(this.elements.scoreInput2.value) || 0, parseFloat(this.elements.scoreInput3.value) || 0];
 
-    console.log(scoreOption)
     return { datasets, metrics, scoreWeights, models };
   },
 
@@ -263,7 +259,6 @@ const LeaderboardApp = {
   },
   
   toggleCategory(category, isChecked) {
-    // console.log(category)
     if (category === 'Metrics') {
         ['Metrics', 'Label', 'Score'].forEach(cat => this._setCategoryChecked(cat, isChecked));
     } else {
@@ -272,7 +267,6 @@ const LeaderboardApp = {
   },
   
   _setCategoryChecked(category, isChecked){
-    // console.log(category)
       const parentCb = document.getElementById(`select-all-${category}`);
       if(parentCb) parentCb.checked = isChecked;
       document.querySelectorAll(`.checkbox-${category.replace(" ",'')}`).forEach(cb => cb.checked = isChecked);

@@ -10,18 +10,16 @@
   <meta charset="utf-8">
   
   
-  <title>OpenTS - Democratizing AI for Time series and Spatio-temporal data</title>
+  <title>Archives: 2025 - OpenTS - Democratizing AI for Time series and Spatio-temporal data</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
-  <meta name="description" content="Learning Paradigm                            [all|off]                                   ▼">
+  <meta name="description" content="Democratizing AI for Time series and Spatio-temporal data">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
-<meta property="og:url" content="https://chy181.github.io/OpenTS/en/leaderboards/detection/multivariate/index.html">
+<meta property="og:url" content="https://chy181.github.io/OpenTS/en/archives/2025/index.html">
 <meta property="og:site_name" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
-<meta property="og:description" content="Learning Paradigm                            [all|off]                                   ▼">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-10-04T12:48:01.453Z">
-<meta property="article:modified_time" content="2025-10-04T12:48:01.453Z">
+<meta property="og:description" content="Democratizing AI for Time series and Spatio-temporal data">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -449,201 +447,32 @@
 </style>
 
     <br>
-    <section id="main" class="outer"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    <div class="article-meta">
-      <!--<a href="/OpenTS/en/leaderboards/detection/multivariate/index.html" class="article-date">
-  <time datetime="2025-10-04T12:48:01.453Z" itemprop="datePublished">2025-10-04</time>
-</a>-->
-      <!-- 
---><!-- by blair 160724 -->
-      <!-- by blair
-      
-      -->
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- 引入外部 CSS 和 JS 库 -->
-<link rel="stylesheet" href="leaderboard-styles.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-<!-- 路径请根据您的项目结构调整，例如 /js/leaderboard.js -->
-<script src="leaderboard.js"></script>
-
-<!-- # Leaderboard for multivariate time series forecasting -->
-
-<div class="main-container" id="main-container-mul">
-  
-  <!-- 左侧过滤器/复选框区域 (已移除所有 onchange/onclick/oninput) -->
-  <div class="checkbox-wrapper">
-     <div class="checkbox-container1">
-      <div class="category" style="margin-bottom:0px">
-        <h3 class="collapsible-header">
-          <span>
-            <input type="checkbox" id="select-all-LearningParadigm" style="display:none">
-            Learning Paradigm
-            <b style="font-weight:bold">
-              [<a href="#">all</a>|<a href="#">off</a>]
-            </b>
-          </span>
-          <span class="toggle-arrow" style="font-size: 15px;">▼</span>
-        </h3>
-        <div class="checkbox-wrapper3">
-          <div class="checkbox-item">
-            <input type="checkbox" id="LearningParadigm/Non-Learning" value="Non-Learning" class="checkbox-LearningParadigm">
-            <label for="LearningParadigm/Non-Learning">Non-Learning</label>
-          </div>
-          <div class="checkbox-item">
-            <input type="checkbox" id="LearningParadigm/Machine-Learning" value="Machine-Learning" class="checkbox-LearningParadigm">
-            <label for="LearningParadigm/Machine-Learning">Machine-Learning</label>
-          </div>
-          <div class="checkbox-item">
-            <input type="checkbox" id="LearningParadigm/Deep-Learning" value="Deep-Learning" class="checkbox-LearningParadigm">
-            <label for="LearningParadigm/Deep-Learning">Deep-Learning</label>
-          </div>
+    <section id="main" class="outer">
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/OpenTS/archives/2025" class="archive-year">2025</a>
         </div>
-      </div>
-    </div>
-    <div style="width:95%"><hr style="border:1px dashed #ddd"></div>
-    <div class="checkbox-container1">
-      <div class="category" style="margin-bottom:0px">
-        <h3 class="collapsible-header">
-          <span>
-            <input type="checkbox" id="select-all-Metrics" style="display:none">
-            Metrics   
-            <b style=" font-weight:bold">
-              [<a href="#">all</a>|<a href="#">off</a>]
-            </b>
-          </span>
-          <span class="toggle-arrow" style="font-size: 15px;">▼</span>
-        </h3>
-        <div id="Metrics" class="checkbox-container"></div>
-      </div>
-    </div>
-    <div style="width:95%"><hr style="border:1px dashed #ddd"></div>
-    <div id="all">
-    <!-- 隐藏的“全选”复选框，功能保留 -->
-    <input type="checkbox" id="select-all" style="display:none">
-    <!-- Datasets 标题，现在它的结构与其他标题一致了 -->
-    <h3 class="collapsible-header" style="white-space:nowrap">
-        <span>Datasets
-          <b style=" font-weight:bold">
-            [<a href="#">all</a>|<a href="#">off</a>]
-          </b>
-        </span>
-        <span class="toggle-arrow" style="font-size: 15px;">▼</span>
-    </h3>
-    <!-- 要折叠的内容，现在是标题的直接“下一个兄弟” -->
-    <div class="checkbox-container" id="dataset-container-mul"></div>
-</div>
-    <div style="width:95%"><hr style="border:1px dashed #ddd"></div>
-    <div class="checkbox-container1" id="dataset-container-mul-down1">
-      <div class="category" style="margin-bottom:0px">
-        <h3 class="collapsible-header">
-          <span>
-            <input type="checkbox" id="select-all-Scores" style="display:none">
-            Score
-          </span>
-          <span class="toggle-arrow" style="font-size: 15px;">▼</span>
-        </h3>
-        <div class="checkbox-wrapper3">
-          <div class="checkbox-item"><input type="radio" id="Scores/1" value="Scores/1" name="score_option" class="checkbox-Scores"><label for="Scores/1">🥇</label></div>
-          <div class="checkbox-item"><input type="radio" id="Scores/2" value="Scores/2" name="score_option" class="checkbox-Scores"><label for="Scores/2">🥇 + 🥈 + 🥉</label></div>
-          <div class="checkbox-item" style="flex-wrap:nowrap;">
-            <input type="radio" id="Scores/3" value="Scores/3" name="score_option" class="checkbox-Scores">
-            <label for="Scores/3">
-              <input type="number" id="score/3/1" value="3"> × 🥇 +
-              <input type="number" id="score/3/2" value="2"> × 🥈 +
-              <input type="number" id="score/3/3" value="1"> × 🥉
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- 右侧表格区域 -->
-  <div class="table-container" id="table-container-mul">
-    <!-- 加载蒙版和动画 -->
-    <div class="loading-overlay">
-      <div class="loading-spinner"></div>
-      <p>Loading Data...</p>
-    </div>
-    <table id="multivariateTable2" class="my-table2" >
-      <thead>
-        <tr>
-          <th>
-            Rank
-          <!-- <select id="rank-display-count" style="font-size: 12px; margin-left: 0px;">
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="all">All</option>
-            </select> -->
-            </th>
-          <th>Model</th><th>Score</th><th>🥇</th><th>🥈</th><th>🥉</th>
-          <th>Paper</th><th>Publication</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- 表格内容将由 JS 动态生成 -->
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div style="height:30px"></div>
-
-<h3 id="Rules"><a href="#Rules" class="headerlink" title="Rules:"></a>Rules:</h3><ul>
-<li>To evaluate multivariate anomaly detection algorithms, we use 29 datasets and 16 evaluation metrics. It is worth noting that if a dataset contains multiple multivariate time series, the final evaluation result is the average of the results from all series. These 16 metrics fall into two categories: threshold-dependent “Label-based” metrics and threshold-independent “Score-based” metrics.</li>
-<li>For each anomaly detection algorithm, we count the number of gold, silver, and bronze medals it earns for having the lowest, second-lowest, and third-lowest error. Ties for first place are all counted as first place. Gold, silver, and bronze medals are represented by 🥇, 🥈, and 🥉.</li>
-<li>We provide three different types of scores for ranking the anomaly detection algorithms. First, the scores equal to the numbers of gold medals. Second, the scores are the sum of the numbers of gold, silver, and bronze medals. Third, the scores are the weighted sum of the gold, silver, and bronze medals, where the weights can be customized. The larger the score, the higher the ranking.</li>
-<li>For each algorithm, we use a single set of parameters across all 29 datasets. We treat evaluations based on label-based and score-based metrics as two independent tasks, thus allowing algorithms to set different parameters for each of these two task types. However, the critical requirement is that within any specific task type, the parameters used by an algorithm must remain consistent across all datasets.</li>
-</ul>
-<div style="height:30px"></div>
-
-
-<!-- 启动脚本保持不变 -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    start();
-  });
-</script>
-<style>
-#header {
-  display: none !important;
-}
-#main article
-{
-  margin: -20px 0;
-}
-
-.article-entry{
-  width:95%
-}
-</style>
-
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post" style="border-bottom
+:none">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
       
-    
-    </div>
-    
-    
-      <footer class="article-footer">
-        <!-- <div class="well" style="width:100px; height:30px;"></div>  by blair-->
-        
- <!-- by blair add 160724-->
-        <!--
-        <div style="width:100px; height:30px;"></div> by blair add 160724
-        -->
-        
+        <a href="/OpenTS/2025/06/17/index/" class="archive-article-date">
+  <time datetime="2025-06-17T11:46:26.247Z" itemprop="datePublished">2025-06-17</time>
+</a> 
+       »
+      
 
-      </footer>
-    
+     
+    </header>
   </div>
-  
-    
-  
 </article>
 
+  
+    </div></section>
+  
 </section>
     <!-- <footer id="footer">
   

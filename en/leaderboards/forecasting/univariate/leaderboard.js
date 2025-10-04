@@ -430,7 +430,6 @@ const LeaderboardApp = {
   _getSelections() {
     const getCheckedValues = (selector, transform) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked&&!cb.disabled).map(transform);
     const metrics = getCheckedValues('.checkbox-Metrics', cb => cb.value).filter(Boolean);
-
     datasets = getCheckedValues('.checkbox-container input[type="checkbox"]', cb => cb.value.split('/')[1]?.replace('-', '_')).filter(Boolean);
     datasets = datasets.map(e=>{
       if (e.includes('w '))
@@ -454,11 +453,8 @@ const LeaderboardApp = {
   // ];
     const modeltypes = getCheckedValues('.checkbox-ModelType', cb => cb.value).filter(Boolean)
 
-    // console.log(modeltypes)
-    // this.config.MODELS_INFO.map(method=> console.log(method))
     const models =  Object.keys(this.config.MODELS_INFO).filter(key => modeltypes.includes(this.config.MODELS_INFO[key].paradigm))
     // const models = [key for key, value in this.config.MODELS_INFO.items() if value['c'] in a]
-    // console.log(datasets)
     
     const scoreOption = document.querySelector('.checkbox-Score:checked')?.value.split('/')[1] || '2';
 
