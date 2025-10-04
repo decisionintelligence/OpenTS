@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chy181.github.io/OpenTS/leaderboards/detection/paper.json</loc>
+    
+    <lastmod>2025-10-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chy181.github.io/OpenTS/leaderboards/forecasting/univariate/index.html</loc>
     
     <lastmod>2025-10-04</lastmod>
@@ -75,15 +84,6 @@
   
   <url>
     <loc>https://chy181.github.io/OpenTS/leaderboards/index.html</loc>
-    
-    <lastmod>2025-10-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chy181.github.io/OpenTS/leaderboards/detection/paper.json</loc>
     
     <lastmod>2025-10-04</lastmod>
     
