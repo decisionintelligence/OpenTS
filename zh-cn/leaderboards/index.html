@@ -20,8 +20,8 @@
 <meta property="og:site_name" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
 <meta property="og:description" content="&#x2F;* ... 您的 CSS 样式保持不变 ... *&#x2F;     .tabs-container {         width: 99%;         margin-bottom: 24px;         border: 1px solid #dee2e6;         border-radius: 8px;         overflow: hidden;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-04T14:07:36.614Z">
-<meta property="article:modified_time" content="2025-10-04T14:07:36.614Z">
+<meta property="article:published_time" content="2025-10-05T08:34:46.494Z">
+<meta property="article:modified_time" content="2025-10-05T08:34:46.494Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -164,7 +164,7 @@
                       
                         <a href="/OpenTS/zh-cn/leaderboards/#multivariate_forecasting">时间序列异常检测</a>
                       
-                        <a href="/OpenTS/zh-cn/result/#multivariate_forecasting">结果</a>
+                        <a href="/OpenTS/zh-cn/result/#multivariate_forecasting">测评结果</a>
                       
                     </div>
                   </div>
@@ -455,7 +455,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/zh-cn/leaderboards/index.html" class="article-date">
-  <time datetime="2025-10-04T14:07:36.614Z" itemprop="datePublished">2025-10-04</time>
+  <time datetime="2025-10-05T08:34:46.494Z" itemprop="datePublished">2025-10-05</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -597,27 +597,27 @@
         <ul class="tab-list level-2" data-tab-group-content="forecasting">
             <!-- 移除了 active 类 -->
             <li class="tab-item-l2">
-                <a href="#multivariate_forecasting" data-tab-content="multivariate_forecasting">多变量预测</a>
+                <a href="#multivariate_forecasting"  onclick="update(this)" data-tab-content="multivariate_forecasting">多变量预测</a>
             </li>
              <li class="tab-item-l2">
-                <a href="#foundation_forecasting" data-tab-content="foundation_forecasting">基础模型预测</a>
+                <a href="#foundation_forecasting" onclick="update(this)" data-tab-content="foundation_forecasting">基础模型预测</a>
             </li>
             <li class="tab-item-l2">
-                <a href="#covariate_forecasting" data-tab-content="covariate_forecasting">协变量预测</a>
+                <a href="#covariate_forecasting" onclick="update(this)" data-tab-content="covariate_forecasting">协变量预测</a>
             </li>
             <li class="tab-item-l2">
-                <a href="#forecasting_univariate" data-tab-content="univariate_forecasting">单变量预测</a>
+                <a href="#univariate_forecasting" onclick="update(this)" data-tab-content="univariate_forecasting">单变量预测</a>
             </li>
         </ul>
         <ul class="tab-list level-2" data-tab-group-content="detection">
             <li class="tab-item-l2">
-                <a href="#multivariate_detection" data-tab-content="multivariate_detection">多变量异常检测</a>
+                <a href="#multivariate_detection" onclick="update(this)" data-tab-content="multivariate_detection">多变量异常检测</a>
             </li>
             <li class="tab-item-l2">
-                <a href="#foundation_detection" data-tab-content="foundation_detection">基础模型异常检测</a>
+                <a href="#foundation_detection" onclick="update(this)" data-tab-content="foundation_detection">基础模型异常检测</a>
             </li>
             <li class="tab-item-l2">
-                <a href="#univariate_detection" data-tab-content="univariate_detection">单变量异常检测</a>
+                <a href="#univariate_detection" onclick="update(this)" data-tab-content="univariate_detection">单变量异常检测</a>
             </li>
         </ul>
     </div>
@@ -650,6 +650,13 @@
 
 <!-- ======================= 优化后的 SCRIPT ======================= -->
 <script>
+function update(e){
+    // console.log(e,e.href)
+    var hash = e.href.split('#')[1]
+    const targetLink = document.getElementById('lang-toggle-link-zh-cn');
+    targetLink.href = targetLink.href.split('#')[0] + '#' + hash
+}
+
 window.addEventListener('message', (event) => {
     if (event.data && event.data.type === 'iframeHeight') {
         const allIframes = document.querySelectorAll('.leaderboard-iframe');
@@ -858,13 +865,49 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 </script>
 <script>
- function updateLanguageUI() {
+ // 让函数接受一个可选的 event 参数
+function updateLanguageUI(event) {
   const root = '/OpenTS/';
   const DEFAULT_LANG = '';
   const SECOND_LANG = 'zh-cn';
-  const currentPathname = window.location.pathname;
-  const currentHash = window.location.hash; // <-- 新增: 获取 URL 中的 # 部分
 
+  // 步骤 1: 优先从事件中获取最准确的 URL 信息
+  let currentPathname = window.location.pathname;
+  let currentHash = window.location.hash;
+
+  // 如果是 hashchange 或 pjax:end 事件，event 对象里有更可靠的 URL
+  if (event && event.newURL) { // 主要用于 hashchange
+    const url = new URL(event.newURL);
+    currentPathname = url.pathname;
+    currentHash = url.hash;
+  } else if (event && event.state && event.state.url) { // 很多 pjax 库使用
+    const url = new URL(event.state.url);
+    currentPathname = url.pathname;
+    currentHash = url.hash;
+  }
+
+  // 步骤 2: 处理您的特殊路径逻辑
+  if (currentPathname.includes('detection') || currentPathname.includes('forecasting')) {
+    const pathParts = currentPathname.split('/');
+    // 增加健壮性检查，确保路径足够长
+    if (pathParts.length > 3) {
+      const secondLast = pathParts[pathParts.length - 2];
+      const thirdLast = pathParts[pathParts.length - 3];
+
+      // 修改 pathname，用于构建对面的语言链接
+      currentPathname = currentPathname.replace(thirdLast + '/' + secondLast + '/', '');
+
+      // *** 核心逻辑修正 ***
+      // 只有当 URL 本身没有 hash 时，才使用从路径派生出的 hash 作为默认值。
+      // 这可以确保在页面初次加载时能正确生成 hash，
+      // 同时在 hashchange 事件发生时，不会覆盖掉用户想要跳转到的新 hash。
+      if (!currentHash || currentHash === '#') {
+        currentHash = '#' + secondLast + '_' + thirdLast;
+      }
+    }
+  }
+  
+  // 步骤 3: 判断当前语言并更新 body class
   const isChinesePage = currentPathname.startsWith(root + SECOND_LANG + '/');
 
   if (isChinesePage) {
@@ -875,20 +918,17 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.classList.remove('lang-zh-cn');
   }
 
-  // --- 2. 更新语言切换链接的 href (新逻辑) ---
+  // 步骤 4: 计算目标路径并更新链接的 href
   let linkToUpdate;
   let targetPath;
 
   if (isChinesePage) {
-    // 当前在中文页，目标是英文页
-    linkToUpdate = document.getElementById('lang-toggle-link-zh-cn');
+    linkToUpdate = document.querySelectorAll('#lang-toggle-link-zh-cn');
     const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
     targetPath = (root.endsWith('/') ? root.slice(0, -1) : root) + pathWithoutLang;
     if (targetPath === '') targetPath = '/';
-
   } else {
-    // 当前在英文页，目标是中文页
-    linkToUpdate = document.getElementById('lang-toggle-link-en');
+    linkToUpdate = document.querySelectorAll('#lang-toggle-link-en');
     let pathWithoutLang = currentPathname.substring(root.length);
     if (pathWithoutLang.startsWith(DEFAULT_LANG + '/')) {
       pathWithoutLang = pathWithoutLang.substring((DEFAULT_LANG + '/').length);
@@ -896,17 +936,28 @@ document.addEventListener('DOMContentLoaded', function () {
     targetPath = root + SECOND_LANG + '/' + pathWithoutLang;
   }
 
-  // 如果找到了对应的链接，就更新它
   if (linkToUpdate) {
-    // 在设置 href 之前，将原始的 hash 附加到新路径的末尾
-    linkToUpdate.href = targetPath + currentHash; // <-- 修改: 加上 hash
-    // console.log(linkToUpdate.href)
+    // console.log(linkToUpdate)
+    linkToUpdate.forEach(element => {
+      element.href = targetPath + currentHash;
+    // console.log('语言切换链接已更新为:', element.href);
+    });
+    // // 将计算出的目标路径和最终确定的 hash 组合起来
+    // linkToUpdate.href = targetPath + currentHash;
+    // console.log('语言切换链接已更新为:', linkToUpdate.href);
   }
 }
 
-// 事件监听部分保持不变
+// --- 事件监听部分 (保持不变) ---
+
+// 1. Pjax 加载完成事件
 document.addEventListener('pjax:end', updateLanguageUI);
+
+// 2. 页面首次加载
 document.addEventListener('DOMContentLoaded', updateLanguageUI);
+
+// 3. URL hash 变化
+// document.addEventListener('hashchange', updateLanguageUI);
 </script>
 </body>
 </html>

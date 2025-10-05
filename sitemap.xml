@@ -2,9 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/result/index.html</loc>
+    
+    <lastmod>2025-10-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/result/index.html</loc>
+    
+    <lastmod>2025-10-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/index.html</loc>
+    
+    <lastmod>2025-10-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/index.html</loc>
     
-    <lastmod>2025-10-04</lastmod>
+    <lastmod>2025-10-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/result/forecasting/foundation/index.html</loc>
+    
+    <lastmod>2025-10-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/result/forecasting/covariate/index.html</loc>
+    
+    <lastmod>2025-10-05</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -48,33 +93,6 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/forecasting/multivariate/index.html</loc>
-    
-    <lastmod>2025-10-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/result/index.html</loc>
-    
-    <lastmod>2025-10-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/result/index.html</loc>
-    
-    <lastmod>2025-10-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/index.html</loc>
     
     <lastmod>2025-10-04</lastmod>
     
@@ -236,7 +254,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/multivariate/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/univariate/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -245,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/univariate/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/multivariate/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -281,15 +299,6 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/result/forecasting/covariate/index.html</loc>
-    
-    <lastmod>2025-10-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/result/forecasting/foundation/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
@@ -300,15 +309,6 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/result/forecasting/univariate/index.html</loc>
-    
-    <lastmod>2025-10-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/result/forecasting/foundation/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -650,7 +650,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/DARF/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/ContraAD/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -659,7 +659,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/ContraAD/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/DARF/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -1055,7 +1055,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-FM/AimTS/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-FM/DADA/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -1064,7 +1064,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-FM/DADA/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-FM/AimTS/index.html</loc>
     
     <lastmod>2025-06-13</lastmod>
     
@@ -1372,7 +1372,7 @@
 
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS</loc>
-    <lastmod>2025-10-04</lastmod>
+    <lastmod>2025-10-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

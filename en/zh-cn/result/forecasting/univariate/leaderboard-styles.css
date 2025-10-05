@@ -285,7 +285,7 @@ text-align: center;
 
   /* --- 2. 设置图片 --- */
   /* 将 'path/to/your-icon.svg' 替换为您的图片路径 */
-  background-image: url('../../../figures/full.png'); 
+  background-image: url('../../../../figures/full.png'); 
   background-repeat: no-repeat;  /* 防止图片平铺 */
   background-repeat: round;
 
@@ -307,7 +307,7 @@ cursor: pointer;             /* 保持手形光标 */
 
 /* --- 2. 设置图片 --- */
 /* 将 'path/to/your-icon.svg' 替换为您的图片路径 */
-background-image: url('../../../figures/import.png'); 
+background-image: url('../../../../figures/import.png'); 
 background-repeat: no-repeat;  /* 防止图片平铺 */
 background-repeat: round;
 

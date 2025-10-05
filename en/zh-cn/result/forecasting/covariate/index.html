@@ -20,8 +20,8 @@
 <meta property="og:site_name" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
 <meta property="og:description" content="Metrics                               [all|off]                                   ▼">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-10-02T11:15:57.058Z">
-<meta property="article:modified_time" content="2025-10-02T11:15:57.058Z">
+<meta property="article:published_time" content="2025-10-05T08:12:02.842Z">
+<meta property="article:modified_time" content="2025-10-05T08:12:02.842Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
   
@@ -164,7 +164,7 @@
                       
                         <a href="/OpenTS/zh-cn/leaderboards/#multivariate_forecasting">时间序列异常检测</a>
                       
-                        <a href="/OpenTS/zh-cn/result/#multivariate_forecasting">结果</a>
+                        <a href="/OpenTS/zh-cn/result/#multivariate_forecasting">测评结果</a>
                       
                     </div>
                   </div>
@@ -455,7 +455,7 @@
     
     <div class="article-meta">
       <!--<a href="/OpenTS/en/zh-cn/result/forecasting/covariate/index.html" class="article-date">
-  <time datetime="2025-10-02T11:15:57.058Z" itemprop="datePublished">2025-10-02</time>
+  <time datetime="2025-10-05T08:12:02.842Z" itemprop="datePublished">2025-10-05</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -614,13 +614,49 @@
   })();
 </script>
 <script>
- function updateLanguageUI() {
+ // 让函数接受一个可选的 event 参数
+function updateLanguageUI(event) {
   const root = '/OpenTS/';
   const DEFAULT_LANG = '';
   const SECOND_LANG = 'zh-cn';
-  const currentPathname = window.location.pathname;
-  const currentHash = window.location.hash; // <-- 新增: 获取 URL 中的 # 部分
 
+  // 步骤 1: 优先从事件中获取最准确的 URL 信息
+  let currentPathname = window.location.pathname;
+  let currentHash = window.location.hash;
+
+  // 如果是 hashchange 或 pjax:end 事件，event 对象里有更可靠的 URL
+  if (event && event.newURL) { // 主要用于 hashchange
+    const url = new URL(event.newURL);
+    currentPathname = url.pathname;
+    currentHash = url.hash;
+  } else if (event && event.state && event.state.url) { // 很多 pjax 库使用
+    const url = new URL(event.state.url);
+    currentPathname = url.pathname;
+    currentHash = url.hash;
+  }
+
+  // 步骤 2: 处理您的特殊路径逻辑
+  if (currentPathname.includes('detection') || currentPathname.includes('forecasting')) {
+    const pathParts = currentPathname.split('/');
+    // 增加健壮性检查，确保路径足够长
+    if (pathParts.length > 3) {
+      const secondLast = pathParts[pathParts.length - 2];
+      const thirdLast = pathParts[pathParts.length - 3];
+
+      // 修改 pathname，用于构建对面的语言链接
+      currentPathname = currentPathname.replace(thirdLast + '/' + secondLast + '/', '');
+
+      // *** 核心逻辑修正 ***
+      // 只有当 URL 本身没有 hash 时，才使用从路径派生出的 hash 作为默认值。
+      // 这可以确保在页面初次加载时能正确生成 hash，
+      // 同时在 hashchange 事件发生时，不会覆盖掉用户想要跳转到的新 hash。
+      if (!currentHash || currentHash === '#') {
+        currentHash = '#' + secondLast + '_' + thirdLast;
+      }
+    }
+  }
+  
+  // 步骤 3: 判断当前语言并更新 body class
   const isChinesePage = currentPathname.startsWith(root + SECOND_LANG + '/');
 
   if (isChinesePage) {
@@ -631,20 +667,17 @@
     document.body.classList.remove('lang-zh-cn');
   }
 
-  // --- 2. 更新语言切换链接的 href (新逻辑) ---
+  // 步骤 4: 计算目标路径并更新链接的 href
   let linkToUpdate;
   let targetPath;
 
   if (isChinesePage) {
-    // 当前在中文页，目标是英文页
-    linkToUpdate = document.getElementById('lang-toggle-link-zh-cn');
+    linkToUpdate = document.querySelectorAll('#lang-toggle-link-zh-cn');
     const pathWithoutLang = currentPathname.substring((root + SECOND_LANG).length);
     targetPath = (root.endsWith('/') ? root.slice(0, -1) : root) + pathWithoutLang;
     if (targetPath === '') targetPath = '/';
-
   } else {
-    // 当前在英文页，目标是中文页
-    linkToUpdate = document.getElementById('lang-toggle-link-en');
+    linkToUpdate = document.querySelectorAll('#lang-toggle-link-en');
     let pathWithoutLang = currentPathname.substring(root.length);
     if (pathWithoutLang.startsWith(DEFAULT_LANG + '/')) {
       pathWithoutLang = pathWithoutLang.substring((DEFAULT_LANG + '/').length);
@@ -652,17 +685,28 @@
     targetPath = root + SECOND_LANG + '/' + pathWithoutLang;
   }
 
-  // 如果找到了对应的链接，就更新它
   if (linkToUpdate) {
-    // 在设置 href 之前，将原始的 hash 附加到新路径的末尾
-    linkToUpdate.href = targetPath + currentHash; // <-- 修改: 加上 hash
-    // console.log(linkToUpdate.href)
+    // console.log(linkToUpdate)
+    linkToUpdate.forEach(element => {
+      element.href = targetPath + currentHash;
+    // console.log('语言切换链接已更新为:', element.href);
+    });
+    // // 将计算出的目标路径和最终确定的 hash 组合起来
+    // linkToUpdate.href = targetPath + currentHash;
+    // console.log('语言切换链接已更新为:', linkToUpdate.href);
   }
 }
 
-// 事件监听部分保持不变
+// --- 事件监听部分 (保持不变) ---
+
+// 1. Pjax 加载完成事件
 document.addEventListener('pjax:end', updateLanguageUI);
+
+// 2. 页面首次加载
 document.addEventListener('DOMContentLoaded', updateLanguageUI);
+
+// 3. URL hash 变化
+// document.addEventListener('hashchange', updateLanguageUI);
 </script>
 </body>
 </html>

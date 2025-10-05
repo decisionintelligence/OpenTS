@@ -34,9 +34,11 @@ const LeaderboardApp = {
       "UniTime": {"paper-url": "https://dl.acm.org/doi/10.1145/3589334.3645434  ", "publication": "WWW", "bib": "https://dblp.uni-trier.de/rec/conf/www/LiuHLDLHZ24.html?view=bibtex", "year": "2024", "parameters": "108541488"}, 
       "iTransformer": {"paper-url": "https://arxiv.org/pdf/2310.06625", "publication": "ICLR", "bib": "https://dblp.uni-trier.de/rec/conf/iclr/LiuHZWWML24.html?view=bibtex", "year": "2024", "parameters": "841568"},
       "Timer":{"paper-url": "https://openreview.net/forum?id=bYRYb7DMNo", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/conf/icml/LiuZLH0L24.html?view=bibtex", "year": "2024", "parameters": "67408601"},
+      "LightGTS":{"paper-url": "https://openreview.net/forum?id=bYRYb7DMNo", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/conf/icml/LiuZLH0L24.html?view=bibtex", "year": "2024", "parameters": "67408601"},
+
     },
     MODEL_TYPES_LIST:{"TS Pretrain":["Chronos","MOIRAI","Moment","ROSE",'TimesFM',"Timer","TTMs","UniTS"],"LLM Based":["AutoTimes","CALF","GPT4TS","LLMMixer","S2IPLLM","TimeLLM","UniTime"], "Specific":["PatchTST","Dlinear","FedFormer","FITS","TimeMixer","TimesNet","iTransformer"]},
-    MODELS_LIST: ["AutoTimes","CALF","Chronos","Dlinear","FedFormer","FITS","GPT4TS","LLMMixer","MOIRAI","Moment","PatchTST","ROSE","S2IPLLM","TimeLLM","TimeMixer",'TimesFM',"TimesNet","TTMs","UniTS","UniTime","iTransformer","Timer"],
+    MODELS_LIST: ["AutoTimes","CALF","Chronos","Dlinear","FedFormer","FITS","GPT4TS","LLMMixer","MOIRAI","Moment","PatchTST","ROSE","S2IPLLM","TimeLLM","TimeMixer",'TimesFM',"TimesNet","TTMs","UniTS","UniTime","iTransformer","Timer","LightGTS"],
     DATASET_CATEGORIES: { "Electricity": ["ETTh1", "ETTh2", "ETTm1", "ETTm2", "Electricity"], "Traffic": ["Traffic", "PEMS08"], "Environment": ["Weather", "AQShunyi"], "Economic": ["Exchange"], "Energy": ["Solar", "Wind"], "Nature": ["ZafNoo", "CzeLan"] },
     METRICS: ['MAE', 'MSE']
   },
