@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/resource/report/index.html</loc>
+    
+    <lastmod>2025-10-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-FM/index.html</loc>
     
     <lastmod>2025-10-14</lastmod>
@@ -30,15 +39,6 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/OpenTS-FM/index.html</loc>
-    
-    <lastmod>2025-10-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/resource/report/index.html</loc>
     
     <lastmod>2025-10-14</lastmod>
     
@@ -1408,7 +1408,7 @@
 
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS</loc>
-    <lastmod>2025-10-14</lastmod>
+    <lastmod>2025-10-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
