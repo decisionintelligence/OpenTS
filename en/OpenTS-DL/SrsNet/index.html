@@ -13,33 +13,17 @@
   <title>OpenTS - Democratizing AI for Time series and Spatio-temporal data</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="subtitle" content="A Comprehensive and Fair Benchmark for Time Series Analytics">
-  <meta name="description" content="OpenTS-DL: 深度学习模型OpenTS-DL 包含用于不同任务的深度学习模型，包括预测、概率性预测和异常检测，同时致力于解决AGREE框架中的不同挑战。   鲁棒性                                NeurIPS 2025             Spotlight                                            Enha">
+  <meta name="description" content="Enhancing Time Series Forecasting through Selective Representation Spaces: A Patch PerspectiveIf you find our work useful, please cite our paper. 123456@InProceedings&#123;Wu_2025_SrsNet,    author">
 <meta property="og:type" content="website">
 <meta property="og:title" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
-<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/index.html">
+<meta property="og:url" content="https://decisionintelligence.github.io/OpenTS/en/OpenTS-DL/SrsNet/index.html">
 <meta property="og:site_name" content="OpenTS - Democratizing AI for Time series and Spatio-temporal data">
-<meta property="og:description" content="OpenTS-DL: 深度学习模型OpenTS-DL 包含用于不同任务的深度学习模型，包括预测、概率性预测和异常检测，同时致力于解决AGREE框架中的不同挑战。   鲁棒性                                NeurIPS 2025             Spotlight                                            Enha">
+<meta property="og:description" content="Enhancing Time Series Forecasting through Selective Representation Spaces: A Patch PerspectiveIf you find our work useful, please cite our paper. 123456@InProceedings&#123;Wu_2025_SrsNet,    author">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/SrsNet/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/CrossAD/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/K2VAE/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/CATCH/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/DUET/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/Pathformer/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/MM-Path/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/DARF/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/DBLoss/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/Air-DualODE/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/Enhancing/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/Towards/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/Position/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/MemFormer/paper.png">
-<meta property="og:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/Multiple/paper.png">
-<meta property="article:published_time" content="2025-10-17T12:49:39.163Z">
-<meta property="article:modified_time" content="2025-10-17T12:49:39.163Z">
+<meta property="article:published_time" content="2025-10-17T12:51:25.726Z">
+<meta property="article:modified_time" content="2025-10-17T12:51:25.726Z">
 <meta property="article:author" content="DecisionIntelligence |">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://decisionintelligence.github.io/OpenTS/en/zh-cn/OpenTS-DL/SrsNet/paper.png">
   
 
   <link href="/OpenTS/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
@@ -474,8 +458,8 @@
     
     
     <div class="article-meta">
-      <!--<a href="/OpenTS/en/zh-cn/OpenTS-DL/index.html" class="article-date">
-  <time datetime="2025-10-17T12:49:39.163Z" itemprop="datePublished">2025-10-17</time>
+      <!--<a href="/OpenTS/en/OpenTS-DL/SrsNet/index.html" class="article-date">
+  <time datetime="2025-10-17T12:51:25.726Z" itemprop="datePublished">2025-10-17</time>
 </a>-->
       <!-- 
 --><!-- by blair 160724 -->
@@ -485,262 +469,9 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="OpenTS-DL-深度学习模型"><a href="#OpenTS-DL-深度学习模型" class="headerlink" title="OpenTS-DL: 深度学习模型"></a>OpenTS-DL: 深度学习模型</h1><p>OpenTS-DL 包含用于不同任务的深度学习模型，包括预测、概率性预测和异常检测，同时致力于解决AGREE框架中的不同挑战。</p>
-<link rel="stylesheet" href="../../css/paper_list.css">
+        <h1 id="Enhancing-Time-Series-Forecasting-through-Selective-Representation-Spaces-A-Patch-Perspective"><a href="#Enhancing-Time-Series-Forecasting-through-Selective-Representation-Spaces-A-Patch-Perspective" class="headerlink" title="Enhancing Time Series Forecasting through Selective Representation Spaces: A Patch Perspective"></a>Enhancing Time Series Forecasting through Selective Representation Spaces: A Patch Perspective</h1><p>If you find our work useful, please cite our paper.</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@InProceedings&#123;Wu<span class="built_in">_</span>2025<span class="built_in">_</span>SrsNet,</span><br><span class="line">    author    = &#123;Xingjian Wu, Xiangfei Qiu, Hanyin Cheng, Zhengyu Li, Jilin Hu, Chenjuan Guo, Bin Yang&#125;,</span><br><span class="line">    title     = &#123;Enhancing Time Series Forecasting through Selective Representation Spaces: A Patch Perspective&#125;,</span><br><span class="line">    booktitle = &#123;International Conference on Neural Information Processing Systems (&#123;NeurIPS&#125;)&#125;,</span><br><span class="line">    year      = &#123;2025&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="鲁棒性"><a href="#鲁棒性" class="headerlink" title="鲁棒性"></a>鲁棒性</h2><div class="publications-container">
-    <!--  -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 142px;">
-            <span class="year-tag">NeurIPS 2025</span>
-            <span class="award-tag">Spotlight</span>
-            <img src="SrsNet/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a>Enhancing Time Series Forecasting through Selective Representation Spaces: A Patch Perspective</a></h3>
-            <p class="publication-authors">Xingjian Wu, Xiangfei Qiu, Hanyin Cheng, Zhengyu Li, Jilin Hu, Chenjuan Guo, Bin Yang </p>
-            <p class="publication-venue">International Conference on Neural Information Processing Systems (NeurIPS), 2025.</p>
-            <p class="publication-links">
-             <a href="SrsNet">[Bib]</a>
-             <!-- | <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/K2VAE">[Code]</a> -->
-            </p>
-        </div>
-    </div> 
-    <!--  -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 142px;">
-            <span class="year-tag">NeurIPS 2025</span>
-            <img src="CrossAD/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2510.12489">CrossAD: Time Series Anomaly Detection with Cross-scale Associations and Cross-window Modeling</a></h3>
-            <p class="publication-authors">Beibu Li, Qichao Shentu, Yang Shu, Hui Zhang, Ming Li, Ning Jin, Bin Yang, Chenjuan Guo</p>
-            <p class="publication-venue">International Conference on Neural Information Processing Systems (NeurIPS), 2025.</p>
-            <p class="publication-links">
-             <a href="CrossAD">[Bib]</a>| <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/CrossAD">[Code]</a> 
-            </p>
-        </div>
-    </div>
-    <!--  -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 142px;">
-            <span class="year-tag">ICML 2025</span>
-            <span class="award-tag">Spotlight</span>
-            <img src="K2VAE/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2505.23017">K<sup>2</sup>VAE: A Koopman-Kalman Enhanced Variational AutoEncoder for Probabilistic Time Series Forecasting</a></h3>
-            <p class="publication-authors">Xingjian Wu, Xiangfei Qiu, Hongfan Gao, Jilin Hu, Chenjuan Guo, Bin Yang</p>
-            <p class="publication-venue">International Conference on Machine Learning (ICML), 2025.</p>
-            <p class="publication-links">
-             <a href="K2VAE">[Bib]</a>| <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/K2VAE">[Code]</a>
-            </p>
-        </div>
-    </div>
-        <!--  -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 170px">
-            <span class="year-tag">ICLR 2025</span>
-            <img src="CATCH/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2410.12261">CATCH: Channel-Aware Multivariate Time Series Anomaly Detection via Frequency Patching</a></h3>
-            <p class="publication-authors">Xingjian Wu, Xiangfei Qiu, Zhengyu Li, Yihang Wang, Jilin Hu, Chenjuan Guo, Hui Xiong, Bin Yang</p>
-            <p class="publication-venue">International Conference on Learning Representations (ICLR), 2025.</p>
-            <p class="publication-links">
-                <!-- <a href="#">[Paper]</a>| <a href="#">[Code]</a> -->
-                <a href="CATCH">[Bib]</a>| <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/CATCH">[Code]</a>
-            </p>
-        </div>
-    </div>
-     <!-- -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 120px">
-            <span class="year-tag">SIGKDD 2025</span>
-            <img src="DUET/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2412.10859">DUET: Dual Clustering Enhanced Multivariate Time Series Forecasting</a></h3>
-            <p class="publication-authors">Xiangfei Qiu, Xingjian Wu, Yan Lin, Chenjuan Guo, Jilin Hu, Bin Yang</p>
-            <p class="publication-venue">ACM Knowledge Discovery and Data Mining (SIGKDD), 2025.</p>
-            <p class="publication-links">
-                <!-- <a href="#">[Paper]</a>| <a href="#">[Code]</a> -->
-                <a href="DUET">[Bib]</a>| <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/DUET">[Code]</a>
-            </p>
-        </div>
-    </div>
-     <!-- -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 142px">
-            <span class="year-tag">ICLR 2024</span>
-            <img src="Pathformer/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2402.05956">Pathformer: Multi-scale Transformers with Adaptive Pathways for Time Series Forecasting</a></h3>
-            <p class="publication-authors">Peng Chen, Yingying Zhang, Yunyao Cheng, Yang Shu, Yihang Wang, Qingsong Wen, Bin Yang, Chenjuan Guo</p>
-            <p class="publication-venue">International Conference on Learning Representations (ICLR), 2024.</p>
-            <p class="publication-links">
-                <!-- <a href="#">[Paper]</a>| <a href="#">[Code]</a> -->
-                <a href="Pathformer">[Bib]</a>| <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/pathformer">[Code]</a>
-            </p>
-        </div>
-    </div>
-        <!-- -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 140px">
-            <span class="year-tag">SIGKDD 2025</span>
-            <img src="MM-Path/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2411.18428">MM-Path: Multi-modal, Multi-granularity Path Representation Learning</a></h3>
-            <p class="publication-authors">Ronghui Xu, Hanyin Cheng, Chenjuan Guo, Hongfan Gao, Jilin Hu, Sean Bin Yang, Bin Yang</p>
-            <p class="publication-venue">ACM Knowledge Discovery and Data Mining (SIGKDD), 2025.</p>
-            <p class="publication-links">
-                <!-- <a href="#">[Paper]</a>| <a href="#">[Code]</a> -->
-                <a href="MM-Path">[Bib]</a>| <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/MM-Path">[Code]</a>
-            </p>
-        </div>
-    </div>
-    <!-- -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 140px">
-            <span class="year-tag">PVLDB 2023</span>
-            <img src="DARF/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://vbn.aau.dk/ws/portalfiles/portal/698843760/3636218.3636231.pdf">Weakly Guided Adaptation for Robust Time Series Forecasting</a></h3>
-            <p class="publication-authors">Yunyao Cheng, Peng Chen, Chenjuan Guo, Kai Zhao, Qingsong Wen, Bin Yang, Christian S Jensen</p>
-            <p class="publication-venue">International Conference on Very Large Databases (PVLDB), 2023.</p>
-            <p class="publication-links">
-                <!-- <a href="#">[Paper]</a>| <a href="#">[Code]</a> -->
-                <a href="DARF">[Bib]</a>| <a target="_blank" rel="noopener" href="https://github.com/YunyaoCheng/DARF">[Code]</a>
-            </p>
-        </div>
-    </div>
-</div>
-
-<h2 id="可解释性"><a href="#可解释性" class="headerlink" title="可解释性"></a>可解释性</h2><div class="publications-container">
-    <!--  -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 142px;">
-            <span class="year-tag">NeurIPS 2025</span>
-            <img src="DBLoss/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a href="">DBLoss: Decomposition-based Loss Function for Time Series Forecasting</a></h3>
-            <p class="publication-authors">Xiangfei Qiu, Xingjian Wu, Hanyin Cheng, Xvyuan Liu, Chenjuan Guo, Jilin Hu, Bin Yang </p>
-            <p class="publication-venue">International Conference on Neural Information Processing Systems (NeurIPS), 2025.</p>
-            <p class="publication-links">
-             <a href="DBLoss">[Bib]</a>
-             <!-- | <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/K2VAE">[Code]</a> -->
-            </p>
-        </div>
-    </div>
-    <!-- -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 170px">
-            <span class="year-tag">ICLR 2025</span>
-            <img src="Air-DualODE/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2410.19892">Air-DualODE: Air Quality Prediction with Physics-guided Dual Neural ODEs in Open Systems.</a></h3>
-            <p class="publication-authors">Jindong Tian, Yuxuan Liang, Ronghui Xu, Peng Chen, Chenjuan Guo, Aoying Zhou, Lujia Pan, Zhongwen Rao, Bin Yang</p>
-            <p class="publication-venue">International Conference on Learning Representations (ICLR), 2025.</p>
-            <p class="publication-links">
-                <!-- <a href="#">[Paper]</a>| <a href="#">[Code]</a> -->
-                <a href="Air-DualODE">[Bib]</a>| <a target="_blank" rel="noopener" href="https://github.com/decisionintelligence/Air-DualODE">[Code]</a>
-            </p>
-        </div>
-    </div>
-
-</div>
-
-<h2 id="高效性"><a href="#高效性" class="headerlink" title="高效性"></a>高效性</h2><div class="publications-container">
-<!-- -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 120px">
-            <span class="year-tag">CVPR 2025</span>
-            <span class="award-tag">Oral</span>
-            <img src="Enhancing/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content/CVPR2025/html/Zhao_Enhancing_Diversity_for_Data-free_Quantization_CVPR_2025_paper.html">Enhancing Diversity for Data-free Quantization</a></h3>
-            <p class="publication-authors">Kai Zhao, Zhihao Zhuang, Miao Zhang, Chenjuan Guo, Yang Shu, Bin Yang</p>
-            <p class="publication-venue">Computer Vision and Pattern Recognition Conference (CVPR), 2025.</p>
-            <p class="publication-links">
-                <!-- <a href="#">[Paper]</a>| <a href="#">[Code]</a> -->
-                <a href="Enhancing">[Bib]</a>| <a target="_blank" rel="noopener" href="https://anonymous.4open.science/r/DFQ-84E6">[Code]</a>
-            </p>
-        </div>
-    </div>
-    <!-- -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 145px">
-            <span class="year-tag">ICDE 2025</span>
-            <img src="Towards/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2501.10448">Towards Lightweight Time Series Forecasting: a Patch-wise Transformer with Weak Data Enriching</a></h3>
-            <p class="publication-authors">Meng Wang, Jintao Yang, Bin Yang, Hui Li, Tongxin Gong, Bo Yang, Jiangtao Cui</p>
-            <p class="publication-venue">International Conference on Data Engineering (ICDE), 2025.</p>
-            <p class="publication-links">
-                <!-- <a href="#">[Paper]</a>| <a href="#">[Code]</a> -->
-                <a href="Towards">[Bib]</a>
-            </p>
-        </div>
-    </div>
-</div>
-
-<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><div class="publications-container">
-        <!-- -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 141px">
-            <span class="year-tag">ICML 2024</span>
-            <img src="Position/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2402.02713">Position: What Can Large Language Models Tell Us about Time Series Analysis</a></h3>
-            <p class="publication-authors">Ming Jin, Yifan Zhang, Wei Chen, Kexin Zhang, Yuxuan Liang, Bin Yang, Jindong Wang, Shirui Pan, Qingsong Wen</p>
-            <p class="publication-venue">International Conference on Machine Learning (ICML), 2024.</p>
-            <p class="publication-links">
-                <!-- <a href="#">[Paper]</a>| <a href="#">[Code]</a> -->
-                <a href="Position">[Bib]</a>
-            </p>
-        </div>
-    </div>
-         <!-- -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 118px">
-            <span class="year-tag">PVLDB 2024</span>
-            <img src="MemFormer/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://dl.acm.org/doi/abs/10.14778/3705829.3705842">A Memory Guided Transformer for Time Series Forecasting</a></h3>
-            <p class="publication-authors">Yunyao Cheng, Chenjuan Guo, Bin Yang, Haomin Yu, Kai Zhao, Christian S. Jensen</p>
-            <p class="publication-venue">International Conference on Very Large Databases (PVLDB), 2024.</p>
-            <p class="publication-links">
-                <!-- <a href="#">[Paper]</a>| <a href="#">[Code]</a> -->
-                <a href="MemFormer">[Bib]</a>
-            </p>
-        </div>
-    </div>
-    <!-- -->
-    <div class="publication-item">
-        <div class="publication-image-container" style="height: 118px">
-            <span class="year-tag">PVLDB 2024</span>
-            <img src="Multiple/paper.png" >
-        </div>
-        <div class="publication-details">
-            <h3><a target="_blank" rel="noopener" href="https://www.vldb.org/pvldb/vol17/p753-zhao.pdf">Multiple Time Series Forecasting with Dynamic Graph Modeling</a></h3>
-            <p class="publication-authors">Kai Zhao, Chenjuan Guo, Yunyao Cheng, Peng Han, Miao Zhang, Bin Yang </p>
-            <p class="publication-venue">International Conference on Very Large Databases (PVLDB), 2024.</p>
-            <p class="publication-links">
-                <!-- <a href="#">[Paper]</a>| <a href="#">[Code]</a> -->
-                <a href="Multiple">[Bib]</a>| <a target="_blank" rel="noopener" href="https://github.com/zhkai/MTSF-DG">[Code]</a>
-            </p>
-        </div>
-    </div>
-</div>
       
     
     </div>
