@@ -4,7 +4,7 @@
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/resource/Time-Series-Intelligence/index.html</loc>
     
-    <lastmod>2025-10-18</lastmod>
+    <lastmod>2025-10-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/multivariate/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/univariate/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/univariate/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/multivariate/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -794,7 +794,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Enhancing/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/DUET/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -803,7 +803,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/DUET/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Enhancing/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
