@@ -11,7 +11,9 @@ let gridApi;
 
 function exportToCsv() {
     if (gridApi) {
-        gridApi.exportDataAsCsv();
+        gridApi.exportDataAsCsv({
+          fileName: 'multivariate_detection.csv'
+        });
     } else {
         console.error("Grid API not ready.");
     }

@@ -17,7 +17,7 @@ const LeaderboardApp = {
     
     MODEL_TYPES_LIST:{"Non-Learning":["LOF","CBLOF","HBOS","ARIMA","SARIMA","StatThreshold","DWT-MLEAD","LeftSTAMPi","ZMS","Series2Graph"],
     "Machine-Learning":["OCSVM","DP","KNN","KMeans","IF","EIF","LODA","PCA"], 
-    "Deep-Learning":["DAGMM","Torsk","iTransformer","TimesNet","DUET","ATrans","PatchTST","ModernTCN","TranAD","DualTF","AE","VAE","NLinear","DLinear","LSTMED","DCdetector","ContraAD","CATCH"  ],
+    "Deep-Learning":["DAGMM","Torsk","iTransformer","TimesNet","DUET","ATrans","PatchTST","ModernTCN","TranAD","DualTF","AE","VAE","NLinear","DLinear","LSTMED","DCdetector","ContraAD","CATCH" ],
   },
     DATASET_CATEGORIES: {"Web":["CICIDS","KDDcup99"],"Server Machine":["PSM","SMD"],"Health":["DLR","ECG","LTDB","MITDB","SVDB"],"Water Treatment":["GECCO","PUMP","SWAT"],"Machinery":["CATSv2","GHL","Genesis","SKAB"],"Movement":["Daphnet","OPP"],"Climate":["TAO"],"Application Server":["ASD","Exathlon"],"Finance":["Credit"],"Space Weather":["SWAN"],"Transport":["NYC"],"Visitor Flowrate":["CalIt2"],"Synthetic":["GutenTAG","TODS"],"Spacecraft":["MSL","SMAP"]},
     METRICS: {"Label":["Acc","P","R","F1","R-P","R-R","R-F1","Aff-P","Aff-F1","Aff-R",],"Score":["A-P","A-R","R-A-P","R-A-R", "V-PR","V-ROC "]}
@@ -238,6 +238,7 @@ const LeaderboardApp = {
     const metrics = [...getCheckedValues('.checkbox-Label', cb => cb.value.split('/')[1]), ...getCheckedValues('.checkbox-Score', cb => cb.value.split('/')[1])].filter(Boolean);
     const modeltypes = getCheckedValues('.checkbox-LearningParadigm', cb => cb.value).filter(Boolean)
     const models = modeltypes.flatMap(modeltype => this.config.MODEL_TYPES_LIST[modeltype] || [])
+    console.log(models)
     const scoreOption = document.querySelector('.checkbox-Scores:checked')?.value.split('/')[1] || '2';
     let scoreWeights = [1, 1, 1];
     if (scoreOption === '1') scoreWeights = [1, 0, 0];

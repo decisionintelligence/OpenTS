@@ -12,7 +12,9 @@ let gridDiv;
 
 function exportToCsv() {
     if (gridApi) {
-        gridApi.exportDataAsCsv();
+        gridApi.exportDataAsCsv({
+          fileName: 'multivariate_forecasting.csv'
+        });
     } else {
         console.error("Grid API not ready.");
     }
@@ -165,6 +167,12 @@ const LeaderboardApp = {
 
     // 1. 必须先按 dataset 排序，这是计算 rowSpan 的基础
     pivotedData.sort((a, b) => {
+      
+      if (a.dataset == b.dataset)
+      {
+        return parseInt(a.horizon, 10) - parseInt(b.horizon, 10);
+      }
+      
       const indexA = this.config.DATASETS_ORDER.indexOf(a.dataset);
       const indexB = this.config.DATASETS_ORDER.indexOf(b.dataset);
 
@@ -174,12 +182,13 @@ const LeaderboardApp = {
       
       const datasetCompare = effectiveIndexA - effectiveIndexB;
       
-      if (datasetCompare !== 0) {
+  
+      if (datasetCompare != 0) {
           return datasetCompare;
-      }
-
+      }      // console.log(a.horizon)
       // 如果 dataset 顺序相同（或都不在 order 列表中），则按 horizon 排序
-      return a.horizon - b.horizon;
+      return parseInt(a.horizon, 10) - parseInt(b.horizon, 10);
+      
   });
 
     // 2. 预先计算 RowSpan
@@ -207,6 +216,7 @@ const LeaderboardApp = {
     return pivotedData;
     },
     init() {
+      
         this._cacheElements();
         this._initCollapsibles();
         this.debouncedUpdate = this._debounce(this.updateLeaderboard, 400);
@@ -449,6 +459,8 @@ const LeaderboardApp = {
   },
     // !! 核心改造点 1: 修改 _processApiResponse
     _processApiResponse(rawData) {
+
+      
     if (!gridApi) return;
     rawData = rawData.map(e=>{
       e.metric = e.metric.replace('_DENORM','_D') 
@@ -456,7 +468,7 @@ const LeaderboardApp = {
     // 使用 AG-Grid 的函数来生成列和行
     const newColumnDefs = this.generateColumnDefs(rawData);
     const newRowData = this.generateRowData(rawData);
-
+  
     // 使用 AG-Grid API 来更新表格
     gridApi.setGridOption('columnDefs', newColumnDefs);
     gridApi.setGridOption('rowData', newRowData);

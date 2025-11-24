@@ -10,7 +10,9 @@
 let gridApi;
 function exportToCsv() {
     if (gridApi) {
-        gridApi.exportDataAsCsv();
+        gridApi.exportDataAsCsv({
+          fileName: 'univariate_forecasting.csv'
+        });
     } else {
         console.error("Grid API not ready.");
     }

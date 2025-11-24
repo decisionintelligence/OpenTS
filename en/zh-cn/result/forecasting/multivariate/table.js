@@ -12,7 +12,9 @@ let gridDiv;
 
 function exportToCsv() {
     if (gridApi) {
-        gridApi.exportDataAsCsv();
+        gridApi.exportDataAsCsv({
+          fileName: 'multivariate_forecasting.csv'
+        });
     } else {
         console.error("Grid API not ready.");
     }
@@ -165,6 +167,10 @@ const LeaderboardApp = {
 
     // 1. 必须先按 dataset 排序，这是计算 rowSpan 的基础
     pivotedData.sort((a, b) => {
+      if (a.dataset == b.dataset)
+      {
+        return parseInt(a.horizon, 10) - parseInt(b.horizon, 10);
+      }
       const indexA = this.config.DATASETS_ORDER.indexOf(a.dataset);
       const indexB = this.config.DATASETS_ORDER.indexOf(b.dataset);
 

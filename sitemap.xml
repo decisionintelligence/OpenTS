@@ -4,7 +4,16 @@
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/resource/AI4TS/index.html</loc>
     
-    <lastmod>2025-10-22</lastmod>
+    <lastmod>2025-11-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/detection/paper.json</loc>
+    
+    <lastmod>2025-10-27</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -345,15 +354,6 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/detection/multivariate/index.html</loc>
-    
-    <lastmod>2025-10-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/detection/paper.json</loc>
     
     <lastmod>2025-10-04</lastmod>
     
@@ -1471,7 +1471,7 @@
 
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS</loc>
-    <lastmod>2025-10-22</lastmod>
+    <lastmod>2025-11-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

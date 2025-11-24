@@ -11,7 +11,9 @@ let gridApi;
 
 function exportToCsv() {
     if (gridApi) {
-        gridApi.exportDataAsCsv();
+        gridApi.exportDataAsCsv({
+          fileName: 'multivariate_detection.csv'
+        });
     } else {
         console.error("Grid API not ready.");
     }
@@ -33,7 +35,7 @@ const LeaderboardApp = {
         MODEL_TYPES_LIST:{"Non-Learning":["LOF","CBLOF","HBOS"],
         "Machine-Learning":["OCSVM","DP","KNN","KMeans","IF","EIF","LODA","PCA"], 
         "Foundation-Model":["CALF","Chronos","GPT4TS","LLMMixer","MOIRAI","Moment","ROSE","S2IPLLM","TimeLLM","TimeMixer",'TimesFM',"TTM","UniTS","UniTime","Timer","Dada"], 
-        "Deep-Learning":["DAGMM","Torsk","iTransformer","TimesNet","DUET","ATrans","PatchTST","ModernTCN","TranAD","DualTF","AE","VAE","NLinear","DLinear","LSTMED","DCdetector","ContraAD","CATCH"  ],
+        "Deep-Learning":["DAGMM","Torsk","iTransformer","TimesNet","DUET","ATrans","PatchTST","ModernTCN","TranAD","DualTF","AE","VAE","NLinear","DLinear","LSTMED","DCdetector","ContraAD","CATCH","CrossAD"  ],
       },
         DATASET_CATEGORIES: {"Health":["DLR","ECG","LTDB","MITDB","SVDB"],"Machinery":["CATSv2","GHL","Genesis","SKAB"],"Web":["CICIDS","KDDcup99"],"Water Treatment":["GECCO","PUMP","SWAT"],"Server Machine":["PSM","SMD"],"Movement":["Daphnet","OPP"],"Climate":["TAO"],"Finance":["Credit"],"Application Server":["ASD","Exathlon"],"Space Weather":["SWAN"],"Synthetic":["GutenTAG","TODS"],"Spacecraft":["MSL","SMAP"],"Transport":["NYC"],"Visitor Flowrate":["CalIt2"]},
         METRICS_LIST: {"Label":["Acc","P","R","F1","R-P","R-R","R-F1","Aff-P","Aff-F1","Aff-R",],"Score":["A-P","A-R","R-A-P","R-A-R", "V-PR","V-ROC "]},

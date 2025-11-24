@@ -12,7 +12,9 @@ let gridApi;
 
 function exportToCsv() {
     if (gridApi) {
-        gridApi.exportDataAsCsv();
+        gridApi.exportDataAsCsv({
+          fileName: 'univariate_detection.csv'
+        });
     } else {
         console.error("Grid API not ready.");
     }
