@@ -96,6 +96,18 @@ const LeaderboardApp = {
         "bib": "https://www.tandfonline.com/doi/abs/10.1080/07474939408800286",
         "year": "1994"
       },
+      "SparseTSF": {
+        "paper-url": "https://arxiv.org/pdf/2405.00946",
+        "publication": "ICML",
+        "bib": "https://dblp.org/rec/conf/icml/Lin0WCY24.html?view=bibtex",
+        "year": "2024"
+      },
+      "HDMixer": {
+        "paper-url": "https://openreview.net/forum?id=vSVLM2j9eie",
+        "publication": "AAAI",
+        "bib": "https://dblp.org/rec/conf/aaai/HuangSZCDZW24.html?view=bibtex",
+        "year": "2024"
+      },
       "iTransformer": {
         "paper-url": "https://arxiv.org/pdf/2310.06625",
         "publication": "ICLR",
@@ -164,8 +176,11 @@ const LeaderboardApp = {
         "year": "2025"
       }
     },
-    MODELS_LIST: ["xPatch","PatchMLP","TimeKAN","Amplifier", "PatchTST", "Crossformer", "FEDformer", "Informer", "Triformer", "DLinear", "NLinear", "MICN", "TimesNet", "TCN", "FiLM", "RNN", "Linear Regression", "VAR", "iTransformer", "FITS", "TimeMixer", "Non-stationary Transformer", "Pathformer", "DUET", "PDF"],
-    DATASET_CATEGORIES: { "Electricity": ["ETTh1", "ETTh2", "ETTm1", "ETTm2", "Electricity"], "Traffic": ["Traffic", "PEMS-BAY", "METR-LA", "PEMS04", "PEMS08"], "Environment": ["Weather", "AQShunyi", "AQWan"], "Economic": ["Exchange", "FRED-MD"], "Health": ["ILI", "Covid-19"], "Energy": ["Solar", "Wind"], "Nature": ["ZafNoo", "CzeLan"], "Stock": ["NASDAQ", "NYSE"], "Banking": ["NN5"], "Web": ["Wike2000"] },
+    MODELS_LIST: ["xPatch","PatchMLP","TimeKAN","Amplifier", "PatchTST", "Crossformer", "FEDformer", "Informer", "Triformer", "DLinear", "NLinear", "MICN", "TimesNet", "TCN", "FiLM", "RNN", "Linear Regression", "VAR", "iTransformer", "FITS", "TimeMixer", "Non-stationary Transformer", "Pathformer", "DUET", "PDF", "HDMixer","SparseTSF"],
+    DATASET_CATEGORIES: { "Electricity": ["ETTh1", "ETTh2", "ETTm1", "ETTm2", "Electricity"], "Traffic": ["Traffic", "PEMS-BAY", "METR-LA", "PEMS04", "PEMS08"], "Environment": ["Weather", "AQShunyi", "AQWan"], "Economic": ["Exchange", "FRED-MD"], "Health": ["ILI", "Covid-19"], "Energy": ["Solar", "Wind"], "Nature": ["ZafNoo", "CzeLan"], "Stock": ["NASDAQ", "NYSE"], "Banking": ["NN5"], "Web": ["Wike2000"],
+    "Coastline": ["1_AMP1","1_AQDP","1_CTDT","2_AMP1","2_AQDP","2_CTDT","3_AMP1","3_AQDP",], "Coastline1":["3_CTDT","A_ALEC","ASM","Baozhen","CTD","Nanmen","Sheshan"]                        
+
+  },
     METRICS: ['MAE', 'MAPE', 'MSE', 'MSMAPE', 'RMSE', 'SMAPE', 'WAPE']
   },
   state: { isReady: false, isLoading: false, lastResults: [] }, // 新增 lastResults 用于存储上次的API结果
@@ -407,8 +422,26 @@ const LeaderboardApp = {
       this.elements.metricsContainer.appendChild(categoryDiv);
     });
     Object.entries(this.config.DATASET_CATEGORIES).forEach(([category, datasets]) => {
+      
       const categoryDiv = this._createCategoryElement(category);
+
+      if (category =='Coastline1')
+      {
+        category = 'Coastline'
+        categoryDiv.innerHTML = `<h3 style="visibility: hidden;"><input type="checkbox" id="select-all-${category}">${category}</h3>`;
+        datasets.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category}`)));
+        // categoryDiv.append(categoryDiv1)
+      }
+      else if(category == 'Coastline')
+      {
+        categoryDiv.innerHTML = `<h3 ><input type="checkbox" id="select-all-${category}">Estuaries and Coasts</h3>`;
+        datasets.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category}`)));
+
+      }
+      else{
       datasets.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category}`)));
+      }
+     
       this.elements.datasetsContainer.appendChild(categoryDiv);
     });
   },
