@@ -178,7 +178,7 @@ const LeaderboardApp = {
     },
     MODELS_LIST: ["xPatch","PatchMLP","TimeKAN","Amplifier", "PatchTST", "Crossformer", "FEDformer", "Informer", "Triformer", "DLinear", "NLinear", "MICN", "TimesNet", "TCN", "FiLM", "RNN", "Linear Regression", "VAR", "iTransformer", "FITS", "TimeMixer", "Non-stationary Transformer", "Pathformer", "DUET", "PDF","SparseTSF","HDMixer"],
     DATASET_CATEGORIES: { "Electricity": ["ETTh1", "ETTh2", "ETTm1", "ETTm2", "Electricity"], "Traffic": ["Traffic", "PEMS-BAY", "METR-LA", "PEMS04", "PEMS08"], "Environment": ["Weather", "AQShunyi", "AQWan"], "Economic": ["Exchange", "FRED-MD"], "Health": ["ILI", "Covid-19"], "Energy": ["Solar", "Wind"], "Nature": ["ZafNoo", "CzeLan"], "Stock": ["NASDAQ", "NYSE"], "Banking": ["NN5"], "Web": ["Wike2000"],
-                          // "Coastline": ["1_AMP1","1_AQDP","1_CTDT","2_AMP1","2_AQDP","2_CTDT","3_AMP1","3_AQDP",], "Coastline1":["3_CTDT","A_ALEC","ASM","Baozhen","CTD","Nanmen","Sheshan"]                        
+                          "Coastline": ["1_AMP1","1_AQDP","1_CTDT","2_AMP1","2_AQDP","2_CTDT","3_AMP1","3_AQDP",], "Coastline1":["3_CTDT","A_ALEC","ASM","Baozhen","CTD","Nanmen","Sheshan"]                        
   },
     METRICS: ['MAE', 'MAPE', 'MSE', 'MSMAPE', 'RMSE', 'SMAPE', 'WAPE']
   },

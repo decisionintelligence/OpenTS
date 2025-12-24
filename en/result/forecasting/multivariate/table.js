@@ -30,7 +30,12 @@ const LeaderboardApp = {
         MODELS_LIST: ["DUET", "Amplifier", "PatchMLP", "xPatch", "TimeKAN", "PatchTST", "Crossformer", "FEDformer", "Informer", "Triformer", "DLinear", "NLinear", 
         "MICN", "TimesNet", "TCN", "FiLM", "RNN", "Linear Regression", "VAR", "iTransformer", "FITS", 
         "TimeMixer", "Pathformer", "PDF", "Non-stationary Transformer"],
-        DATASET_CATEGORIES: { "Electricity": ["ETTh1", "ETTh2", "ETTm1", "ETTm2", "Electricity"], "Traffic": ["Traffic", "PEMS-BAY", "METR-LA", "PEMS04", "PEMS08"], "Environment": ["Weather", "AQShunyi", "AQWan"], "Economic": ["Exchange", "FRED-MD"], "Health": ["ILI", "Covid-19"], "Energy": ["Solar", "Wind"], "Nature": ["ZafNoo", "CzeLan"], "Stock": ["NASDAQ", "NYSE"], "Banking": ["NN5"], "Web": ["Wike2000"] },
+        DATASET_CATEGORIES: { "Electricity": ["ETTh1", "ETTh2", "ETTm1", "ETTm2", "Electricity"], "Traffic": ["Traffic", "PEMS-BAY", "METR-LA", "PEMS04", "PEMS08"], "Environment": ["Weather", "AQShunyi", "AQWan"], "Economic": ["Exchange", "FRED-MD"], "Health": ["ILI", "Covid-19"], "Energy": ["Solar", "Wind"], "Nature": ["ZafNoo", "CzeLan"], "Stock": ["NASDAQ", "NYSE"], "Banking": ["NN5"], "Web": ["Wike2000"],
+        "Coastline": ["1_AMP1","1_AQDP","1_CTDT","3_CTDT","A_ALEC","Nanmen"],                        
+        "Coastline1": ["2_AMP1","2_AQDP","2_CTDT","3_CTDT","ASM","CTD",],                        
+        "Coastline2": ["3_AMP1","3_AQDP","3_CTDT","3_CTDT","Baozhen","Nanmen"],                        
+
+      },
         METRICS: ['MSE', 'MAE', 'MAPE',  'MSMAPE', 'RMSE', 'SMAPE', 'WAPE'],
         METRICS_ORDER:[],
         DATASETS_ORDER:[],
@@ -506,7 +511,15 @@ const LeaderboardApp = {
       category = 'Methods'
       this.config.MODELS_LIST.forEach(name => this.elements.methodsContainer.appendChild(this._createCheckboxItem(`${category}/${name}`, name, `checkbox-${category}`)));
       Object.entries(this.config.DATASET_CATEGORIES).forEach(([category, datasets]) => {
-        const categoryDiv = this._createCategoryElement(category);
+        let categoryDiv = this._createCategoryElement(category);
+
+        if (category=='Coastline1' || category=='Coastline2')
+        {
+          category = 'Coastline'
+          categoryDiv = this._createCategoryElement(category);
+          categoryDiv.innerHTML = `<h3 style="visibility: hidden;"><input type="checkbox" id="select-all-${category}">${category}</h3>`;
+        }
+        
         datasets.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category}`)));
         this.elements.datasetsContainer.appendChild(categoryDiv);
       });
