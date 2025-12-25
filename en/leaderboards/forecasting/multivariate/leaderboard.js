@@ -430,7 +430,7 @@ const LeaderboardApp = {
         // categoryDiv.append(categoryDiv1)
       }else if(category == 'Coastline')
       {
-        categoryDiv.innerHTML = `<h3 ><input type="checkbox" id="select-all-${category}">Estuaries and Coasts</h3>`;
+        categoryDiv.innerHTML = `<h3 ><input type="checkbox" id="select-all-${category}">Ocean</h3>`;
         datasets.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category}`)));
 
       }
