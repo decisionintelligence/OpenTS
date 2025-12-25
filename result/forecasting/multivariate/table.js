@@ -29,11 +29,11 @@ const LeaderboardApp = {
         API_URL: 'https://www.opents.top/forecasting/multi/query',
         MODELS_LIST: ["DUET", "Amplifier", "PatchMLP", "xPatch", "TimeKAN", "PatchTST", "Crossformer", "FEDformer", "Informer", "Triformer", "DLinear", "NLinear", 
         "MICN", "TimesNet", "TCN", "FiLM", "RNN", "Linear Regression", "VAR", "iTransformer", "FITS", 
-        "TimeMixer", "Pathformer", "PDF", "Non-stationary Transformer"],
+        "TimeMixer", "Pathformer", "PDF", "Non-stationary Transformer","HDMixer","SparseTSF"],
         DATASET_CATEGORIES: { "Electricity": ["ETTh1", "ETTh2", "ETTm1", "ETTm2", "Electricity"], "Traffic": ["Traffic", "PEMS-BAY", "METR-LA", "PEMS04", "PEMS08"], "Environment": ["Weather", "AQShunyi", "AQWan"], "Economic": ["Exchange", "FRED-MD"], "Health": ["ILI", "Covid-19"], "Energy": ["Solar", "Wind"], "Nature": ["ZafNoo", "CzeLan"], "Stock": ["NASDAQ", "NYSE"], "Banking": ["NN5"], "Web": ["Wike2000"],
-        "Coastline": ["1_AMP1","1_AQDP","1_CTDT","3_CTDT","A_ALEC","Nanmen"],                        
-        "Coastline1": ["2_AMP1","2_AQDP","2_CTDT","3_CTDT","ASM","CTD",],                        
-        "Coastline2": ["3_AMP1","3_AQDP","3_CTDT","3_CTDT","Baozhen","Nanmen"],                        
+        "Ocean": ["1_AMP1","1_AQDP","1_CTDT","3_CTDT","A_ALEC","Nanmen"],                        
+        "Ocean1": ["2_AMP1","2_AQDP","2_CTDT","3_CTDT","ASM","CTD",],                        
+        "Ocean2": ["3_AMP1","3_AQDP","3_CTDT","3_CTDT","Baozhen","Nanmen"],                        
 
       },
         METRICS: ['MSE', 'MAE', 'MAPE',  'MSMAPE', 'RMSE', 'SMAPE', 'WAPE'],
@@ -513,9 +513,9 @@ const LeaderboardApp = {
       Object.entries(this.config.DATASET_CATEGORIES).forEach(([category, datasets]) => {
         let categoryDiv = this._createCategoryElement(category);
 
-        if (category=='Coastline1' || category=='Coastline2')
+        if (category=='Ocean1' || category=='Ocean2')
         {
-          category = 'Coastline'
+          category = 'Ocean'
           categoryDiv = this._createCategoryElement(category);
           categoryDiv.innerHTML = `<h3 style="visibility: hidden;"><input type="checkbox" id="select-all-${category}">${category}</h3>`;
         }
