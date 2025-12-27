@@ -5,7 +5,7 @@
  * This version uses a fully robust event delegation model and adds a dropdown
  * to filter the number of ranks displayed.
  * It requires all onchange/onclick attributes to be removed from the HTML.
- */
+ */ 
 const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
@@ -20,7 +20,7 @@ const LeaderboardApp = {
       "FITS": {"paper-url": "https://openreview.net/forum?id=bWcnvZ3qMb", "publication": "ICLR", "bib": "https://dblp.uni-trier.de/rec/conf/iclr/XuZ024.html?view=bibtex", "year": "2024", "parameters": "12928"}, 
       "GPT4TS": {"paper-url": "https://openreview.net/forum?id=gMS6FVZvmF", "publication": "NIPS", "bib": "https://dblp.org/rec/conf/iclr/NieNSK23.html?view=bibtex", "year": "2023", "parameters": "65380704"}, 
       "LLMMixer": {"paper-url": "https://arxiv.org/html/2410.11674", "publication": "arXiv", "bib": "https://dblp.uni-trier.de/rec/journals/corr/abs-2410-11674.html?view=bibtex", "year": "2024", "parameters": "131364193"}, 
-      "MOIRAI": {"paper-url": "https://openreview.net/forum?id=Yd8eHMY1wz", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/conf/icml/GoswamiSCCLD24.html?view=bibtex", "year": "2024", "parameters": "91357735"}, 
+      "Moirai": {"paper-url": "https://openreview.net/forum?id=Yd8eHMY1wz", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/conf/icml/GoswamiSCCLD24.html?view=bibtex", "year": "2024", "parameters": "91357735"}, 
       "Moment": {"paper-url": "https://openreview.net/forum?id=FVvf69a5rx", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/conf/iclr/0005WMCZSCLLPW24.html?view=bibtex", "year": "2024", "parameters": "347531879"}, 
       "PatchTST": {"paper-url": "https://openreview.net/forum?id=Jbdc0vTOcol", "publication": "ICLR", "bib": "https://dblp.org/rec/conf/icml/ZhouMWW0022.html?view=bibtex", "year": "2023", "parameters": "3751520"}, 
       "ROSE": {"paper-url": "https://arxiv.org/pdf/2405.17478", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/journals/corr/abs-2405-17478.html?view=bibtex", "year": "2025", "parameters": "7400000"}, 
@@ -37,7 +37,9 @@ const LeaderboardApp = {
     },
     MODEL_TYPES_LIST:{"TS Pretrain":["Chronos","MOIRAI","Moment","ROSE",'TimesFM',"Timer","TTMs","UniTS"],"LLM Based":["AutoTimes","CALF","GPT4TS","LLMMixer","S2IPLLM","TimeLLM","UniTime"], "Specific":["PatchTST","Dlinear","FedFormer","FITS","TimeMixer","TimesNet","iTransformer"]},
     MODELS_LIST: ["AutoTimes","CALF","Chronos","Dlinear","FedFormer","FITS","GPT4TS","LLMMixer","MOIRAI","Moment","PatchTST","ROSE","S2IPLLM","TimeLLM","TimeMixer",'TimesFM',"TimesNet","TTMs","UniTS","UniTime","iTransformer","Timer"],
-    DATASET_CATEGORIES: { "Electricity": ["ETTh1", "ETTh2", "ETTm1", "ETTm2", "Electricity"], "Traffic": ["Traffic", "PEMS08"], "Environment": ["Weather", "AQShunyi"], "Economic": ["Exchange"], "Energy": ["Solar", "Wind"], "Nature": ["ZafNoo", "CzeLan"] },
+    DATASET_CATEGORIES: { "Electricity": ["ETTh1", "ETTh2", "ETTm1", "ETTm2", "Electricity"], "Traffic": ["Traffic", "PEMS08"], "Environment": ["Weather", "AQShunyi"], "Economic": ["Exchange"], "Energy": ["Solar", "Wind"], "Nature": ["ZafNoo", "CzeLan"],
+    "Ocean": ["1_AMP1","1_AQDP","1_CTDT","2_AMP1","2_AQDP","2_CTDT","3_AMP1","3_AQDP",], "Ocean1":["3_CTDT","A_ALEC","ASM","Baozhen","CTD","Nanmen","Sheshan"]                        
+  },
     METRICS: ['MAE', 'MSE']
   },
   state: { isReady: false, isLoading: false, lastResults: [] }, // 新增 lastResults 用于存储上次的API结果
@@ -291,6 +293,11 @@ const LeaderboardApp = {
     // });
     Object.entries(this.config.DATASET_CATEGORIES).forEach(([category, datasets]) => {
       const categoryDiv = this._createCategoryElement(category);
+      if (category=='Ocean1')
+      {
+        category = 'Ocean'
+        categoryDiv.innerHTML = `<h3 style="visibility: hidden;"><input type="checkbox" id="select-all-${category}">${category}</h3>`;
+      }
       datasets.forEach(name => categoryDiv.appendChild(this._createCheckboxItem(`${category}/${name.replace('_', '-')}`, name.replace('_', '-'), `checkbox-${category}`)));
       this.elements.datasetsContainer.appendChild(categoryDiv);
     });
