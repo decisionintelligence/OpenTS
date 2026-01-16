@@ -10,7 +10,7 @@ const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'https://www.opents.top/rank',
+    API_URL: 'https://www.opents.xyz/rank',
     MODELS_INFO: {
       "PatchTST": {
         "paper-url": "https://openreview.net/forum?id=Jbdc0vTOcol",

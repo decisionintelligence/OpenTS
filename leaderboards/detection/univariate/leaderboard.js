@@ -10,7 +10,7 @@ const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'https://www.opents.top/outlier/uni/rank',
+    API_URL: 'https://www.opents.xyz/outlier/uni/rank',
     MODELS_INFO: { 
       },
     

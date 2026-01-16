@@ -25,7 +25,7 @@ const LeaderboardApp = {
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
     config: {
         // !! 重要：更新 API URL
-        API_URL: 'https://www.opents.top/foundts/multi/query',
+        API_URL: 'https://www.opents.xyz/foundts/multi/query',
         MODELS_LIST: ["DUET", "Amplifier", "PatchMLP", "xPatch", "TimeKAN", "PatchTST", "Crossformer", "FEDformer", "Informer", "Triformer", "DLinear", "NLinear", 
         "MICN", "TimesNet", "TCN", "FiLM", "RNN", "Linear Regression", "VAR", "iTransformer", "FITS", "TimeMixer", "Pathformer", "PDF", "Non-stationary Transformer"],
         MODEL_TYPES_LIST: {"TS-Pretrain":["Chronos","MOIRAI","Moment","ROSE",'TimesFM',"Timer","TTM","UniTS"], "LLM-Based":["CALF","GPT4TS","LLMMixer","S2IPLLM","TimeLLM","UniTime"], "Specific":["PatchTST","Dlinear","FedFormer","FITS","TimeMixer","TimesNet","iTransformer"]},

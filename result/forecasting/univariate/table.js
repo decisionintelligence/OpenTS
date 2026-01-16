@@ -24,7 +24,7 @@ const LeaderboardApp = {
     // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
     config: {
         // !! 重要：更新 API URL
-        API_URL: 'https://www.opents.top/forecasting/uni/query',
+        API_URL: 'https://www.opents.xyz/forecasting/uni/query',
         MODELS_LIST:{
           "Crossformer": {
             "paper-url": "https://openreview.net/forum?id=vSVLM2j9eie",
