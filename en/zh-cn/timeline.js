@@ -87,6 +87,17 @@ document.addEventListener('DOMContentLoaded', function() {
             { "name": "Catch [ICLR]", "articleType": "特定模型", "taskType": "异常检测","url":"https://arxiv.org/pdf/2410.12261"},
             { "name": "Air-DualODE [ICLR]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2410.19892"},
             { "name": "MM-Path [KDD]", "articleType": "特定模型", "taskType": "时序预测","url":"https://arxiv.org/pdf/2411.18428"}
+        ]},
+        // --- NEW: Example of a split display --- "display": "split", "index": 6,
+        {"year":2026,  "papers":[
+            { "name": "Aurora [ICLR]", "articleType": "基础模型", "taskType": "时序预测","url":"https://iclr.cc/virtual/2026/poster/10009133"},
+            { "name": "SwiftTS [ICLR]", "articleType": "自动机器学习", "taskType": "时序预测","url":"https://iclr.cc/virtual/2026/poster/10008932"},
+            { "name": "GCGNet [ICLR]", "articleType": "特定模型", "taskType": "时序预测","url":"https://iclr.cc/virtual/2026/poster/10010687"},
+            { "name": "ARROW [ICLR]", "articleType": "特定模型", "taskType": "时序预测","url":"https://iclr.cc/virtual/2026/poster/10009548"},
+            { "name": "VoT [ICLR]", "articleType": "特定模型", "taskType": "时序预测","url":"https://iclr.cc/virtual/2026/poster/10011937"},
+            { "name": "ASTGI [ICLR]", "articleType": "特定模型", "taskType": "时序预测","url":"https://iclr.cc/virtual/2026/poster/10009033"},
+            { "name": "CoRA [ICLR]", "articleType": "插件", "taskType": "时序预测","url":"https://iclr.cc/virtual/2026/poster/10010200"},
+            { "name": "MindTS [ICLR]", "articleType": "特定模型", "taskType": "异常检测","url":"https://iclr.cc/virtual/2026/poster/10008243"},
         ]}
     ];
     const timelineData1 = [
@@ -327,8 +338,8 @@ function drawAndPosition() {
     if (eventElements.length === 0) return;
 
     // --- WAVE AND POSITIONING LOGIC ---
-    const firstHalfCycleWidth = 110;
-    const subsequentCycleWidth = 183;
+    const firstHalfCycleWidth = 65;
+    const subsequentCycleWidth = 173;
     const firstHalfCycleWidth1 = 50;
     const subsequentCycleWidth1 = 154;
     /**
