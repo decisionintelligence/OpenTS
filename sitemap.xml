@@ -542,15 +542,6 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/multivariate/index.html</loc>
-    
-    <lastmod>2025-10-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/result/detection/univariate/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
@@ -560,7 +551,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/result/forecasting/covariate/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/multivariate/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -570,6 +561,15 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/result/forecasting/foundation/index.html</loc>
+    
+    <lastmod>2025-10-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/result/forecasting/covariate/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
     

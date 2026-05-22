@@ -174,9 +174,21 @@ const LeaderboardApp = {
         "publication": "AAAI",
         "bib": "https://dblp.org/rec/conf/aaai/Fei000N25.html?view=bibtex",
         "year": "2025"
+      },
+      "MixLinear": {
+        "paper-url": "https://arxiv.org/abs/2410.02081",
+        "publication": "ICLR",
+        "bib": "https://dblp.org/rec/journals/corr/abs-2410-02081.html?view=bibtex",
+        "year": "2026"
+      },
+      "PhaseFormer": {
+        "paper-url": "https://arxiv.org/abs/2510.04134",
+        "publication": "ICLR",
+        "bib": "https://dblp.org/rec/journals/corr/abs-2510-04134.html?view=bibtex",
+        "year": "2026"
       }
     },
-    MODELS_LIST: ["xPatch","PatchMLP","TimeKAN","Amplifier", "PatchTST", "Crossformer", "FEDformer", "Informer", "Triformer", "DLinear", "NLinear", "MICN", "TimesNet", "TCN", "FiLM", "RNN", "Linear Regression", "VAR", "iTransformer", "FITS", "TimeMixer", "Non-stationary Transformer", "Pathformer", "DUET", "PDF","SparseTSF","HDMixer"],
+    MODELS_LIST: ["PhaseFormer","MixLinear","xPatch","PatchMLP","TimeKAN","Amplifier", "PatchTST", "Crossformer", "FEDformer", "Informer", "Triformer", "DLinear", "NLinear", "MICN", "TimesNet", "TCN", "FiLM", "RNN", "Linear Regression", "VAR", "iTransformer", "FITS", "TimeMixer", "Non-stationary Transformer", "Pathformer", "DUET", "PDF","SparseTSF","HDMixer"],
     DATASET_CATEGORIES: { "Electricity": ["ETTh1", "ETTh2", "ETTm1", "ETTm2", "Electricity"], "Traffic": ["Traffic", "PEMS-BAY", "METR-LA", "PEMS04", "PEMS08"], "Environment": ["Weather", "AQShunyi", "AQWan"], "Economic": ["Exchange", "FRED-MD"], "Health": ["ILI", "Covid-19"], "Energy": ["Solar", "Wind"], "Nature": ["ZafNoo", "CzeLan"], "Stock": ["NASDAQ", "NYSE"], "Banking": ["NN5"], "Web": ["Wike2000"],
                           "Coastline": ["1_AMP1","1_AQDP","1_CTDT","2_AMP1","2_AQDP","2_CTDT","3_AMP1","3_AQDP",], "Coastline1":["3_CTDT","A_ALEC","ASM","Baozhen","CTD","Nanmen","Sheshan"]                        
   },
