@@ -20,7 +20,7 @@ const LeaderboardApp = {
       "FITS": {"paper-url": "https://openreview.net/forum?id=bWcnvZ3qMb", "publication": "ICLR", "bib": "https://dblp.uni-trier.de/rec/conf/iclr/XuZ024.html?view=bibtex", "year": "2024", "parameters": "12928"}, 
       "GPT4TS": {"paper-url": "https://openreview.net/forum?id=gMS6FVZvmF", "publication": "NIPS", "bib": "https://dblp.org/rec/conf/iclr/NieNSK23.html?view=bibtex", "year": "2023", "parameters": "65380704"}, 
       "LLMMixer": {"paper-url": "https://arxiv.org/html/2410.11674", "publication": "arXiv", "bib": "https://dblp.uni-trier.de/rec/journals/corr/abs-2410-11674.html?view=bibtex", "year": "2024", "parameters": "131364193"}, 
-      "Moirai": {"paper-url": "https://openreview.net/forum?id=Yd8eHMY1wz", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/conf/icml/GoswamiSCCLD24.html?view=bibtex", "year": "2024", "parameters": "91357735"}, 
+      "MOIRAI": {"paper-url": "https://openreview.net/forum?id=Yd8eHMY1wz", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/conf/icml/GoswamiSCCLD24.html?view=bibtex", "year": "2024", "parameters": "91357735"}, 
       "Moment": {"paper-url": "https://openreview.net/forum?id=FVvf69a5rx", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/conf/iclr/0005WMCZSCLLPW24.html?view=bibtex", "year": "2024", "parameters": "347531879"}, 
       "PatchTST": {"paper-url": "https://openreview.net/forum?id=Jbdc0vTOcol", "publication": "ICLR", "bib": "https://dblp.org/rec/conf/icml/ZhouMWW0022.html?view=bibtex", "year": "2023", "parameters": "3751520"}, 
       "ROSE": {"paper-url": "https://arxiv.org/pdf/2405.17478", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/journals/corr/abs-2405-17478.html?view=bibtex", "year": "2025", "parameters": "7400000"}, 
@@ -234,12 +234,18 @@ const LeaderboardApp = {
   },
   
   _processApiResponse(data, weights) {
-    const results = data.map(item => {
-      const modelName = Object.keys(item)[0];
-      const ranks = item[modelName];
-      const score = (ranks[0] * weights[0] + ranks[1] * weights[1] + ranks[2] * weights[2]).toFixed(0);
-      return { model: modelName, rank1: ranks[0], rank2: ranks[1], rank3: ranks[2], rank4: score };
-    });
+    const ALLOWED_COMBINATIONS = new Set([
+      ...this.config.MODEL_TYPES_LIST['TS Pretrain'].map(m => `${m} zero_shot`),
+      ...this.config.MODEL_TYPES_LIST['Specific'].map(m => `${m} full_shot`),
+    ]);
+    const results = data
+      .filter(item => ALLOWED_COMBINATIONS.has(Object.keys(item)[0]))
+      .map(item => {
+        const modelName = Object.keys(item)[0];
+        const ranks = item[modelName];
+        const score = (ranks[0] * weights[0] + ranks[1] * weights[1] + ranks[2] * weights[2]).toFixed(0);
+        return { model: modelName, rank1: ranks[0], rank2: ranks[1], rank3: ranks[2], rank4: score };
+      });
     this.state.lastResults = results; // 缓存API结果
     this._renderTable(results, true);
   },
