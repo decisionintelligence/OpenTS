@@ -328,8 +328,6 @@ const LeaderboardApp = {
   
   _setInitialState() {
     this.toggleSelectAll(true);
-    this.toggleCategory('Coastline', false);
-    this.toggleCategory('Coastline1', false);
     this.toggleCategory('Horizons', true);
     this.toggleCategory('Metrics', true);
     const score2 = document.getElementById('Score/2');
