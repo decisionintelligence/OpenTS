@@ -329,6 +329,8 @@ const LeaderboardApp = {
   
   _setInitialState() {
     this.toggleSelectAll(true);
+    this.toggleCategory('Coastline', false);
+    this.toggleCategory('Coastline1', false);
     this.toggleCategory('Horizons', true);
     this.toggleCategory('Metrics', true);
     const score2 = document.getElementById('Score/2');
@@ -380,7 +382,11 @@ const LeaderboardApp = {
 
   _getSelections() {
     const getCheckedValues = (selector, transform) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked).map(transform);
-    const datasets = getCheckedValues('.checkbox-container input[type="checkbox"]', cb => cb.value.split('/')[1]?.replace('-', '_')).filter(Boolean);
+    const DISPLAY_ONLY_CATEGORIES = ['Coastline', 'Coastline1'];
+    const datasets = Array.from(document.querySelectorAll('.checkbox-container input[type="checkbox"]'))
+      .filter(cb => cb.checked && !DISPLAY_ONLY_CATEGORIES.includes(cb.value.split('/')[0]))
+      .map(cb => cb.value.split('/')[1]?.replace('-', '_'))
+      .filter(Boolean);
     const metrics = [...getCheckedValues('.checkbox-Normalized', cb => cb.value.split('/')[1]), ...getCheckedValues('.checkbox-Denormalized', cb => cb.value.split('/')[1] + "_Denorm")].filter(Boolean);
     const horizons = getCheckedValues('.checkbox-Horizons', cb => cb.value.split('/')[1]).filter(Boolean);
     const scoreOption = document.querySelector('.checkbox-Score:checked')?.value.split('/')[1] || '2';
