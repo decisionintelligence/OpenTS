@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/forecasting/foundation/index.html</loc>
+    
+    <lastmod>2026-05-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/forecasting/foundation/index.html</loc>
+    
+    <lastmod>2026-05-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-FM/CoRA/index.html</loc>
     
     <lastmod>2026-03-05</lastmod>
@@ -417,24 +435,6 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/forecasting/covariate/index.html</loc>
-    
-    <lastmod>2025-10-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/leaderboards/forecasting/foundation/index.html</loc>
-    
-    <lastmod>2025-10-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/leaderboards/forecasting/foundation/index.html</loc>
     
     <lastmod>2025-10-04</lastmod>
     

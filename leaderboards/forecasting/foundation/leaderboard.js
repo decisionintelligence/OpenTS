@@ -255,7 +255,8 @@ const LeaderboardApp = {
     const modeltypes = getCheckedValues('.checkbox-ModelType', cb => cb.value).filter(Boolean)
     const models = modeltypes.flatMap(modeltype => this.config.MODEL_TYPES_LIST[modeltype] || [])
     const horizons = getCheckedValues('.checkbox-Horizons', cb => cb.value.split('/')[1]).filter(Boolean);
-    const settings = getCheckedValues('.checkbox-Setting', cb => cb.value);
+    const MODELTYPE_TO_SETTING = { 'TS Pretrain': 'zero_shot', 'Specific': 'full_shot' };
+    const settings = modeltypes.map(t => MODELTYPE_TO_SETTING[t]).filter(Boolean);
     const scoreOption = document.querySelector('.checkbox-Score:checked')?.value.split('/')[1] || '2';
     let scoreWeights = [1, 1, 1];
     if (scoreOption === '1') scoreWeights = [1, 0, 0];
