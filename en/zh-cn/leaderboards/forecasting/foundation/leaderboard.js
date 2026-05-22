@@ -244,7 +244,11 @@ const LeaderboardApp = {
 
   _getSelections() {
     const getCheckedValues = (selector, transform) => Array.from(document.querySelectorAll(selector)).filter(cb => cb.checked).map(transform);
-    const datasets = getCheckedValues('.checkbox-container input[type="checkbox"]', cb => cb.value.split('/')[1]?.replace('-', '_')).filter(Boolean);
+    const DISPLAY_ONLY_CATEGORIES = ['Ocean', 'Ocean1'];
+    const datasets = Array.from(document.querySelectorAll('.checkbox-container input[type="checkbox"]'))
+      .filter(cb => cb.checked && !DISPLAY_ONLY_CATEGORIES.includes(cb.value.split('/')[0]))
+      .map(cb => cb.value.split('/')[1]?.replace('-', '_'))
+      .filter(Boolean);
     const metrics = getCheckedValues('.checkbox-Metrics', cb => cb.value).filter(Boolean);
     const modeltypes = getCheckedValues('.checkbox-ModelType', cb => cb.value).filter(Boolean)
     const models = modeltypes.flatMap(modeltype => this.config.MODEL_TYPES_LIST[modeltype] || [])
