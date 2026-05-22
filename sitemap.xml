@@ -542,15 +542,6 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/univariate/index.html</loc>
-    
-    <lastmod>2025-10-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/result/detection/multivariate/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
@@ -560,7 +551,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/result/forecasting/foundation/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/result/detection/univariate/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -570,6 +561,15 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/result/forecasting/covariate/index.html</loc>
+    
+    <lastmod>2025-10-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/result/forecasting/foundation/index.html</loc>
     
     <lastmod>2025-10-02</lastmod>
     
@@ -902,15 +902,6 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Enhancing/index.html</loc>
-    
-    <lastmod>2025-06-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/K2VAE/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
@@ -929,7 +920,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/MemFormer/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Enhancing/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -948,6 +939,15 @@
   
   <url>
     <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/Pathformer/index.html</loc>
+    
+    <lastmod>2025-06-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/OpenTS-DL/MemFormer/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -1019,7 +1019,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/Anytime/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/Context-Aware/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
@@ -1028,7 +1028,7 @@
   </url>
   
   <url>
-    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/Context-Aware/index.html</loc>
+    <loc>https://decisionintelligence.github.io/OpenTS/zh-cn/Applications/Anytime/index.html</loc>
     
     <lastmod>2025-06-23</lastmod>
     
