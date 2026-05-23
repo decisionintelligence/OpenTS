@@ -34,9 +34,9 @@ const LeaderboardApp = {
       "UniTime": {"paper-url": "https://dl.acm.org/doi/10.1145/3589334.3645434  ", "publication": "WWW", "bib": "https://dblp.uni-trier.de/rec/conf/www/LiuHLDLHZ24.html?view=bibtex", "year": "2024", "parameters": "108541488"}, 
       "iTransformer": {"paper-url": "https://arxiv.org/pdf/2310.06625", "publication": "ICLR", "bib": "https://dblp.uni-trier.de/rec/conf/iclr/LiuHZWWML24.html?view=bibtex", "year": "2024", "parameters": "841568"},
       "Timer":{"paper-url": "https://openreview.net/forum?id=bYRYb7DMNo", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/conf/icml/LiuZLH0L24.html?view=bibtex", "year": "2024", "parameters": "67408601"},
-      "LightGTS":{"paper-url": "https://openreview.net/forum?id=bYRYb7DMNo", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/conf/icml/LiuZLH0L24.html?view=bibtex", "year": "2024", "parameters": "67408601"},
-      "Sundial":{"paper-url": "", "publication": "", "bib": "", "year": "2025", "parameters": "128000000"},
-      "Toto2":{"paper-url": "", "publication": "", "bib": "", "year": "2025", "parameters": "313000000"},
+      "LightGTS":{"paper-url": "https://arxiv.org/abs/2506.06005", "publication": "ICML", "bib": "", "year": "2025", "parameters": "3990000"},
+      "Sundial":{"paper-url": "https://arxiv.org/abs/2502.00816", "publication": "ICML", "bib": "https://dblp.uni-trier.de/rec/conf/icml/LiuLZWLX0L25.html?view=bibtex", "year": "2025", "parameters": "128330000"},
+      "Toto2":{"paper-url": "https://arxiv.org/abs/2605.20119", "publication": "arXiv", "bib": "", "year": "2025", "parameters": "312680000"},
 
     },
     MODEL_TYPES_LIST:{"TS Pretrain":["Chronos","MOIRAI","Moment","ROSE",'TimesFM',"Timer","TTMs","UniTS","LightGTS","Sundial","Toto2"],"LLM Based":["AutoTimes","CALF","GPT4TS","LLMMixer","S2IPLLM","TimeLLM","UniTime"], "Specific":["PatchTST","Dlinear","FedFormer","FITS","TimeMixer","TimesNet","iTransformer"]},
