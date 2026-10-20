@@ -10,7 +10,7 @@ const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'http://www.gts-bench.com/opentsapi/forecasting/uni/rank',
+    API_URL: 'https://opents.mozie.top/forecasting/uni/rank',
     MODELS_INFO: {
       "Crossformer": {
         "paper-url": "https://openreview.net/forum?id=vSVLM2j9eie",

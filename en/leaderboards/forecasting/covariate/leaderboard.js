@@ -11,7 +11,7 @@ const LeaderboardApp = {
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
     
-    API_URL: 'http://www.gts-bench.com/opentsapi/forecasting/exog/rank',
+    API_URL: 'https://opents.mozie.top/forecasting/exog/rank',
     // API_URL: 'http://120.77.11.87:3333/forecasting/exog/rank',
     MODELS_INFO: {
       "CrossLinear":{

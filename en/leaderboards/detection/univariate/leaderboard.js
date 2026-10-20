@@ -10,7 +10,7 @@ const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'http://www.gts-bench.com/opentsapi/outlier/uni/rank',
+    API_URL: 'https://opents.mozie.top/outlier/uni/rank',
     MODELS_INFO: { 
       },
     

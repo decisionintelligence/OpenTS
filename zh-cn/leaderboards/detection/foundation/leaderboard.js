@@ -12,9 +12,9 @@ const LeaderboardApp = {
 
   // --- 1. CONFIGURATION & CONSTANTS (内容不变) ---
   config: {
-    API_URL: 'http://www.gts-bench.com/opentsapi/outlier/uni/rank',
-    API_MULTI: 'http://www.gts-bench.com/opentsapi/outlier/multi/rank',
-    API_UNI: 'http://www.gts-bench.com/opentsapi/outlier/uni/rank',
+    API_URL: 'https://opents.mozie.top/outlier/uni/rank',
+    API_MULTI: 'https://opents.mozie.top/outlier/multi/rank',
+    API_UNI: 'https://opents.mozie.top/outlier/uni/rank',
     MODELS_INFO: {},
     
     MODEL_TYPES_LIST:{"Non-Learning":["LOF","CBLOF","HBOS"],
